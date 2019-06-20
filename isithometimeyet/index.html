@@ -1,0 +1,161 @@
+<html>
+
+<head>
+	<title>Is it home time yet?</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		.displayContainer {
+			display: table;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		#textoutput {
+			display: table-cell;
+			vertical-align: middle;
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		#countdownClock {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="displayContainer">
+		<div id="textoutput"></div>
+	</div>
+
+	<div id="countdownClock"></div>
+
+	<script>
+		// request permission on page load
+		document.addEventListener('DOMContentLoaded', function () {
+			if (Notification.permission !== "granted")
+				Notification.requestPermission();
+		});
+
+		var timer = null;
+
+		function notifyMe() {
+			if (!Notification) {
+				alert('Desktop notifications not available in your browser. Try Google Chrome.');
+				return;
+			}
+
+			clearTimeout(timer);
+			document.getElementById("countdownClock").style.display = "none";
+
+			if (Notification.permission !== "granted")
+				Notification.requestPermission();
+			else {
+				var notification = new Notification('Home Time!', {
+					icon: 'thumb.png',
+					body: "IT'S HOME TIME!! :D",
+				});
+				notification.onclick = function () {
+					notification.close();
+				};
+				render(document.getElementById("textoutput"), getUrlParameter("time"));
+			}
+		}
+
+		var remainingMinutes = 0;
+		var clockTimer = null;
+
+		function pad(value) {
+			return ("00" + value).slice(-2);
+		}
+
+		function updateClockUI() {
+			var hours = Math.floor(remainingMinutes / 60);
+			var mins = Math.floor(remainingMinutes % 60);
+			if (hours < 2) {
+				document.getElementById("countdownClock").innerText = "Remaining: " + hours.toString() + ":" + pad(mins.toString()) + " ";
+			}
+		}
+
+		function updateClock() {
+			clearTimeout(clockTimer);
+			if (remainingMinutes > 0) {
+				clockTimer = setTimeout(updateClock, 60000);
+				updateClockUI();
+				remainingMinutes--;
+			} else {
+				document.getElementById("countdownClock").innerText = "";
+			}
+		}
+
+		function setClockTimer(msUntilTime) {
+			var msRemainder = msUntilTime % 60000;
+			remainingMinutes = msUntilTime / 60000;
+			updateClockUI();
+			clockTimer = setTimeout(updateClock, msRemainder);
+		}
+
+		function getUrlParameter(name) {
+			name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			var results = regex.exec(location.search);
+			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		};
+
+		function calculate(time) {
+			if (!time)
+				return 0;
+
+			var time = time.split(":");
+			var nonWorkingDays = [0, 6];
+			var now = new Date();
+			if (nonWorkingDays.indexOf(now.getDay()) !== -1) {
+				return 3;
+			} else {
+				var msUntilTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), time[0], time[1], 0) - now;
+				if (msUntilTime <= 0) {
+					return 1;
+				}
+			}
+			timer = setTimeout(notifyMe, msUntilTime);
+			setClockTimer(msUntilTime);
+			return 2;
+		}
+
+		const _messages = [
+			"When is home time? Add ?time=16:00 to finish at 4pm",
+			"Yes! :)",
+			"No :'(",
+			"It's the weekend man, you ain't at work today!"
+		];
+
+		const _styles = {
+			backgroundColours: ["#fff", "#9acd32", "#00003b", "#fff"],
+			foreColours: ["#000", "#333", "#bbb", "#000"],
+			fontSizes: ["20px", "20vw", "20vw", "20px"]
+		};
+
+		function render(element, time) {
+			var displayMode = calculate(time);
+			element.innerText = _messages[displayMode];
+			element.style.color = _styles.foreColours[displayMode];
+			element.style.backgroundColor = _styles.backgroundColours[displayMode];
+			element.style.fontSize = _styles.fontSizes[displayMode];
+		}
+
+		render(
+			document.getElementById("textoutput"),
+			getUrlParameter("time")
+		);
+	</script>
+</body>
+
+</html>
