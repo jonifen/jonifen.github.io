@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>No executable found matching command &#34;dotnet-lambda&#34;  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="" />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>No executable found matching command &#34;dotnet-lambda&#34;</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~1 minutes (93 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2019-05-01">
+		1 May, 2019
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/dotnetcore" class="tag">dotnetcore</a>
+	
+		<a href="/tags/aws" class="tag">aws</a>
+	
+		<a href="/tags/lambda" class="tag">lambda</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>When packaging up a dotnetcore lambda function for deployment to AWS, you would run the following command:</p>
+
+<pre><code>dotnet lambda package -o ../../build/{DestinationFileName}.zip
+</code></pre>
+
+<p>However, when I ran this command earlier today on a new Lambda function project, I got the following error:</p>
+
+<pre><code>No executable found matching command &quot;dotnet-lambda&quot;
+</code></pre>
+
+<p>This is because the Amazon.Lambda.Tools package isn&rsquo;t being included in the dotnet build process, so to fix things, I had to edit the .csproj file for the Lambda function to include the following:</p>
+
+<pre><code>  &lt;ItemGroup&gt;
+    &lt;DotNetCliToolReference Include=&quot;Amazon.Lambda.Tools&quot; Version=&quot;2.1.3&quot; /&gt;
+  &lt;/ItemGroup&gt;
+</code></pre>
+
+<p>and everything seemed to work fine afterwards.</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

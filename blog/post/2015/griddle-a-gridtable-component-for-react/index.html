@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Griddle - A Grid/Table Component for React  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="We had a requirement at work to display some tabular data that is retrieved from a web service as a JSON object. As we have recently started using React, it made sense to find a decent component that suited what we needed and after a bit of browsing, we found Griddle." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>Griddle - A Grid/Table Component for React</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~3 minutes (501 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2015-11-12">
+		12 Nov, 2015
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+		<a href="/tags/griddle" class="tag">griddle</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>We had a requirement at work to display some tabular data that is retrieved from a web service as a JSON object. As we have recently started using React, it made sense to find a decent component that suited what we needed and after a bit of browsing, we found Griddle.</p>
+
+<p>Unfortunately, their documentation; while it wasn&rsquo;t bad, it&rsquo;s not the best I&rsquo;ve seen so I thought I&rsquo;d throw something together to show how to get it working quickly and using a publicly available API, so anyone should be able to follow.</p>
+
+<p>First of all, you need to install the usual React suspects:</p>
+
+<pre><code>$ npm install --save react react-dom
+</code></pre>
+
+<p>And you also need to install Griddle, and Underscore.js (a pre-requisite of Griddle). I&rsquo;ve also installed jquery to make the API call quicker:</p>
+
+<pre><code>$ npm install --save underscore griddle-react jquery
+</code></pre>
+
+<p>And now we can start!</p>
+
+<p>I&rsquo;ve used the UK Police Data API (as it currently doesn&rsquo;t require any authentication, which removes faff), and I&rsquo;ve picked an area in Manchester as the location to check for data at.</p>
+
+<p>I created an index.html file and added references to the javascript files needed (I&rsquo;ve referenced a CDN hosted version of babel-core to do the auto-translation):</p>
+
+<pre><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/node_modules/react/dist/react.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/node_modules/react-dom/dist/react-dom.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/node_modules/underscore/underscore.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/node_modules/griddle-react/build/griddle.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>So now we need to make an ajax call to the API to get the data, so we&rsquo;ll create a function for that. As we&rsquo;ve included a reference to babel-core, we can do this in the page like so:</p>
+
+<pre><code>&lt;script type=&quot;text/babel&quot;&gt;
+    var apiResults = function() {
+        var json = null;
+
+        $.ajax({
+            url: &quot;https://data.police.uk/api/stops-street?lat=53.4848179&amp;lng=-2.2437719&amp;date=2015-05&quot;,
+            dataType: 'json',
+            async: false,
+            data: null,
+            success: function(data) {
+                json = data;
+            }
+        });
+
+        return json;
+    };
+&lt;/script&gt;
+</code></pre>
+
+<p>Note: we needed the function to block the processing thread, so the page would wait for the API call to complete. It&rsquo;s a bit sweaty (as it locks the page from doing anything while we wait for the API to return), but to suit the easiness of this post, I&rsquo;ve done it by setting async to false in the ajax call as per this StackOverflow thread.</p>
+
+<p>Ok, so now we&rsquo;ll have data. Let&rsquo;s make the component that builds up the Griddle table.</p>
+
+<p>In the <code>&lt;script&gt;</code> tag, add the following code (below the apiResults function):</p>
+
+<pre><code>var ExampleGrid = React.createClass({
+    render: function() {
+        return (
+            &lt;Griddle results={this.props.theData} /&gt;
+        );
+    }
+});
+
+ReactDOM.render(&lt;ExampleGrid theData={apiResults()} /&gt;, document.getElementById(&quot;example&quot;));
+</code></pre>
+
+<p>And finally, add a div placeholder:</p>
+
+<pre><code>&lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<p>And we run the page, and we should get a populated table! Oh&hellip; it looks squashed though, like there&rsquo;s too many columns. We can cherry-pick the columns (I picked &ldquo;datetime&rdquo;, &ldquo;type&rdquo; and &ldquo;self_defined_ethnicity&rdquo; - mainly because these returned data for every record!) by changing the Griddle tag as follows:</p>
+
+<pre><code>&lt;Griddle results={this.props.theData} columns={[&quot;datetime&quot;, &quot;type&quot;, &quot;self_defined_ethnicity&quot; ]} /&gt;
+</code></pre>
+
+<p>and reload the page and voila! The 3 columns should be displayed with the data in.</p>
+
+<p>Having problems? Drop us a tweet on Twitter, or take a glance at the Griddle documentation (hopefully the above mini-tutorial has given you a rough understanding).</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

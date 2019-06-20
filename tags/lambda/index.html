@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>lambda  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="" />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>lambda</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2019/no-executable-found-dotnet-lambda/">No executable found matching command &#34;dotnet-lambda&#34;</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          When packaging up a dotnetcore lambda function for deployment to AWS, you would run the following command:
+dotnet lambda package -o ../../build/{DestinationFileName}.zip  However, when I ran this command earlier today on a new Lambda function project, I got the following error:
+No executable found matching command &quot;dotnet-lambda&quot;  This is because the Amazon.Lambda.Tools package isn&rsquo;t being included in the dotnet build process, so to fix things, I had to edit the .
+        
+      
+    </p>
+    <div class="meta">
+  <small>1 May 2019</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/dotnetcore" class="tag">dotnetcore</a>
+	
+		<a href="/tags/aws" class="tag">aws</a>
+	
+		<a href="/tags/lambda" class="tag">lambda</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+  
+</div>
+
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

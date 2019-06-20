@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Access services on VirtualBox VM  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="In my current job I use a lot of virtual machines due to the variety of applications we support and the demand for them to work on many versions of Windows." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>Access services on VirtualBox VM</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~2 minutes (230 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2015-05-22">
+		22 May, 2015
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/techsupport" class="tag">techsupport</a>
+	
+		<a href="/tags/virtualpc" class="tag">virtualpc</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>In my current job I use a lot of virtual machines due to the variety of applications we support and the demand for them to work on many versions of Windows.
+As a result, we do have web services that I&rsquo;d run on a VM, but it&rsquo;s not possible to bridge the adapters (to allow external access to the VM) due to security guidelines at work, so I have to try something else.</p>
+
+<p>All my VMs run using NAT for networking. I&rsquo;ve set it to forward ports onto the guest OS from the host OS to get around the problems I&rsquo;ve been having.</p>
+
+<ul>
+<li>Load up the VM settings</li>
+<li>Go to &ldquo;Network&rdquo; and expand the &ldquo;Advanced&rdquo; section to expose the &ldquo;Port Forwarding&rdquo; button.</li>
+<li>Click that button</li>
+<li>Add a new rule and give it a name</li>
+<li>Leave the Host IP blank (unless your machine has multiple active network connections!), and insert a port number to use externally (I tend to use ports between 50000 and 51000 to avoid clashes).</li>
+<li>Leave the Guest IP blank, and insert the port for the service (3389 for Remote Desktop, 80 for a website etc.)</li>
+<li>Click OK etc. to get out of the options screen.</li>
+</ul>
+
+<p>Now, on the external machine you connect to your host machine, but using the port number specified earlier for Host. All going according to plan, the request should forward onto the VM!</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

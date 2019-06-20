@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jon Cain | jonifen.co.uk on Jon Cain</title>
+    <link>/</link>
+    <description>Recent content in Jon Cain | jonifen.co.uk on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Tue, 17 Nov 2015 23:14:01 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</title>
+      <link>/blog/post/2019/vs2019-webapplication-targets-not-found/</link>
+      <pubDate>Mon, 17 Jun 2019 21:59:33 +0100</pubDate>
+      
+      <guid>/blog/post/2019/vs2019-webapplication-targets-not-found/</guid>
+      <description>We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
+The imported project &amp;quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\vCurrent\WebApplications\Microsoft.WebApplication.targets&amp;quot; was not found.  After some research, I came across this a VS Community post where Microsoft have deemed it to be under consideration, but after a few months, it&amp;rsquo;s still outstanding.
+Figuring out that the issue could surround the vCurrent part of the path, I did a bit more research, coming across another VS Community post which discusses this point, and it turns out that Microsoft have changed the MSBuildToolsVersion variable to output Current rather than the version (as it did previously).</description>
+    </item>
+    
+    <item>
+      <title>Git reverts without automatic commit</title>
+      <link>/blog/post/2019/git-revert-without-commit/</link>
+      <pubDate>Thu, 23 May 2019 21:52:44 +0100</pubDate>
+      
+      <guid>/blog/post/2019/git-revert-without-commit/</guid>
+      <description>Git is easily the best source control system I&amp;rsquo;ve ever used, yet it&amp;rsquo;s probably one of the more infuriating too because its power and flexibility can also land the users in a whole world of pain.
+Today at work we had a scenario where a colleague needed to revert a handful of commits including a merge but there was a chance it may need re-introducing at a later date. I suggested reverting each commit with --no-commit but nobody else had heard of this argument before, hence I felt a post may be useful (although this probably requires that people visit my blog first to find it haha).</description>
+    </item>
+    
+    <item>
+      <title>No executable found matching command &#34;dotnet-lambda&#34;</title>
+      <link>/blog/post/2019/no-executable-found-dotnet-lambda/</link>
+      <pubDate>Wed, 01 May 2019 21:01:03 +0100</pubDate>
+      
+      <guid>/blog/post/2019/no-executable-found-dotnet-lambda/</guid>
+      <description>When packaging up a dotnetcore lambda function for deployment to AWS, you would run the following command:
+dotnet lambda package -o ../../build/{DestinationFileName}.zip  However, when I ran this command earlier today on a new Lambda function project, I got the following error:
+No executable found matching command &amp;quot;dotnet-lambda&amp;quot;  This is because the Amazon.Lambda.Tools package isn&amp;rsquo;t being included in the dotnet build process, so to fix things, I had to edit the .</description>
+    </item>
+    
+    <item>
+      <title>Retaining chmod permissions for scripts in git repositories</title>
+      <link>/blog/post/2019/bash-scripts-chmod-in-git/</link>
+      <pubDate>Wed, 01 May 2019 20:44:36 +0100</pubDate>
+      
+      <guid>/blog/post/2019/bash-scripts-chmod-in-git/</guid>
+      <description>Our continuous delivery setup at work requires that we use bash scripts for builds that can be handled by Linux machines.
+The main issue is when we create a new project, we often get &amp;ldquo;Permission Denied&amp;rdquo; errors when the CI system runs the scripts on the build agents. Usually, you&amp;rsquo;d just run chmod on a machine and try again, but this doesn&amp;rsquo;t work when the files are being pushed into a git repository, and then pulled at the other side.</description>
+    </item>
+    
+    <item>
+      <title>Contact me</title>
+      <link>/contact/</link>
+      <pubDate>Sun, 21 Apr 2019 15:18:01 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>You can get in touch through one of the following methods:
+Twitter: https://twitter.com/jonifen
+LinkedIn: https://www.linkedin.com/in/jonifen
+Github: https://github.com/jonifen
+e-mail: hello [at] jonifen.co.uk Note: this email is used for website communications only, so I cannot be found on other sites using this address
+PSN: jonifenc</description>
+    </item>
+    
+    <item>
+      <title>HP DM1-4027 and Arch Linux</title>
+      <link>/blog/post/2019/hp-dm1-4027-arch-linux/</link>
+      <pubDate>Fri, 19 Apr 2019 22:15:18 +0000</pubDate>
+      
+      <guid>/blog/post/2019/hp-dm1-4027-arch-linux/</guid>
+      <description>I&amp;rsquo;ve recently started to use a HP DM1-4027ea as a replacement for the Asus Eee 1005P netbook. The 4Gb RAM (upgradable to 8Gb) and more powerful CPU/GPU combo meant that it should give reasonable performance where the Eee struggles (downloading npm modules and browsing script/image heavy websites).
+The HP DM1-4027ea comes with an AMD E-450 APU which consists of a dual core 1.6GHz CPU and a Radeon HD6320 GPU, so on paper should still be acceptable for current mobile demands.</description>
+    </item>
+    
+    <item>
+      <title>Umbraco 7: Create a custom Property Editor</title>
+      <link>/blog/post/2018/umbraco-7-custom-property-editor/</link>
+      <pubDate>Sun, 19 Aug 2018 13:18:18 +0000</pubDate>
+      
+      <guid>/blog/post/2018/umbraco-7-custom-property-editor/</guid>
+      <description>Recently, I&amp;rsquo;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc. and the SEO Manager has asked what we could implement to benefit them in terms of SEO (Search Engine Optimisation for those who don&amp;rsquo;t know).
+Requirements Now, until working on this, I knew what SEO was, but had no idea what it entailed, so working with the SEO Manager, we outlined the following requirements for our initial (MVP) release.</description>
+    </item>
+    
+    <item>
+      <title>React.js Unit Testing with Jest and Enzyme</title>
+      <link>/blog/post/2017/react-unit-testing-jest-enzyme/</link>
+      <pubDate>Thu, 07 Dec 2017 22:34:37 +0000</pubDate>
+      
+      <guid>/blog/post/2017/react-unit-testing-jest-enzyme/</guid>
+      <description>I&amp;rsquo;ve written loads of unit tests in my lifetime for C# and JavaScript, but never gotten around to writing any for testing the actual React components because there&amp;rsquo;s always been something more pressing. Time to put that right and take the plunge.
+So I&amp;rsquo;ve picked up the project which resulted from the React.js Continued&amp;hellip; State! tutorial as a starter for ten as it already has a lot of the boilerplate stuff in place.</description>
+    </item>
+    
+    <item>
+      <title>Home TV Aerial Install</title>
+      <link>/blog/post/2017/home-tv-aerial-install/</link>
+      <pubDate>Sat, 15 Jul 2017 23:36:41 +0100</pubDate>
+      
+      <guid>/blog/post/2017/home-tv-aerial-install/</guid>
+      <description>I&amp;rsquo;m not a big DIY-er, but I do have a go from time to time. After having some home improvements work done on our house which included removing the chimney throughout the house, we&amp;rsquo;re in need of a TV aerial. We have Sky as our main TV supply on the main TV, but in the bedrooms, we relied on the aerial, so I needed to find a solution fairly soon.</description>
+    </item>
+    
+    <item>
+      <title>Map() support in JavaScript ES6/ES2015</title>
+      <link>/blog/post/2017/js-es6-map-support/</link>
+      <pubDate>Tue, 20 Jun 2017 22:47:06 +0100</pubDate>
+      
+      <guid>/blog/post/2017/js-es6-map-support/</guid>
+      <description>ECMAScript 6&amp;frasl;2015 has brought a lot of new things to the world of JavaScript, and Map() is one of them. However, not all browsers are too keen on particular ways of using it.
+I&amp;rsquo;ve been working on a UI project at work this week and encountered a weird issue with some code written by a colleague. We have some scenarios in our React app where we need to translate/map some values from an integer to a string (for textual display in the rendered screen).</description>
+    </item>
+    
+    <item>
+      <title>iPad appears in Windows 10, but not showing in iTunes</title>
+      <link>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</link>
+      <pubDate>Sun, 21 May 2017 21:09:27 +0100</pubDate>
+      
+      <guid>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</guid>
+      <description>I have an aging iPad2 which is getting on a bit but still works fine, but often won&amp;rsquo;t appear in iTunes, but is showing in Windows 10 as a device in &amp;lsquo;This PC&amp;rsquo;.
+I find it usually happens after an iTunes update when the iPad was plugged in already, and it seems Windows throws in a generic driver when the Apple drivers are removed as part of the upgrade process. To solve the problem, I do the following:</description>
+    </item>
+    
+    <item>
+      <title>Rendering an array of data as a clickable list using React.js</title>
+      <link>/blog/post/2017/reactjs-render-clickable-lists/</link>
+      <pubDate>Thu, 13 Apr 2017 21:55:37 +0100</pubDate>
+      
+      <guid>/blog/post/2017/reactjs-render-clickable-lists/</guid>
+      <description>React.js is great for quickly rendering arrays of data in a tabular format, and there&amp;rsquo;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable&amp;hellip;
+So how would you usually render a page from an array of data? Well, I&amp;rsquo;d probably start with some form of iterating the array and building up the content that way.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFilm 1800u Film Scanner</title>
+      <link>/blog/post/2017/primefilm1800uscanner/</link>
+      <pubDate>Sun, 26 Feb 2017 20:57:26 +0000</pubDate>
+      
+      <guid>/blog/post/2017/primefilm1800uscanner/</guid>
+      <description>As part of the downsizing task my Mum has taken on, we&amp;rsquo;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame). The photos is an easy task (albeit fairly monotonous as my scanner doesn&amp;rsquo;t have a document feeder), but the slides might be trickier.
+My Mum bought a slide scanner a few years ago (OK then, quite a few years ago), the PrimeFilm 1800u Film Scanner.</description>
+    </item>
+    
+    <item>
+      <title>React.js Tutorials</title>
+      <link>/blog/post/2017/reactjstutorials/</link>
+      <pubDate>Mon, 20 Feb 2017 22:50:08 +0000</pubDate>
+      
+      <guid>/blog/post/2017/reactjstutorials/</guid>
+      <description>I&amp;rsquo;ve created a few pages on here which are now growing into a bit of a tutorial, so thought I&amp;rsquo;d collate the links into one post (and append links to any new related posts in the future) so it&amp;rsquo;s easier to follow.
+So to start off, I&amp;rsquo;ll rewind back to November 2015, when I created my Getting Started with React.js post. This was using JSX and ES5, along with Browserify to &amp;ldquo;compile&amp;rdquo; the code to &amp;ldquo;Vanilla JS&amp;rdquo; which the web browsers support.</description>
+    </item>
+    
+    <item>
+      <title>React.js Continued... State!</title>
+      <link>/blog/post/2017/reactjsstate/</link>
+      <pubDate>Tue, 14 Feb 2017 22:13:37 +0000</pubDate>
+      
+      <guid>/blog/post/2017/reactjsstate/</guid>
+      <description>This time I&amp;rsquo;ll be looking at State. What it is and how to use it&amp;hellip; Like last time, we&amp;rsquo;ll be continuing with the code from the previous post.
+Last time we created 2 components, home (which was a stateful component) and header (which was a stateless component). This time we&amp;rsquo;re going to handle state within the home component by calling an API. As in previous posts, I&amp;rsquo;ll be using the UK Police API as it doesn&amp;rsquo;t require any authentication (or at least it doesn&amp;rsquo;t at the moment, that could change!</description>
+    </item>
+    
+    <item>
+      <title>React.js Continued... Components!</title>
+      <link>/blog/post/2017/reactjscontinued/</link>
+      <pubDate>Mon, 13 Feb 2017 22:36:58 +0000</pubDate>
+      
+      <guid>/blog/post/2017/reactjscontinued/</guid>
+      <description>It&amp;rsquo;s time to continue on from my React.js Revisited post that I made a few days ago. This time we&amp;rsquo;ll look at creating some components&amp;hellip;
+So what exactly is a &amp;ldquo;Component&amp;rdquo; in the context of React.js? In my head, I visualise React.js a little like Web UI Lego. The idea is you build your web application in blocks which are then built in a way which suits you and your application.</description>
+    </item>
+    
+    <item>
+      <title>The target=&#39;_blank&#39; vulnerability</title>
+      <link>/blog/post/2017/thetargetblankvulnerability/</link>
+      <pubDate>Sat, 11 Feb 2017 16:57:02 +0000</pubDate>
+      
+      <guid>/blog/post/2017/thetargetblankvulnerability/</guid>
+      <description>For many years, I was a fan of using target=&amp;rdquo;_blank&amp;rdquo; inside any anchor tags on my website that linked to external sites so it would keep the viewer still on my site in the background so they can easily come back to it later on. However, Ben Halpern describes the problem (with examples) of how it is an issue on this page and how the window/tab containing the origin website (i.</description>
+    </item>
+    
+    <item>
+      <title>React.js Revisited</title>
+      <link>/blog/post/2017/reactjsrevisited/</link>
+      <pubDate>Thu, 09 Feb 2017 21:06:50 +0000</pubDate>
+      
+      <guid>/blog/post/2017/reactjsrevisited/</guid>
+      <description>Edit 05/03/2017 - My son has kindly followed this mini tutorial and has pointed out a few areas where I didn&amp;rsquo;t make much sense. All part of learning! But I&amp;rsquo;ve updated those areas below.
+It&amp;rsquo;s been a while since I wrote up my beginner guide to React.js and I&amp;rsquo;ve been thinking it&amp;rsquo;s time to revisit it as things have changed since then with better tooling and ES6 support etc. so here I am!</description>
+    </item>
+    
+    <item>
+      <title>Windows 8/10 computer not connecting to your network?</title>
+      <link>/blog/post/2017/windowsupdate_dhcp/</link>
+      <pubDate>Mon, 30 Jan 2017 20:13:29 +0000</pubDate>
+      
+      <guid>/blog/post/2017/windowsupdate_dhcp/</guid>
+      <description>I have had a fair few people lately telling me that their Windows computers are struggling to connect to the Internet. After doing some digging into the problem, it turns out that it could be related to a failed Windows Update that Microsoft initially issued in December 2016, but some computers are slow in picking up the update (or the owners are similar to me, and don&amp;rsquo;t reboot very often to let updates take effect!</description>
+    </item>
+    
+    <item>
+      <title>npm package.json - Package From a Github Commit</title>
+      <link>/blog/post/2017/01-16_npmpackagejsongithubrepocommit/</link>
+      <pubDate>Mon, 16 Jan 2017 22:38:50 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-16_npmpackagejsongithubrepocommit/</guid>
+      <description>Sometimes the version of an npm package has some functionality you want, but it has issues which break other stuff. What do you do? Pull the repo and build it yourself and shoehorn it in? Let&amp;rsquo;s see&amp;hellip;
+For my example, I&amp;rsquo;ll use the griddle-react package.
+I quite like the Griddle component (griddle-react), I&amp;rsquo;ve posted about it in the past, and use it both at work and in side-projects at home whenever tabular data needs to be displayed as it&amp;rsquo;s quick and simple.</description>
+    </item>
+    
+    <item>
+      <title>JSX/ES6 Syntax Highlighting in Visual Studio 2015</title>
+      <link>/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/</link>
+      <pubDate>Fri, 13 Jan 2017 20:02:39 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/</guid>
+      <description>Visual Studio 2015 (by default) isn&amp;rsquo;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.
+A lot of developers seem to opt for alternative IDEs/editors for writing JavaScript code instead of staying in Visual Studio, however it&amp;rsquo;s often more effort to manage multiple IDEs for one project. I&amp;rsquo;ve tried a few things myself to get things working, some of the steps below are courtesy of Nick Dewitt on this StackOverflow post.</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 IoT on a Raspberry Pi 2</title>
+      <link>/blog/post/2017/01-11_raspberrypi2_windows10iot/</link>
+      <pubDate>Wed, 11 Jan 2017 06:30:33 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-11_raspberrypi2_windows10iot/</guid>
+      <description>I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2. I&amp;rsquo;ve been looking at this since it was first announced a while back, but never actually got around to having a proper look into it and getting it installed on one of our Pis.
+What kit do I have then?
+ Raspberry Pi 2 Edimax EW-7811Un Nano USB Wireless Dongle (which turned out to be unsupported, but there is a workaround - details to come later) Official Power Supply (the white Raspberry Pi 2.</description>
+    </item>
+    
+    <item>
+      <title>Intel Graphics Driver Crashes on XPS15</title>
+      <link>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</link>
+      <pubDate>Tue, 10 Jan 2017 21:43:11 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</guid>
+      <description>On my XPS15, I&amp;rsquo;ve noticed recently that the Intel graphics driver crashes a quite a bit (mainly when using Google Chrome). Although it recovers successfully, it&amp;rsquo;s still pretty annoying. A couple of days ago, I finally reached the end of my tether and started seriously looking for a solution (as compared to a quick Google search and then get distracted).
+I came across a thread on Dell&amp;rsquo;s community forum: http://en.community.dell.com/support-forums/laptop/f/3519/t/19658452 which discussed this problem.</description>
+    </item>
+    
+    <item>
+      <title>Sky TV Remote Codes</title>
+      <link>/blog/post/2016/sky-remote-codes/</link>
+      <pubDate>Sun, 30 Oct 2016 19:01:43 +0000</pubDate>
+      
+      <guid>/blog/post/2016/sky-remote-codes/</guid>
+      <description>Sky provide a remote code tool on their website, but it can hardly be called accurate. It&amp;rsquo;s happened on a few occasions now, that I spend some time trying different codes that the tool provides for a TV, only to be left empty-handed (well, not entirely&amp;hellip; I actually end up with my hands full&amp;hellip; one remote in each hand in fact.)
+So I&amp;rsquo;ve decided to create a post on here, which undoubtedly Google will spider at some point, that I&amp;rsquo;ll keep updated with every future encounter that Sky&amp;rsquo;s website doesn&amp;rsquo;t help with.</description>
+    </item>
+    
+    <item>
+      <title>iPhone requires Apple Id password on free downloads</title>
+      <link>/blog/post/2016/apple-id-requires-password-for-free-download/</link>
+      <pubDate>Sat, 16 Jul 2016 13:38:42 +0100</pubDate>
+      
+      <guid>/blog/post/2016/apple-id-requires-password-for-free-download/</guid>
+      <description>For a while my son&amp;rsquo;s iPhone 5 has prompted for my Apple Id password everytime he tries to download a free app, or when updating his existing apps. It hasn&amp;rsquo;t always done this, so something must have changed. I had a look around online, comparing advice to the settings on his phone, and all seemed fine, but it still asked for this password.
+Earlier this morning, I did a backup, a factory reset and a backup restore.</description>
+    </item>
+    
+    <item>
+      <title>Dell Vostro 3350 Laptop with Windows 10</title>
+      <link>/blog/post/2016/dell-vostro-3350-windows-10/</link>
+      <pubDate>Thu, 16 Jun 2016 22:32:00 +0100</pubDate>
+      
+      <guid>/blog/post/2016/dell-vostro-3350-windows-10/</guid>
+      <description>So this week I&amp;rsquo;ve bought an ex-corporate Dell Vostro 3350 with the intention of it replacing Di&amp;rsquo;s aged Pentium D desktop which is struggling since the Windows 10 upgrade. The laptop came pre-installed with Windows 10 Professional (a digital entitlement upgrade from the Windows 7 Pro that came on the laptop), and seemed quick enough. However, I&amp;rsquo;m not one to use a laptop as it comes, especially when it&amp;rsquo;s not brand new.</description>
+    </item>
+    
+    <item>
+      <title>Windows Update Error 8007000E</title>
+      <link>/blog/post/2016/windows-update-error-8007000e-clean-install/</link>
+      <pubDate>Sat, 12 Mar 2016 20:14:31 +0000</pubDate>
+      
+      <guid>/blog/post/2016/windows-update-error-8007000e-clean-install/</guid>
+      <description>Twice recently I&amp;rsquo;ve reinstalled Windows 7 on a machine, only for Windows Update to fail when checking for updates. On both machines it gave an error 8007000E.
+The first machine (belonging to my nephew), I couldn&amp;rsquo;t fix, so left it with him with automatic updates enabled in the hope it&amp;rsquo;ll fix itself.
+The second machine is this Samsung netbook. As it&amp;rsquo;s already had me over a barrel, it won&amp;rsquo;t do me over again!</description>
+    </item>
+    
+    <item>
+      <title>Reinstalling a Samsung NC10&#43; Netbook = Painful</title>
+      <link>/blog/post/2016/samsung-nc10plus-reinstall-pain/</link>
+      <pubDate>Sat, 12 Mar 2016 18:43:12 +0000</pubDate>
+      
+      <guid>/blog/post/2016/samsung-nc10plus-reinstall-pain/</guid>
+      <description>I&amp;rsquo;ve had to do a restore on a Samsung NC10+ which is an Atom N450 based netbook from a few years back. But for some reason, the recovery stuff just won&amp;rsquo;t work and I&amp;rsquo;ve had to do a clean install of Windows. And the Samsung support website&amp;hellip; well, it&amp;rsquo;s not much support at all. In fact, I don&amp;rsquo;t think they even remember releasing the NC10+. Only the original NC10.</description>
+    </item>
+    
+    <item>
+      <title>LG G3 - No fun here</title>
+      <link>/blog/post/2016/lg-g3-possibly-the-worst-flagship/</link>
+      <pubDate>Fri, 15 Jan 2016 22:59:12 +0000</pubDate>
+      
+      <guid>/blog/post/2016/lg-g3-possibly-the-worst-flagship/</guid>
+      <description>Edit 04/04/2016 I should have updated this post sooner. Usually I&amp;rsquo;d just include an addendum at the bottom, but I&amp;rsquo;ve re-worded a few bits in the content as my original review was maybe a tad harsh, and I&amp;rsquo;ll explain why below. It&amp;rsquo;s just a shame it took so long for the Marshmallow update to be available, as I&amp;rsquo;d already had enough with the handset and wanted back to an Apple where things are just simple!</description>
+    </item>
+    
+    <item>
+      <title>A Decent 10&#34; Android Tablet... Does one exist?</title>
+      <link>/blog/post/2016/a-decent-10-inch-android-tablet/</link>
+      <pubDate>Thu, 14 Jan 2016 21:02:37 +0000</pubDate>
+      
+      <guid>/blog/post/2016/a-decent-10-inch-android-tablet/</guid>
+      <description>My son bought an Android tablet around 18 months ago with a combination of Christmas and Birthday money. It became an extension of his body with him taking it everywhere to play games and watch YouTube videos about Minecraft and Garry&amp;rsquo;s Mod.
+He recently leapt into bed one night (forgetting the tablet was on his bed) and broke the screen with his knee. It was a complete accident, but he was absolutely devastated by what had happened.</description>
+    </item>
+    
+    <item>
+      <title>TP-Link Archer C2 - First Impressions</title>
+      <link>/blog/post/2016/tplink-archer-c2-first-impressions/</link>
+      <pubDate>Sat, 09 Jan 2016 21:33:55 +0000</pubDate>
+      
+      <guid>/blog/post/2016/tplink-archer-c2-first-impressions/</guid>
+      <description>As mentioned in my last post, I was in the hunt for a new router to replace the aging Buffalo WHR-HP-G54. I&amp;rsquo;d found that it wasn&amp;rsquo;t capable of handling fibre broadband speeds (hardly surprising&amp;hellip; given that it&amp;rsquo;s running a 200MHz single core CPU with barely a few megs free of the 16Mb RAM).
+I ended up dropping by PC World and picking up the TP-Link Archer C2 for £49.99 (a few quid more expensive than it was at Scan, but PC World was closer, so I was saving petrol money and around 30 minutes of my time for the round-trip).</description>
+    </item>
+    
+    <item>
+      <title>Buffalo WHR-HP-G54 Fun (or not...)</title>
+      <link>/blog/post/2016/buffalo-whr-hp-g54/</link>
+      <pubDate>Fri, 08 Jan 2016 22:54:03 +0000</pubDate>
+      
+      <guid>/blog/post/2016/buffalo-whr-hp-g54/</guid>
+      <description>Out of contract with my previous supplier, I was free to find a new supplier. Luckily, one of the benefits of my job is that I get free fibre broadband, so it was a simple decision :)
+Anyway, back to the point of my post.
+I last used the Buffalo a few years back when on Virgin Media&amp;rsquo;s &amp;ldquo;National&amp;rdquo; service (no longer available - a good thing as it was trash) when their supplied Netgear had weak wi-fi.</description>
+    </item>
+    
+    <item>
+      <title>Going back to iPhone! Or maybe not...</title>
+      <link>/blog/post/2015/going-back-to-iphone-or-maybe-not/</link>
+      <pubDate>Wed, 23 Dec 2015 00:02:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/going-back-to-iphone-or-maybe-not/</guid>
+      <description>My &amp;lsquo;love affair&amp;rsquo; (if you could ever call it that) with Android has always been a little rocky (as mentioned back in June) but I&amp;rsquo;m now ready to go back to an iPhone. Being a Dad, this time of year is never exactly the right time to blow out big money on a new phone for myself so that&amp;rsquo;ll have to wait for the new year. But I&amp;rsquo;ve got hold of my daughter&amp;rsquo;s old iPhone 5c to use in the meantime.</description>
+    </item>
+    
+    <item>
+      <title>No dial tone, but broadband still works?</title>
+      <link>/blog/post/2015/no-dial-tone-but-broadband-works/</link>
+      <pubDate>Thu, 03 Dec 2015 20:58:18 +0000</pubDate>
+      
+      <guid>/blog/post/2015/no-dial-tone-but-broadband-works/</guid>
+      <description>It seems whenever I need to make a phone call on the landline, it&amp;rsquo;s broken. Yesterday I picked up the landline handset and it was dead. No dial tone. Nothing. Nada. Zip.
+I tried the usual steps at first (unplug it, plug it back in) but no joy. Onto the broadband I went. Works fine. Weird. I&amp;rsquo;ve had this before and leaving stuff unplugged overnight seemed to fix it, but on this occasion it didn&amp;rsquo;t help.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Support in Visual Studio 2015</title>
+      <link>/blog/post/2015/visual-studio-2015-markdown-support/</link>
+      <pubDate>Fri, 20 Nov 2015 23:29:55 +0000</pubDate>
+      
+      <guid>/blog/post/2015/visual-studio-2015-markdown-support/</guid>
+      <description>Wow!
+I&amp;rsquo;ve just tried editing a markdown file in Visual Studio and they have a cracking auto-preview on the right hand side of the page! Granted, you have to save the file to get the preview to update, but hey, I can live with that! This will make things a lot easier given that I&amp;rsquo;m currently keeping my content markdown stored in a TFS repository. Seems daft to make a post so small, but I was impressed.</description>
+    </item>
+    
+    <item>
+      <title>Licence Info</title>
+      <link>/license/</link>
+      <pubDate>Tue, 17 Nov 2015 23:14:01 +0000</pubDate>
+      
+      <guid>/license/</guid>
+      <description>Any content on this site is created by me unless otherwise stated.
+I am happy for any content that I have created to be mirrored elsewhere, on the condition that credit is given and my site is linked to where possible.</description>
+    </item>
+    
+    <item>
+      <title>New site using Hugo</title>
+      <link>/blog/post/2015/new-hugo-io-site/</link>
+      <pubDate>Mon, 16 Nov 2015 23:43:37 +0000</pubDate>
+      
+      <guid>/blog/post/2015/new-hugo-io-site/</guid>
+      <description>I&amp;rsquo;ve been looking for a while at various blogging engines for my website and came across Hugo which is a static page generator. The bonus of this is that I don&amp;rsquo;t have a demand on any SQL databases, nor do I have to remember a password every time I want to update the site. Unfortunately, this does mean I&amp;rsquo;m tied to a computer for updating the page all the time. I&amp;rsquo;ll see if I can find a way around that though if I get chance :)</description>
+    </item>
+    
+    <item>
+      <title>Inline styles with React</title>
+      <link>/blog/post/2015/inline-styles-react/</link>
+      <pubDate>Thu, 12 Nov 2015 20:46:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/inline-styles-react/</guid>
+      <description>While working on the Griddle functionality at work, we needed to throw in some inline styling (just to test something out quickly). Unfortunately, with React, this isn&amp;rsquo;t as straightforward as just throwing in a style attribute with a few values.
+The React documentation does explain this, but I&amp;rsquo;m not impressed with having to create a variable just for a quick sweaty test of something. Instead, you can do this:
+&amp;lt;div style={{&amp;quot;height&amp;quot;:&amp;quot;100%&amp;quot;}}&amp;gt;&amp;lt;/div&amp;gt;  By putting the style markup inside double curly braces, it does away with the requirement for another variable, which makes it ideal for quickly testing a new style.</description>
+    </item>
+    
+    <item>
+      <title>Griddle - A Grid/Table Component for React</title>
+      <link>/blog/post/2015/griddle-a-gridtable-component-for-react/</link>
+      <pubDate>Thu, 12 Nov 2015 20:34:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/griddle-a-gridtable-component-for-react/</guid>
+      <description>We had a requirement at work to display some tabular data that is retrieved from a web service as a JSON object. As we have recently started using React, it made sense to find a decent component that suited what we needed and after a bit of browsing, we found Griddle.
+Unfortunately, their documentation; while it wasn&amp;rsquo;t bad, it&amp;rsquo;s not the best I&amp;rsquo;ve seen so I thought I&amp;rsquo;d throw something together to show how to get it working quickly and using a publicly available API, so anyone should be able to follow.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with React.js</title>
+      <link>/blog/post/2015/getting-started-with-reactjs/</link>
+      <pubDate>Fri, 06 Nov 2015 22:08:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/getting-started-with-reactjs/</guid>
+      <description>I&amp;rsquo;ve been following the &amp;ldquo;Getting Started&amp;rdquo; tutorials on the ReactJS website. It&amp;rsquo;s a bit&amp;hellip; errr&amp;hellip; bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &amp;ldquo;odd-ness&amp;rdquo; though, it&amp;rsquo;s become really popular, so it&amp;rsquo;s well worth having a look at.
+I&amp;rsquo;ve been having a few problems with the tutorial though. I&amp;rsquo;ll explain where things haven&amp;rsquo;t gone well and what I did to fix it.</description>
+    </item>
+    
+    <item>
+      <title>heavy cpu usage svchost windows10</title>
+      <link>/blog/post/2015/heavy-cpu-usage-svchost-windows10/</link>
+      <pubDate>Sat, 31 Oct 2015 20:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/heavy-cpu-usage-svchost-windows10/</guid>
+      <description>Google brings up a complete bag of results when you search for &amp;ldquo;svchost high cpu&amp;rdquo; as it&amp;rsquo;s been a well documented issue with the Windows Update service across the last couple of Windows versions (way back to XP as it happens!) so it was little surprise to find that the instance of svchost.exe that was eating CPU cycles was the one that was hosting the Windows Update service.
+Dipping into the Settings screens of Windows 10, I got to the Windows Update section, only for it to show that it was on &amp;ldquo;Downloading Updates 0%&amp;rdquo; and remained at this point for a couple of hours without moving.</description>
+    </item>
+    
+    <item>
+      <title>&#34;Something went wrong&#34; - Creating users on Windows 10</title>
+      <link>/blog/post/2015/something-went-wrong-creating-users-windows10/</link>
+      <pubDate>Sat, 24 Oct 2015 11:30:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/something-went-wrong-creating-users-windows10/</guid>
+      <description>On a fresh install of Windows 10, I found I was unable to add a second user to the system (via All Settings) and constantly got the &amp;ldquo;Something went wrong&amp;rdquo; screen. I tried a few reboots but to no avail. A quick google found that a lot of people with laptops were having this problem, and removing the battery and running on AC power only appeared to resolve their problem, but I&amp;rsquo;m on a desktop&amp;hellip; i.</description>
+    </item>
+    
+    <item>
+      <title>Sending email via SMTP on Outlook 2013</title>
+      <link>/blog/post/2015/sending-email-smtp-outlook-2013/</link>
+      <pubDate>Fri, 28 Aug 2015 00:09:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/sending-email-smtp-outlook-2013/</guid>
+      <description>Recently I&amp;rsquo;ve noticed that I&amp;rsquo;ve not been able to send emails in Outlook 2013 on the desktop computer. It&amp;rsquo;s been working fine on my laptop, but the desktop no such luck.
+The error I was getting was &amp;ldquo;Error 0x800CCC13 Cannot connect to the network&amp;rdquo;. I tried a few different things, but to no avail.
+After researching online, I found that doing the following fixes it: + Close Outlook before continuing. + Run a command prompt as administrator + Run sfc /scannow and allow to complete.</description>
+    </item>
+    
+    <item>
+      <title>McAfee Mobile Security</title>
+      <link>/blog/post/2015/mcafee-mobile-security/</link>
+      <pubDate>Sat, 06 Jun 2015 08:26:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/mcafee-mobile-security/</guid>
+      <description>About a fortnight ago, I changed to an android handset after having iPhones for the last 4 years. I had decided on an LG G3 which turns out to come preinstalled with McAfee Mobile Security&amp;hellip; Which is fine&amp;hellip; Or would be if it worked properly.
+I use an app for my online banking. When I load it up, it complains that there is no security product installed. If I open up McAfee manually, and go back into my banking app, it doesn&amp;rsquo;t complain.</description>
+    </item>
+    
+    <item>
+      <title>Access services on VirtualBox VM</title>
+      <link>/blog/post/2015/access-services-on-virtualbox-vm/</link>
+      <pubDate>Fri, 22 May 2015 22:15:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/access-services-on-virtualbox-vm/</guid>
+      <description>In my current job I use a lot of virtual machines due to the variety of applications we support and the demand for them to work on many versions of Windows. As a result, we do have web services that I&amp;rsquo;d run on a VM, but it&amp;rsquo;s not possible to bridge the adapters (to allow external access to the VM) due to security guidelines at work, so I have to try something else.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 2</title>
+      <link>/blog/post/2015/raspberry-pi-2/</link>
+      <pubDate>Mon, 23 Mar 2015 22:17:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/raspberry-pi-2/</guid>
+      <description>I ended up taking the plunge and ordering a Raspberry Pi 2 which arrived today. But, I thought I had another MicroSD card which was Class 6 or 10, but unfortunately not&amp;hellip; so I&amp;rsquo;ve given it a quick whirl with the Class 4 MicroSD that came with my Pi B (with adapter) and it seems to work quite well. I&amp;rsquo;m amazed by how responsive it is with MinecraftPi running and how it allows me to open Python files without hanging around.</description>
+    </item>
+    
+    <item>
+      <title>Laggy mouse on Raspberry Pi</title>
+      <link>/blog/post/2014/raspberry-pi-laggy-mouse/</link>
+      <pubDate>Fri, 17 Oct 2014 19:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberry-pi-laggy-mouse/</guid>
+      <description>A few weeks ago I installed the latest (at the time) version of Raspbian onto a 4Gb SD Card thinking that I&amp;rsquo;d see whether it was worthwhile updating my main SD card or not. I gave it a quick run and while it seemed quicker, the mouse was quite laggy as if the cursor was moving through treacle. After a quick search, I came across a report on the RaspberryPi Github where someone else was having the exact same problem where the mouse was moving &amp;ldquo;in slow motion&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Minecraft Pocket Edition - Invisible mobs/monsters</title>
+      <link>/blog/post/2014/minecraft-pe-invisible-mobs/</link>
+      <pubDate>Sat, 13 Sep 2014 10:24:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/minecraft-pe-invisible-mobs/</guid>
+      <description>My son recently bought an Acer A3-A10 tablet with some money he had saved. It&amp;rsquo;s a great tablet for the £135 it cost at Argos and even sweeter with the £10 voucher with which he was able to get a Google Play voucher :) Anyway, to the point of this post. When I play Minecraft Pocket Edition against him, I found the mobs were invisible and I couldn&amp;rsquo;t even hear any creepers or spiders, I just got exploded or bit by them silently.</description>
+    </item>
+    
+    <item>
+      <title>Must review payment details when using an existing Apple Id on a new device</title>
+      <link>/blog/post/2014/review-payment-details-existing-appleid-new-device/</link>
+      <pubDate>Sat, 23 Aug 2014 22:56:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/review-payment-details-existing-appleid-new-device/</guid>
+      <description>My daughter has this week got a new iPhone 5C and has been trying to download apps onto it. However, when she logs into her Apple ID on the 5C, she&amp;rsquo;s prompted to review her payment details. In the list that appears, there is no &amp;ldquo;None&amp;rdquo; option available, and she doesn&amp;rsquo;t want to enter her card details (for which I don&amp;rsquo;t blame her - I haven&amp;rsquo;t entered mine on my Apple ID either!</description>
+    </item>
+    
+    <item>
+      <title>Boot Booster (EFI) Partition on an Asus EeePC 1005P</title>
+      <link>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</link>
+      <pubDate>Mon, 18 Aug 2014 16:41:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</guid>
+      <description>We have an Asus EeePC 1005P netbook which comes with the Intel Atom N450 CPU. The BIOS provides a &amp;ldquo;Boot Booster&amp;rdquo; option which caches POST information in a special partition on the hard drive to speed up the boot process. Unfortunately, as part of removing all the partitions from the hard drive, this &amp;ldquo;special&amp;rdquo; partition has been lost and I needed to recreate it.
+You will need:
+ Windows installation media Linux live media (I&amp;rsquo;m using a Lubuntu CD) Plenty of time (it is an Atom CPU afterall!</description>
+    </item>
+    
+    <item>
+      <title>SQL Joins</title>
+      <link>/blog/post/2014/sql-joins/</link>
+      <pubDate>Thu, 14 Aug 2014 22:34:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/sql-joins/</guid>
+      <description>I came across this diagram on Twitter a few weeks ago. I saved a copy intending to post it to my site (mainly for future reference) but since then I&amp;rsquo;ve forgotten who actually posted it on Twitter. As such, I can&amp;rsquo;t give them a mention. If it was you, get in touch on Twitter and I&amp;rsquo;ll update this post with your details :)</description>
+    </item>
+    
+    <item>
+      <title>XPS 15 Update</title>
+      <link>/blog/post/2014/xps-15-update/</link>
+      <pubDate>Sat, 09 Aug 2014 19:17:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/xps-15-update/</guid>
+      <description>I&amp;rsquo;ve had the XPS 15 for a few weeks now (well, actually it&amp;rsquo;s only a fortnight off 2 months!), and I&amp;rsquo;m still very impressed with it as a full package. The build quality is excellent, it doesn&amp;rsquo;t flex at all if you hold it by a corner when it&amp;rsquo;s open. The keyboard took a little getting used to, but I got the hang of it pretty quickly and my typing speed is increasing every time I use it.</description>
+    </item>
+    
+    <item>
+      <title>Ribbon in .NET 4.5 using WPF and MVVM</title>
+      <link>/blog/post/2014/ribbon-in-net45-using-wpf-mvvm/</link>
+      <pubDate>Fri, 18 Jul 2014 20:18:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/ribbon-in-net45-using-wpf-mvvm/</guid>
+      <description>I&amp;rsquo;ve been spending some time recently to learn WPF a bit better including the MVVM pattern to encourage the separation of concerns between the view and the logic behind it.
+It&amp;rsquo;s been a steep learning curve (to say the least!) but today I spent a bit of time looking into getting an Office-esque ribbon bar onto the main window of my dummy application. At first I wasn&amp;rsquo;t too sure, but I soon realised it&amp;rsquo;s not too dissimilar to any other button.</description>
+    </item>
+    
+    <item>
+      <title>Dell XPS 15</title>
+      <link>/blog/post/2014/dell-xps-15/</link>
+      <pubDate>Sun, 22 Jun 2014 00:25:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/dell-xps-15/</guid>
+      <description>It&amp;rsquo;s finally arrived!
+I was getting to the point of wondering if it would ever get here or if it would stay in the limbo land between the factory and the courier in the UK.
+I&amp;rsquo;ve had it a couple of days now and did the usual charging process (1st charge to full while setting it up etc.). I&amp;rsquo;ve since used it for around 5hrs on battery and at 12% decided to do the 2nd charge.</description>
+    </item>
+    
+    <item>
+      <title>Dell&#39;s Informative Delivery Service</title>
+      <link>/blog/post/2014/dells-informative-delivery-service/</link>
+      <pubDate>Mon, 16 Jun 2014 21:42:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/dells-informative-delivery-service/</guid>
+      <description>OK, so I&amp;rsquo;m not alone here. I finally decided on an XPS 15 and ordered it 10 days ago now. After a couple of days, the Dell website showed the order as shipped and I could track it through their agent Walsh Western (a.k.a. Syncreon). I&amp;rsquo;m now sat here on the evening before my expected ETA date and it still hasn&amp;rsquo;t reached the UK. The last update is the common &amp;ldquo;DEPARTED MANU.</description>
+    </item>
+    
+    <item>
+      <title>Laptop Shopping</title>
+      <link>/blog/post/2014/laptop-shopping/</link>
+      <pubDate>Sat, 31 May 2014 00:08:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/laptop-shopping/</guid>
+      <description>&amp;hellip; it&amp;rsquo;s just never easy when you&amp;rsquo;re picky like me.
+So as you&amp;rsquo;ll have noticed from my previous posts, I&amp;rsquo;ve been using my wife&amp;rsquo;s Asus 1005P (Atom CPU) and a 7 year old Vaio C2M/W. Over the last month or so I&amp;rsquo;ve been suffering from a &amp;ldquo;crisis of confidence&amp;rdquo; where I&amp;rsquo;ve been asking how I managed to become a senior developer. After reading Scott Hanselman&amp;rsquo;s blog on the topic, it seems that it&amp;rsquo;s a common feeling amongst developers.</description>
+    </item>
+    
+    <item>
+      <title>Connection problems in Visual Studio 2013</title>
+      <link>/blog/post/2014/visual-studio-2013-connection-problems/</link>
+      <pubDate>Thu, 29 May 2014 12:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/visual-studio-2013-connection-problems/</guid>
+      <description>Since installing Update 2 on the work laptop, I&amp;rsquo;ve been unable to check for available updates through the Tools &amp;gt; Extensions &amp;amp; Updates screen as it always timed out. If I continued working (without closing the IDE), it would eventually prompt me through the Notifications pane that it required credentials for the company proxy. Once I did that, it&amp;rsquo;d report updates etc. but over the last couple of days, that is no longer happening either.</description>
+    </item>
+    
+    <item>
+      <title>Sony Vaio C2M/W, Lubuntu 14.04 and a new battery</title>
+      <link>/blog/post/2014/sony-vaio-new-battery-lubuntu-14-04/</link>
+      <pubDate>Thu, 22 May 2014 21:34:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/sony-vaio-new-battery-lubuntu-14-04/</guid>
+      <description>The genuine battery died a few months back on the &amp;ldquo;bricktop&amp;rdquo; (a Sony Vaio C2M/W), and with the hard drive starting to click, I just dumped it on the side and gave up with it. After trying to persist with an Atom N450 netbook (Visual Studio usage is soul-destroying on an Atom CPU!), I&amp;rsquo;ve dug it back out and ordered a new battery from Amazon and the Intel 40Gb SSD that was on offer at Ebuyer for 20 quid.</description>
+    </item>
+    
+    <item>
+      <title>Installing a Canon 350D on Windows 7 x64</title>
+      <link>/blog/post/2014/canon-350d-windows-7-x64/</link>
+      <pubDate>Sun, 09 Feb 2014 14:47:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/canon-350d-windows-7-x64/</guid>
+      <description>I have a Canon 350D which I was struggling to download the photos from onto the computer since upgrading it to Windows 7 64-bit. I&amp;rsquo;d looked around for drivers, but Canon haven&amp;rsquo;t made any 64-bit drivers for that camera (we have had it nearly 8 years) so I was wondering how I&amp;rsquo;d get around the problem. I eventually came across the site of someone else in the same situation who has blogged the following:</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi on a 19&#34; Widescreen (16:10) LCD Monitor</title>
+      <link>/blog/post/2014/raspberrypi-19-widescreen-monitor/</link>
+      <pubDate>Sat, 18 Jan 2014 22:36:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberrypi-19-widescreen-monitor/</guid>
+      <description>Earlier today I booked places for me and my son on a Raspberry Pi day in Manchester and then realised I might struggle to get the TV there as it&amp;rsquo;s pretty heavy, plus I doubt we&amp;rsquo;d be allowed it on a bus! Luckily, we still have the 19&amp;rdquo; widescreen from the old living room PC, so I looked at using that instead.
+The monitor was made by Daewoo, I got it about 6 years ago (or there abouts) and it has a native resolution of 1440x900 at a refresh rate of 60Hz.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &amp; Hannspree 37&#34; TV</title>
+      <link>/blog/post/2014/raspberrypi-hannspree-tv/</link>
+      <pubDate>Wed, 01 Jan 2014 18:30:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberrypi-hannspree-tv/</guid>
+      <description>I was lucky enough at Christmas for my wife to surprise me with a Raspberry Pi. I&amp;rsquo;ve wanted one for some time but never got around to actually ordering one. My wife always asks me when she&amp;rsquo;s faced with techie decisions which made it an even bigger surprise.
+Anyway, I&amp;rsquo;ve spent the last few days getting it up and running but my son realised earlier that it didn&amp;rsquo;t seem to have any sound coming through the TV set, so I&amp;rsquo;ve spent the last couple of hours reading and trying stuff out and I think I&amp;rsquo;ve gotten to the bottom of the problem.</description>
+    </item>
+    
+    <item>
+      <title>Windows XP and it&#39;s poor effort of an &#34;Automatic Updates&#34; service</title>
+      <link>/blog/post/2013/windows-xp-dodgy-automatic-updates/</link>
+      <pubDate>Sun, 29 Dec 2013 20:55:00 +0000</pubDate>
+      
+      <guid>/blog/post/2013/windows-xp-dodgy-automatic-updates/</guid>
+      <description>So it&amp;rsquo;s the end of a long Sunday which started later than expected (as I&amp;rsquo;d slept in despite my son&amp;rsquo;s best efforts to wake me with the ever-loud playback of YouTube videos). I&amp;rsquo;ve spent most of the day glaring at a computer screen but not for productive gain as it&amp;rsquo;s my family duty to fix the broken computers of the children/parents/siblings, except this time it&amp;rsquo;s been a looonnnnggg job which Windows XP is just aching to make so much worse.</description>
+    </item>
+    
+    <item>
+      <title>Fresh install of Adobe CS3 but no updates available?</title>
+      <link>/blog/post/2013/fresh-adobe-cs3-install-updates/</link>
+      <pubDate>Sun, 24 Mar 2013 22:38:00 +0000</pubDate>
+      
+      <guid>/blog/post/2013/fresh-adobe-cs3-install-updates/</guid>
+      <description>We&amp;rsquo;re not able to continually upgrade our Creative Suite version every time a new one comes out, so we&amp;rsquo;re still on CS3. Unfortunately though, I installed an SSD in the desktop yesterday which of course meant reinstalling it with CS3 from the discs. Everything seemed fine until I tried to run an update, at which point it complained with the following message:
+There are no updates available at this time. Please note that some updates for the following products cannot be determined at this time: Adobe Updater</description>
+    </item>
+    
+    <item>
+      <title>New Site</title>
+      <link>/blog/post/2012/new-site/</link>
+      <pubDate>Fri, 01 Jun 2012 01:15:00 +0100</pubDate>
+      
+      <guid>/blog/post/2012/new-site/</guid>
+      <description>So I finally got around to sorting out my page. This is only a quick update to kick things off. There will be the typical random stuff, but also programming stuff as well (which should help other programmers (new and existing) that are struggling to find what they&amp;rsquo;re looking for).</description>
+    </item>
+    
+  </channel>
+</rss>

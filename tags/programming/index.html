@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>programming  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="" />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>programming</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2019/vs2019-webapplication-targets-not-found/">The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
+The imported project &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\vCurrent\WebApplications\Microsoft.WebApplication.targets&quot; was not found.  After some research, I came across this a VS Community post where Microsoft have deemed it to be under consideration, but after a few months, it&rsquo;s still outstanding.
+Figuring out that the issue could surround the vCurrent part of the path, I did a bit more research, coming across another VS Community post which discusses this point, and it turns out that Microsoft have changed the MSBuildToolsVersion variable to output Current rather than the version (as it did previously).
+        
+      
+    </p>
+    <div class="meta">
+  <small>17 June 2019</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/visualstudio" class="tag">visualstudio</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2019/git-revert-without-commit/">Git reverts without automatic commit</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          If you have multiple commits that you want to revert but keep things concise under a single commit, this could be the answer you&#39;re looking for.
+        
+      
+    </p>
+    <div class="meta">
+  <small>23 May 2019</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/sourcecontrol" class="tag">sourcecontrol</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2019/no-executable-found-dotnet-lambda/">No executable found matching command &#34;dotnet-lambda&#34;</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          When packaging up a dotnetcore lambda function for deployment to AWS, you would run the following command:
+dotnet lambda package -o ../../build/{DestinationFileName}.zip  However, when I ran this command earlier today on a new Lambda function project, I got the following error:
+No executable found matching command &quot;dotnet-lambda&quot;  This is because the Amazon.Lambda.Tools package isn&rsquo;t being included in the dotnet build process, so to fix things, I had to edit the .
+        
+      
+    </p>
+    <div class="meta">
+  <small>1 May 2019</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/dotnetcore" class="tag">dotnetcore</a>
+	
+		<a href="/tags/aws" class="tag">aws</a>
+	
+		<a href="/tags/lambda" class="tag">lambda</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2019/bash-scripts-chmod-in-git/">Retaining chmod permissions for scripts in git repositories</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          Our continuous delivery setup at work requires that we use bash scripts for builds that can be handled by Linux machines.
+The main issue is when we create a new project, we often get &ldquo;Permission Denied&rdquo; errors when the CI system runs the scripts on the build agents. Usually, you&rsquo;d just run chmod on a machine and try again, but this doesn&rsquo;t work when the files are being pushed into a git repository, and then pulled at the other side.
+        
+      
+    </p>
+    <div class="meta">
+  <small>1 May 2019</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/sourcecontrol" class="tag">sourcecontrol</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2018/umbraco-7-custom-property-editor/">Umbraco 7: Create a custom Property Editor</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          Recently, I&#39;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc...
+        
+      
+    </p>
+    <div class="meta">
+  <small>19 August 2018</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/umbraco" class="tag">umbraco</a>
+	
+		<a href="/tags/umbraco7" class="tag">umbraco7</a>
+	
+		<a href="/tags/csharp" class="tag">csharp</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2017/react-unit-testing-jest-enzyme/">React.js Unit Testing with Jest and Enzyme</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          I&#39;ve written loads of unit tests in my lifetime for C# and JavaScript, but never gotten around to writing any for testing the actual React components because there&#39;s always been something more pressing. Time to put that right and take the plunge.
+        
+      
+    </p>
+    <div class="meta">
+  <small>7 December 2017</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+		<a href="/tags/testing" class="tag">testing</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2017/js-es6-map-support/">Map() support in JavaScript ES6/ES2015</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          ECMAScript 6/2015 has brought a lot of new things to the world of JavaScript, and Map() is one of them. However, not all browsers are too keen on particular ways of using it...
+        
+      
+    </p>
+    <div class="meta">
+  <small>20 June 2017</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2017/reactjs-render-clickable-lists/">Rendering an array of data as a clickable list using React.js</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          React.js is great for quickly rendering arrays of data in a tabular format, and there&#39;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable...
+        
+      
+    </p>
+    <div class="meta">
+  <small>13 April 2017</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2017/reactjstutorials/">React.js Tutorials</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          I&#39;ve created a few pages on here which are now growing into a bit of a tutorial, so thought I&#39;d collate the links into one post (and append links to any new related posts in the future) so it&#39;s easier to follow.
+        
+      
+    </p>
+    <div class="meta">
+  <small>20 February 2017</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+    <div class="container">
+  <div class="post-summary">
+    <div>
+  <div class="post-heading">
+    <h2><a href="/blog/post/2017/reactjsstate/">React.js Continued... State!</a></h2>
+  </div>
+</div>
+    <p>
+      
+        
+          This time I&#39;ll be looking at State. What it is and how to use it...
+        
+      
+    </p>
+    <div class="meta">
+  <small>14 February 2017</small>
+  
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+
+
+</div>
+  </div>
+</div>
+  
+  
+<div class="pagination">
+    
+
+    
+    <div class="tag page-item disabled" disabled>&lt;&lt;</div>
+    <div class="tag page-item disabled" disabled>&lt;</div>
+    
+
+
+    
+    <a href="/tags/programming/" aria-label="1" class="tag"><div class="page-item">1</div></a>
+		
+    <a href="/tags/programming/page/2/" aria-label="2" class="tag"><div class="page-item">2</div></a>
+		
+    <a href="/tags/programming/page/3/" aria-label="3" class="tag"><div class="page-item">3</div></a>
+		
+
+
+    
+      <a href="/tags/programming/page/2/" aria-label="Next" class="tag"><div class="page-item">&gt;</div></a>
+      <a href="/tags/programming/page/3/" aria-label="Last" class="tag"><div class="page-item">&gt;&gt;</div></a>
+    
+</div>
+
+</div>
+
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

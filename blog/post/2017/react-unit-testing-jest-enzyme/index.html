@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>React.js Unit Testing with Jest and Enzyme  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="I&#39;ve written loads of unit tests in my lifetime for C# and JavaScript, but never gotten around to writing any for testing the actual React components because there&#39;s always been something more pressing. Time to put that right and take the plunge." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>React.js Unit Testing with Jest and Enzyme</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~3 minutes (496 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2017-12-07">
+		7 Dec, 2017
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+		<a href="/tags/testing" class="tag">testing</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>I&rsquo;ve written loads of unit tests in my lifetime for C# and JavaScript, but never gotten around to writing any for testing the actual React components because there&rsquo;s always been something more pressing. Time to put that right and take the plunge.</p>
+
+<p>So I&rsquo;ve picked up the project which resulted from the <a href="/blog/post/2017/reactjsstate/">React.js Continued&hellip; State!</a> tutorial as a starter for ten as it already has a lot of the boilerplate stuff in place.</p>
+
+<p>I need to point out at this point that I&rsquo;ve updated the npm packages so I&rsquo;m using React 16 as well as the latest versions of other things:
+ * babel-preset-es2015 has been deprecated and replaced with babel-preset-env so I&rsquo;ve made the following change to the webpack.config.js in the rule I created for .js files:</p>
+
+<pre><code>options: {
+    presets: [&quot;react&quot;, &quot;env&quot;]
+}
+</code></pre>
+
+<p>So now that&rsquo;s done, I need to install the required packages:</p>
+
+<pre><code>npm install --save-dev jest enzyme enzyme-adapter-react-16
+</code></pre>
+
+<p>These packages are for <a href="https://facebook.github.io/jest/">Jest</a>, <a href="https://github.com/airbnb/enzyme">Enzyme</a> and the Adapter so Enzyme can support React 16 - notice that I mentioned I upgraded the npm packages earlier? ;)</p>
+
+<p>As Jest and Enzyme don&rsquo;t use Webpack to get the Babel options, I have to create a .babelrc file in the root of the project folder, which will contain the following:</p>
+
+<pre><code>{
+    &quot;presets&quot;: [&quot;react&quot;, &quot;env&quot;]
+}
+</code></pre>
+
+<p>to enable support for React and the &ldquo;env&rdquo; plugin (that superceded the es2015 plugin).</p>
+
+<p>So with all that set up, let&rsquo;s create our first test!</p>
+
+<p>Create a directory in the project root called &ldquo;__tests__&rdquo; (yes, this is a double underscore before and after) and inside there, create a new file called &ldquo;comments.js&rdquo; and inside there, dump the following content:</p>
+
+<pre><code>import React from &quot;react&quot;
+import Enzyme from &quot;enzyme&quot;
+import Adapter from &quot;enzyme-adapter-react-16&quot;
+import { mount } from &quot;enzyme&quot;
+import Comments from &quot;./../components/comments.jsx&quot;
+
+Enzyme.configure({ adapter: new Adapter() })
+
+describe(&quot;Comments&quot;, () =&gt; {
+    const props
+
+    beforeEach(() =&gt; {
+        props = {
+            heading: &quot;Previous comments:&quot;
+        }
+    })
+
+    //--- All tests go below this line ---
+    it(&quot;always renders a div&quot;, () =&gt; {
+        const divs = mount(&lt;Comments {...props} /&gt;).find(&quot;div&quot;)
+        expect(divs.length).toBeGreaterThan(0)
+    })
+})
+</code></pre>
+
+<p>Ok, so let me explain a little about what this is trying to do.</p>
+
+<ul>
+<li>You&rsquo;ve got the normal imports at the top which are bringing in the bits and pieces that are needed within the rest of the code</li>
+<li>We have to configure Enzyme to use the adapter for React 16</li>
+<li>We now instruct Jest that we&rsquo;re about to be describing the Comments component and create an arrow function for the tests to reside.</li>
+<li>We create a &ldquo;beforeEach&rdquo; function which will run before each and every test within the container.</li>
+<li>We then declare a test, that we expect the Comments component to contain at least one div element within it (yes, it&rsquo;s a really simple test, but we have to start somewhere&hellip; right?)</li>
+</ul>
+
+<p>I&rsquo;ll be spending a bit more time over the next couple of weeks looking at unit testing React components so may update this post if I find a better way of doing things.</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

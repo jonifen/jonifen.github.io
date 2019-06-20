@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>site on Jon Cain</title>
+    <link>/tags/site/</link>
+    <description>Recent content in site on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Fri, 20 Nov 2015 23:29:55 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/site/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Support in Visual Studio 2015</title>
+      <link>/blog/post/2015/visual-studio-2015-markdown-support/</link>
+      <pubDate>Fri, 20 Nov 2015 23:29:55 +0000</pubDate>
+      
+      <guid>/blog/post/2015/visual-studio-2015-markdown-support/</guid>
+      <description>Wow!
+I&amp;rsquo;ve just tried editing a markdown file in Visual Studio and they have a cracking auto-preview on the right hand side of the page! Granted, you have to save the file to get the preview to update, but hey, I can live with that! This will make things a lot easier given that I&amp;rsquo;m currently keeping my content markdown stored in a TFS repository. Seems daft to make a post so small, but I was impressed.</description>
+    </item>
+    
+    <item>
+      <title>New site using Hugo</title>
+      <link>/blog/post/2015/new-hugo-io-site/</link>
+      <pubDate>Mon, 16 Nov 2015 23:43:37 +0000</pubDate>
+      
+      <guid>/blog/post/2015/new-hugo-io-site/</guid>
+      <description>I&amp;rsquo;ve been looking for a while at various blogging engines for my website and came across Hugo which is a static page generator. The bonus of this is that I don&amp;rsquo;t have a demand on any SQL databases, nor do I have to remember a password every time I want to update the site. Unfortunately, this does mean I&amp;rsquo;m tied to a computer for updating the page all the time. I&amp;rsquo;ll see if I can find a way around that though if I get chance :)</description>
+    </item>
+    
+  </channel>
+</rss>

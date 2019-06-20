@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xps on Jon Cain</title>
+    <link>/tags/xps/</link>
+    <description>Recent content in xps on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Tue, 10 Jan 2017 21:43:11 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/xps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intel Graphics Driver Crashes on XPS15</title>
+      <link>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</link>
+      <pubDate>Tue, 10 Jan 2017 21:43:11 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</guid>
+      <description>On my XPS15, I&amp;rsquo;ve noticed recently that the Intel graphics driver crashes a quite a bit (mainly when using Google Chrome). Although it recovers successfully, it&amp;rsquo;s still pretty annoying. A couple of days ago, I finally reached the end of my tether and started seriously looking for a solution (as compared to a quick Google search and then get distracted).
+I came across a thread on Dell&amp;rsquo;s community forum: http://en.community.dell.com/support-forums/laptop/f/3519/t/19658452 which discussed this problem.</description>
+    </item>
+    
+  </channel>
+</rss>

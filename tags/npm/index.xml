@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>npm on Jon Cain</title>
+    <link>/tags/npm/</link>
+    <description>Recent content in npm on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Mon, 16 Jan 2017 22:38:50 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npm package.json - Package From a Github Commit</title>
+      <link>/blog/post/2017/01-16_npmpackagejsongithubrepocommit/</link>
+      <pubDate>Mon, 16 Jan 2017 22:38:50 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-16_npmpackagejsongithubrepocommit/</guid>
+      <description>Sometimes the version of an npm package has some functionality you want, but it has issues which break other stuff. What do you do? Pull the repo and build it yourself and shoehorn it in? Let&amp;rsquo;s see&amp;hellip;
+For my example, I&amp;rsquo;ll use the griddle-react package.
+I quite like the Griddle component (griddle-react), I&amp;rsquo;ve posted about it in the past, and use it both at work and in side-projects at home whenever tabular data needs to be displayed as it&amp;rsquo;s quick and simple.</description>
+    </item>
+    
+  </channel>
+</rss>

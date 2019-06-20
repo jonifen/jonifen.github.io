@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Sony Vaio C2M/W, Lubuntu 14.04 and a new battery  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="The genuine battery died a few months back on the &#34;bricktop&#34; (a Sony Vaio C2M/W), and with the hard drive starting to click, I just dumped it on the side and gave up with it. After trying to persist with an Atom N450 netbook (Visual Studio usage is soul-destroying on an Atom CPU!), I&#39;ve dug it back out and ordered a new battery from Amazon and the Intel 40Gb SSD that was on offer at Ebuyer for 20 quid." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>Sony Vaio C2M/W, Lubuntu 14.04 and a new battery</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~2 minutes (311 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2014-05-22">
+		22 May, 2014
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/techsupport" class="tag">techsupport</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>The genuine battery died a few months back on the &ldquo;bricktop&rdquo; (a Sony Vaio C2M/W), and with the hard drive starting to click, I just dumped it on the side and gave up with it. After trying to persist with an Atom N450 netbook (Visual Studio usage is soul-destroying on an Atom CPU!), I&rsquo;ve dug it back out and ordered a new battery from Amazon and the Intel 40Gb SSD that was on offer at Ebuyer for 20 quid.</p>
+
+<p>Anyway, the SSD is yet to arrive, but the battery arrived today. Clipped it in and it&rsquo;s not a perfect fit (the clips don&rsquo;t fully engage and it&rsquo;s a black battery in an otherwise silver chassis) but that&rsquo;s not too big an issue&hellip; as long as it works right?</p>
+
+<p>So, the laptop powered on but Lubuntu wouldn&rsquo;t boot. It seemed to be hanging after grub with a black screen. Plugging the AC Adapter in to reboot sorted it, and I can unplug after it&rsquo;s booted and run on battery OK. It just wouldn&rsquo;t boot on battery.</p>
+
+<p>Eventually, I tried a few different things. Amending the /etc/default/grub file to remove &ldquo;quiet splash&rdquo; from the GRUB_CMDLINE_LINUX_DEFAULT property didn&rsquo;t solve the problem. I&rsquo;ve found setting it to &ldquo;acpi=off&rdquo; works, but that&rsquo;s a little drastic as I lose battery details, so I&rsquo;ve changed it to &ldquo;nolapic&rdquo; and all seems fine. So in the end, I had to do the following:</p>
+
+<pre><code>sudo nano /etc/default/grub
+</code></pre>
+
+<p>Change the GRUB_CMDLINE_LINUX_DEFAULT property to be &ldquo;nolapic&rdquo;, save the file (CTRL+O) and exit back to bash (CTRL+X). Then run:</p>
+
+<pre><code>sudo update-grub
+</code></pre>
+
+<p>Which updates the grub menu list with the new setting, and then I rebooted with the AC Adapter unplugged.</p>
+
+<p>So far, so good&hellip; I have battery info and I can even change screen brightness from the keyboard shortcuts (Fn+F5/F6) - something I couldn&rsquo;t do in Windows without a load of Sony crapware!</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

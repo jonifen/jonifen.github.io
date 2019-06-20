@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Boot Booster (EFI) Partition on an Asus EeePC 1005P  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="We have an Asus EeePC 1005P netbook which comes with the Intel Atom N450 CPU. The BIOS provides a &#34;Boot Booster&#34; option which caches POST information in a special partition on the hard drive to speed up the boot process." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>Boot Booster (EFI) Partition on an Asus EeePC 1005P</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~2 minutes (322 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2014-08-18">
+		18 Aug, 2014
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/techsupport" class="tag">techsupport</a>
+	
+		<a href="/tags/hardware" class="tag">hardware</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>We have an Asus EeePC 1005P netbook which comes with the Intel Atom N450 CPU. The BIOS provides a &ldquo;Boot Booster&rdquo; option which caches POST information in a special partition on the hard drive to speed up the boot process.
+Unfortunately, as part of removing all the partitions from the hard drive, this &ldquo;special&rdquo; partition has been lost and I needed to recreate it.</p>
+
+<p>You will need:</p>
+
+<ul>
+<li>Windows installation media</li>
+<li>Linux live media (I&rsquo;m using a Lubuntu CD)</li>
+<li>Plenty of time (it is an Atom CPU afterall!)</li>
+</ul>
+
+<p>I&rsquo;ve cleared the disk of all partitions using GParted (using the Lubuntu CD), and I&rsquo;ve installed Windows 7. As part of installing Windows, I&rsquo;ve selected a &ldquo;Custom Installation&rdquo; and specified a 60Gb (61440Mb) partition for it to be installed to. The Windows installation process adds an additional partition of 100Mb (containing boot information for Windows).</p>
+
+<p>Once Windows is installed, I shut the netbook down and reboot from the Lubuntu CD. It&rsquo;s time to create the EFI partition.</p>
+
+<ul>
+<li>Pull up a terminal window and type the following: <code>sudo fdisk /dev/(your drive id - mine was 'sda')</code> It should load fdisk into the terminal window.</li>
+<li>Select &lsquo;n&rsquo; (for a new partition), choose the default partition type (&lsquo;p&rsquo; - it must be a primary partition), allow the default partition number (mine was #3) and allow the default start sector. For the end sector, add 32767 on to the number specified as the start sector (<sup>32767</sup>&frasl;<sub>2</sub> = 16383.5 i.e. 16384 == 16Mb). It will return you to the main fdisk prompt.</li>
+<li>Select &rsquo;t&rsquo; (to change a partition system ID), select the partition number you accepted in the last step and enter the hex code &lsquo;ef&rsquo; (for EFI).</li>
+<li>Select &lsquo;w&rsquo; (to write changes to disk and exit).
+I can now reboot and re-enable the &ldquo;Boot Booster&rdquo; option in the registry.</li>
+</ul>
+
+<p>Credit to the <a href="http://wiki.gentoo.org/wiki/Asus_Eee_PC_1005HA">Gentoo Wiki</a> for the Asus EeePC 1005HA (a different netbook model, but the process is the same).</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

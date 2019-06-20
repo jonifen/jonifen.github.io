@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>techsupport on Jon Cain</title>
+    <link>/tags/techsupport/</link>
+    <description>Recent content in techsupport on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Fri, 19 Apr 2019 22:15:18 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/techsupport/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HP DM1-4027 and Arch Linux</title>
+      <link>/blog/post/2019/hp-dm1-4027-arch-linux/</link>
+      <pubDate>Fri, 19 Apr 2019 22:15:18 +0000</pubDate>
+      
+      <guid>/blog/post/2019/hp-dm1-4027-arch-linux/</guid>
+      <description>I&amp;rsquo;ve recently started to use a HP DM1-4027ea as a replacement for the Asus Eee 1005P netbook. The 4Gb RAM (upgradable to 8Gb) and more powerful CPU/GPU combo meant that it should give reasonable performance where the Eee struggles (downloading npm modules and browsing script/image heavy websites).
+The HP DM1-4027ea comes with an AMD E-450 APU which consists of a dual core 1.6GHz CPU and a Radeon HD6320 GPU, so on paper should still be acceptable for current mobile demands.</description>
+    </item>
+    
+    <item>
+      <title>iPad appears in Windows 10, but not showing in iTunes</title>
+      <link>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</link>
+      <pubDate>Sun, 21 May 2017 21:09:27 +0100</pubDate>
+      
+      <guid>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</guid>
+      <description>I have an aging iPad2 which is getting on a bit but still works fine, but often won&amp;rsquo;t appear in iTunes, but is showing in Windows 10 as a device in &amp;lsquo;This PC&amp;rsquo;.
+I find it usually happens after an iTunes update when the iPad was plugged in already, and it seems Windows throws in a generic driver when the Apple drivers are removed as part of the upgrade process. To solve the problem, I do the following:</description>
+    </item>
+    
+    <item>
+      <title>PrimeFilm 1800u Film Scanner</title>
+      <link>/blog/post/2017/primefilm1800uscanner/</link>
+      <pubDate>Sun, 26 Feb 2017 20:57:26 +0000</pubDate>
+      
+      <guid>/blog/post/2017/primefilm1800uscanner/</guid>
+      <description>As part of the downsizing task my Mum has taken on, we&amp;rsquo;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame). The photos is an easy task (albeit fairly monotonous as my scanner doesn&amp;rsquo;t have a document feeder), but the slides might be trickier.
+My Mum bought a slide scanner a few years ago (OK then, quite a few years ago), the PrimeFilm 1800u Film Scanner.</description>
+    </item>
+    
+    <item>
+      <title>The target=&#39;_blank&#39; vulnerability</title>
+      <link>/blog/post/2017/thetargetblankvulnerability/</link>
+      <pubDate>Sat, 11 Feb 2017 16:57:02 +0000</pubDate>
+      
+      <guid>/blog/post/2017/thetargetblankvulnerability/</guid>
+      <description>For many years, I was a fan of using target=&amp;rdquo;_blank&amp;rdquo; inside any anchor tags on my website that linked to external sites so it would keep the viewer still on my site in the background so they can easily come back to it later on. However, Ben Halpern describes the problem (with examples) of how it is an issue on this page and how the window/tab containing the origin website (i.</description>
+    </item>
+    
+    <item>
+      <title>Windows 8/10 computer not connecting to your network?</title>
+      <link>/blog/post/2017/windowsupdate_dhcp/</link>
+      <pubDate>Mon, 30 Jan 2017 20:13:29 +0000</pubDate>
+      
+      <guid>/blog/post/2017/windowsupdate_dhcp/</guid>
+      <description>I have had a fair few people lately telling me that their Windows computers are struggling to connect to the Internet. After doing some digging into the problem, it turns out that it could be related to a failed Windows Update that Microsoft initially issued in December 2016, but some computers are slow in picking up the update (or the owners are similar to me, and don&amp;rsquo;t reboot very often to let updates take effect!</description>
+    </item>
+    
+    <item>
+      <title>Intel Graphics Driver Crashes on XPS15</title>
+      <link>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</link>
+      <pubDate>Tue, 10 Jan 2017 21:43:11 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</guid>
+      <description>On my XPS15, I&amp;rsquo;ve noticed recently that the Intel graphics driver crashes a quite a bit (mainly when using Google Chrome). Although it recovers successfully, it&amp;rsquo;s still pretty annoying. A couple of days ago, I finally reached the end of my tether and started seriously looking for a solution (as compared to a quick Google search and then get distracted).
+I came across a thread on Dell&amp;rsquo;s community forum: http://en.community.dell.com/support-forums/laptop/f/3519/t/19658452 which discussed this problem.</description>
+    </item>
+    
+    <item>
+      <title>iPhone requires Apple Id password on free downloads</title>
+      <link>/blog/post/2016/apple-id-requires-password-for-free-download/</link>
+      <pubDate>Sat, 16 Jul 2016 13:38:42 +0100</pubDate>
+      
+      <guid>/blog/post/2016/apple-id-requires-password-for-free-download/</guid>
+      <description>For a while my son&amp;rsquo;s iPhone 5 has prompted for my Apple Id password everytime he tries to download a free app, or when updating his existing apps. It hasn&amp;rsquo;t always done this, so something must have changed. I had a look around online, comparing advice to the settings on his phone, and all seemed fine, but it still asked for this password.
+Earlier this morning, I did a backup, a factory reset and a backup restore.</description>
+    </item>
+    
+    <item>
+      <title>Dell Vostro 3350 Laptop with Windows 10</title>
+      <link>/blog/post/2016/dell-vostro-3350-windows-10/</link>
+      <pubDate>Thu, 16 Jun 2016 22:32:00 +0100</pubDate>
+      
+      <guid>/blog/post/2016/dell-vostro-3350-windows-10/</guid>
+      <description>So this week I&amp;rsquo;ve bought an ex-corporate Dell Vostro 3350 with the intention of it replacing Di&amp;rsquo;s aged Pentium D desktop which is struggling since the Windows 10 upgrade. The laptop came pre-installed with Windows 10 Professional (a digital entitlement upgrade from the Windows 7 Pro that came on the laptop), and seemed quick enough. However, I&amp;rsquo;m not one to use a laptop as it comes, especially when it&amp;rsquo;s not brand new.</description>
+    </item>
+    
+    <item>
+      <title>Windows Update Error 8007000E</title>
+      <link>/blog/post/2016/windows-update-error-8007000e-clean-install/</link>
+      <pubDate>Sat, 12 Mar 2016 20:14:31 +0000</pubDate>
+      
+      <guid>/blog/post/2016/windows-update-error-8007000e-clean-install/</guid>
+      <description>Twice recently I&amp;rsquo;ve reinstalled Windows 7 on a machine, only for Windows Update to fail when checking for updates. On both machines it gave an error 8007000E.
+The first machine (belonging to my nephew), I couldn&amp;rsquo;t fix, so left it with him with automatic updates enabled in the hope it&amp;rsquo;ll fix itself.
+The second machine is this Samsung netbook. As it&amp;rsquo;s already had me over a barrel, it won&amp;rsquo;t do me over again!</description>
+    </item>
+    
+    <item>
+      <title>Reinstalling a Samsung NC10&#43; Netbook = Painful</title>
+      <link>/blog/post/2016/samsung-nc10plus-reinstall-pain/</link>
+      <pubDate>Sat, 12 Mar 2016 18:43:12 +0000</pubDate>
+      
+      <guid>/blog/post/2016/samsung-nc10plus-reinstall-pain/</guid>
+      <description>I&amp;rsquo;ve had to do a restore on a Samsung NC10+ which is an Atom N450 based netbook from a few years back. But for some reason, the recovery stuff just won&amp;rsquo;t work and I&amp;rsquo;ve had to do a clean install of Windows. And the Samsung support website&amp;hellip; well, it&amp;rsquo;s not much support at all. In fact, I don&amp;rsquo;t think they even remember releasing the NC10+. Only the original NC10.</description>
+    </item>
+    
+    <item>
+      <title>TP-Link Archer C2 - First Impressions</title>
+      <link>/blog/post/2016/tplink-archer-c2-first-impressions/</link>
+      <pubDate>Sat, 09 Jan 2016 21:33:55 +0000</pubDate>
+      
+      <guid>/blog/post/2016/tplink-archer-c2-first-impressions/</guid>
+      <description>As mentioned in my last post, I was in the hunt for a new router to replace the aging Buffalo WHR-HP-G54. I&amp;rsquo;d found that it wasn&amp;rsquo;t capable of handling fibre broadband speeds (hardly surprising&amp;hellip; given that it&amp;rsquo;s running a 200MHz single core CPU with barely a few megs free of the 16Mb RAM).
+I ended up dropping by PC World and picking up the TP-Link Archer C2 for £49.99 (a few quid more expensive than it was at Scan, but PC World was closer, so I was saving petrol money and around 30 minutes of my time for the round-trip).</description>
+    </item>
+    
+    <item>
+      <title>Buffalo WHR-HP-G54 Fun (or not...)</title>
+      <link>/blog/post/2016/buffalo-whr-hp-g54/</link>
+      <pubDate>Fri, 08 Jan 2016 22:54:03 +0000</pubDate>
+      
+      <guid>/blog/post/2016/buffalo-whr-hp-g54/</guid>
+      <description>Out of contract with my previous supplier, I was free to find a new supplier. Luckily, one of the benefits of my job is that I get free fibre broadband, so it was a simple decision :)
+Anyway, back to the point of my post.
+I last used the Buffalo a few years back when on Virgin Media&amp;rsquo;s &amp;ldquo;National&amp;rdquo; service (no longer available - a good thing as it was trash) when their supplied Netgear had weak wi-fi.</description>
+    </item>
+    
+    <item>
+      <title>Going back to iPhone! Or maybe not...</title>
+      <link>/blog/post/2015/going-back-to-iphone-or-maybe-not/</link>
+      <pubDate>Wed, 23 Dec 2015 00:02:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/going-back-to-iphone-or-maybe-not/</guid>
+      <description>My &amp;lsquo;love affair&amp;rsquo; (if you could ever call it that) with Android has always been a little rocky (as mentioned back in June) but I&amp;rsquo;m now ready to go back to an iPhone. Being a Dad, this time of year is never exactly the right time to blow out big money on a new phone for myself so that&amp;rsquo;ll have to wait for the new year. But I&amp;rsquo;ve got hold of my daughter&amp;rsquo;s old iPhone 5c to use in the meantime.</description>
+    </item>
+    
+    <item>
+      <title>No dial tone, but broadband still works?</title>
+      <link>/blog/post/2015/no-dial-tone-but-broadband-works/</link>
+      <pubDate>Thu, 03 Dec 2015 20:58:18 +0000</pubDate>
+      
+      <guid>/blog/post/2015/no-dial-tone-but-broadband-works/</guid>
+      <description>It seems whenever I need to make a phone call on the landline, it&amp;rsquo;s broken. Yesterday I picked up the landline handset and it was dead. No dial tone. Nothing. Nada. Zip.
+I tried the usual steps at first (unplug it, plug it back in) but no joy. Onto the broadband I went. Works fine. Weird. I&amp;rsquo;ve had this before and leaving stuff unplugged overnight seemed to fix it, but on this occasion it didn&amp;rsquo;t help.</description>
+    </item>
+    
+    <item>
+      <title>heavy cpu usage svchost windows10</title>
+      <link>/blog/post/2015/heavy-cpu-usage-svchost-windows10/</link>
+      <pubDate>Sat, 31 Oct 2015 20:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/heavy-cpu-usage-svchost-windows10/</guid>
+      <description>Google brings up a complete bag of results when you search for &amp;ldquo;svchost high cpu&amp;rdquo; as it&amp;rsquo;s been a well documented issue with the Windows Update service across the last couple of Windows versions (way back to XP as it happens!) so it was little surprise to find that the instance of svchost.exe that was eating CPU cycles was the one that was hosting the Windows Update service.
+Dipping into the Settings screens of Windows 10, I got to the Windows Update section, only for it to show that it was on &amp;ldquo;Downloading Updates 0%&amp;rdquo; and remained at this point for a couple of hours without moving.</description>
+    </item>
+    
+    <item>
+      <title>&#34;Something went wrong&#34; - Creating users on Windows 10</title>
+      <link>/blog/post/2015/something-went-wrong-creating-users-windows10/</link>
+      <pubDate>Sat, 24 Oct 2015 11:30:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/something-went-wrong-creating-users-windows10/</guid>
+      <description>On a fresh install of Windows 10, I found I was unable to add a second user to the system (via All Settings) and constantly got the &amp;ldquo;Something went wrong&amp;rdquo; screen. I tried a few reboots but to no avail. A quick google found that a lot of people with laptops were having this problem, and removing the battery and running on AC power only appeared to resolve their problem, but I&amp;rsquo;m on a desktop&amp;hellip; i.</description>
+    </item>
+    
+    <item>
+      <title>Sending email via SMTP on Outlook 2013</title>
+      <link>/blog/post/2015/sending-email-smtp-outlook-2013/</link>
+      <pubDate>Fri, 28 Aug 2015 00:09:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/sending-email-smtp-outlook-2013/</guid>
+      <description>Recently I&amp;rsquo;ve noticed that I&amp;rsquo;ve not been able to send emails in Outlook 2013 on the desktop computer. It&amp;rsquo;s been working fine on my laptop, but the desktop no such luck.
+The error I was getting was &amp;ldquo;Error 0x800CCC13 Cannot connect to the network&amp;rdquo;. I tried a few different things, but to no avail.
+After researching online, I found that doing the following fixes it: + Close Outlook before continuing. + Run a command prompt as administrator + Run sfc /scannow and allow to complete.</description>
+    </item>
+    
+    <item>
+      <title>McAfee Mobile Security</title>
+      <link>/blog/post/2015/mcafee-mobile-security/</link>
+      <pubDate>Sat, 06 Jun 2015 08:26:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/mcafee-mobile-security/</guid>
+      <description>About a fortnight ago, I changed to an android handset after having iPhones for the last 4 years. I had decided on an LG G3 which turns out to come preinstalled with McAfee Mobile Security&amp;hellip; Which is fine&amp;hellip; Or would be if it worked properly.
+I use an app for my online banking. When I load it up, it complains that there is no security product installed. If I open up McAfee manually, and go back into my banking app, it doesn&amp;rsquo;t complain.</description>
+    </item>
+    
+    <item>
+      <title>Access services on VirtualBox VM</title>
+      <link>/blog/post/2015/access-services-on-virtualbox-vm/</link>
+      <pubDate>Fri, 22 May 2015 22:15:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/access-services-on-virtualbox-vm/</guid>
+      <description>In my current job I use a lot of virtual machines due to the variety of applications we support and the demand for them to work on many versions of Windows. As a result, we do have web services that I&amp;rsquo;d run on a VM, but it&amp;rsquo;s not possible to bridge the adapters (to allow external access to the VM) due to security guidelines at work, so I have to try something else.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 2</title>
+      <link>/blog/post/2015/raspberry-pi-2/</link>
+      <pubDate>Mon, 23 Mar 2015 22:17:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/raspberry-pi-2/</guid>
+      <description>I ended up taking the plunge and ordering a Raspberry Pi 2 which arrived today. But, I thought I had another MicroSD card which was Class 6 or 10, but unfortunately not&amp;hellip; so I&amp;rsquo;ve given it a quick whirl with the Class 4 MicroSD that came with my Pi B (with adapter) and it seems to work quite well. I&amp;rsquo;m amazed by how responsive it is with MinecraftPi running and how it allows me to open Python files without hanging around.</description>
+    </item>
+    
+    <item>
+      <title>Laggy mouse on Raspberry Pi</title>
+      <link>/blog/post/2014/raspberry-pi-laggy-mouse/</link>
+      <pubDate>Fri, 17 Oct 2014 19:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberry-pi-laggy-mouse/</guid>
+      <description>A few weeks ago I installed the latest (at the time) version of Raspbian onto a 4Gb SD Card thinking that I&amp;rsquo;d see whether it was worthwhile updating my main SD card or not. I gave it a quick run and while it seemed quicker, the mouse was quite laggy as if the cursor was moving through treacle. After a quick search, I came across a report on the RaspberryPi Github where someone else was having the exact same problem where the mouse was moving &amp;ldquo;in slow motion&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Must review payment details when using an existing Apple Id on a new device</title>
+      <link>/blog/post/2014/review-payment-details-existing-appleid-new-device/</link>
+      <pubDate>Sat, 23 Aug 2014 22:56:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/review-payment-details-existing-appleid-new-device/</guid>
+      <description>My daughter has this week got a new iPhone 5C and has been trying to download apps onto it. However, when she logs into her Apple ID on the 5C, she&amp;rsquo;s prompted to review her payment details. In the list that appears, there is no &amp;ldquo;None&amp;rdquo; option available, and she doesn&amp;rsquo;t want to enter her card details (for which I don&amp;rsquo;t blame her - I haven&amp;rsquo;t entered mine on my Apple ID either!</description>
+    </item>
+    
+    <item>
+      <title>Boot Booster (EFI) Partition on an Asus EeePC 1005P</title>
+      <link>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</link>
+      <pubDate>Mon, 18 Aug 2014 16:41:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</guid>
+      <description>We have an Asus EeePC 1005P netbook which comes with the Intel Atom N450 CPU. The BIOS provides a &amp;ldquo;Boot Booster&amp;rdquo; option which caches POST information in a special partition on the hard drive to speed up the boot process. Unfortunately, as part of removing all the partitions from the hard drive, this &amp;ldquo;special&amp;rdquo; partition has been lost and I needed to recreate it.
+You will need:
+ Windows installation media Linux live media (I&amp;rsquo;m using a Lubuntu CD) Plenty of time (it is an Atom CPU afterall!</description>
+    </item>
+    
+    <item>
+      <title>Connection problems in Visual Studio 2013</title>
+      <link>/blog/post/2014/visual-studio-2013-connection-problems/</link>
+      <pubDate>Thu, 29 May 2014 12:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/visual-studio-2013-connection-problems/</guid>
+      <description>Since installing Update 2 on the work laptop, I&amp;rsquo;ve been unable to check for available updates through the Tools &amp;gt; Extensions &amp;amp; Updates screen as it always timed out. If I continued working (without closing the IDE), it would eventually prompt me through the Notifications pane that it required credentials for the company proxy. Once I did that, it&amp;rsquo;d report updates etc. but over the last couple of days, that is no longer happening either.</description>
+    </item>
+    
+    <item>
+      <title>Sony Vaio C2M/W, Lubuntu 14.04 and a new battery</title>
+      <link>/blog/post/2014/sony-vaio-new-battery-lubuntu-14-04/</link>
+      <pubDate>Thu, 22 May 2014 21:34:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/sony-vaio-new-battery-lubuntu-14-04/</guid>
+      <description>The genuine battery died a few months back on the &amp;ldquo;bricktop&amp;rdquo; (a Sony Vaio C2M/W), and with the hard drive starting to click, I just dumped it on the side and gave up with it. After trying to persist with an Atom N450 netbook (Visual Studio usage is soul-destroying on an Atom CPU!), I&amp;rsquo;ve dug it back out and ordered a new battery from Amazon and the Intel 40Gb SSD that was on offer at Ebuyer for 20 quid.</description>
+    </item>
+    
+    <item>
+      <title>Installing a Canon 350D on Windows 7 x64</title>
+      <link>/blog/post/2014/canon-350d-windows-7-x64/</link>
+      <pubDate>Sun, 09 Feb 2014 14:47:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/canon-350d-windows-7-x64/</guid>
+      <description>I have a Canon 350D which I was struggling to download the photos from onto the computer since upgrading it to Windows 7 64-bit. I&amp;rsquo;d looked around for drivers, but Canon haven&amp;rsquo;t made any 64-bit drivers for that camera (we have had it nearly 8 years) so I was wondering how I&amp;rsquo;d get around the problem. I eventually came across the site of someone else in the same situation who has blogged the following:</description>
+    </item>
+    
+    <item>
+      <title>Windows XP and it&#39;s poor effort of an &#34;Automatic Updates&#34; service</title>
+      <link>/blog/post/2013/windows-xp-dodgy-automatic-updates/</link>
+      <pubDate>Sun, 29 Dec 2013 20:55:00 +0000</pubDate>
+      
+      <guid>/blog/post/2013/windows-xp-dodgy-automatic-updates/</guid>
+      <description>So it&amp;rsquo;s the end of a long Sunday which started later than expected (as I&amp;rsquo;d slept in despite my son&amp;rsquo;s best efforts to wake me with the ever-loud playback of YouTube videos). I&amp;rsquo;ve spent most of the day glaring at a computer screen but not for productive gain as it&amp;rsquo;s my family duty to fix the broken computers of the children/parents/siblings, except this time it&amp;rsquo;s been a looonnnnggg job which Windows XP is just aching to make so much worse.</description>
+    </item>
+    
+    <item>
+      <title>Fresh install of Adobe CS3 but no updates available?</title>
+      <link>/blog/post/2013/fresh-adobe-cs3-install-updates/</link>
+      <pubDate>Sun, 24 Mar 2013 22:38:00 +0000</pubDate>
+      
+      <guid>/blog/post/2013/fresh-adobe-cs3-install-updates/</guid>
+      <description>We&amp;rsquo;re not able to continually upgrade our Creative Suite version every time a new one comes out, so we&amp;rsquo;re still on CS3. Unfortunately though, I installed an SSD in the desktop yesterday which of course meant reinstalling it with CS3 from the discs. Everything seemed fine until I tried to run an update, at which point it complained with the following message:
+There are no updates available at this time. Please note that some updates for the following products cannot be determined at this time: Adobe Updater</description>
+    </item>
+    
+  </channel>
+</rss>

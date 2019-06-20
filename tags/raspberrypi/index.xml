@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>raspberrypi on Jon Cain</title>
+    <link>/tags/raspberrypi/</link>
+    <description>Recent content in raspberrypi on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Wed, 11 Jan 2017 06:30:33 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 10 IoT on a Raspberry Pi 2</title>
+      <link>/blog/post/2017/01-11_raspberrypi2_windows10iot/</link>
+      <pubDate>Wed, 11 Jan 2017 06:30:33 +0000</pubDate>
+      
+      <guid>/blog/post/2017/01-11_raspberrypi2_windows10iot/</guid>
+      <description>I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2. I&amp;rsquo;ve been looking at this since it was first announced a while back, but never actually got around to having a proper look into it and getting it installed on one of our Pis.
+What kit do I have then?
+ Raspberry Pi 2 Edimax EW-7811Un Nano USB Wireless Dongle (which turned out to be unsupported, but there is a workaround - details to come later) Official Power Supply (the white Raspberry Pi 2.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 2</title>
+      <link>/blog/post/2015/raspberry-pi-2/</link>
+      <pubDate>Mon, 23 Mar 2015 22:17:00 +0000</pubDate>
+      
+      <guid>/blog/post/2015/raspberry-pi-2/</guid>
+      <description>I ended up taking the plunge and ordering a Raspberry Pi 2 which arrived today. But, I thought I had another MicroSD card which was Class 6 or 10, but unfortunately not&amp;hellip; so I&amp;rsquo;ve given it a quick whirl with the Class 4 MicroSD that came with my Pi B (with adapter) and it seems to work quite well. I&amp;rsquo;m amazed by how responsive it is with MinecraftPi running and how it allows me to open Python files without hanging around.</description>
+    </item>
+    
+    <item>
+      <title>Laggy mouse on Raspberry Pi</title>
+      <link>/blog/post/2014/raspberry-pi-laggy-mouse/</link>
+      <pubDate>Fri, 17 Oct 2014 19:31:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberry-pi-laggy-mouse/</guid>
+      <description>A few weeks ago I installed the latest (at the time) version of Raspbian onto a 4Gb SD Card thinking that I&amp;rsquo;d see whether it was worthwhile updating my main SD card or not. I gave it a quick run and while it seemed quicker, the mouse was quite laggy as if the cursor was moving through treacle. After a quick search, I came across a report on the RaspberryPi Github where someone else was having the exact same problem where the mouse was moving &amp;ldquo;in slow motion&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi on a 19&#34; Widescreen (16:10) LCD Monitor</title>
+      <link>/blog/post/2014/raspberrypi-19-widescreen-monitor/</link>
+      <pubDate>Sat, 18 Jan 2014 22:36:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberrypi-19-widescreen-monitor/</guid>
+      <description>Earlier today I booked places for me and my son on a Raspberry Pi day in Manchester and then realised I might struggle to get the TV there as it&amp;rsquo;s pretty heavy, plus I doubt we&amp;rsquo;d be allowed it on a bus! Luckily, we still have the 19&amp;rdquo; widescreen from the old living room PC, so I looked at using that instead.
+The monitor was made by Daewoo, I got it about 6 years ago (or there abouts) and it has a native resolution of 1440x900 at a refresh rate of 60Hz.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &amp; Hannspree 37&#34; TV</title>
+      <link>/blog/post/2014/raspberrypi-hannspree-tv/</link>
+      <pubDate>Wed, 01 Jan 2014 18:30:00 +0000</pubDate>
+      
+      <guid>/blog/post/2014/raspberrypi-hannspree-tv/</guid>
+      <description>I was lucky enough at Christmas for my wife to surprise me with a Raspberry Pi. I&amp;rsquo;ve wanted one for some time but never got around to actually ordering one. My wife always asks me when she&amp;rsquo;s faced with techie decisions which made it an even bigger surprise.
+Anyway, I&amp;rsquo;ve spent the last few days getting it up and running but my son realised earlier that it didn&amp;rsquo;t seem to have any sound coming through the TV set, so I&amp;rsquo;ve spent the last couple of hours reading and trying stuff out and I think I&amp;rsquo;ve gotten to the bottom of the problem.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>React.js Continued... State!  &middot; Jon Cain</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <meta name="description" content="This time I&#39;ll be looking at State. What it is and how to use it..." />
+  
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <div class="nav">
+	
+	<a href="/"
+		class="nav-item"
+		
+			alt="Home"
+			title="Home"
+		>Home</a>
+	
+	<a href="/blog/"
+		class="nav-item"
+		
+			alt="Blog"
+			title="Blog"
+		>Blog</a>
+	
+	<a href="/tags/"
+		class="nav-item"
+		
+			alt="Tags"
+			title="Tags"
+		>Tags</a>
+	
+	<a href="/contact/"
+		class="nav-item"
+		
+			alt="Contact"
+			title="Contact"
+		>Contact</a>
+	
+</div>
+    </div>
+  </header>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>React.js Continued... State!</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~5 minutes (903 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2017-02-14">
+		14 Feb, 2017
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>This time I&rsquo;ll be looking at State. What it is and how to use it&hellip; Like last time, we&rsquo;ll be continuing with the code from the <a href="/blog/post/2017/reactjscontinued/">previous post</a>.</p>
+
+<p>Last time we created 2 components, <code>home</code> (which was a stateful component) and <code>header</code> (which was a stateless component). This time we&rsquo;re going to handle state within the <code>home</code> component by calling an API. As in previous posts, I&rsquo;ll be using the UK Police API as it doesn&rsquo;t require any authentication (or at least it doesn&rsquo;t at the moment, that could change!) which cuts down on fluff.</p>
+
+<p>We&rsquo;ll open the <code>home.js</code> file and amend it as follows:</p>
+
+<pre><code>import React from 'react';
+import Header from '../components/header';
+
+export default class Home extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            results: []
+        };
+    }
+
+    componentWillMount() {
+        var xhr = new XMLHttpRequest();
+        var component = this;
+        xhr.open(&quot;GET&quot;, &quot;https://data.police.uk/api/stops-street?lat=53.4848179&amp;lng=-2.2437719&amp;date=2015-05&quot;);
+        xhr.onload = function() {
+            component.setState({ results: xhr.response });
+        };
+        xhr.send();
+    }
+
+    render() {
+        return(
+            &lt;div&gt;
+                &lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
+                &lt;div&gt;
+                    Number of records returned from the API: {this.state.results.length}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
+
+<p>To start with, there&rsquo;s more code this time. Let me explain things a little:</p>
+
+<ul>
+<li>In the constructor (<code>constructor()</code>), we&rsquo;re setting the value of <code>this.state</code> to an object that contains an empty array (<code>results</code>).</li>
+<li>We have a new function in the class: <code>componentWillMount()</code>. React has many &ldquo;lifecycle methods&rdquo; and this is one of them. In particular, this function will be run when the component is <em>about to</em> mount (i.e. come to life on the page). In our example, we will be calling the Police API for some data and storing it in the <code>results</code> array in state.</li>
+<li>In the <code>render()</code> function, we removed the Hello message but added a new <code>&lt;div&gt;</code> that contains some text and then includes the output of the length of the <code>results</code> array (that we&rsquo;ve got contained in state).</li>
+</ul>
+
+<p>Save your file and run webpack to re-generate the files. Open it up in your browser and you should get the following:</p>
+
+<pre><code>This is your header speaking!
+Number of records returned from the API: 26102
+</code></pre>
+
+<p>So now you&rsquo;ve used <code>state</code> in your React app. It is as simple as that! However, there are some things to be aware of:</p>
+
+<ul>
+<li>You can&rsquo;t set state in the <code>render()</code> function, only read from it.</li>
+<li>You get and set state using <code>this</code> which is the keyword to access the component/function you&rsquo;re currently in. In the example above, you see we use <code>component.setState(...)</code> within the <code>xhr.onload</code> function. This is because <code>this</code> within the function is a different <code>this</code> to the one we expect it to be, so an exception would be thrown in the browser. We get around it by creating a variable (in our case &ldquo;component&rdquo;) which is available within the <code>xhr.onload</code> function as it&rsquo;s declared in the same level of scope.</li>
+</ul>
+
+<p>Let&rsquo;s look at state a different way. What if we have some form controls on our page like a comments section on a website?</p>
+
+<p>We need a new component then. Add <code>comments.js</code> to your <code>components</code> directory with the following code:</p>
+
+<pre><code>import React from 'react';
+
+export default class Comments extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            comments: [],
+            currentComment: &quot;&quot;
+        };
+    }
+
+    onFormChange(event) {
+        this.setState({ currentComment: event.target.value });
+    }
+
+    addComment() {
+        this.state.comments.push({
+            date: new Date().toLocaleDateString(),
+            comment: this.state.currentComment
+        });
+        this.setState({ currentComment: &quot;&quot; });
+    }
+
+    render() {
+        return(
+            &lt;div&gt;
+                &lt;hr /&gt;
+                Enter your comment here:&lt;br /&gt;
+                &lt;input type=&quot;textarea&quot; onChange={this.onFormChange.bind(this)} value={this.state.currentComment} /&gt;
+                &lt;button onClick={this.addComment.bind(this)}&gt;Add Comment&lt;/button&gt;
+                &lt;br /&gt;
+                Previous comments:&lt;br /&gt;
+                {
+                    this.state.comments.map(function(comment, i) {
+                        return(
+                            &lt;div key={i}&gt;
+                                Posted on {comment.date}&lt;br/&gt;
+                                {comment.comment}&lt;br /&gt;
+                                -----
+                            &lt;/div&gt;
+                        );
+                    })
+                }
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
+
+<p>Woah, more code in this one isn&rsquo;t there? As always, I&rsquo;ll explain a few bits&hellip;</p>
+
+<ul>
+<li>We import React (as always), and create a new class that is made public (so it can be imported in other class files).</li>
+<li>We set initial values in state within the constructor.</li>
+<li>We&rsquo;ve created 2 functions (<code>onFormChange</code> and <code>addComment</code>) which have fairly self-explanatory names&hellip;</li>
+<li>We&rsquo;re rendering a mini form containing a textarea to enter a comment and a button to submit it. We then render any comments added below.</li>
+</ul>
+
+<p>So when we view this page, we expect that as a user enters text into the comment box, the <code>onFormChange()</code> function will run on every textbox change and will update the value of <code>currentComment</code> in state. Once the user clicks the button to submit the comment, the <code>addComment()</code> function will run which takes the <code>currentComment</code> from <code>state</code> and adds a new object into the comments array with the typed comment and the current date. It then empties <code>currentComment</code> which clears the textbox too.</p>
+
+<p>Inside the <code>render()</code> function, where we display previous comments, we use the <code>map</code> function (available in arrays) to iterate through each item and then return some markup to be rendered in the page.</p>
+
+<p>Ok, now we need to consume this component, so let&rsquo;s import it to our <code>home.js</code> file:</p>
+
+<pre><code>import Comments from '../components/comments';
+</code></pre>
+
+<p>and now let&rsquo;s render it (I&rsquo;ve included the whole <code>render()</code> function from <code>home.js</code> to make it easier):</p>
+
+<pre><code>render() {
+    return(
+        &lt;div&gt;
+            &lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
+            &lt;div&gt;
+                Number of records returned from the API: {this.state.results.length}
+            &lt;/div&gt;
+            &lt;Comments /&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+
+<p>So now we&rsquo;ve used state to hold data retrieved from an API, and we&rsquo;ve used it to hold data which is manipulated during the lifetime of the component.</p>
+
+<p>As always, questions/comments are welcomed on <a href="https://twitter.com/jonifen">Twitter</a> or <a href="/contact">one of my other contact options</a>.</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

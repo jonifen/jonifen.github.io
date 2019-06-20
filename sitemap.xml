@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2019/vs2019-webapplication-targets-not-found/</loc>
+    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/programming/</loc>
+    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/visualstudio/</loc>
+    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2019/git-revert-without-commit/</loc>
+    <lastmod>2019-05-23T21:52:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sourcecontrol/</loc>
+    <lastmod>2019-05-23T21:52:44+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2019/no-executable-found-dotnet-lambda/</loc>
+    <lastmod>2019-05-01T21:01:03+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2019-05-01T21:01:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dotnetcore/</loc>
+    <lastmod>2019-05-01T21:01:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lambda/</loc>
+    <lastmod>2019-05-01T21:01:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2019/bash-scripts-chmod-in-git/</loc>
+    <lastmod>2019-05-01T20:44:36+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/contact/</loc>
+    <lastmod>2019-04-21T15:18:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2019/hp-dm1-4027-arch-linux/</loc>
+    <lastmod>2019-04-19T22:15:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2019-04-19T22:15:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/techsupport/</loc>
+    <lastmod>2019-04-19T22:15:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2018/umbraco-7-custom-property-editor/</loc>
+    <lastmod>2018-08-19T13:18:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/csharp/</loc>
+    <lastmod>2018-08-19T13:18:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/umbraco/</loc>
+    <lastmod>2018-08-19T13:18:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/umbraco7/</loc>
+    <lastmod>2018-08-19T13:18:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/react-unit-testing-jest-enzyme/</loc>
+    <lastmod>2017-12-07T22:34:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/javascript/</loc>
+    <lastmod>2017-12-07T22:34:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/reactjs/</loc>
+    <lastmod>2017-12-07T22:34:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/testing/</loc>
+    <lastmod>2017-12-07T22:34:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/home-tv-aerial-install/</loc>
+    <lastmod>2017-07-15T23:36:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/diy/</loc>
+    <lastmod>2017-07-15T23:36:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/home/</loc>
+    <lastmod>2017-07-15T23:36:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tv/</loc>
+    <lastmod>2017-07-15T23:36:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/js-es6-map-support/</loc>
+    <lastmod>2017-06-20T22:47:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hardware/</loc>
+    <lastmod>2017-05-21T21:09:27+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</loc>
+    <lastmod>2017-05-21T21:09:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/reactjs-render-clickable-lists/</loc>
+    <lastmod>2017-04-13T21:55:37+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/primefilm1800uscanner/</loc>
+    <lastmod>2017-02-26T20:57:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/reactjstutorials/</loc>
+    <lastmod>2017-02-20T22:50:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/reactjsstate/</loc>
+    <lastmod>2017-02-14T22:13:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/reactjscontinued/</loc>
+    <lastmod>2017-02-13T22:36:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/thetargetblankvulnerability/</loc>
+    <lastmod>2017-02-11T16:57:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/security/</loc>
+    <lastmod>2017-02-11T16:57:02+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/reactjsrevisited/</loc>
+    <lastmod>2017-02-09T21:06:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/windowsupdate_dhcp/</loc>
+    <lastmod>2017-01-30T20:13:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/windows/</loc>
+    <lastmod>2017-01-30T20:13:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/windowsupdate/</loc>
+    <lastmod>2017-01-30T20:13:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/npm/</loc>
+    <lastmod>2017-01-16T22:38:50+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/01-16_npmpackagejsongithubrepocommit/</loc>
+    <lastmod>2017-01-16T22:38:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/</loc>
+    <lastmod>2017-01-13T20:02:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/01-11_raspberrypi2_windows10iot/</loc>
+    <lastmod>2017-01-11T06:30:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/iot/</loc>
+    <lastmod>2017-01-11T06:30:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/raspberrypi/</loc>
+    <lastmod>2017-01-11T06:30:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</loc>
+    <lastmod>2017-01-10T21:43:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/xps/</loc>
+    <lastmod>2017-01-10T21:43:11+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/sky-remote-codes/</loc>
+    <lastmod>2016-10-30T19:01:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/skytv/</loc>
+    <lastmod>2016-10-30T19:01:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/apple/</loc>
+    <lastmod>2016-07-16T13:38:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/apple-id-requires-password-for-free-download/</loc>
+    <lastmod>2016-07-16T13:38:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mobilephones/</loc>
+    <lastmod>2016-07-16T13:38:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/dell-vostro-3350-windows-10/</loc>
+    <lastmod>2016-06-16T22:32:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/windows-update-error-8007000e-clean-install/</loc>
+    <lastmod>2016-03-12T20:14:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/samsung-nc10plus-reinstall-pain/</loc>
+    <lastmod>2016-03-12T18:43:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/family/</loc>
+    <lastmod>2016-03-12T18:43:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/lg-g3-possibly-the-worst-flagship/</loc>
+    <lastmod>2016-01-15T22:59:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/a-decent-10-inch-android-tablet/</loc>
+    <lastmod>2016-01-14T21:02:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/android/</loc>
+    <lastmod>2016-01-14T21:02:37+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/tplink-archer-c2-first-impressions/</loc>
+    <lastmod>2016-01-09T21:33:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/connectivity/</loc>
+    <lastmod>2016-01-09T21:33:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/router/</loc>
+    <lastmod>2016-01-09T21:33:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2016/buffalo-whr-hp-g54/</loc>
+    <lastmod>2016-01-08T22:54:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/going-back-to-iphone-or-maybe-not/</loc>
+    <lastmod>2015-12-23T00:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/no-dial-tone-but-broadband-works/</loc>
+    <lastmod>2015-12-03T20:58:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/adsl/</loc>
+    <lastmod>2015-12-03T20:58:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/broadband/</loc>
+    <lastmod>2015-12-03T20:58:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/visual-studio-2015-markdown-support/</loc>
+    <lastmod>2015-11-20T23:29:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gohugo.io/</loc>
+    <lastmod>2015-11-20T23:29:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/site/</loc>
+    <lastmod>2015-11-20T23:29:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2015-11-17T23:14:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/license/</loc>
+    <lastmod>2015-11-17T23:14:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/new-hugo-io-site/</loc>
+    <lastmod>2015-11-16T23:43:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/inline-styles-react/</loc>
+    <lastmod>2015-11-12T20:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/griddle-a-gridtable-component-for-react/</loc>
+    <lastmod>2015-11-12T20:34:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/griddle/</loc>
+    <lastmod>2015-11-12T20:34:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/getting-started-with-reactjs/</loc>
+    <lastmod>2015-11-06T22:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/heavy-cpu-usage-svchost-windows10/</loc>
+    <lastmod>2015-10-31T20:31:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/svchost/</loc>
+    <lastmod>2015-10-31T20:31:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/windows10/</loc>
+    <lastmod>2015-10-31T20:31:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/something-went-wrong-creating-users-windows10/</loc>
+    <lastmod>2015-10-24T11:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/sending-email-smtp-outlook-2013/</loc>
+    <lastmod>2015-08-28T00:09:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/email/</loc>
+    <lastmod>2015-08-28T00:09:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/mcafee-mobile-security/</loc>
+    <lastmod>2015-06-06T08:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/access-services-on-virtualbox-vm/</loc>
+    <lastmod>2015-05-22T22:15:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/virtualpc/</loc>
+    <lastmod>2015-05-22T22:15:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2015/raspberry-pi-2/</loc>
+    <lastmod>2015-03-23T22:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/raspberry-pi-laggy-mouse/</loc>
+    <lastmod>2014-10-17T19:31:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mouse/</loc>
+    <lastmod>2014-10-17T19:31:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/minecraft-pe-invisible-mobs/</loc>
+    <lastmod>2014-09-13T10:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/minecraft/</loc>
+    <lastmod>2014-09-13T10:24:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/review-payment-details-existing-appleid-new-device/</loc>
+    <lastmod>2014-08-23T22:56:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</loc>
+    <lastmod>2014-08-18T16:41:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/sql-joins/</loc>
+    <lastmod>2014-08-14T22:34:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/database/</loc>
+    <lastmod>2014-08-14T22:34:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sql/</loc>
+    <lastmod>2014-08-14T22:34:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/xps-15-update/</loc>
+    <lastmod>2014-08-09T19:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/ribbon-in-net45-using-wpf-mvvm/</loc>
+    <lastmod>2014-07-18T20:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/wpf/</loc>
+    <lastmod>2014-07-18T20:18:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/dell-xps-15/</loc>
+    <lastmod>2014-06-22T00:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/dells-informative-delivery-service/</loc>
+    <lastmod>2014-06-16T21:42:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/laptop-shopping/</loc>
+    <lastmod>2014-05-31T00:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/visual-studio-2013-connection-problems/</loc>
+    <lastmod>2014-05-29T12:31:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/sony-vaio-new-battery-lubuntu-14-04/</loc>
+    <lastmod>2014-05-22T21:34:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/canon-350d-windows-7-x64/</loc>
+    <lastmod>2014-02-09T14:47:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/photography/</loc>
+    <lastmod>2014-02-09T14:47:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/raspberrypi-19-widescreen-monitor/</loc>
+    <lastmod>2014-01-18T22:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2014/raspberrypi-hannspree-tv/</loc>
+    <lastmod>2014-01-01T18:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2013/windows-xp-dodgy-automatic-updates/</loc>
+    <lastmod>2013-12-29T20:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2013/fresh-adobe-cs3-install-updates/</loc>
+    <lastmod>2013-03-24T22:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/adobecs3/</loc>
+    <lastmod>2013-03-24T22:38:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/photoshop/</loc>
+    <lastmod>2013-03-24T22:38:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/post/2012/new-site/</loc>
+    <lastmod>2012-06-01T01:15:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/uncategorised/</loc>
+    <lastmod>2012-06-01T01:15:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

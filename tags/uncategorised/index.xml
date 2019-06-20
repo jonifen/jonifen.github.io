@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uncategorised on Jon Cain</title>
+    <link>/tags/uncategorised/</link>
+    <description>Recent content in uncategorised on Jon Cain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>(c) 2019 Jon Cain</copyright>
+    <lastBuildDate>Fri, 01 Jun 2012 01:15:00 +0100</lastBuildDate>
+    
+	<atom:link href="/tags/uncategorised/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New Site</title>
+      <link>/blog/post/2012/new-site/</link>
+      <pubDate>Fri, 01 Jun 2012 01:15:00 +0100</pubDate>
+      
+      <guid>/blog/post/2012/new-site/</guid>
+      <description>So I finally got around to sorting out my page. This is only a quick update to kick things off. There will be the typical random stuff, but also programming stuff as well (which should help other programmers (new and existing) that are struggling to find what they&amp;rsquo;re looking for).</description>
+    </item>
+    
+  </channel>
+</rss>
