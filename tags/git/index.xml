@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sourcecontrol on Jon Cain</title>
-    <link>/tags/sourcecontrol/</link>
-    <description>Recent content in sourcecontrol on Jon Cain</description>
+    <title>git on Jon Cain</title>
+    <link>/tags/git/</link>
+    <description>Recent content in git on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>(c) 2019 Jon Cain</copyright>
     <lastBuildDate>Fri, 21 Jun 2019 21:27:47 +0100</lastBuildDate>
     
-	<atom:link href="/tags/sourcecontrol/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -30,16 +30,6 @@ Well, you could just revert each commit one-by-one, but what if your commit hist
       <guid>/blog/post/2019/git-revert-without-commit/</guid>
       <description>Git is easily the best source control system I&amp;rsquo;ve ever used, yet it&amp;rsquo;s probably one of the more infuriating too because its power and flexibility can also land the users in a whole world of pain.
 Today at work we had a scenario where a colleague needed to revert a handful of commits including a merge but there was a chance it may need re-introducing at a later date. I suggested reverting each commit with --no-commit but nobody else had heard of this argument before, hence I felt a post may be useful (although this probably requires that people visit my blog first to find it haha).</description>
-    </item>
-    
-    <item>
-      <title>Retaining chmod permissions for scripts in git repositories</title>
-      <link>/blog/post/2019/bash-scripts-chmod-in-git/</link>
-      <pubDate>Wed, 01 May 2019 20:44:36 +0100</pubDate>
-      
-      <guid>/blog/post/2019/bash-scripts-chmod-in-git/</guid>
-      <description>Our continuous delivery setup at work requires that we use bash scripts for builds that can be handled by Linux machines.
-The main issue is when we create a new project, we often get &amp;ldquo;Permission Denied&amp;rdquo; errors when the CI system runs the scripts on the build agents. Usually, you&amp;rsquo;d just run chmod on a machine and try again, but this doesn&amp;rsquo;t work when the files are being pushed into a git repository, and then pulled at the other side.</description>
     </item>
     
   </channel>

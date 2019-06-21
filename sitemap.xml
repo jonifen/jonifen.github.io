@@ -4,25 +4,42 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/blog/post/2019/git-revert-range-of-commits/</loc>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
-    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/git/</loc>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/programming/</loc>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sourcecontrol/</loc>
+    <lastmod>2019-06-21T21:27:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/post/2019/vs2019-webapplication-targets-not-found/</loc>
     <lastmod>2019-06-17T21:59:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/programming/</loc>
-    <lastmod>2019-06-17T21:59:33+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -51,12 +68,6 @@
   <url>
     <loc>/blog/post/2019/git-revert-without-commit/</loc>
     <lastmod>2019-05-23T21:52:44+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/sourcecontrol/</loc>
-    <lastmod>2019-05-23T21:52:44+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
