@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>(c) 2019 Jon Cain</copyright>
-    <lastBuildDate>Tue, 17 Nov 2015 23:14:01 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2015 23:14:01 +0100</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Fri, 21 Jun 2019 22:43:01 +0100</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>I&amp;rsquo;ve got a few bits and pieces that I&amp;rsquo;ve created which is available for all to use. Some are pretty nonsense things, intended for fun. Some are more serious and have taken some time to work on (and may still be in progress).
+Side projects Cluedo Assistant Github &amp;middot; Demo
+At home, like most families, we have the board game Cluedo. As most families have found, the sheets you use to track game progress tend to get used up over time, and you end up with scraps of paper, or making some alternatives in Excel and print a bunch out (we&amp;rsquo;ve been here too!</description>
+    </item>
     
     <item>
       <title>Revert a range of commits in a Git repository</title>
