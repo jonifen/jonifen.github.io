@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Dell XPS 15 9530 limited CPU clock speed (0.78GHz)</title>
+      <link>/blog/post/2019/dell-xps-15-9530-limited-cpu/</link>
+      <pubDate>Sat, 02 Nov 2019 12:09:30 +0000</pubDate>
+      
+      <guid>/blog/post/2019/dell-xps-15-9530-limited-cpu/</guid>
+      <description>This morning, I noticed that my Dell XPS 15 9530 felt a little sluggish, so did some investigation and found the CPU clock had capped at a lower speed. I did a full reboot of Windows 10, and luckily this was sufficient to shake things back into life. But a quick read online suggested that some people aren&amp;rsquo;t quite as lucky in this situation.
+So if a reboot doesn&amp;rsquo;t resolve the issue, what next?</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>/projects/</link>
       <pubDate>Fri, 21 Jun 2019 22:43:01 +0100</pubDate>
