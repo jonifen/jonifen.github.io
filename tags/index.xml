@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>(c) 2019 Jon Cain</copyright>
-    <lastBuildDate>Sat, 02 Nov 2019 12:09:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 22:32:35 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Sat, 16 Nov 2019 22:32:35 +0000</pubDate>
+      
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>/tags/programming/</link>
+      <pubDate>Sat, 16 Nov 2019 22:32:35 +0000</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>techsupport</title>
@@ -27,15 +45,6 @@
       <pubDate>Fri, 21 Jun 2019 21:27:47 +0100</pubDate>
       
       <guid>/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/tags/programming/</link>
-      <pubDate>Fri, 21 Jun 2019 21:27:47 +0100</pubDate>
-      
-      <guid>/tags/programming/</guid>
       <description></description>
     </item>
     
@@ -117,15 +126,6 @@
       <pubDate>Sun, 19 Aug 2018 13:18:18 +0000</pubDate>
       
       <guid>/tags/umbraco7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>javascript</title>
-      <link>/tags/javascript/</link>
-      <pubDate>Thu, 07 Dec 2017 22:34:37 +0000</pubDate>
-      
-      <guid>/tags/javascript/</guid>
       <description></description>
     </item>
     

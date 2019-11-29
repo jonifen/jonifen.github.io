@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>(c) 2019 Jon Cain</copyright>
-    <lastBuildDate>Thu, 07 Dec 2017 22:34:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 22:32:35 +0000</lastBuildDate>
     
 	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Convert JavaScript Number to Number Array</title>
+      <link>/blog/post/2019/js_number_to_array/</link>
+      <pubDate>Sat, 16 Nov 2019 22:32:35 +0000</pubDate>
+      
+      <guid>/blog/post/2019/js_number_to_array/</guid>
+      <description>I had a number which I wanted converting into an array where each digit of the number was an item in the array. I tried a few different ways of doing this but always ended up with a string array which wasn&amp;rsquo;t what I wanted.
+To get around this, you can use some of the new features introduced in ES6 as follows:
+const theNumber = 432375; const output = Array.from(theNumber.toString()).map(Number); console.</description>
+    </item>
     
     <item>
       <title>React.js Unit Testing with Jest and Enzyme</title>
