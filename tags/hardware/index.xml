@@ -6,7 +6,7 @@
     <description>Recent content in hardware on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Sun, 21 May 2017 21:09:27 +0100</lastBuildDate>
     
 	<atom:link href="/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
@@ -14,30 +14,30 @@
     
     <item>
       <title>iPad appears in Windows 10, but not showing in iTunes</title>
-      <link>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</link>
+      <link>/blog/ipad-shows-in-windows-not-in-itunes/</link>
       <pubDate>Sun, 21 May 2017 21:09:27 +0100</pubDate>
       
-      <guid>/blog/post/2017/ipad-shows-in-windows-not-in-itunes/</guid>
+      <guid>/blog/ipad-shows-in-windows-not-in-itunes/</guid>
       <description>I have an aging iPad2 which is getting on a bit but still works fine, but often won&amp;rsquo;t appear in iTunes, but is showing in Windows 10 as a device in &amp;lsquo;This PC&amp;rsquo;.
 I find it usually happens after an iTunes update when the iPad was plugged in already, and it seems Windows throws in a generic driver when the Apple drivers are removed as part of the upgrade process. To solve the problem, I do the following:</description>
     </item>
     
     <item>
       <title>PrimeFilm 1800u Film Scanner</title>
-      <link>/blog/post/2017/primefilm1800uscanner/</link>
+      <link>/blog/primefilm1800uscanner/</link>
       <pubDate>Sun, 26 Feb 2017 20:57:26 +0000</pubDate>
       
-      <guid>/blog/post/2017/primefilm1800uscanner/</guid>
+      <guid>/blog/primefilm1800uscanner/</guid>
       <description>As part of the downsizing task my Mum has taken on, we&amp;rsquo;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame). The photos is an easy task (albeit fairly monotonous as my scanner doesn&amp;rsquo;t have a document feeder), but the slides might be trickier.
 My Mum bought a slide scanner a few years ago (OK then, quite a few years ago), the PrimeFilm 1800u Film Scanner.</description>
     </item>
     
     <item>
       <title>Windows 10 IoT on a Raspberry Pi 2</title>
-      <link>/blog/post/2017/01-11_raspberrypi2_windows10iot/</link>
+      <link>/blog/pi2-windows10-iot/</link>
       <pubDate>Wed, 11 Jan 2017 06:30:33 +0000</pubDate>
       
-      <guid>/blog/post/2017/01-11_raspberrypi2_windows10iot/</guid>
+      <guid>/blog/pi2-windows10-iot/</guid>
       <description>I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2. I&amp;rsquo;ve been looking at this since it was first announced a while back, but never actually got around to having a proper look into it and getting it installed on one of our Pis.
 What kit do I have then?
  Raspberry Pi 2 Edimax EW-7811Un Nano USB Wireless Dongle (which turned out to be unsupported, but there is a workaround - details to come later) Official Power Supply (the white Raspberry Pi 2.</description>
@@ -45,57 +45,57 @@ What kit do I have then?
     
     <item>
       <title>Intel Graphics Driver Crashes on XPS15</title>
-      <link>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</link>
+      <link>/blog/intel-graphics-drivers-crash-xps15/</link>
       <pubDate>Tue, 10 Jan 2017 21:43:11 +0000</pubDate>
       
-      <guid>/blog/post/2017/01-10_graphicdrivercrashes_xps15/</guid>
+      <guid>/blog/intel-graphics-drivers-crash-xps15/</guid>
       <description>On my XPS15, I&amp;rsquo;ve noticed recently that the Intel graphics driver crashes a quite a bit (mainly when using Google Chrome). Although it recovers successfully, it&amp;rsquo;s still pretty annoying. A couple of days ago, I finally reached the end of my tether and started seriously looking for a solution (as compared to a quick Google search and then get distracted).
 I came across a thread on Dell&amp;rsquo;s community forum: http://en.community.dell.com/support-forums/laptop/f/3519/t/19658452 which discussed this problem.</description>
     </item>
     
     <item>
       <title>Reinstalling a Samsung NC10&#43; Netbook = Painful</title>
-      <link>/blog/post/2016/samsung-nc10plus-reinstall-pain/</link>
+      <link>/blog/samsung-nc10plus-reinstall-pain/</link>
       <pubDate>Sat, 12 Mar 2016 18:43:12 +0000</pubDate>
       
-      <guid>/blog/post/2016/samsung-nc10plus-reinstall-pain/</guid>
+      <guid>/blog/samsung-nc10plus-reinstall-pain/</guid>
       <description>I&amp;rsquo;ve had to do a restore on a Samsung NC10+ which is an Atom N450 based netbook from a few years back. But for some reason, the recovery stuff just won&amp;rsquo;t work and I&amp;rsquo;ve had to do a clean install of Windows. And the Samsung support website&amp;hellip; well, it&amp;rsquo;s not much support at all. In fact, I don&amp;rsquo;t think they even remember releasing the NC10+. Only the original NC10.</description>
     </item>
     
     <item>
       <title>LG G3 - No fun here</title>
-      <link>/blog/post/2016/lg-g3-possibly-the-worst-flagship/</link>
+      <link>/blog/lg-g3-possibly-the-worst-flagship/</link>
       <pubDate>Fri, 15 Jan 2016 22:59:12 +0000</pubDate>
       
-      <guid>/blog/post/2016/lg-g3-possibly-the-worst-flagship/</guid>
+      <guid>/blog/lg-g3-possibly-the-worst-flagship/</guid>
       <description>Edit 04/04/2016 I should have updated this post sooner. Usually I&amp;rsquo;d just include an addendum at the bottom, but I&amp;rsquo;ve re-worded a few bits in the content as my original review was maybe a tad harsh, and I&amp;rsquo;ll explain why below. It&amp;rsquo;s just a shame it took so long for the Marshmallow update to be available, as I&amp;rsquo;d already had enough with the handset and wanted back to an Apple where things are just simple!</description>
     </item>
     
     <item>
       <title>A Decent 10&#34; Android Tablet... Does one exist?</title>
-      <link>/blog/post/2016/a-decent-10-inch-android-tablet/</link>
+      <link>/blog/a-decent-10-inch-android-tablet/</link>
       <pubDate>Thu, 14 Jan 2016 21:02:37 +0000</pubDate>
       
-      <guid>/blog/post/2016/a-decent-10-inch-android-tablet/</guid>
+      <guid>/blog/a-decent-10-inch-android-tablet/</guid>
       <description>My son bought an Android tablet around 18 months ago with a combination of Christmas and Birthday money. It became an extension of his body with him taking it everywhere to play games and watch YouTube videos about Minecraft and Garry&amp;rsquo;s Mod.
 He recently leapt into bed one night (forgetting the tablet was on his bed) and broke the screen with his knee. It was a complete accident, but he was absolutely devastated by what had happened.</description>
     </item>
     
     <item>
       <title>Raspberry Pi 2</title>
-      <link>/blog/post/2015/raspberry-pi-2/</link>
+      <link>/blog/raspberry-pi-2/</link>
       <pubDate>Mon, 23 Mar 2015 22:17:00 +0000</pubDate>
       
-      <guid>/blog/post/2015/raspberry-pi-2/</guid>
+      <guid>/blog/raspberry-pi-2/</guid>
       <description>I ended up taking the plunge and ordering a Raspberry Pi 2 which arrived today. But, I thought I had another MicroSD card which was Class 6 or 10, but unfortunately not&amp;hellip; so I&amp;rsquo;ve given it a quick whirl with the Class 4 MicroSD that came with my Pi B (with adapter) and it seems to work quite well. I&amp;rsquo;m amazed by how responsive it is with MinecraftPi running and how it allows me to open Python files without hanging around.</description>
     </item>
     
     <item>
       <title>Boot Booster (EFI) Partition on an Asus EeePC 1005P</title>
-      <link>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</link>
+      <link>/blog/boot-booster-efi-partition-asus-eee-1005p/</link>
       <pubDate>Mon, 18 Aug 2014 16:41:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/boot-booster-efi-partition-asus-eee-1005p/</guid>
+      <guid>/blog/boot-booster-efi-partition-asus-eee-1005p/</guid>
       <description>We have an Asus EeePC 1005P netbook which comes with the Intel Atom N450 CPU. The BIOS provides a &amp;ldquo;Boot Booster&amp;rdquo; option which caches POST information in a special partition on the hard drive to speed up the boot process. Unfortunately, as part of removing all the partitions from the hard drive, this &amp;ldquo;special&amp;rdquo; partition has been lost and I needed to recreate it.
 You will need:
  Windows installation media Linux live media (I&amp;rsquo;m using a Lubuntu CD) Plenty of time (it is an Atom CPU afterall!</description>
@@ -103,19 +103,19 @@ You will need:
     
     <item>
       <title>XPS 15 Update</title>
-      <link>/blog/post/2014/xps-15-update/</link>
+      <link>/blog/xps-15-update/</link>
       <pubDate>Sat, 09 Aug 2014 19:17:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/xps-15-update/</guid>
+      <guid>/blog/xps-15-update/</guid>
       <description>I&amp;rsquo;ve had the XPS 15 for a few weeks now (well, actually it&amp;rsquo;s only a fortnight off 2 months!), and I&amp;rsquo;m still very impressed with it as a full package. The build quality is excellent, it doesn&amp;rsquo;t flex at all if you hold it by a corner when it&amp;rsquo;s open. The keyboard took a little getting used to, but I got the hang of it pretty quickly and my typing speed is increasing every time I use it.</description>
     </item>
     
     <item>
       <title>Dell XPS 15</title>
-      <link>/blog/post/2014/dell-xps-15/</link>
+      <link>/blog/dell-xps-15/</link>
       <pubDate>Sun, 22 Jun 2014 00:25:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/dell-xps-15/</guid>
+      <guid>/blog/dell-xps-15/</guid>
       <description>It&amp;rsquo;s finally arrived!
 I was getting to the point of wondering if it would ever get here or if it would stay in the limbo land between the factory and the courier in the UK.
 I&amp;rsquo;ve had it a couple of days now and did the usual charging process (1st charge to full while setting it up etc.). I&amp;rsquo;ve since used it for around 5hrs on battery and at 12% decided to do the 2nd charge.</description>
@@ -123,19 +123,19 @@ I&amp;rsquo;ve had it a couple of days now and did the usual charging process (1
     
     <item>
       <title>Dell&#39;s Informative Delivery Service</title>
-      <link>/blog/post/2014/dells-informative-delivery-service/</link>
+      <link>/blog/dells-informative-delivery-service/</link>
       <pubDate>Mon, 16 Jun 2014 21:42:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/dells-informative-delivery-service/</guid>
+      <guid>/blog/dells-informative-delivery-service/</guid>
       <description>OK, so I&amp;rsquo;m not alone here. I finally decided on an XPS 15 and ordered it 10 days ago now. After a couple of days, the Dell website showed the order as shipped and I could track it through their agent Walsh Western (a.k.a. Syncreon). I&amp;rsquo;m now sat here on the evening before my expected ETA date and it still hasn&amp;rsquo;t reached the UK. The last update is the common &amp;ldquo;DEPARTED MANU.</description>
     </item>
     
     <item>
       <title>Laptop Shopping</title>
-      <link>/blog/post/2014/laptop-shopping/</link>
+      <link>/blog/laptop-shopping/</link>
       <pubDate>Sat, 31 May 2014 00:08:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/laptop-shopping/</guid>
+      <guid>/blog/laptop-shopping/</guid>
       <description>&amp;hellip; it&amp;rsquo;s just never easy when you&amp;rsquo;re picky like me.
 So as you&amp;rsquo;ll have noticed from my previous posts, I&amp;rsquo;ve been using my wife&amp;rsquo;s Asus 1005P (Atom CPU) and a 7 year old Vaio C2M/W. Over the last month or so I&amp;rsquo;ve been suffering from a &amp;ldquo;crisis of confidence&amp;rdquo; where I&amp;rsquo;ve been asking how I managed to become a senior developer. After reading Scott Hanselman&amp;rsquo;s blog on the topic, it seems that it&amp;rsquo;s a common feeling amongst developers.</description>
     </item>

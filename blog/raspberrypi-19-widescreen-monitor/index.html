@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Raspberry Pi on a 19&#34; Widescreen (16:10) LCD Monitor  &middot; Jon Cain</title>
+
+  <meta property="og:site_name" content="Jon Cain">
+  <meta property="og:title" content="Raspberry Pi on a 19&#34; Widescreen (16:10) LCD Monitor">
+  
+  <meta name="description" content="Earlier today I booked places for me and my son on a Raspberry Pi day in Manchester and then realised I might struggle to get the TV there as it&#39;s pretty heavy, plus I doubt we&#39;d be allowed it on a bus! Luckily, we still have the 19&#34; widescreen from the old living room PC, so I looked at using that instead." />
+  <meta property="og:description" content="Earlier today I booked places for me and my son on a Raspberry Pi day in Manchester and then realised I might struggle to get the TV there as it&#39;s pretty heavy, plus I doubt we&#39;d be allowed it on a bus! Luckily, we still have the 19&#34; widescreen from the old living room PC, so I looked at using that instead.">
+  
+  <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+    <header id="header">
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <ul class="nav">
+	<li class="nav-item"><a href="/" alt="Home" title="Home">Home</a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog">Blog</a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects">Projects</a></li><li class="nav-item"><a href="/about/" alt="Title" title="Title">About</a></li><li class="nav-item"><a href="/contact/" alt="Contact" title="Contact">Contact</a></li>
+</ul>
+    </div>
+  </header>
+
+  <script src="/js/header-bar.js"></script>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>Raspberry Pi on a 19&#34; Widescreen (16:10) LCD Monitor</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~3 minutes (440 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2014-01-18">
+		18 Jan, 2014
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/raspberrypi" class="tag">raspberrypi</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>Earlier today I booked places for me and my son on a Raspberry Pi day in Manchester and then realised I might struggle to get the TV there as it&rsquo;s pretty heavy, plus I doubt we&rsquo;d be allowed it on a bus! Luckily, we still have the 19&rdquo; widescreen from the old living room PC, so I looked at using that instead.</p>
+
+<p>The monitor was made by Daewoo, I got it about 6 years ago (or there abouts) and it has a native resolution of 1440x900 at a refresh rate of 60Hz.</p>
+
+<p>I dug out the HDMI-to-DVI cable and got to work trying to get it going. First of all, I checked the</p>
+
+<pre><code>/boot/config.txt
+</code></pre>
+
+<p>file and (following the same page as when I got it going on the TV) made the following changes:</p>
+
+<pre><code>hdmi_group=2
+hdmi_mode=47
+</code></pre>
+
+<p>to enable DMT mode (for a monitor) and set the resolution to 1440x900@60Hz.</p>
+
+<p>Once that was saved, and a quick</p>
+
+<pre><code>sudo shutdown -r now
+</code></pre>
+
+<p>later, I was greeted with the splash screen and then &ldquo;No Signal&rdquo;. Bah! Something wasn&rsquo;t right. So I plugged it back into the TV and a reboot later, was back at the prompt to try again.</p>
+
+<p>I tried</p>
+
+<pre><code>tvservice -m DMT
+</code></pre>
+
+<p>to see what DMT modes the monitor supported, but it didn&rsquo;t find any. So I tried</p>
+
+<pre><code>tvservice -m CEA
+</code></pre>
+
+<p>just in case and also got the prompt that no modes were found. So I eventually did a</p>
+
+<pre><code>tvservice -d edid.dat
+</code></pre>
+
+<p>to dump the available options to file, then did a</p>
+
+<pre><code>edidparser edid.dat
+</code></pre>
+
+<p>to parse the file onto the screen. Funnily enough, it told me the preferred mode was 1440x900@60Hz (DMT mode 47), so something wasn&rsquo;t right and further research was needed.</p>
+
+<p>I tried several things according to the various forums and websites all to no avail before stumbling across this gem of information by popcornmix on STM Labs forum (link) which said:</p>
+
+<pre><code>Simple solution is to add:
+avoid_safe_mode=1
+</code></pre>
+
+<p>Other people on the thread seemed to think that the OP was struggling with the Pi always booting in safe mode, so the trick was to stop it from doing that. I put into the bottom of my</p>
+
+<pre><code>/boot/config.txt
+</code></pre>
+
+<p>file along with the following:</p>
+
+<pre><code>hdmi_ignore_edid=0xa5000080
+config_hdmi_boost=4
+</code></pre>
+
+<p>After a reboot, I was in business! However, forcing the Pi to skip safe mode is obviously hiding a problem (why else would the Pi want to boot into safe mode otherwise?) so I have much more research to do, but at the very least I&rsquo;m up and running in time for the Pi day next week. If anyone has any ideas as to where I&rsquo;m going wrong, please let me know (catch me on twitter).</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

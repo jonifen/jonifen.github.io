@@ -6,7 +6,7 @@
     <description>Recent content in connectivity on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Sat, 09 Jan 2016 21:33:55 +0000</lastBuildDate>
     
 	<atom:link href="/tags/connectivity/index.xml" rel="self" type="application/rss+xml" />
@@ -14,20 +14,20 @@
     
     <item>
       <title>TP-Link Archer C2 - First Impressions</title>
-      <link>/blog/post/2016/tplink-archer-c2-first-impressions/</link>
+      <link>/blog/tplink-archer-c2-first-impressions/</link>
       <pubDate>Sat, 09 Jan 2016 21:33:55 +0000</pubDate>
       
-      <guid>/blog/post/2016/tplink-archer-c2-first-impressions/</guid>
+      <guid>/blog/tplink-archer-c2-first-impressions/</guid>
       <description>As mentioned in my last post, I was in the hunt for a new router to replace the aging Buffalo WHR-HP-G54. I&amp;rsquo;d found that it wasn&amp;rsquo;t capable of handling fibre broadband speeds (hardly surprising&amp;hellip; given that it&amp;rsquo;s running a 200MHz single core CPU with barely a few megs free of the 16Mb RAM).
 I ended up dropping by PC World and picking up the TP-Link Archer C2 for £49.99 (a few quid more expensive than it was at Scan, but PC World was closer, so I was saving petrol money and around 30 minutes of my time for the round-trip).</description>
     </item>
     
     <item>
       <title>Buffalo WHR-HP-G54 Fun (or not...)</title>
-      <link>/blog/post/2016/buffalo-whr-hp-g54/</link>
+      <link>/blog/buffalo-whr-hp-g54/</link>
       <pubDate>Fri, 08 Jan 2016 22:54:03 +0000</pubDate>
       
-      <guid>/blog/post/2016/buffalo-whr-hp-g54/</guid>
+      <guid>/blog/buffalo-whr-hp-g54/</guid>
       <description>Out of contract with my previous supplier, I was free to find a new supplier. Luckily, one of the benefits of my job is that I get free fibre broadband, so it was a simple decision :)
 Anyway, back to the point of my post.
 I last used the Buffalo a few years back when on Virgin Media&amp;rsquo;s &amp;ldquo;National&amp;rdquo; service (no longer available - a good thing as it was trash) when their supplied Netgear had weak wi-fi.</description>
@@ -35,10 +35,10 @@ I last used the Buffalo a few years back when on Virgin Media&amp;rsquo;s &amp;l
     
     <item>
       <title>No dial tone, but broadband still works?</title>
-      <link>/blog/post/2015/no-dial-tone-but-broadband-works/</link>
+      <link>/blog/no-dial-tone-but-broadband-works/</link>
       <pubDate>Thu, 03 Dec 2015 20:58:18 +0000</pubDate>
       
-      <guid>/blog/post/2015/no-dial-tone-but-broadband-works/</guid>
+      <guid>/blog/no-dial-tone-but-broadband-works/</guid>
       <description>It seems whenever I need to make a phone call on the landline, it&amp;rsquo;s broken. Yesterday I picked up the landline handset and it was dead. No dial tone. Nothing. Nada. Zip.
 I tried the usual steps at first (unplug it, plug it back in) but no joy. Onto the broadband I went. Works fine. Weird. I&amp;rsquo;ve had this before and leaving stuff unplugged overnight seemed to fix it, but on this occasion it didn&amp;rsquo;t help.</description>
     </item>

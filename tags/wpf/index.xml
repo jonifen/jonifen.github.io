@@ -6,7 +6,7 @@
     <description>Recent content in wpf on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Fri, 18 Jul 2014 20:18:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/wpf/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>Ribbon in .NET 4.5 using WPF and MVVM</title>
-      <link>/blog/post/2014/ribbon-in-net45-using-wpf-mvvm/</link>
+      <link>/blog/ribbon-in-net45-using-wpf-mvvm/</link>
       <pubDate>Fri, 18 Jul 2014 20:18:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/ribbon-in-net45-using-wpf-mvvm/</guid>
+      <guid>/blog/ribbon-in-net45-using-wpf-mvvm/</guid>
       <description>I&amp;rsquo;ve been spending some time recently to learn WPF a bit better including the MVVM pattern to encourage the separation of concerns between the view and the logic behind it.
 It&amp;rsquo;s been a steep learning curve (to say the least!) but today I spent a bit of time looking into getting an Office-esque ribbon bar onto the main window of my dummy application. At first I wasn&amp;rsquo;t too sure, but I soon realised it&amp;rsquo;s not too dissimilar to any other button.</description>
     </item>

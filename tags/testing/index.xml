@@ -6,7 +6,7 @@
     <description>Recent content in testing on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Thu, 07 Dec 2017 22:34:37 +0000</lastBuildDate>
     
 	<atom:link href="/tags/testing/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>React.js Unit Testing with Jest and Enzyme</title>
-      <link>/blog/post/2017/react-unit-testing-jest-enzyme/</link>
+      <link>/blog/react-unit-testing-jest-enzyme/</link>
       <pubDate>Thu, 07 Dec 2017 22:34:37 +0000</pubDate>
       
-      <guid>/blog/post/2017/react-unit-testing-jest-enzyme/</guid>
+      <guid>/blog/react-unit-testing-jest-enzyme/</guid>
       <description>I&amp;rsquo;ve written loads of unit tests in my lifetime for C# and JavaScript, but never gotten around to writing any for testing the actual React components because there&amp;rsquo;s always been something more pressing. Time to put that right and take the plunge.
 So I&amp;rsquo;ve picked up the project which resulted from the React.js Continued&amp;hellip; State! tutorial as a starter for ten as it already has a lot of the boilerplate stuff in place.</description>
     </item>

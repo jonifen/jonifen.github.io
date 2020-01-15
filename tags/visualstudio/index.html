@@ -2,13 +2,13 @@
 <html class="no-js">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>visualstudio  &middot; Jon Cain</title>
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
+  <title>visualstudio  &middot; Jon Cain</title>
+
   <meta property="og:site_name" content="Jon Cain">
   <meta property="og:title" content="visualstudio">
   
@@ -21,16 +21,18 @@
   <link rel="stylesheet" href="/css/jonifen.css">
 </head>
 <body>
-    <header>
+    <header id="header">
     <div class="container">
       <div class="heading">
         <a href="/">Jon Cain</a>
       </div>
-      <div class="nav">
-	<a href="/" class="nav-item" alt="Home" title="Home">Home</a><a href="/blog/" class="nav-item" alt="Blog" title="Blog">Blog</a><a href="/projects/" class="nav-item" alt="Projects" title="Projects">Projects</a><a href="/contact/" class="nav-item" alt="Contact" title="Contact">Contact</a>
-</div>
+      <ul class="nav">
+	<li class="nav-item"><a href="/" alt="Home" title="Home">Home</a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog">Blog</a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects">Projects</a></li><li class="nav-item"><a href="/about/" alt="Title" title="Title">About</a></li><li class="nav-item"><a href="/contact/" alt="Contact" title="Contact">Contact</a></li>
+</ul>
     </div>
   </header>
+
+  <script src="/js/header-bar.js"></script>
   <div class="page-content">
 
 <div class="post-header">
@@ -43,128 +45,66 @@
 <div class="container">
   
   
-    <div class="container">
-  <div class="post-summary">
-    <div>
+    <div class="post-summary">
+  <div>
   <div class="post-heading">
-    <h2><a href="/blog/post/2019/vs2019-webapplication-targets-not-found/">The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</a></h2>
+    <h2><a href="/blog/vs2019-webapplication-targets-not-found/">The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</a></h2>
   </div>
 </div>
-    <p>
+  <p>
+    
       
-        
-          We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
+        We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
 The imported project &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\vCurrent\WebApplications\Microsoft.WebApplication.targets&quot; was not found.  After some research, I came across this a VS Community post where Microsoft have deemed it to be under consideration, but after a few months, it&rsquo;s still outstanding.
 Figuring out that the issue could surround the vCurrent part of the path, I did a bit more research, coming across another VS Community post which discusses this point, and it turns out that Microsoft have changed the MSBuildToolsVersion variable to output Current rather than the version (as it did previously).
-        
       
-    </p>
-    <div class="meta">
-  <small>17 June 2019</small>
-  
-	
-		<a href="/tags/programming" class="tag">programming</a>
-	
-		<a href="/tags/visualstudio" class="tag">visualstudio</a>
-	
-
-
-</div>
-  </div>
+    
+  </p>
 </div>
   
-    <div class="container">
-  <div class="post-summary">
-    <div>
+    <div class="post-summary">
+  <div>
   <div class="post-heading">
-    <h2><a href="/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/">JSX/ES6 Syntax Highlighting in Visual Studio 2015</a></h2>
+    <h2><a href="/blog/jsx-highlighting-vs2015/">JSX/ES6 Syntax Highlighting in Visual Studio 2015</a></h2>
   </div>
 </div>
-    <p>
+  <p>
+    
       
-        
-          Visual Studio 2015 (by default) isn&#39;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.
-        
+        Visual Studio 2015 (by default) isn&#39;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.
       
-    </p>
-    <div class="meta">
-  <small>13 January 2017</small>
-  
-	
-		<a href="/tags/programming" class="tag">programming</a>
-	
-		<a href="/tags/javascript" class="tag">javascript</a>
-	
-		<a href="/tags/reactjs" class="tag">reactjs</a>
-	
-		<a href="/tags/visualstudio" class="tag">visualstudio</a>
-	
-
-
-</div>
-  </div>
+    
+  </p>
 </div>
   
-    <div class="container">
-  <div class="post-summary">
-    <div>
+    <div class="post-summary">
+  <div>
   <div class="post-heading">
-    <h2><a href="/blog/post/2015/visual-studio-2015-markdown-support/">Markdown Support in Visual Studio 2015</a></h2>
+    <h2><a href="/blog/visual-studio-2015-markdown-support/">Markdown Support in Visual Studio 2015</a></h2>
   </div>
 </div>
-    <p>
+  <p>
+    
       
-        
-          Wow! I&#39;ve just tried editing a markdown file in Visual Studio...
-        
+        Wow! I&#39;ve just tried editing a markdown file in Visual Studio...
       
-    </p>
-    <div class="meta">
-  <small>20 November 2015</small>
-  
-	
-		<a href="/tags/programming" class="tag">programming</a>
-	
-		<a href="/tags/gohugo.io" class="tag">gohugo.io</a>
-	
-		<a href="/tags/site" class="tag">site</a>
-	
-		<a href="/tags/visualstudio" class="tag">visualstudio</a>
-	
-
-
-</div>
-  </div>
+    
+  </p>
 </div>
   
-    <div class="container">
-  <div class="post-summary">
-    <div>
+    <div class="post-summary">
+  <div>
   <div class="post-heading">
-    <h2><a href="/blog/post/2014/visual-studio-2013-connection-problems/">Connection problems in Visual Studio 2013</a></h2>
+    <h2><a href="/blog/visual-studio-2013-connection-problems/">Connection problems in Visual Studio 2013</a></h2>
   </div>
 </div>
-    <p>
+  <p>
+    
       
-        
-          Since installing Update 2 on the work laptop, I&#39;ve been unable to check for available updates through the Tools &gt; Extensions &amp; Updates screen as it always timed out.
-        
+        Since installing Update 2 on the work laptop, I&#39;ve been unable to check for available updates through the Tools &gt; Extensions &amp; Updates screen as it always timed out.
       
-    </p>
-    <div class="meta">
-  <small>29 May 2014</small>
-  
-	
-		<a href="/tags/techsupport" class="tag">techsupport</a>
-	
-		<a href="/tags/csharp" class="tag">csharp</a>
-	
-		<a href="/tags/visualstudio" class="tag">visualstudio</a>
-	
-
-
-</div>
-  </div>
+    
+  </p>
 </div>
   
   

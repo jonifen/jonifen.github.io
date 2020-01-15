@@ -3,18 +3,18 @@
 <head>
 	<meta name="generator" content="Hugo 0.55.6" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Jon Cain | jonifen.co.uk  &middot; Jon Cain</title>
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
+  <title>Jon Cain </title>
+
   <meta property="og:site_name" content="Jon Cain">
-  <meta property="og:title" content="Jon Cain | jonifen.co.uk">
+  <meta property="og:title" content="Jon Cain">
   
-  <meta name="description" content="Software Developer in C#, JavaScript. Husband and Dad of 4. Old before my time, but still a child at heart." />
-  <meta property="og:description" content="Software Developer in C#, JavaScript. Husband and Dad of 4. Old before my time, but still a child at heart.">
+  <meta name="description" content="" />
+  <meta property="og:description" content="">
   
   <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
   <meta property="og:type" content="website">
@@ -22,37 +22,97 @@
   <link rel="stylesheet" href="/css/jonifen.css">
 </head>
 <body>
-    <header>
+    <header id="header">
     <div class="container">
       <div class="heading">
         <a href="/">Jon Cain</a>
       </div>
-      <div class="nav">
-	<a href="/" class="nav-item" alt="Home" title="Home">Home</a><a href="/blog/" class="nav-item" alt="Blog" title="Blog">Blog</a><a href="/projects/" class="nav-item" alt="Projects" title="Projects">Projects</a><a href="/contact/" class="nav-item" alt="Contact" title="Contact">Contact</a>
-</div>
+      <ul class="nav">
+	<li class="nav-item"><a href="/" alt="Home" title="Home">Home</a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog">Blog</a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects">Projects</a></li><li class="nav-item"><a href="/about/" alt="Title" title="Title">About</a></li><li class="nav-item"><a href="/contact/" alt="Contact" title="Contact">Contact</a></li>
+</ul>
     </div>
   </header>
+
+  <script src="/js/header-bar.js"></script>
   <div class="page-content">
 <div class="container">
-  <div class="content">
-    <p>I&rsquo;m a Software Developer using C#, JavaScript (including React and Redux). As penance for a past life, I have a lot of experience with VB6 too :)</p>
+  <div class="site-summary">
+    <p>
+      This is a blog about software development, general tech stuff and some other completely random junk!
+    </p>
+  </div>
 
-<p>Outside of work, I&rsquo;m a Dad of 4. I&rsquo;m married to <a href="http://dicain.co.uk">Di</a>.</p>
-
-<p>I enjoy cycling, and am quite happy to tinker with one to get it working great (except when it&rsquo;s fixing a puncture in the rain!). I used to commute by bike to work, but since changing jobs in 2018, I&rsquo;ve found the bus much easier so I&rsquo;m yet to get on the bike for the commute.</p>
-
-<p>I&rsquo;m pretty interested in cars too, but unlike with the bikes, I&rsquo;m much too scared to tinker with them in case things go wrong :)</p>
-
-<p>I try to help out on StackOverflow when I get some free time which is pretty difficult for C# questions, as nobody&rsquo;s quicker at responding than Jon Skeet ;)</p>
-
-<p><a href="//stackoverflow.com/users/3157725/jonifen"><img src="//stackoverflow.com/users/flair/3157725.png" width="208" height="58" alt="profile for jonifen at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for jonifen at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a></p>
-
-<p>Otherwise, I like to play video games. Nowadays, this is mainly on the PS4 and usually on the latest FIFA or Gran Turismo, although I did have a misspent youth on Quake 2, 3, Unreal Tournament and CounterStrike.</p>
-
-<p>Want to get in touch? <a href="/contact">Contact me</a></p>
-
+  
+    <div class="post-summary">
+  <div>
+  <div class="post-heading">
+    <h2><a href="/blog/js_number_to_array/">Convert JavaScript Number to Number Array</a></h2>
   </div>
 </div>
+  <p>
+    
+      
+        I had a number which I wanted converting into an array where each digit of the number was an item in the array. I tried a few different ways of doing this but always ended up with a string array which wasn&rsquo;t what I wanted.
+To get around this, you can use some of the new features introduced in ES6 as follows:
+const theNumber = 432375; const output = Array.from(theNumber.toString()).map(Number); console.
+      
+    
+  </p>
+</div>
+  
+    <div class="post-summary">
+  <div>
+  <div class="post-heading">
+    <h2><a href="/blog/dell-xps-15-9530-limited-cpu/">Dell XPS 15 9530 limited CPU clock speed (0.78GHz)</a></h2>
+  </div>
+</div>
+  <p>
+    
+      
+        This morning, I noticed that my Dell XPS 15 9530 felt a little sluggish, so did some investigation and found the CPU clock had capped at a lower speed...
+      
+    
+  </p>
+</div>
+  
+    <div class="post-summary">
+  <div>
+  <div class="post-heading">
+    <h2><a href="/blog/git-revert-range-of-commits/">Revert a range of commits in a Git repository</a></h2>
+  </div>
+</div>
+  <p>
+    
+      
+        Have you ever had one of those days when you&#39;ve been hard at work on a repository, making small and regular commits to the repository during the day only to decide that it wasn&#39;t the way you wanted to go...
+      
+    
+  </p>
+</div>
+  
+    <div class="post-summary">
+  <div>
+  <div class="post-heading">
+    <h2><a href="/blog/vs2019-webapplication-targets-not-found/">The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</a></h2>
+  </div>
+</div>
+  <p>
+    
+      
+        We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
+The imported project &quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\vCurrent\WebApplications\Microsoft.WebApplication.targets&quot; was not found.  After some research, I came across this a VS Community post where Microsoft have deemed it to be under consideration, but after a few months, it&rsquo;s still outstanding.
+Figuring out that the issue could surround the vCurrent part of the path, I did a bit more research, coming across another VS Community post which discusses this point, and it turns out that Microsoft have changed the MSBuildToolsVersion variable to output Current rather than the version (as it did previously).
+      
+    
+  </p>
+</div>
+  
+
+  <div class="link-panel text-right">
+    <a href="/blog/">All Posts &gt;</a>
+  </div>
+</div>
+
       <footer>
         <div class="container">
           <small>

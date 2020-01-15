@@ -6,7 +6,7 @@
     <description>Recent content in visualstudio on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Mon, 17 Jun 2019 21:59:33 +0100</lastBuildDate>
     
 	<atom:link href="/tags/visualstudio/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>The imported project &#34;.../Microsoft.WebApplication.targets&#34; was not found</title>
-      <link>/blog/post/2019/vs2019-webapplication-targets-not-found/</link>
+      <link>/blog/vs2019-webapplication-targets-not-found/</link>
       <pubDate>Mon, 17 Jun 2019 21:59:33 +0100</pubDate>
       
-      <guid>/blog/post/2019/vs2019-webapplication-targets-not-found/</guid>
+      <guid>/blog/vs2019-webapplication-targets-not-found/</guid>
       <description>We have an existing web application project at work which was failing to open in Visual Studio 2019 with the following error:
 The imported project &amp;quot;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\vCurrent\WebApplications\Microsoft.WebApplication.targets&amp;quot; was not found.  After some research, I came across this a VS Community post where Microsoft have deemed it to be under consideration, but after a few months, it&amp;rsquo;s still outstanding.
 Figuring out that the issue could surround the vCurrent part of the path, I did a bit more research, coming across another VS Community post which discusses this point, and it turns out that Microsoft have changed the MSBuildToolsVersion variable to output Current rather than the version (as it did previously).</description>
@@ -25,30 +25,30 @@ Figuring out that the issue could surround the vCurrent part of the path, I did 
     
     <item>
       <title>JSX/ES6 Syntax Highlighting in Visual Studio 2015</title>
-      <link>/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/</link>
+      <link>/blog/jsx-highlighting-vs2015/</link>
       <pubDate>Fri, 13 Jan 2017 20:02:39 +0000</pubDate>
       
-      <guid>/blog/post/2017/01-13_jsxes6syntaxhighlightingvs2015/</guid>
+      <guid>/blog/jsx-highlighting-vs2015/</guid>
       <description>Visual Studio 2015 (by default) isn&amp;rsquo;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.
 A lot of developers seem to opt for alternative IDEs/editors for writing JavaScript code instead of staying in Visual Studio, however it&amp;rsquo;s often more effort to manage multiple IDEs for one project. I&amp;rsquo;ve tried a few things myself to get things working, some of the steps below are courtesy of Nick Dewitt on this StackOverflow post.</description>
     </item>
     
     <item>
       <title>Markdown Support in Visual Studio 2015</title>
-      <link>/blog/post/2015/visual-studio-2015-markdown-support/</link>
+      <link>/blog/visual-studio-2015-markdown-support/</link>
       <pubDate>Fri, 20 Nov 2015 23:29:55 +0000</pubDate>
       
-      <guid>/blog/post/2015/visual-studio-2015-markdown-support/</guid>
+      <guid>/blog/visual-studio-2015-markdown-support/</guid>
       <description>Wow!
 I&amp;rsquo;ve just tried editing a markdown file in Visual Studio and they have a cracking auto-preview on the right hand side of the page! Granted, you have to save the file to get the preview to update, but hey, I can live with that! This will make things a lot easier given that I&amp;rsquo;m currently keeping my content markdown stored in a TFS repository. Seems daft to make a post so small, but I was impressed.</description>
     </item>
     
     <item>
       <title>Connection problems in Visual Studio 2013</title>
-      <link>/blog/post/2014/visual-studio-2013-connection-problems/</link>
+      <link>/blog/visual-studio-2013-connection-problems/</link>
       <pubDate>Thu, 29 May 2014 12:31:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/visual-studio-2013-connection-problems/</guid>
+      <guid>/blog/visual-studio-2013-connection-problems/</guid>
       <description>Since installing Update 2 on the work laptop, I&amp;rsquo;ve been unable to check for available updates through the Tools &amp;gt; Extensions &amp;amp; Updates screen as it always timed out. If I continued working (without closing the IDE), it would eventually prompt me through the Notifications pane that it required credentials for the company proxy. Once I did that, it&amp;rsquo;d report updates etc. but over the last couple of days, that is no longer happening either.</description>
     </item>
     

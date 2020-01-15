@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JSX/ES6 Syntax Highlighting in Visual Studio 2015  &middot; Jon Cain</title>
+
+  <meta property="og:site_name" content="Jon Cain">
+  <meta property="og:title" content="JSX/ES6 Syntax Highlighting in Visual Studio 2015">
+  
+  <meta name="description" content="Visual Studio 2015 (by default) isn&#39;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc." />
+  <meta property="og:description" content="Visual Studio 2015 (by default) isn&#39;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.">
+  
+  <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+    <header id="header">
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <ul class="nav">
+	<li class="nav-item"><a href="/" alt="Home" title="Home">Home</a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog">Blog</a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects">Projects</a></li><li class="nav-item"><a href="/about/" alt="Title" title="Title">About</a></li><li class="nav-item"><a href="/contact/" alt="Contact" title="Contact">Contact</a></li>
+</ul>
+    </div>
+  </header>
+
+  <script src="/js/header-bar.js"></script>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>JSX/ES6 Syntax Highlighting in Visual Studio 2015</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~3 minutes (538 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2017-01-13">
+		13 Jan, 2017
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/programming" class="tag">programming</a>
+	
+		<a href="/tags/javascript" class="tag">javascript</a>
+	
+		<a href="/tags/reactjs" class="tag">reactjs</a>
+	
+		<a href="/tags/visualstudio" class="tag">visualstudio</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    
+
+<p>Visual Studio 2015 (by default) isn&rsquo;t exactly crash hot for editing JavaScript, especially JSX/ES6 for React etc.</p>
+
+<p>A lot of developers seem to opt for alternative IDEs/editors for writing JavaScript code instead of staying in Visual Studio, however it&rsquo;s often more effort to manage multiple IDEs for one project. I&rsquo;ve tried a few things myself to get things working, some of the steps below are courtesy of Nick Dewitt on <a href="http://stackoverflow.com/questions/34097915/visual-studio-2015-jsx-es2015-syntax-highlighting/36321109#36321109">this StackOverflow post</a>.</p>
+
+<p>First of all, we use the .jsx file extension for JSX files, and the .es6 file extension for our es6 files. We do this so we&rsquo;re fully aware of which files require transpiling to &ldquo;Vanilla JS&rdquo; prior to release.</p>
+
+<p>Disclaimer: The steps below is how I configured my installation of Visual Studio 2015 Enterprise to show syntax highlighting in my code. The steps have worked on multiple machines of mine, so should work for you too, but I can&rsquo;t guarantee it, so perform the following at your own discretion.</p>
+
+<p>First of all, we configure Visual Studio to use the JavaScript editor for our .es6 files by adding the extension into the IDE, by doing the following:</p>
+
+<ul>
+<li>Open Visual Studio 2015</li>
+<li>Go to Tools &gt; Options</li>
+<li>Go to Text Editor &gt; File Extension</li>
+<li>Enter in &ldquo;es6&rdquo; (without quotes) into the Extension field, and select &ldquo;JavaScript Editor&rdquo; in the editor dropdown.</li>
+<li>Click &ldquo;Add&rdquo;.</li>
+</ul>
+
+<p>And while you&rsquo;re still in the Options screen&hellip;</p>
+
+<ul>
+<li>Go to Text Editor &gt; JavaScript &gt; IntelliSense</li>
+<li>Uncheck the &ldquo;Show syntax errors&rdquo; checkbox as this stops (false positive) errors from being highlighted in the code window.</li>
+</ul>
+
+<p>Now, close Visual Studio, and open a Command Prompt/Powershell window as an Admin account.
+Navigate to C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Web Tools\External\react-server
+Run the following commands (to install babel packages):</p>
+
+<pre><code>npm install babel-core --save-dev
+npm install babel-preset-es2015 --save-dev
+npm install babel-preset-react --save-dev
+npm install babel-preset-stage-1 --save-dev
+</code></pre>
+
+<p>Before you continue, back up your server.js file (contained within the above directory), we will edit this file next to introduce Babel.
+You will need to open the server.js file in a text editor as an Administrator (as it is stored within Program Files).
+Add the following to the top of the file (below where it refers to childProcess):</p>
+
+<pre><code>var babel = require('babel-core');
+var es2015 = require('babel-preset-es2015');
+var react = require('babel-preset-react');
+var stage1 = require('babel-preset-stage-1');
+</code></pre>
+
+<p>Now amend the try/catch section in the transformJsxFromPost function so it reads as follows:</p>
+
+<pre><code>try {
+    var transformed = babel.transform(code, {sourceMaps: &quot;inline&quot;, presets: [es2015, react, stage1]});
+    result = { elementMappings: transformed.map };
+}
+catch (e) {
+    result = e;
+    result.errorMessage = e.message;
+}
+</code></pre>
+
+<p>Reload your project into Visual Studio. You <em>should</em> now see the syntax highlighting working fine, but you can easily reverse the steps above to get back to how things were :)</p>
+
+<h2 id="did-you-mess-things-up">Did you mess things up?</h2>
+
+<p>Hopefully, you will have backed things up before performing the above, but if you didn&rsquo;t, then below is the original try/catch section you changed in the server.js file, so you can revert back in case you need to go back to how it was before. All other steps are easily reversed:</p>
+
+<pre><code>try {
+    var transformed = reactTools.transformWithDetails(code, { elementMap: true });
+    result = { elementMappings: transformed.elementMappings };
+}
+catch (e) {
+    result = e;
+    result.errorMessage = e.message;
+}
+</code></pre>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

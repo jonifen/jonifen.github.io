@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PrimeFilm 1800u Film Scanner  &middot; Jon Cain</title>
+
+  <meta property="og:site_name" content="Jon Cain">
+  <meta property="og:title" content="PrimeFilm 1800u Film Scanner">
+  
+  <meta name="description" content="As part of the downsizing task my Mum has taken on, we&#39;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame)..." />
+  <meta property="og:description" content="As part of the downsizing task my Mum has taken on, we&#39;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame)...">
+  
+  <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="/css/jonifen.css">
+</head>
+<body>
+    <header id="header">
+    <div class="container">
+      <div class="heading">
+        <a href="/">Jon Cain</a>
+      </div>
+      <ul class="nav">
+	<li class="nav-item"><a href="/" alt="Home" title="Home">Home</a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog">Blog</a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects">Projects</a></li><li class="nav-item"><a href="/about/" alt="Title" title="Title">About</a></li><li class="nav-item"><a href="/contact/" alt="Contact" title="Contact">Contact</a></li>
+</ul>
+    </div>
+  </header>
+
+  <script src="/js/header-bar.js"></script>
+  <div class="page-content">
+<div class="post-header">
+  <div class="container">
+    <div class="content">
+      <h2>PrimeFilm 1800u Film Scanner</h2>
+      <div class="post-details">
+        
+  <small>
+    Reading time: ~3 minutes (492 words)
+  </small>
+
+      </div>
+      <div class="post-meta-details">
+        <div class="date">
+          <small>
+	<time datetime="2017-02-26">
+		26 Feb, 2017
+	</time>
+</small>
+
+        </div>
+        <div class="tags">
+          
+	
+		<a href="/tags/techsupport" class="tag">techsupport</a>
+	
+		<a href="/tags/hardware" class="tag">hardware</a>
+	
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="content">
+    <p>As part of the downsizing task my Mum has taken on, we&rsquo;ve got a lot of photos and slides to transfer to a digital format that can be viewed on an iPad (or digital photo frame). The photos is an easy task (albeit fairly monotonous as my scanner doesn&rsquo;t have a document feeder), but the slides might be trickier.</p>
+
+<p>My Mum bought a slide scanner a few years ago (OK then, quite a few years ago), the PrimeFilm 1800u Film Scanner. On the box it suggests needing Windows 98 or newer, with a badge saying &ldquo;Works great with Windows XP!&rdquo;. This is all well and good, but who uses Windows XP anymore? Certainly not me! All our machines are Windows 10 or Debian 8, so I was hoping I wouldn&rsquo;t have to install XP onto one of the machines especially.</p>
+
+<p>I got the slide scanner out and installed the drivers onto my laptop (Windows 10 x64). All seemed to go well, except when I tried scanning a slide in using Adobe Photoshop CS3, it failed to find the scanner. I suspected a UAC issue, so ran Photoshop as Administrator (to elevate the scanner software too) but to no avail.</p>
+
+<p>I had a nosey around online and found <a href="https://answers.microsoft.com/en-us/windows/forum/windows_8-hardware/primefilm-1800u-film-scanner-need-windows-8-driver/577b09f0-dfa3-4a85-a661-28d3f1b6f669">this post on the Microsoft Forum</a> where Jack Moorhouse gave some excellent advice (copied below for safety):</p>
+
+<ul>
+<li>Google &ldquo;How to install unsigned drivers on Windows 10 - By TotallydubbedHD&rdquo; and follow instructions</li>
+<li>Download &amp; run the installer for the slide viewer (SF_ENG_1.3.exe) which is for windows up to 7. I ran it in vista sp2 compatibility mode.AT THIS POINT IT STILL DOESN&rsquo;T WORK</li>
+<li>Go to control panel -&gt; device manager -&gt;imaging devices and update the driver for the slide viewer from the folder c:\windows\Twain_32\cyberviewX_SF</li>
+</ul>
+
+<p>I&rsquo;ll tweak the above to what worked for me:</p>
+
+<ul>
+<li>I found the advised instructions by TotallydubbedHD on YouTube <a href="https://www.youtube.com/watch?v=StkR3D2d5WI">video link</a></li>
+<li>I downloaded the drivers from <a href="http://www.avegene.com/sd.php">this website</a> selecting &ldquo;Driver/Firmware&rdquo; &gt; &ldquo;Film Scanners&rdquo; &gt; &ldquo;PrimeFilm 1800u/i &amp; 1800 Silver-DISCONTINUED&rdquo; and then after searching, downloading the Windows driver.</li>
+<li>I then installed the drivers - I didn&rsquo;t have to run in compatibility mode as it seemed to cope just fine. However, in Device Manager, it said the drivers hadn&rsquo;t been loaded as they weren&rsquo;t signed.</li>
+<li>I followed the TotallydubbedHD advice at this point.</li>
+<li>Once I rebooted (after the instructions), I chose to update the driver (via Device Manager) and it installed fine.</li>
+</ul>
+
+<p>The only problem I had was with the ButtonKey software - I had to run it as Administrator for it to save the settings (I suspect it&rsquo;s the classic issue where legacy programs are written to save to the registry in HKEY_LOCAL_MACHINE and non-Administrator accounts can&rsquo;t write to this location in Windows Vista and newer). It does work fine through Photoshop though, and the images are scanning in just fine!</p>
+
+<p>The issue I have now is a lack of time&hellip; it&rsquo;s a slow process to scan the slides in one by one!</p>
+
+    
+  </div>
+</div>
+      <footer>
+        <div class="container">
+          <small>
+            
+              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
+            
+          </small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

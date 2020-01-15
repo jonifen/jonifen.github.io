@@ -6,7 +6,7 @@
     <description>Recent content in virtualpc on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Fri, 22 May 2015 22:15:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/virtualpc/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>Access services on VirtualBox VM</title>
-      <link>/blog/post/2015/access-services-on-virtualbox-vm/</link>
+      <link>/blog/access-services-on-virtualbox-vm/</link>
       <pubDate>Fri, 22 May 2015 22:15:00 +0000</pubDate>
       
-      <guid>/blog/post/2015/access-services-on-virtualbox-vm/</guid>
+      <guid>/blog/access-services-on-virtualbox-vm/</guid>
       <description>In my current job I use a lot of virtual machines due to the variety of applications we support and the demand for them to work on many versions of Windows. As a result, we do have web services that I&amp;rsquo;d run on a VM, but it&amp;rsquo;s not possible to bridge the adapters (to allow external access to the VM) due to security guidelines at work, so I have to try something else.</description>
     </item>
     

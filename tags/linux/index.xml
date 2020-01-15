@@ -6,7 +6,7 @@
     <description>Recent content in linux on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Fri, 19 Apr 2019 22:15:18 +0000</lastBuildDate>
     
 	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>HP DM1-4027 and Arch Linux</title>
-      <link>/blog/post/2019/hp-dm1-4027-arch-linux/</link>
+      <link>/blog/hp-dm1-4027-arch-linux/</link>
       <pubDate>Fri, 19 Apr 2019 22:15:18 +0000</pubDate>
       
-      <guid>/blog/post/2019/hp-dm1-4027-arch-linux/</guid>
+      <guid>/blog/hp-dm1-4027-arch-linux/</guid>
       <description>I&amp;rsquo;ve recently started to use a HP DM1-4027ea as a replacement for the Asus Eee 1005P netbook. The 4Gb RAM (upgradable to 8Gb) and more powerful CPU/GPU combo meant that it should give reasonable performance where the Eee struggles (downloading npm modules and browsing script/image heavy websites).
 The HP DM1-4027ea comes with an AMD E-450 APU which consists of a dual core 1.6GHz CPU and a Radeon HD6320 GPU, so on paper should still be acceptable for current mobile demands.</description>
     </item>

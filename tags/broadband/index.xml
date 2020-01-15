@@ -6,7 +6,7 @@
     <description>Recent content in broadband on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Thu, 03 Dec 2015 20:58:18 +0000</lastBuildDate>
     
 	<atom:link href="/tags/broadband/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>No dial tone, but broadband still works?</title>
-      <link>/blog/post/2015/no-dial-tone-but-broadband-works/</link>
+      <link>/blog/no-dial-tone-but-broadband-works/</link>
       <pubDate>Thu, 03 Dec 2015 20:58:18 +0000</pubDate>
       
-      <guid>/blog/post/2015/no-dial-tone-but-broadband-works/</guid>
+      <guid>/blog/no-dial-tone-but-broadband-works/</guid>
       <description>It seems whenever I need to make a phone call on the landline, it&amp;rsquo;s broken. Yesterday I picked up the landline handset and it was dead. No dial tone. Nothing. Nada. Zip.
 I tried the usual steps at first (unplug it, plug it back in) but no joy. Onto the broadband I went. Works fine. Weird. I&amp;rsquo;ve had this before and leaving stuff unplugged overnight seemed to fix it, but on this occasion it didn&amp;rsquo;t help.</description>
     </item>

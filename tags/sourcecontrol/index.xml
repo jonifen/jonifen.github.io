@@ -6,7 +6,7 @@
     <description>Recent content in sourcecontrol on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Fri, 21 Jun 2019 21:27:47 +0100</lastBuildDate>
     
 	<atom:link href="/tags/sourcecontrol/index.xml" rel="self" type="application/rss+xml" />
@@ -14,30 +14,30 @@
     
     <item>
       <title>Revert a range of commits in a Git repository</title>
-      <link>/blog/post/2019/git-revert-range-of-commits/</link>
+      <link>/blog/git-revert-range-of-commits/</link>
       <pubDate>Fri, 21 Jun 2019 21:27:47 +0100</pubDate>
       
-      <guid>/blog/post/2019/git-revert-range-of-commits/</guid>
+      <guid>/blog/git-revert-range-of-commits/</guid>
       <description>Have you ever had one of those days when you&amp;rsquo;ve been hard at work on a repository, making small and regular commits to the repository during the day only to decide that it wasn&amp;rsquo;t the way you wanted to go? So how do you get back to where you were at the beginning of the day?
 Well, you could just revert each commit one-by-one, but what if your commit history is like this?</description>
     </item>
     
     <item>
       <title>Git reverts without automatic commit</title>
-      <link>/blog/post/2019/git-revert-without-commit/</link>
+      <link>/blog/git-revert-without-commit/</link>
       <pubDate>Thu, 23 May 2019 21:52:44 +0100</pubDate>
       
-      <guid>/blog/post/2019/git-revert-without-commit/</guid>
+      <guid>/blog/git-revert-without-commit/</guid>
       <description>Git is easily the best source control system I&amp;rsquo;ve ever used, yet it&amp;rsquo;s probably one of the more infuriating too because its power and flexibility can also land the users in a whole world of pain.
 Today at work we had a scenario where a colleague needed to revert a handful of commits including a merge but there was a chance it may need re-introducing at a later date. I suggested reverting each commit with --no-commit but nobody else had heard of this argument before, hence I felt a post may be useful (although this probably requires that people visit my blog first to find it haha).</description>
     </item>
     
     <item>
       <title>Retaining chmod permissions for scripts in git repositories</title>
-      <link>/blog/post/2019/bash-scripts-chmod-in-git/</link>
+      <link>/blog/bash-scripts-chmod-in-git/</link>
       <pubDate>Wed, 01 May 2019 20:44:36 +0100</pubDate>
       
-      <guid>/blog/post/2019/bash-scripts-chmod-in-git/</guid>
+      <guid>/blog/bash-scripts-chmod-in-git/</guid>
       <description>Our continuous delivery setup at work requires that we use bash scripts for builds that can be handled by Linux machines.
 The main issue is when we create a new project, we often get &amp;ldquo;Permission Denied&amp;rdquo; errors when the CI system runs the scripts on the build agents. Usually, you&amp;rsquo;d just run chmod on a machine and try again, but this doesn&amp;rsquo;t work when the files are being pushed into a git repository, and then pulled at the other side.</description>
     </item>

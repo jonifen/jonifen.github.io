@@ -6,7 +6,7 @@
     <description>Recent content in photography on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Sun, 09 Feb 2014 14:47:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/photography/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>Installing a Canon 350D on Windows 7 x64</title>
-      <link>/blog/post/2014/canon-350d-windows-7-x64/</link>
+      <link>/blog/canon-350d-windows-7-x64/</link>
       <pubDate>Sun, 09 Feb 2014 14:47:00 +0000</pubDate>
       
-      <guid>/blog/post/2014/canon-350d-windows-7-x64/</guid>
+      <guid>/blog/canon-350d-windows-7-x64/</guid>
       <description>I have a Canon 350D which I was struggling to download the photos from onto the computer since upgrading it to Windows 7 64-bit. I&amp;rsquo;d looked around for drivers, but Canon haven&amp;rsquo;t made any 64-bit drivers for that camera (we have had it nearly 8 years) so I was wondering how I&amp;rsquo;d get around the problem. I eventually came across the site of someone else in the same situation who has blogged the following:</description>
     </item>
     

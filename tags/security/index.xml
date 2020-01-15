@@ -6,7 +6,7 @@
     <description>Recent content in security on Jon Cain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <copyright>(c) 2019 Jon Cain</copyright>
+    <copyright>(c) 2020 Jon Cain</copyright>
     <lastBuildDate>Sat, 11 Feb 2017 16:57:02 +0000</lastBuildDate>
     
 	<atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>The target=&#39;_blank&#39; vulnerability</title>
-      <link>/blog/post/2017/thetargetblankvulnerability/</link>
+      <link>/blog/thetargetblankvulnerability/</link>
       <pubDate>Sat, 11 Feb 2017 16:57:02 +0000</pubDate>
       
-      <guid>/blog/post/2017/thetargetblankvulnerability/</guid>
+      <guid>/blog/thetargetblankvulnerability/</guid>
       <description>For many years, I was a fan of using target=&amp;rdquo;_blank&amp;rdquo; inside any anchor tags on my website that linked to external sites so it would keep the viewer still on my site in the background so they can easily come back to it later on. However, Ben Halpern describes the problem (with examples) of how it is an issue on this page and how the window/tab containing the origin website (i.</description>
     </item>
     
