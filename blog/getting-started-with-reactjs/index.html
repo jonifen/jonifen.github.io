@@ -1,89 +1,6 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Getting Started with React.js  🔴 Jonifen 👨‍💻</title>
-
-  <link rel="preload" href="/css/jonifen.css" as="style">
-  <link rel="preload" href="/js/header-bar.js" as="script">
-  <link rel="preload" href="/fonts/OpenSansNormal400.woff2" as="font">
-
-  <meta property="og:site_name" content="Jonifen 👨‍💻">
-  <meta property="og:title" content="Getting Started with React.js">
-  
-  <meta name="description" content="I&#39;ve been following the &#34;Getting Started&#34; tutorials on the ReactJS website. It&#39;s a bit... errr... bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &#34;odd-ness&#34; though, it&#39;s become really popular, so it&#39;s well worth having a look at." />
-  <meta property="og:description" content="I&#39;ve been following the &#34;Getting Started&#34; tutorials on the ReactJS website. It&#39;s a bit... errr... bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &#34;odd-ness&#34; though, it&#39;s become really popular, so it&#39;s well worth having a look at.">
-  
-  <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="/css/jonifen.css">
-</head>
-<body>
-    <header id="header">
-    <div class="container">
-      <div class="heading">
-        <a href="/">jonifen</a>
-      </div>
-      <ul class="nav">
-	<li class="nav-item"><a href="/" alt="Home" title="Home"><span>Home</span></a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog"><span>Blog</span></a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects"><span>Projects</span></a></li><li class="nav-item"><a href="/about/" alt="About" title="About"><span>About</span></a></li>
-</ul>
-    </div>
-  </header>
-
-  <script src="/js/header-bar.js"></script>
-  <div class="page-content">
-<div class="post-header">
-  <div class="container">
-    <div class="content">
-      <h2>Getting Started with React.js</h2>
-      <div class="post-details">
-        
-  <small>
-    Reading time: ~3 minutes (488 words)
-  </small>
-
-      </div>
-      <div class="post-meta-details">
-        <div class="date">
-          <small>
-	<time datetime="2015-11-06">
-		6 Nov, 2015
-	</time>
-</small>
-
-        </div>
-        <div class="tags">
-          
-  
-    <a href="/tags/programming" class="tag">programming</a>
-  
-    <a href="/tags/javascript" class="tag">javascript</a>
-  
-    <a href="/tags/reactjs" class="tag">reactjs</a>
-  
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="content">
-    <p>I&rsquo;ve been following the &ldquo;<a href="https://facebook.github.io/react/docs/getting-started.html">Getting Started</a>&rdquo; tutorials on the ReactJS website. It&rsquo;s a bit&hellip; errr&hellip; bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &ldquo;odd-ness&rdquo; though, it&rsquo;s become really popular, so it&rsquo;s well worth having a look at.</p>
-
-<p>I&rsquo;ve been having a few problems with the tutorial though. I&rsquo;ll explain where things haven&rsquo;t gone well and what I did to fix it.</p>
-
-<p>Although it&rsquo;s not essential to have npm, it looks like it&rsquo;d make things easier in the long run, so I set about getting that first. It turns out the best/easiest way to get it installed is to install <a href="https://www.nodejs.org">node.js</a> - which is what I did.</p>
-
-<p>Once this was done, I followed the tutorial by creating my first JSX file (main.js):</p>
-
-<pre><code>// main.js
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content=True><meta name=MobileOptimized content=320><meta name=viewport content="width=device-width,initial-scale=1"><title>Getting Started with React.js 🔴 Jonifen 👨‍💻</title><link rel=preload href=/css/jonifen.css as=style><link rel=preload href=/js/header-bar.js as=script><link rel=preload href=/fonts/OpenSansNormal400.woff2 as=font><meta property=og:site_name content="Jonifen 👨‍💻"><meta property=og:title content="Getting Started with React.js"><meta name=description content="I've been following the &#34;Getting Started&#34; tutorials on the ReactJS website. It's a bit... errr... bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &#34;odd-ness&#34; though, it's become really popular, so it's well worth having a look at."><meta property=og:description content="I've been following the &#34;Getting Started&#34; tutorials on the ReactJS website. It's a bit... errr... bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &#34;odd-ness&#34; though, it's become really popular, so it's well worth having a look at."><meta property=og:image:secure_url imageprop=image content=https://jonifen.co.uk/images/og-avatar.png><meta property=og:type content=website><link rel=stylesheet href=/css/jonifen.css></head><body><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/ alt=Home title=Home><span>Home</span></a></li><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><script src=/js/header-bar.js></script><div class=page-content><div class=post-header><div class=container><div class=content><h2>Getting Started with React.js</h2><div class=post-details><small>Reading time: ~3 minutes (488 words)</small></div><div class=post-meta-details><div class=date><small><time datetime=2015-11-06>6 Nov, 2015</time></small></div><div class=tags><a href=/tags/programming class=tag>programming</a>
+<a href=/tags/javascript class=tag>javascript</a>
+<a href=/tags/reactjs class=tag>reactjs</a></div></div></div></div></div><div class=container><div class=content><p>I&rsquo;ve been following the &ldquo;<a href=https://facebook.github.io/react/docs/getting-started.html>Getting Started</a>&rdquo; tutorials on the ReactJS website. It&rsquo;s a bit&hellip; errr&hellip; bizarre to be honest! It does say that the way it does things is a little odd, and to give it 5 minutes and then make a decision. Despite this &ldquo;odd-ness&rdquo; though, it&rsquo;s become really popular, so it&rsquo;s well worth having a look at.</p><p>I&rsquo;ve been having a few problems with the tutorial though. I&rsquo;ll explain where things haven&rsquo;t gone well and what I did to fix it.</p><p>Although it&rsquo;s not essential to have npm, it looks like it&rsquo;d make things easier in the long run, so I set about getting that first. It turns out the best/easiest way to get it installed is to install <a href=https://www.nodejs.org>node.js</a> - which is what I did.</p><p>Once this was done, I followed the tutorial by creating my first JSX file (main.js):</p><pre><code>// main.js
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -91,42 +8,14 @@ ReactDOM.render(
   &lt;h1&gt;Hello, world!&lt;/h1&gt;,
   document.getElementById('example')
 );
-</code></pre>
-
-<p>And then ran the following commands to convert the JSX to raw Javascript:</p>
-
-<pre><code>$ npm install --save react react-dom babelify babel-preset-react
-</code></pre>
-
-<p>and then</p>
-
-<pre><code>$ browserify -t [ babelify --presets [ react ] ] main.js -o bundle.js
-</code></pre>
-
-<p>but the second line failed.</p>
-
-<pre><code>C:\Users\jon\Source\Learning\React\HelloWorld&gt;browserify
+</code></pre><p>And then ran the following commands to convert the JSX to raw Javascript:</p><pre><code>$ npm install --save react react-dom babelify babel-preset-react
+</code></pre><p>and then</p><pre><code>$ browserify -t [ babelify --presets [ react ] ] main.js -o bundle.js
+</code></pre><p>but the second line failed.</p><pre><code>C:\Users\jon\Source\Learning\React\HelloWorld&gt;browserify
 'browserify' is not recognized as an internal or external command,
 operable program or batch file.
-</code></pre>
-
-<p>Bugger. This clearly meant that it couldn&rsquo;t see the browserify app from the folder I was in. Maybe this was because the tutorial never told me to install it first! So I tried this:</p>
-
-<pre><code>$ npm install --save browserify
-</code></pre>
-
-<p>and tried again but to no avail.</p>
-
-<p>Luckily, I&rsquo;m not alone in learning React, and a friend at work has also been looking into it too, and he suggested installing the packages globally. So off I set!</p>
-
-<pre><code>$ npm install --save -g react react-dom babelify babel-preset-react browserify
-</code></pre>
-
-<p>But it still couldn&rsquo;t find browserify. Which meant it must be down to the PATH environment variable, but I didn&rsquo;t know where globally installed node packages were installed. Enter <a href="http://getcontext.net">Ash Kyd</a> and his <a href="http://getcontext.net/read/installing-npm-packages-globally-on-windows">blog entry</a> where he details how to get the PATH variable updated. Following this sorted the problem out! :-)</p>
-
-<p>(Content copied in below in case of dead links in the future)</p>
-
-<pre><code>For some reason (per­haps in multi-user envir­on­ments) a default install of Node on Windows may not put the cor­rect NPM global pack­age loc­a­tion in the path.
+</code></pre><p>Bugger. This clearly meant that it couldn&rsquo;t see the browserify app from the folder I was in. Maybe this was because the tutorial never told me to install it first! So I tried this:</p><pre><code>$ npm install --save browserify
+</code></pre><p>and tried again but to no avail.</p><p>Luckily, I&rsquo;m not alone in learning React, and a friend at work has also been looking into it too, and he suggested installing the packages globally. So off I set!</p><pre><code>$ npm install --save -g react react-dom babelify babel-preset-react browserify
+</code></pre><p>But it still couldn&rsquo;t find browserify. Which meant it must be down to the PATH environment variable, but I didn&rsquo;t know where globally installed node packages were installed. Enter <a href=http://getcontext.net>Ash Kyd</a> and his <a href=http://getcontext.net/read/installing-npm-packages-globally-on-windows>blog entry</a> where he details how to get the PATH variable updated. Following this sorted the problem out! :-)</p><p>(Content copied in below in case of dead links in the future)</p><pre><code>For some reason (per­haps in multi-user envir­on­ments) a default install of Node on Windows may not put the cor­rect NPM global pack­age loc­a­tion in the path.
 
 If you’re hav­ing issues like the following:
 
@@ -140,32 +29,7 @@ Windows 7: C:\Users\{username}\AppData\Roaming\npm
 Replace {username} with your cur­rently logged in user.
 
 This should make global Node mod­ules dis­cov­er­able and usable on your system.
-</code></pre>
-
-<p>For info, I found after installing the packages globally, I was able to run</p>
-
-<pre><code>$ npm list -g
-</code></pre>
-
-<p>and the location on my computer was at the top of the output:</p>
-
-<pre><code>C:\Users\jon\Source\Learning\React\HelloWorld&gt;npm list -g
+</code></pre><p>For info, I found after installing the packages globally, I was able to run</p><pre><code>$ npm list -g
+</code></pre><p>and the location on my computer was at the top of the output:</p><pre><code>C:\Users\jon\Source\Learning\React\HelloWorld&gt;npm list -g
 C:\Users\jon\AppData\Roaming\npm
-</code></pre>
-
-    
-  </div>
-</div>
-      <footer>
-        <div class="container">
-          <small>
-            
-              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
-            
-          </small>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
-
+</code></pre></div></div><footer><div class=container><small><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></small></div></footer></div></body></html>

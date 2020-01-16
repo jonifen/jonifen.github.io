@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>umbraco7 on Jonifen 👨‍💻</title>
-    <link>/tags/umbraco7/</link>
-    <description>Recent content in umbraco7 on Jonifen 👨‍💻</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>(c) 2020 Jon Cain</copyright>
-    <lastBuildDate>Sun, 19 Aug 2018 13:18:18 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/umbraco7/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Umbraco 7: Create a custom Property Editor</title>
-      <link>/blog/umbraco-7-custom-property-editor/</link>
-      <pubDate>Sun, 19 Aug 2018 13:18:18 +0000</pubDate>
-      
-      <guid>/blog/umbraco-7-custom-property-editor/</guid>
-      <description>Recently, I&amp;rsquo;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc. and the SEO Manager has asked what we could implement to benefit them in terms of SEO (Search Engine Optimisation for those who don&amp;rsquo;t know).
-Requirements Now, until working on this, I knew what SEO was, but had no idea what it entailed, so working with the SEO Manager, we outlined the following requirements for our initial (MVP) release.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>umbraco7 on Jonifen 👨‍💻</title><link>/tags/umbraco7/</link><description>Recent content in umbraco7 on Jonifen 👨‍💻</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><copyright>(c) 2020 Jon Cain</copyright><lastBuildDate>Sun, 19 Aug 2018 13:18:18 +0000</lastBuildDate><atom:link href="/tags/umbraco7/index.xml" rel="self" type="application/rss+xml"/><item><title>Umbraco 7: Create a custom Property Editor</title><link>/blog/umbraco-7-custom-property-editor/</link><pubDate>Sun, 19 Aug 2018 13:18:18 +0000</pubDate><guid>/blog/umbraco-7-custom-property-editor/</guid><description>Recently, I&amp;rsquo;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc. and the SEO Manager has asked what we could implement to benefit them in terms of SEO (Search Engine Optimisation for those who don&amp;rsquo;t know).
+Requirements Now, until working on this, I knew what SEO was, but had no idea what it entailed, so working with the SEO Manager, we outlined the following requirements for our initial (MVP) release.</description></item></channel></rss>

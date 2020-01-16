@@ -1,113 +1,15 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Rendering an array of data as a clickable list using React.js  🔴 Jonifen 👨‍💻</title>
-
-  <link rel="preload" href="/css/jonifen.css" as="style">
-  <link rel="preload" href="/js/header-bar.js" as="script">
-  <link rel="preload" href="/fonts/OpenSansNormal400.woff2" as="font">
-
-  <meta property="og:site_name" content="Jonifen 👨‍💻">
-  <meta property="og:title" content="Rendering an array of data as a clickable list using React.js">
-  
-  <meta name="description" content="React.js is great for quickly rendering arrays of data in a tabular format, and there&#39;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable..." />
-  <meta property="og:description" content="React.js is great for quickly rendering arrays of data in a tabular format, and there&#39;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable...">
-  
-  <meta property="og:image:secure_url" imageprop="image" content="https://jonifen.co.uk/images/og-avatar.png">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="/css/jonifen.css">
-</head>
-<body>
-    <header id="header">
-    <div class="container">
-      <div class="heading">
-        <a href="/">jonifen</a>
-      </div>
-      <ul class="nav">
-	<li class="nav-item"><a href="/" alt="Home" title="Home"><span>Home</span></a></li><li class="nav-item"><a href="/blog/" alt="Blog" title="Blog"><span>Blog</span></a></li><li class="nav-item"><a href="/projects/" alt="Projects" title="Projects"><span>Projects</span></a></li><li class="nav-item"><a href="/about/" alt="About" title="About"><span>About</span></a></li>
-</ul>
-    </div>
-  </header>
-
-  <script src="/js/header-bar.js"></script>
-  <div class="page-content">
-<div class="post-header">
-  <div class="container">
-    <div class="content">
-      <h2>Rendering an array of data as a clickable list using React.js</h2>
-      <div class="post-details">
-        
-  <small>
-    Reading time: ~2 minutes (348 words)
-  </small>
-
-      </div>
-      <div class="post-meta-details">
-        <div class="date">
-          <small>
-	<time datetime="2017-04-13">
-		13 Apr, 2017
-	</time>
-</small>
-
-        </div>
-        <div class="tags">
-          
-  
-    <a href="/tags/programming" class="tag">programming</a>
-  
-    <a href="/tags/javascript" class="tag">javascript</a>
-  
-    <a href="/tags/reactjs" class="tag">reactjs</a>
-  
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="content">
-    <p>React.js is great for quickly rendering arrays of data in a tabular format, and there&rsquo;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable&hellip;</p>
-
-<p>So how would you usually render a page from an array of data? Well, I&rsquo;d probably start with some form of iterating the array and building up the content that way. I&rsquo;ll explain how I&rsquo;d go about doing this now.</p>
-
-<p>So for the example, I have an array of objects containing some basic information:</p>
-
-<pre><code>const dummyData = [
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content=True><meta name=MobileOptimized content=320><meta name=viewport content="width=device-width,initial-scale=1"><title>Rendering an array of data as a clickable list using React.js 🔴 Jonifen 👨‍💻</title><link rel=preload href=/css/jonifen.css as=style><link rel=preload href=/js/header-bar.js as=script><link rel=preload href=/fonts/OpenSansNormal400.woff2 as=font><meta property=og:site_name content="Jonifen 👨‍💻"><meta property=og:title content="Rendering an array of data as a clickable list using React.js"><meta name=description content="React.js is great for quickly rendering arrays of data in a tabular format, and there's loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable..."><meta property=og:description content="React.js is great for quickly rendering arrays of data in a tabular format, and there's loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable..."><meta property=og:image:secure_url imageprop=image content=https://jonifen.co.uk/images/og-avatar.png><meta property=og:type content=website><link rel=stylesheet href=/css/jonifen.css></head><body><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/ alt=Home title=Home><span>Home</span></a></li><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><script src=/js/header-bar.js></script><div class=page-content><div class=post-header><div class=container><div class=content><h2>Rendering an array of data as a clickable list using React.js</h2><div class=post-details><small>Reading time: ~2 minutes (348 words)</small></div><div class=post-meta-details><div class=date><small><time datetime=2017-04-13>13 Apr, 2017</time></small></div><div class=tags><a href=/tags/programming class=tag>programming</a>
+<a href=/tags/javascript class=tag>javascript</a>
+<a href=/tags/reactjs class=tag>reactjs</a></div></div></div></div></div><div class=container><div class=content><p>React.js is great for quickly rendering arrays of data in a tabular format, and there&rsquo;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable&hellip;</p><p>So how would you usually render a page from an array of data? Well, I&rsquo;d probably start with some form of iterating the array and building up the content that way. I&rsquo;ll explain how I&rsquo;d go about doing this now.</p><p>So for the example, I have an array of objects containing some basic information:</p><pre><code>const dummyData = [
   { id: 1, firstName: &quot;Joe&quot;, surname: &quot;Bloggs&quot; },
   { id: 2, firstName: &quot;Jane&quot;, surname: &quot;Doe&quot; },
   { id: 3, firstName: &quot;Bob&quot;, surname: &quot;Bobsson&quot; },
   { id: 4, firstName: &quot;John&quot;, surname: &quot;Smith&quot; }
 ]
-</code></pre>
-
-<p>And I want to create a list of the user information, with a link to perform an action based on the id value in the associated object. So let&rsquo;s begin!</p>
-
-<p>We&rsquo;re going to work with the following assumptions:</p>
-
-<ul>
-<li>this will be part of a new component that is being added to an existing React application.</li>
-<li>the data (shown above) will be injected into the new component as a property.</li>
-</ul>
-
-<p>We need a function that will contain the logic that will be called when a row is clicked. For this example, we&rsquo;ll just display an alert containing the id of the clicked item:</p>
-
-<pre><code>doListItemAction(item) {
+</code></pre><p>And I want to create a list of the user information, with a link to perform an action based on the id value in the associated object. So let&rsquo;s begin!</p><p>We&rsquo;re going to work with the following assumptions:</p><ul><li>this will be part of a new component that is being added to an existing React application.</li><li>the data (shown above) will be injected into the new component as a property.</li></ul><p>We need a function that will contain the logic that will be called when a row is clicked. For this example, we&rsquo;ll just display an alert containing the id of the clicked item:</p><pre><code>doListItemAction(item) {
   alert(item.id)
 }
-</code></pre>
-
-<p>And now we need to build up the render function to iterate the array:</p>
-
-<pre><code>render() {
+</code></pre><p>And now we need to build up the render function to iterate the array:</p><pre><code>render() {
   let component = this
 
   return(
@@ -124,27 +26,4 @@
     &lt;/div&gt;
   )
 }
-</code></pre>
-
-<p>So how does it work?</p>
-
-<p>We include a code block into the main <code>&lt;div&gt;</code> tags, and in there, we iterate dummyData using the <code>map</code> function, and for each item inside the array, we return a div that contains a span which when clicked, will call the <code>doListItemAction</code> function, passing the item into it for processing.</p>
-
-<p>Any questions? As always, get in touch through <a href="/contact">one of my contact options</a></p>
-
-    
-  </div>
-</div>
-      <footer>
-        <div class="container">
-          <small>
-            
-              <a href="https://jonifen.co.uk">jonifen.co.uk</a> - Created using <a href="https://gohugo.io">Hugo</a>
-            
-          </small>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
-
+</code></pre><p>So how does it work?</p><p>We include a code block into the main <code>&lt;div&gt;</code> tags, and in there, we iterate dummyData using the <code>map</code> function, and for each item inside the array, we return a div that contains a span which when clicked, will call the <code>doListItemAction</code> function, passing the item into it for processing.</p><p>Any questions? As always, get in touch through <a href=/contact>one of my contact options</a></p></div></div><footer><div class=container><small><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></small></div></footer></div></body></html>
