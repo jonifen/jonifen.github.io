@@ -10,7 +10,11 @@ Once I&rsquo;m finished, I exit my installation, unmount and reboot.</p><pre><co
 umount /mnt/root/home
 umount /mnt/root
 reboot
-</code></pre><hr><h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2><p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p><p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p><pre><code>sudo apt install ufw
+</code></pre><hr><h2 id=installing-kde-and-tools>Installing KDE and tools</h2><p><code>plasma-desktop</code> (The KDE desktop - seems to be referenced as <code>plasma</code> nowadays)
+<code>plasma-nm</code> (NetworkManager for plasma/KDE - enable it through <code>sudo systemctl enable NetworkManager</code>)
+<code>kde-applications</code> (gives you a bunch of KDE apps, konsole etc.)
+<code>kgpg</code> (for encrypting the KDE wallet for wifi keys etc.)
+<code>powerdevil</code> (configuring power settings and/or power savings)</p><hr><h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2><p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p><p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p><pre><code>sudo apt install ufw
 </code></pre><p>Once you&rsquo;ve got it installed, you can check the status&mldr;</p><pre><code>$ sudo ufw status verbose
 Status: inactive
 </code></pre><p>And after this, making sure that SSH access is allowed&mldr;</p><pre><code>$ sudo ufw allow ssh
@@ -32,4 +36,18 @@ Status: active
 [ 2] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
 </code></pre><p>and then deleting the one you no longer want:</p><pre><code>sudo ufw delete 2
 </code></pre><p>Finally, want to disable UFW and reset it to defaults?</p><pre><code>sudo ufw reset
-</code></pre></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
+</code></pre><hr><h2 id=mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</h2><p>This was from mounting the drive from a single disk Zyxel NSA310 NAS.</p><p>It appears the disk is actually in its own RAID array. Never seen this before!</p><p>Advice online suggested doing the following:</p><pre><code>$ sudo mdadm --assemble --force /dev/md0 /dev/sdc2
+mdadm: /dev/sdc2 is busy - skipping
+</code></pre><p>So I had to figure out what was making the disk busy&mldr;</p><pre><code>$ cat /proc/mdstat
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
+md127 : active linear sdc2[0]
+      487868928 blocks super 1.2 0k rounding
+
+unused devices: &lt;none&gt;
+</code></pre><p>Ok, so it&rsquo;s already configured and ready to go, so there must be a file in <code>/dev/</code> for it&mldr;</p><pre><code>$ ls /dev/md*
+/dev/md127
+
+/dev/md:
+nsa310:0
+</code></pre><p>Yup, there is one! So I just have to mount it now&mldr;</p><pre><code>$ sudo mount /dev/md127 /mnt/nas
+</code></pre><p>Works a treat!</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
