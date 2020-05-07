@@ -4,17 +4,12 @@ mkdir /mnt/root/home
 mount /dev/sda1 /mnt/root
 mount /dev/sda3 /mnt/root/home
 
-chroot /mnt/root
+arch-chroot /mnt/root
 </code></pre><p>This gives me the <code>zsh</code> shell logged in as root into my current Arch installation so I can do any diagnosis.
 Once I&rsquo;m finished, I exit my installation, unmount and reboot.</p><pre><code>exit
-umount /mnt/root/home
-umount /mnt/root
+umount -R /mnt
 reboot
-</code></pre><hr><h2 id=installing-kde-and-tools>Installing KDE and tools</h2><p><code>plasma-desktop</code> (The KDE desktop - seems to be referenced as <code>plasma</code> nowadays)
-<code>plasma-nm</code> (NetworkManager for plasma/KDE - enable it through <code>sudo systemctl enable NetworkManager</code>)
-<code>kde-applications</code> (gives you a bunch of KDE apps, konsole etc.)
-<code>kgpg</code> (for encrypting the KDE wallet for wifi keys etc.)
-<code>powerdevil</code> (configuring power settings and/or power savings)</p><hr><h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2><p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p><p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p><pre><code>sudo apt install ufw
+</code></pre><hr><h2 id=installing-kde-and-tools>Installing KDE and tools</h2><p><code>plasma-desktop</code> (The KDE desktop - seems to be referenced as <code>plasma</code> nowadays)</p><p><code>plasma-nm</code> (NetworkManager for plasma/KDE - enable it through <code>sudo systemctl enable NetworkManager</code>)</p><p><code>kde-applications</code> (gives you a bunch of KDE apps, konsole etc.)</p><p><code>kgpg</code> (for encrypting the KDE wallet for wifi keys etc.)</p><p><code>powerdevil</code> (configuring power settings and/or power savings)</p><hr><h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2><p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p><p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p><pre><code>sudo apt install ufw
 </code></pre><p>Once you&rsquo;ve got it installed, you can check the status&mldr;</p><pre><code>$ sudo ufw status verbose
 Status: inactive
 </code></pre><p>And after this, making sure that SSH access is allowed&mldr;</p><pre><code>$ sudo ufw allow ssh

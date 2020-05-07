@@ -1,0 +1,556 @@
+# HP DM1-4027 and Arch Linux
+
+## Installation Steps
+
+Installation Process - https://wiki.archlinux.org/index.php/Installation_guide
+
+Change keymap to UK format (quote on shift+2 etc.)
+
+```
+loadkeys uk
+```
+
+set the timezone and enable time updating via NTP
+
+```
+timedatectl set-timezone Europe/London
+timedatectl set-ntp true
+```
+
+## Setting up partitions
+
+### Standard setup
+
+Set up the partitions using your preferred tool (`fdisk`, `cfdisk`, `parted` etc.)
+
+Format the main and home partitions for installing (default ext4 options - mainly for mechanical disks)
+
+```
+mkfs.ext4 /dev/sdaX
+```
+
+*OR* format without journaling enabled (recommended for SSDs)
+
+```
+mkfs.ext4 -O "^has_journal" /dev/sdX
+```
+
+Mount the root partition to /mnt
+
+```
+mount /dev/sda1 /mnt
+```
+
+and the home partition to /mnt/home
+
+```
+mkdir /mnt/home
+mount /dev/sda4 /mnt/home
+```
+
+set the swap partition up
+
+```
+mkswap /dev/sda3
+swapon /dev/sda3
+```
+
+### Encrypted setup (LVM on LUKS)
+
+Documentation: https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LUKS_on_LVM
+
+Create your partitions first... the basic offering would be the following:
+
+* a regular ext4 partition for `/boot` as this can't be encrypted - it needs this to mount the encrypted volume!
+* a second partition which takes the remainder of the disk - this will be the encrypted volume
+
+Now you'd start the encryption setup for the second partition as follows:
+
+```
+cryptsetup luksFormat /dev/sda2
+```
+
+and open the partition as follows:
+
+```
+cryptsetup open /dev/sda1 cryptlvm
+```
+
+(The decrypted container is now available at /dev/mapper/cryptlvm)
+
+#### Preparing the logical volumes
+
+Create a physical volume on top of the opened LUKS container:
+
+```
+pvcreate /dev/mapper/cryptlvm
+```
+
+Create the volume group named MyVolGroup (or whatever you want), adding the previously created physical volume to it:
+
+```
+vgcreate MyVolGroup /dev/mapper/cryptlvm
+```
+
+Create all your logical volumes on the volume group:
+
+```
+lvcreate -L 8G MyVolGroup -n swap
+lvcreate -L 32G MyVolGroup -n root
+lvcreate -l 100%FREE MyVolGroup -n home
+```
+
+Format your filesystems on each logical volume (remember to disable journaling on SSD! `-O "^has_journal"`):
+
+```
+mkfs.ext4 /dev/MyVolGroup/root
+mkfs.ext4 /dev/MyVolGroup/home
+mkswap /dev/MyVolGroup/swap
+```
+
+Mount your filesystems (don't forget the /boot partition!):
+
+```
+mount /dev/MyVolGroup/root /mnt
+mkdir /mnt/home
+mount /dev/MyVolGroup/home /mnt/home
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+swapon /dev/MyVolGroup/swap
+```
+
+Now you should be good to go
+
+## Install Arch
+
+```
+pacstrap /mnt base linux linux-firmware base-devel
+```
+
+(since 09-2019 linux and linux-firmware must be included here. Also include `lvm2` if disk is encrypted.)
+
+Create the fstab file
+
+```
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+Once finished, load into the installed OS
+
+```
+arch-chroot /mnt
+```
+
+Set the root password
+
+```
+passwd
+```
+
+set the locale
+
+```
+nano /etc/locale.gen
+```
+
+{ uncomment the lines starting with "en_GB", save and exit }
+
+generate the locale
+
+```
+locale-gen
+```
+
+edit /etc/locale.conf (to persist the language)
+
+```
+LANG=en_GB.UTF-8
+```
+
+edit /etc/vconsole.conf (to persist the key mapping)
+
+```
+KEYMAP=uk
+```
+
+Set the hardware clock
+
+```
+ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+hwclock --systohc
+```
+
+Name the computer (set up hostname)
+
+```
+echo fred > /etc/hostname
+```
+
+Also set up the hosts file with the new hostname
+
+```
+nano /etc/hosts
+```
+
+and insert the following:
+
+```
+127.0.1.1 fred.localdomain fred
+```
+
+Install zsh (needed for the next step)
+
+```
+pacman -S zsh
+```
+
+Add the regular user
+
+```
+useradd -m -g users -G wheel -s /bin/zsh jon
+```
+
+Set the password for the new user
+
+```
+passwd jon
+```
+
+Add user to sudoers
+
+```
+EDITOR=nano visudo
+```
+
+Uncomment the line:
+
+```
+%wheel ALL=(ALL) ALL
+```
+
+Install sound
+
+```
+pacman -S pulseaudio pulseaudio-alsa
+```
+
+Set up grub (bootloader)
+
+```
+pacman -S grub
+grub-install /dev/sda
+```
+
+Create a new initramfs file
+
+Remember to update `/etc/mkinitcpio.conf` if you're using an encrypted disk to make sure the correct things are loaded
+
+```
+mkinitcpio -p linux
+```
+
+or you can do this as you've specified the kernel earlier at the `pacstrap` stage:
+
+```
+mkinitcpio -P
+```
+
+or for LTS (Long Term Support) kernel
+
+```
+mkinitcpio -p linux-lts
+```
+
+`/etc/mkinitcpio.conf` changes if needed:
+
+```
+Configuring mkinitcpio
+
+Make sure the lvm2 package is installed and add the keyboard, encrypt and lvm2 hooks to mkinitcpio.conf:
+
+  HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)
+```
+
+If using an Intel CPU, install intel-ucode package (what does this even do??)
+
+```
+pacman -S intel-ucode
+```
+
+Create the grub config (make sure you edit `/etc/default/grub` to include the encrypted partition info if needed)
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:cryptlvm loglevel=3 quiet thermal.off=1"
+```
+
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Exit the installed shell
+
+```
+exit
+```
+
+Unmount the drives
+
+```
+umount -R /mnt
+```
+
+Reboot!
+
+```
+reboot
+```
+
+
+Log in as your regular user
+
+Check internet access - probably doesn't work.
+
+Copy the ethernet dhcp example into place
+sudo cp /etc/netctl/examples/ethernet-dhcp /etc/netctl/
+
+Check network connections...
+ip a
+the "enp*" is your ethernet connection- make a note of it (mine is enp1s0)
+
+Edit the file you copied earlier
+sudo nano /etc/netctl/ethernet-dhcp
+Replace the "eth0" text with your ethernet connection name (enp1s0), save and exit
+
+Start the ethernet connection
+sudo netctl start ethernet-dhcp
+
+Want it to run all the time, so do
+sudo netctl enable ethernet-dhcp
+Now check connection - should work fine!!
+
+Find out what graphics hardware is installed
+lspci -k | grep -A 2 -i "VGA"
+
+It's an intel graphics card! Let's install the drivers (https://wiki.archlinux.org/index.php/ASUS_Eee_PC_1005P)
+sudo pacman -S xf86-video-intel
+
+[[[ virtualbox uses: sudo pacman -S virtualbox-guest-utils ]]]
+
+Install git
+sudo pacman -S git
+
+Install xorg
+sudo pacman -S xorg-server xorg-xinit xorg-apps
+
+Now, install openbox
+sudo pacman -S openbox
+
+Copy the template for .xinitrc to your home directory
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+
+And amend the file to comment out any twm and xterm references and add the following:
+exec openbox-session
+
+You should be able to load X up now (not that there's much to do, you've not even got a terminal installed!)
+startx
+
+Logout back to the shell (right click desktop > logout)
+
+
+Install a terminal (sakura is recommended, as is terminator)
+sudo pacman -S sakura
+
+Or termite is good too
+
+Openbox configuration tool
+sudo pacman -S obconf
+
+Fira code font (https://wiki.archlinux.org/index.php/fonts#Monospaced)
+sudo pacman -S otf-fira-code adobe-source-sans-pro-fonts
+
+Vim
+sudo pacman -S vim
+
+Thunar (file manager - pcmanfm is also an option)
+sudo pacman -S thunar
+
+
+AUR installations
+
+Example: google chrome
+https://aur.archlinux.org/packages/google-chrome/
+
+git clone https://aur.archlinux.org/google-chrome.git
+cd google-chrome
+makepkg -si
+{{ it may ask for sudo password as part of installation }}
+
+Also install
+laptop-mode-tools
+
+
+WIRELESS!!
+
+Install stuff for wifi-menu
+sudo pacman -S dialog wpa_supplicant
+
+Connect to wireless network (the profile name you give here will be used later on, so make it memorable!)
+sudo wifi-menu
+
+See available network profiles
+sudo netctl list
+
+Enable the wireless profile
+sudo netctl enable {profile_name}
+
+Xorg keyboard set up
+
+get current settings
+setxkbmap -print -verbose 10
+
+find options to set
+localectl list-x11-keymap-models
+     asus_laptop
+
+localectl list-x11-keymap-layouts
+     gb
+
+localectl list-x11-keymap-variants gb
+     intl   ??
+
+localectl list-x11-keymap-options
+     ???     
+
+set the values now
+setxkbmap -model asus_laptop -layout gb
+
+{{ keyboard should work fine now! }}
+
+Rebooting didnt fix it.
+
+
+Created new file /etc/X11/xorg.conf.d/00-keyboard.conf containing:
+Section "InputClass"
+     Identifier "system-keyboard"
+     MatchIsKeyboard "on"
+     Option "XkbLayout" "gb"
+     Option "XkbModel" "asus_laptop"
+EndSection
+
+___
+
+For the HP DM1-4027ea, you would put the following in the 00-keyboard.conf file
+Section "InputClass"
+     Identifier "system-keyboard"
+     MatchIsKeyboard "on"
+     Option "XkbLayout" "gb"
+     Option "XkbModel" "hp250x"
+EndSection
+___
+
+( got information from https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg#Setting_keyboard_layout )
+
+{{ Saved, rebooted and working fine!! }}
+
+
+The font in Chrome is pretty big... why??
+
+sudo pacman -S lxappearance
+
+You can change the global font in there, which sorts out the fonts in all applications so they're not quite as big.
+
+
+Unzip files!! (install p7zip)
+sudo pacman -S p7zip
+
+unzip a file using
+7z e {filename}
+
+
+
+
+Options for openbox desktop environment
+
+    tint2 (taskbar)
+    conky (system stats panel on desktop)
+
+
+
+Installing login manager
+I chose LightDM which I believe is also installed with Lubuntu.
+
+     sudo pacman -S lightdm
+
+I also needed to install a greeter for it to work (I chose the "default"/"reference" option):
+
+     sudo pacman -S lightdm-gtk-greeter
+
+I then enabled LightDM as a service so it would load on boot:
+
+     sudo systemctl enable lightdm
+
+And then after a reboot, I noticed that the font was junk, so I changed that in the greeter config:
+
+sudo vim /etc/lightdm/lightdm-gtk-greeter.conf
+
+and uncommented the "font_name=" line (near the bottom) before adding my font:
+
+font_name=Source Sans Pro Regular
+
+Saved the file and rebooted again, looks nicer now albeit basic. Needs more configuration, but it's working!
+
+Configuring Openbox Menu to include Reboot and Shutdown
+Now I have a login manager, I'm not exiting Openbox to the shell, I'm going back to login again, so this needs sorting.
+
+     vim ~/.config/openbox/menu.xml
+
+And I added the following markup in the menu configuration:
+
+     <item label="Reboot">
+          <action name="Execute">
+               <prompt>
+                    Are you sure you want to reboot?
+               </prompt>
+               <execute>
+                    shutdown -r now
+               </execute>
+          </action>
+     </item>
+     <item label="Shutdown">
+          <action name="Execute">
+               <prompt>
+                    Are you sure you want to shut down the computer?
+               </prompt>
+               <execute>
+                    shutdown -h now
+               </execute>
+          </action>
+     </item>
+
+Once I did that, I ran the menu option to reconfigure Openbox, and the options appeared.
+
+
+Trying to get the removable media to show in the list inside Thunar...
+
+install 'gvfs' to add support in thunar
+also
+'thunar-volman'
+
+-----
+
+## Unable to load X from TTY?
+
+X will not load from shell as of November 2019. Have to install the following to get back into X again:
+- xf86-video-ati
+- xf86-video-amdgpu
+- xf86-video-fbdev
+- xf86-video-vesa
+- lxdm
+
+Then run the following:
+
+```
+sudo systemctl enable lxdm
+sudo systemctl start lxdm
+```
+
