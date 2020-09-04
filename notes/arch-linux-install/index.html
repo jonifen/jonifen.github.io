@@ -5,12 +5,12 @@ timedatectl set-ntp true
 </code></pre><p>or without journaling enabled</p><pre><code>mkfs.ext4 -O &quot;^has_journal&quot; /dev/sda1
 </code></pre><p>or with BTRFS instead</p><pre><code>mkfs.btrfs /dev/sda1
 </code></pre><h3 id=formatting-the-swap-partition>Formatting the swap partition</h3><pre><code>mkswap /dev/sda2
-</code></pre><h2 id=get-ready-to-install-mount-drives>Get ready to install (mount drives)</h2><pre><code>mkdir /mnt/boot
+</code></pre><h2 id=get-ready-to-install-mount-drives>Get ready to install (mount drives)</h2><pre><code>mount /dev/sda3 /mnt
 mkdir /mnt/home
-mount /dev/sda3 /mnt
-mount /dev/sda1 /boot
 mount /dev/sda4 /home
-</code></pre><p>and enable the swap partition</p><pre><code>swapon /dev/sda2
+</code></pre><p>and if you created a separate <code>/boot</code> partition</p><pre><code>mkdir /mnt/boot
+mount /dev/sda1 /boot
+</code></pre><p>and finally enable the <code>swap</code> partition</p><pre><code>swapon /dev/sda2
 </code></pre><h2 id=install-the-basics>Install the basics</h2><pre><code>pacstrap /mnt base base-devel linux linux-firmware
 </code></pre><h2 id=create-the-fstab-file>Create the fstab file</h2><pre><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </code></pre><h2 id=chroot-into-the-installed-os>Chroot into the installed OS</h2><pre><code>arch-chroot /mnt
