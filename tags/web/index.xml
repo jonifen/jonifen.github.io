@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>web on Jon Cain 👨‍💻 (jonifen.co.uk)</title><link>/tags/web/</link><description>Recent content in web on Jon Cain 👨‍💻 (jonifen.co.uk)</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><copyright>(c) 2020 Jon Cain</copyright><lastBuildDate>Sun, 06 Sep 2020 14:18:01 +0100</lastBuildDate><atom:link href="/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>View Hugo served content on another device on network</title><link>/blog/view-hugo-served-content-on-lan/</link><pubDate>Sun, 06 Sep 2020 14:18:01 +0100</pubDate><guid>/blog/view-hugo-served-content-on-lan/</guid><description>When you want to view content served by a locally running instance of Hugo on another device, you have to specify a few extra things so it will work correctly.
 When you start the Hugo server locally, it will show the following output:
-$ hugo server -w ... (some output omitted here for brevity) ... Web Server is available at //localhost:1313/ (bind address 127.0.0.1) Press Ctrl+C to stop Because it&amp;rsquo;s bound to your localhost IP, you can&amp;rsquo;t just open port 1313 on your computer via a firewall and access Hugo from another device.</description></item></channel></rss>
+$ hugo server -w
+...
+(some output omitted here for brevity)
+...
+Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+Because it&amp;rsquo;s bound to your localhost IP, you can&amp;rsquo;t just open port 1313 on your computer via a firewall and access Hugo from another device.</description></item></channel></rss>
