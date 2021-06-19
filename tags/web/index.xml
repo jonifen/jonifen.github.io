@@ -3,4 +3,10 @@ In various other languages, such as C#, you can serialise and deserialise data a
 The simplest way to resolve it is to include this in one of your primary css rules such as html or body:
 1 -webkit-text-size-adjust: 100%;</description></item><item><title>View Hugo served content on another device on network</title><link>/blog/view-hugo-served-content-on-lan/</link><pubDate>Sun, 06 Sep 2020 14:18:01 +0100</pubDate><guid>/blog/view-hugo-served-content-on-lan/</guid><description>When you want to view content served by a locally running instance of Hugo on another device, you have to specify a few extra things so it will work correctly.
 When you start the Hugo server locally, it will show the following output:
-$ hugo server -w ... (some output omitted here for brevity) ... Web Server is available at //localhost:1313/ (bind address 127.0.0.1) Press Ctrl+C to stop Because it&amp;rsquo;s bound to your localhost IP, you can&amp;rsquo;t just open port 1313 on your computer via a firewall and access Hugo from another device.</description></item></channel></rss>
+$ hugo server -w
+...
+(some output omitted here for brevity)
+...
+Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+Because it&amp;rsquo;s bound to your localhost IP, you can&amp;rsquo;t just open port 1313 on your computer via a firewall and access Hugo from another device.</description></item></channel></rss>
