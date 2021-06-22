@@ -1,4 +1,4 @@
-<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.74.3"><title>React.js Revisited &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="React.js Revisited"><meta name=description content="It's been a while since I wrote up my beginner guide to React.js and I've been thinking it's time to revisit it."><meta property="og:description" content="It's been a while since I wrote up my beginner guide to React.js and I've been thinking it's time to revisit it."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>React.js Revisited</h2><small><time datetime=2017-02-09>9 February, 2017</time>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.84.0"><title>React.js Revisited &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="React.js Revisited"><meta name=description content="It's been a while since I wrote up my beginner guide to React.js and I've been thinking it's time to revisit it."><meta property="og:description" content="It's been a while since I wrote up my beginner guide to React.js and I've been thinking it's time to revisit it."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>React.js Revisited</h2><small><time datetime=2017-02-09>9 February, 2017</time>
 &#183; Reading time: ~7 minute(s) (1314 words)</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/javascript class=tag>javascript</a>
@@ -8,18 +8,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-    &lt;h1&gt;Hello World!&lt;/h1&gt;,
-    document.getElementById(&quot;example&quot;)
+	&lt;h1&gt;Hello World!&lt;/h1&gt;,
+	document.getElementById(&quot;example&quot;)
 );
 </code></pre><p>Ok, so if you&rsquo;ve read my 1st page, you&rsquo;ll notice that while the code is pretty much the same, there is a noticeable difference where the references to <code>React</code> and <code>ReactDOM</code> are created. ES5 uses <code>require</code> to &ldquo;include&rdquo; objects into the code, whereas ES6 uses <code>import</code> to do the same thing.</p><p>Now we have the main.js file in place, let&rsquo;s look at the &ldquo;build&rdquo; process to transpile ES6 into vanilla ES5 JavaScript that your web browser will be able to understand.</p><p>We&rsquo;ll need to get the npm packages downloaded which are needed to make things happen, so let&rsquo;s start there.</p><pre><code>npm install --save react react-dom
 npm install --save-dev webpack babel-core babel-loader babel-preset-react babel-preset-es2015
 </code></pre><p>The above commands will download the react and react-dom packages (which is essential, as we&rsquo;ve referenced them in our main.js file just above!) and then also the packages for webpack and Babel which we&rsquo;ll get around to next, but we&rsquo;ll start with Webpack.</p><p>Webpack needs a configuration file in order to work, so I&rsquo;ll start there. Copy and paste the following into a new file in the root of your project directory called &ldquo;webpack.config.js&rdquo;:</p><pre><code>module.exports = {
-    entry: &quot;./main.js&quot;,
-    output: {
+	entry: &quot;./main.js&quot;,
+	output: {
         path: &quot;dist&quot;,
         filename: &quot;js/bundle.js&quot;
-    },
-    module: {
+	},
+	module: {
         rules: [
             {
                 test: /\.js?$/,
@@ -30,13 +30,13 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-react babel-
                 }
             }
         ]
-    }
+	}
 };
 </code></pre><p>Now you&rsquo;ve saved the above to disk, I&rsquo;ll quickly explain what a few parts of this file means&mldr;</p><ul><li><code>entry</code> is where the main JavaScript file is located. If you end up with many JS files (which you definitely will do as your projects grow) then this will always be the main file in the project.</li><li><code>output</code> is where the built JS file is created to. We specify the <code>path</code> and then the <code>filename</code>. Note how I&rsquo;ve included &ldquo;js/&rdquo; in the filename, we&rsquo;ll get around to that later on.</li><li><code>module</code> <code>rules</code> is where you can specify what rules will be applied to file extensions detected by the <code>test</code> regex. We <code>exclude</code> anything in the node_modules directory as this can cause problems with some packages.</li><li><code>options</code> <code>presets</code> is where you can specify additional presets to the loader. We use it to instruct Babel to recognise React code and also to recognise ES2015/ES6 code.</li></ul><p>Ok, so now you should have a directory structure like this:</p><pre><code>/
-    node_modules/
+	node_modules/
         // all the node modules will sit in here //
-    main.js
-    webpack.config.js
+	main.js
+	webpack.config.js
 </code></pre><p>The main.js and webpack.config.js files should have the content I provided above. Now you can run Webpack (use the command below) and let it build!</p><p>If you use Linux (and probably on a Mac too), you can do:</p><pre><code>node_modules/.bin/webpack
 </code></pre><p>Else you&rsquo;ll be on Windows, so you would do:</p><pre><code>node_modules\.bin\webpack
 </code></pre><p>This should run Webpack and give the following output on the command window:</p><pre><code>$ node_modules/.bin/webpack
@@ -62,13 +62,13 @@ js/bundle.js  725 kB       0  [emitted]  [big]  main
  [177] ./main.js 420 bytes {0} [built]
     + 163 hidden modules
 </code></pre><p>All going according to plan, we should now have a <code>dist</code> directory too:</p><pre><code>/
-    dist/
+	dist/
         js/
             bundle.js
-    node_modules/
+	node_modules/
         // all the node modules will sit in here //
-    main.js
-    webpack.config.js
+	main.js
+	webpack.config.js
 </code></pre><p>The bundle.js file will contain the converted code as well as any dependencies from the React and ReactDOM packages too.</p><h3 id=so-how-do-we-use-this-javascript-file-in-a-webpage>So how do we use this JavaScript file in a webpage?</h3><p>Now you have a .js file that your browser can understand, you can just reference it within your existing HTML file like this (we also create a <code>&lt;div></code> tag to use at runtime):</p><pre><code>&lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
 &lt;script src=&quot;/js/bundle.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>If you&rsquo;re happy with this, then you can finish now. But if your React application will be the only thing on your website (and therefore you don&rsquo;t have a HTML file already), then you can create a HTML file during the webpack process using a plugin called <a href=https://github.com/jantimon/html-webpack-plugin>html-webpack-plugin</a>. I&rsquo;ll include this in my project now, so I need to get the html-webpack-plugin from npm:</p><pre><code>npm install --save-dev html-webpack-plugin
@@ -77,12 +77,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // ------
 
 module.exports = {
-    entry: &quot;./main.js&quot;,
-    output: {
+	entry: &quot;./main.js&quot;,
+	output: {
         path: &quot;dist&quot;,
         filename: &quot;js/bundle.js&quot;
-    },
-    module: {
+	},
+	module: {
         rules: [
             {
                 test: /\.js?$/,
@@ -93,30 +93,30 @@ module.exports = {
                 }
             }
         ]
-    }
+	}
 
-    // ------and add it as a plugin
-    ,
-    plugins: [new HtmlWebpackPlugin()]
-    // ------
+	// ------and add it as a plugin
+	,
+	plugins: [new HtmlWebpackPlugin()]
+	// ------
 };
 </code></pre><p>Running webpack again causes an index.html file to be created in your <code>dist</code> directory. But hang on a minute&mldr; it doesn&rsquo;t actually work if I run it. This is because your React code in <code>main.js</code> is looking to create your component in a predefined <code>&lt;div></code> and the generated HTML file doesn&rsquo;t contain it. We fix that by creating a template which the plugin will use to build the HTML file:</p><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-    &lt;head&gt;
+	&lt;head&gt;
         &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
         &lt;title&gt;React Tutorial for jonifen.co.uk&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
         &lt;div id=&quot;example&quot;&gt;
         &lt;/div&gt;
-    &lt;/body&gt;
+	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>And then editing our <code>webpack.config.js</code> file again (I&rsquo;ve only included the <code>plugins</code> section for clarity, you just replace your existing <code>plugins</code> section with that below):</p><pre><code>plugins: [
-    new HtmlWebpackPlugin(
+	new HtmlWebpackPlugin(
         {
             filename: 'index.html',
             template: 'index.ejs'
         }
-    )
+	)
 ]
 </code></pre><p>And now we run Webpack again. It should create the files again but on this occasion, opening the <code>dist/index.html</code> file in your browser should show the &ldquo;Hello World!&rdquo; message you were hoping for!</p><p>Enjoy!</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>

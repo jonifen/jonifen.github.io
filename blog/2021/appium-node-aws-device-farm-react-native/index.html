@@ -1,5 +1,5 @@
-<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.74.3"><title>Testing Mobile App in AWS Device Farm using Appium and Node &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Testing Mobile App in AWS Device Farm using Appium and Node"><meta name=description content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:description" content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Testing Mobile App in AWS Device Farm using Appium and Node</h2><small><time datetime=2021-03-05>5 March, 2021</time>
-&#183; Reading time: ~7 minute(s) (1364 words)</small>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.84.0"><title>Testing Mobile App in AWS Device Farm using Appium and Node &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Testing Mobile App in AWS Device Farm using Appium and Node"><meta name=description content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:description" content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Testing Mobile App in AWS Device Farm using Appium and Node</h2><small><time datetime=2021-03-05>5 March, 2021</time>
+&#183; Reading time: ~7 minute(s) (1362 words)</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/javascript class=tag>javascript</a>
 <a href=/tags/react-native class=tag>react-native</a>
@@ -32,22 +32,22 @@
 <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>15000</span>;
 
 <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> () {
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
     <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>locator</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Locator not specified&#34;</span>);
 
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>$</span>(<span style=color:#a6e22e>locator</span>);
-    <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>waitForDisplayed</span>({ <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>timeout</span> });
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>$</span>(<span style=color:#a6e22e>locator</span>);
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>waitForDisplayed</span>({ <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>timeout</span> });
     <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>element</span>;
   };
 
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>clickElement</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
-    <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>click</span>();
+  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>clickElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>click</span>();
   };
 
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>inputContent</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
-    <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>setValue</span>(<span style=color:#a6e22e>value</span>);
+  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>inputContent</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>setValue</span>(<span style=color:#a6e22e>value</span>);
   };
 };
 </code></pre></td></tr></table></div></div><p>The above has functions that just gets an element, clicks an element or inputs a value into an element. Pretty simple stuff, but it&rsquo;s only a guide to what we need to do anyway.</p><p>Now I&rsquo;m able to create an actual test using the actions that were created:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
@@ -73,10 +73,10 @@
   <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Actions</span>();
 
   <span style=color:#a6e22e>it</span>(<span style=color:#e6db74>&#34;should be able to enter a name, submit and progress to next screen&#34;</span>, () =&gt; {
-    <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>inputContent</span>(<span style=color:#e6db74>&#34;~Name&#34;</span>, <span style=color:#e6db74>&#34;Fred&#34;</span>, <span style=color:#ae81ff>5000</span>);
-    <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>clickElement</span>(<span style=color:#e6db74>&#34;~Submit&#34;</span>);
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>inputContent</span>(<span style=color:#e6db74>&#34;~Name&#34;</span>, <span style=color:#e6db74>&#34;Fred&#34;</span>, <span style=color:#ae81ff>5000</span>);
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>clickElement</span>(<span style=color:#e6db74>&#34;~Submit&#34;</span>);
 
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>heading</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#e6db74>&#34;~Heading&#34;</span>);
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>heading</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#e6db74>&#34;~Heading&#34;</span>);
     <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>heading</span>).<span style=color:#a6e22e>toBeDefined</span>();
   });
 });
@@ -152,7 +152,7 @@
     <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
     <span style=color:#a6e22e>platformName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android&#34;</span>,
     <span style=color:#a6e22e>deviceName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android Emulator&#34;</span>,
-    <span style=color:#a6e22e>app</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#34;../android/app/build/outputs/apk/release/app-release-unsigned.apk&#34;</span>),
+    <span style=color:#a6e22e>app</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#ae81ff>__</span><span style=color:#a6e22e>dirname</span>, <span style=color:#e6db74>&#34;../android/app/build/outputs/apk/release/app-release-unsigned.apk&#34;</span>),
     <span style=color:#a6e22e>automationName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;UiAutomator2&#34;</span>
   }
 ];
@@ -305,61 +305,61 @@
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
 </span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>version</span>: <span style=color:#ae81ff>0.1</span>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#ae81ff>0.1</span>
 
-<span style=color:#66d9ef>phases</span>:
-  <span style=color:#66d9ef>install</span>:
-    <span style=color:#66d9ef>commands</span>:
-      - export APPIUM_VERSION=<span style=color:#ae81ff>1.16.0</span>
-      - avm $APPIUM_VERSION
-      - ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js
+<span style=color:#f92672>phases</span>:
+  <span style=color:#f92672>install</span>:
+    <span style=color:#f92672>commands</span>:
+      - <span style=color:#ae81ff>export APPIUM_VERSION=1.16.0</span>
+      - <span style=color:#ae81ff>avm $APPIUM_VERSION</span>
+      - <span style=color:#ae81ff>ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js</span>
 
-      - echo <span style=color:#e6db74>&#34;Navigate to test package directory&#34;</span>
-      - cd $DEVICEFARM_TEST_PACKAGE_PATH
-      - npm install <span style=color:#75715e>*.tgz</span>
+      - <span style=color:#ae81ff>echo &#34;Navigate to test package directory&#34;</span>
+      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH</span>
+      - <span style=color:#ae81ff>npm install *.tgz</span>
 
-  <span style=color:#66d9ef>pre_test</span>:
-    <span style=color:#66d9ef>commands</span>:
-      - echo <span style=color:#e6db74>&#34;Start appium server&#34;</span>
-      - &gt;<span style=color:#e6db74>-
-</span><span style=color:#e6db74>        appium --log-timestamp --device-name $DEVICEFARM_DEVICE_NAME</span>
-        --platform-name $DEVICEFARM_DEVICE_PLATFORM_NAME --app $DEVICEFARM_APP_PATH
-        --automation-name UiAutomator2 --udid $DEVICEFARM_DEVICE_UDID
-        --chromedriver-executable $DEVICEFARM_CHROMEDRIVER_EXECUTABLE &gt;&gt; $DEVICEFARM_LOG_DIR/appiumlog.txt <span style=color:#ae81ff>2</span>&gt;%<span style=color:#ae81ff>1</span> &amp;
+  <span style=color:#f92672>pre_test</span>:
+    <span style=color:#f92672>commands</span>:
+      - <span style=color:#ae81ff>echo &#34;Start appium server&#34;</span>
+      - &gt;-<span style=color:#e6db74>
+</span><span style=color:#e6db74>        appium --log-timestamp --device-name $DEVICEFARM_DEVICE_NAME
+</span><span style=color:#e6db74>        --platform-name $DEVICEFARM_DEVICE_PLATFORM_NAME --app $DEVICEFARM_APP_PATH
+</span><span style=color:#e6db74>        --automation-name UiAutomator2 --udid $DEVICEFARM_DEVICE_UDID
+</span><span style=color:#e6db74>        --chromedriver-executable $DEVICEFARM_CHROMEDRIVER_EXECUTABLE &gt;&gt; $DEVICEFARM_LOG_DIR/appiumlog.txt 2&gt;%1 &amp;</span>        
 
-      - &gt;<span style=color:#e6db74>-
-</span><span style=color:#e6db74>        start_appium_timeout=0;</span>
-        while [ <span style=color:#66d9ef>true</span> ];
-        do
-          if [ $start_appium_timeout -gt <span style=color:#ae81ff>60</span> ];
-          then
-            echo <span style=color:#e6db74>&#34;appium server never started in 60 seconds. Exiting&#34;</span>;
-            exit <span style=color:#ae81ff>1</span>;
-          fi;
-          grep -i <span style=color:#e6db74>&#34;Appium REST http interface listener started on 0.0.0.0:4723&#34;</span> $DEVICEFARM_LOG_DIR/appiumlog.txt &gt;&gt; /dev/<span style=color:#66d9ef>null</span> <span style=color:#ae81ff>2</span>&gt;%<span style=color:#ae81ff>1</span> <span style=color:#75715e>&amp;;</span>
-          if [ $? -eq <span style=color:#ae81ff>0</span> ];
-          then
-            echo <span style=color:#e6db74>&#34;Appium REST http interface listener started on 0.0.0.0:4723&#34;</span>;
-            break;
-          else
-            echo <span style=color:#e6db74>&#34;Waiting for appium server to start. Sleeping for 1 second.&#34;</span>;
-            sleep <span style=color:#ae81ff>1</span>;
-            start_appium_timeout=$((start_appium_timeout<span style=color:#ae81ff>+1</span>));
-          fi;
-        done;
+      - &gt;-<span style=color:#e6db74>
+</span><span style=color:#e6db74>        start_appium_timeout=0;
+</span><span style=color:#e6db74>        while [ true ];
+</span><span style=color:#e6db74>        do
+</span><span style=color:#e6db74>          if [ $start_appium_timeout -gt 60 ];
+</span><span style=color:#e6db74>          then
+</span><span style=color:#e6db74>            echo &#34;appium server never started in 60 seconds. Exiting&#34;;
+</span><span style=color:#e6db74>            exit 1;
+</span><span style=color:#e6db74>          fi;
+</span><span style=color:#e6db74>          grep -i &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34; $DEVICEFARM_LOG_DIR/appiumlog.txt &gt;&gt; /dev/null 2&gt;%1 &amp;;
+</span><span style=color:#e6db74>          if [ $? -eq 0 ];
+</span><span style=color:#e6db74>          then
+</span><span style=color:#e6db74>            echo &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34;;
+</span><span style=color:#e6db74>            break;
+</span><span style=color:#e6db74>          else
+</span><span style=color:#e6db74>            echo &#34;Waiting for appium server to start. Sleeping for 1 second.&#34;;
+</span><span style=color:#e6db74>            sleep 1;
+</span><span style=color:#e6db74>            start_appium_timeout=$((start_appium_timeout+1));
+</span><span style=color:#e6db74>          fi;
+</span><span style=color:#e6db74>        done;</span>        
 
-  <span style=color:#66d9ef>test</span>:
-    <span style=color:#66d9ef>commands</span>:
-      - echo <span style=color:#e6db74>&#34;Navigate to test source code&#34;</span>
-      - cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*
-      - echo <span style=color:#e6db74>&#34;Start Appium Node test&#34;</span>
-      - npm run test:android
+  <span style=color:#f92672>test</span>:
+    <span style=color:#f92672>commands</span>:
+      - <span style=color:#ae81ff>echo &#34;Navigate to test source code&#34;</span>
+      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*</span>
+      - <span style=color:#ae81ff>echo &#34;Start Appium Node test&#34;</span>
+      - <span style=color:#ae81ff>npm run test:android</span>
 
-  <span style=color:#66d9ef>post_test</span>:
-    <span style=color:#66d9ef>commands</span>:
+  <span style=color:#f92672>post_test</span>:
+    <span style=color:#f92672>commands</span>:
 
-  <span style=color:#66d9ef>artifacts</span>:
-    - $DEVICEFARM_LOG_DIR
+  <span style=color:#f92672>artifacts</span>:
+    - <span style=color:#ae81ff>$DEVICEFARM_LOG_DIR</span>
 </code></pre></td></tr></table></div></div><h3 id=create-the-package-for-device-farm>Create the package for Device Farm</h3><p>To create the package, we just need to run the package script as specified in the package.json file.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>npm run package
 </code></pre></td></tr></table></div></div><h2 id=device-farm>Device Farm</h2><p>So from this point, go into AWS Device Farm, created a new test and uploaded the APK (I uploaded the same one from the path referenced in the local wdio config above - so you can likely do the same). I then uploaded the package I created earlier, copied and pasted the Appium config into the window and selected a few devices. At first I only picked one device, but you could actually select multiple devices of various specifications at this point too.</p><h2 id=conclusion>Conclusion</h2><p>And that&rsquo;s pretty much it. Following this should get you to a point where you&rsquo;re able to run tests both locally and on AWS Device Farm. Having problems? Get in touch!</p><p>PRs are welcomed, and credit will <em>always</em> be given.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
