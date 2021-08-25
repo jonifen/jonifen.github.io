@@ -1,6 +1,82 @@
-<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.84.0"><title>Debugging a dotnetcore application hosted in a local IIS server &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Debugging a dotnetcore application hosted in a local IIS server"><meta name=description content="When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the w3wp.exe instance running the Application Pool and attach your Visual Studio instance to it..."><meta property="og:description" content="When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the w3wp.exe instance running the Application Pool and attach your Visual Studio instance to it..."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Debugging a dotnetcore application hosted in a local IIS server</h2><small><time datetime=2020-09-04>4 September, 2020</time>
-&#183; Reading time: ~1 minute(s) (153 words)</small>
+<!doctype html><html class=no-js>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=HandheldFriendly content="True">
+<meta name=MobileOptimized content="320">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=generator content="Hugo 0.87.0">
+<title>Debugging a dotnetcore application hosted in a local IIS server &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
+<link rel=preload href=/css/jonifen.min.css as=style>
+<link rel=preload href=/css/jonifen-fonts.min.css as=style>
+<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
+<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
+<meta property="og:title" content="Debugging a dotnetcore application hosted in a local IIS server">
+<meta name=description content="When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the w3wp.exe instance running the Application Pool and attach your Visual Studio instance to it...">
+<meta property="og:description" content="When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the w3wp.exe instance running the Application Pool and attach your Visual Studio instance to it...">
+<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
+<meta property="og:type" content="website">
+<link rel=stylesheet href=/css/jonifen.min.css>
+<link rel=stylesheet href=/css/jonifen-fonts.min.css>
+</head>
+<body>
+<a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a>
+<header id=header>
+<div class=container>
+<div class=heading>
+<a href=/>jonifen</a>
+</div>
+<ul class=nav>
+<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
+</ul>
+</div>
+</header>
+<div class=page-content>
+<div class=post-header>
+<div class=container>
+<div class=content>
+<h2>Debugging a dotnetcore application hosted in a local IIS server</h2>
+<small>
+<time datetime=2020-09-04>
+4 September, 2020
+</time>
+&#183; Reading time: ~1 minute(s) (153 words)
+</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/visualstudio class=tag>visualstudio</a>
 <a href=/tags/dotnet class=tag>dotnet</a>
-<a href=/tags/core class=tag>core</a></div></div></div><div class=container><div class=main-content><p>When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the <code>w3wp.exe</code> instance running the Application Pool and attach your Visual Studio instance to it. Sure you might get some issues with modules not loading, but on the whole this technique allows you to debug your application through IIS.</p><p>However, with dotnet core applications, things are a little different as they&rsquo;re not ran as managed code from within a <code>w3wp.exe</code> instance but instead from within a <code>dotnet.exe</code> instance, so this is the process you should attach your Visual Studio instance to when debugging dotnet core.</p><p>The tricky part here is identifying which process to attach to. You can usually use the username which is running the Application Pool as reference, and if you&rsquo;re unable to whittle them down enough, you can always just attach to multiple <code>dotnet.exe</code> processes and this will do the same thing.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
+<a href=/tags/core class=tag>core</a>
+</div>
+</div>
+</div>
+<div class=container>
+<div class=main-content>
+<p>When debugging a dotnet framework application that is hosted in a local IIS server, you would usually identify the <code>w3wp.exe</code> instance running the Application Pool and attach your Visual Studio instance to it. Sure you might get some issues with modules not loading, but on the whole this technique allows you to debug your application through IIS.</p>
+<p>However, with dotnet core applications, things are a little different as they&rsquo;re not ran as managed code from within a <code>w3wp.exe</code> instance but instead from within a <code>dotnet.exe</code> instance, so this is the process you should attach your Visual Studio instance to when debugging dotnet core.</p>
+<p>The tricky part here is identifying which process to attach to. You can usually use the username which is running the Application Pool as reference, and if you&rsquo;re unable to whittle them down enough, you can always just attach to multiple <code>dotnet.exe</code> processes and this will do the same thing.</p>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=footer-icons>
+<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+<a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
+<a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
+<a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
+<a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
+</div>
+<p>
+<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
+</p>
+</div>
+</footer>
+</div>
+</body>
+</html>

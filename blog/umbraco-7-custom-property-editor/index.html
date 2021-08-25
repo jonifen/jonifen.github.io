@@ -1,10 +1,79 @@
-<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.84.0"><title>Umbraco 7: Create a custom Property Editor &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Umbraco 7: Create a custom Property Editor"><meta name=description content="Recently, I've been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc..."><meta property="og:description" content="Recently, I've been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc..."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Umbraco 7: Create a custom Property Editor</h2><small><time datetime=2018-08-19>19 August, 2018</time>
-&#183; Reading time: ~4 minute(s) (805 words)</small>
+<!doctype html><html class=no-js>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=HandheldFriendly content="True">
+<meta name=MobileOptimized content="320">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=generator content="Hugo 0.87.0">
+<title>Umbraco 7: Create a custom Property Editor &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
+<link rel=preload href=/css/jonifen.min.css as=style>
+<link rel=preload href=/css/jonifen-fonts.min.css as=style>
+<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
+<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
+<meta property="og:title" content="Umbraco 7: Create a custom Property Editor">
+<meta name=description content="Recently, I've been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc...">
+<meta property="og:description" content="Recently, I've been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc...">
+<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
+<meta property="og:type" content="website">
+<link rel=stylesheet href=/css/jonifen.min.css>
+<link rel=stylesheet href=/css/jonifen-fonts.min.css>
+</head>
+<body>
+<a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a>
+<header id=header>
+<div class=container>
+<div class=heading>
+<a href=/>jonifen</a>
+</div>
+<ul class=nav>
+<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
+</ul>
+</div>
+</header>
+<div class=page-content>
+<div class=post-header>
+<div class=container>
+<div class=content>
+<h2>Umbraco 7: Create a custom Property Editor</h2>
+<small>
+<time datetime=2018-08-19>
+19 August, 2018
+</time>
+&#183; Reading time: ~4 minute(s) (805 words)
+</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/umbraco class=tag>umbraco</a>
 <a href=/tags/umbraco7 class=tag>umbraco7</a>
-<a href=/tags/csharp class=tag>csharp</a></div></div></div><div class=container><div class=main-content><p>Recently, I&rsquo;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc. and the SEO Manager has asked what we could implement to benefit them in terms of SEO (Search Engine Optimisation for those who don&rsquo;t know).</p><h2 id=requirements>Requirements</h2><p>Now, until working on this, I knew what SEO was, but had no idea what it entailed, so working with the SEO Manager, we outlined the following requirements for our initial (MVP) release. He needed to be able to edit the following:</p><ul><li>Page title</li><li>Meta description</li><li>Meta robots (we needed it to be a text field, so the options could be added easier)</li><li>Meta Canonical</li></ul><p>Other SEO things like Meta keywords etc. weren&rsquo;t important to him at this stage, so we won&rsquo;t include that at this point (but it&rsquo;s really easy to add later on, as you&rsquo;ll see shortly).</p><h2 id=initial-steps>Initial Steps</h2><p>I had a look at a few Umbraco plugins out there to see what they would offer, but none of them really covered what we wanted in the way that we wanted to use it, so it meant we&rsquo;d have to consider making our own plugin, which was, again, something I&rsquo;d never done before!
-I did look at creating it through a Document Type, but I thought a plugin would offer a much cleaner approach and would add less bloat to the resulting templates.</p><h2 id=development>Development</h2><p>Following the tutorial at <a href=http://umbraco.github.io/Belle/#/tutorials/CreatingAPropertyEditor>Umbraco Github Tutorials</a>, I added a new plugin into our Umbraco project with the following files (note that I&rsquo;ve replaced any instance of my company name with &lsquo;Company&rsquo; to adhere with the terms of my contract regarding personal blogs):</p><p>~/App_Plugins/SeoMetadataEditor/package.manifest</p><pre><code>{
+<a href=/tags/csharp class=tag>csharp</a>
+</div>
+</div>
+</div>
+<div class=container>
+<div class=main-content>
+<p>Recently, I&rsquo;ve been working on creating an implementation of Umbraco CMS for the Marketing team at work to use for quickly creating content for promotions etc. and the SEO Manager has asked what we could implement to benefit them in terms of SEO (Search Engine Optimisation for those who don&rsquo;t know).</p>
+<h2 id=requirements>Requirements</h2>
+<p>Now, until working on this, I knew what SEO was, but had no idea what it entailed, so working with the SEO Manager, we outlined the following requirements for our initial (MVP) release. He needed to be able to edit the following:</p>
+<ul>
+<li>Page title</li>
+<li>Meta description</li>
+<li>Meta robots (we needed it to be a text field, so the options could be added easier)</li>
+<li>Meta Canonical</li>
+</ul>
+<p>Other SEO things like Meta keywords etc. weren&rsquo;t important to him at this stage, so we won&rsquo;t include that at this point (but it&rsquo;s really easy to add later on, as you&rsquo;ll see shortly).</p>
+<h2 id=initial-steps>Initial Steps</h2>
+<p>I had a look at a few Umbraco plugins out there to see what they would offer, but none of them really covered what we wanted in the way that we wanted to use it, so it meant we&rsquo;d have to consider making our own plugin, which was, again, something I&rsquo;d never done before!
+I did look at creating it through a Document Type, but I thought a plugin would offer a much cleaner approach and would add less bloat to the resulting templates.</p>
+<h2 id=development>Development</h2>
+<p>Following the tutorial at <a href=http://umbraco.github.io/Belle/#/tutorials/CreatingAPropertyEditor>Umbraco Github Tutorials</a>, I added a new plugin into our Umbraco project with the following files (note that I&rsquo;ve replaced any instance of my company name with &lsquo;Company&rsquo; to adhere with the terms of my contract regarding personal blogs):</p>
+<p>~/App_Plugins/SeoMetadataEditor/package.manifest</p>
+<pre><code>{
   propertyEditors: [
     {
       alias: &quot;Company.SeoMetadataEditor&quot;,
@@ -18,7 +87,8 @@ I did look at creating it through a Document Type, but I thought a plugin would 
     &quot;~/App_Plugins/SeoMetadataEditor/seometadataeditor.js&quot;	
   ]
 }
-</code></pre><p>~/App_Plugins/SeoMetadataEditor/seometadataeditor.html</p><pre><code>&lt;!DOCTYPE html&gt;
+</code></pre><p>~/App_Plugins/SeoMetadataEditor/seometadataeditor.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;utf-8&quot; /&gt;
@@ -57,19 +127,25 @@ I did look at creating it through a Document Type, but I thought a plugin would 
   &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>~/App_Plugins/SeoMetadataEditor/seometadataeditor.js</p><pre><code>angular.module(&quot;umbraco&quot;)
+</code></pre><p>~/App_Plugins/SeoMetadataEditor/seometadataeditor.js</p>
+<pre><code>angular.module(&quot;umbraco&quot;)
   .controller(&quot;Company.SeoMetadataEditor&quot;,
   function () {
     alert(&quot;The controller has landed&quot;);
   });
-</code></pre><p>I had to create a data type in Umbraco to contain the property type, but I was able to add the new type to a Document Type, create a Content page from it, edit the values and save them. The data could be recalled if I went to re-edit the content at a later date too.</p><p>However, consuming the data was not straight-forward as in my Razor template, I ended up with the following (as a test to see what data I got out):</p><pre><code>@inherits Umbraco.Web.Mvc.UmbracoTemplatePage&lt;ContentModels.PageToTestSeo&gt;
+</code></pre><p>I had to create a data type in Umbraco to contain the property type, but I was able to add the new type to a Document Type, create a Content page from it, edit the values and save them. The data could be recalled if I went to re-edit the content at a later date too.</p>
+<p>However, consuming the data was not straight-forward as in my Razor template, I ended up with the following (as a test to see what data I got out):</p>
+<pre><code>@inherits Umbraco.Web.Mvc.UmbracoTemplatePage&lt;ContentModels.PageToTestSeo&gt;
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = null;
 }
 
 @Model.Content.Metadata
-</code></pre><p>Which, when loaded in the browser would return a JSON payload as a string. I needed to deserialize it to an object.</p><p>After reading some documentation, I decided to take a look at how other plugins did it, and I ended up coming across <a href=https://github.com/ryanlewis/seo-metadata>seo-metadata</a> by Ryan Lewis on Github. He created a C# project that inherited from some Umbraco types, and performed the mapping that way. This felt a lot cleaner than starting to hack at the payload in every template before I could use the values, so I went down that route and ended up with the following (also included inside our Umbraco project):</p><p>~/Plugins/SeoMetadataEditor/SeoMetadata.cs</p><pre><code>namespace MarketingCms.Plugins.SeoMetadataEditor
+</code></pre><p>Which, when loaded in the browser would return a JSON payload as a string. I needed to deserialize it to an object.</p>
+<p>After reading some documentation, I decided to take a look at how other plugins did it, and I ended up coming across <a href=https://github.com/ryanlewis/seo-metadata>seo-metadata</a> by Ryan Lewis on Github. He created a C# project that inherited from some Umbraco types, and performed the mapping that way. This felt a lot cleaner than starting to hack at the payload in every template before I could use the values, so I went down that route and ended up with the following (also included inside our Umbraco project):</p>
+<p>~/Plugins/SeoMetadataEditor/SeoMetadata.cs</p>
+<pre><code>namespace MarketingCms.Plugins.SeoMetadataEditor
 {
     public class SeoMetadata
     {
@@ -79,7 +155,8 @@ I did look at creating it through a Document Type, but I thought a plugin would 
         public string Canonical { get; set; }
     }
 }
-</code></pre><p>~/Plugins/SeoMetadataEditor/SeoMetadataEditorPVC.cs</p><pre><code>using Newtonsoft.Json;
+</code></pre><p>~/Plugins/SeoMetadataEditor/SeoMetadataEditorPVC.cs</p>
+<pre><code>using Newtonsoft.Json;
 using System;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Models.PublishedContent;
@@ -117,6 +194,28 @@ namespace MarketingCms.Plugins.SeoMetadataEditor
     }
   }
 }
-</code></pre><p>As a result of this, I&rsquo;m now able to pick up the Metadata field values as follows (using the Page Title property as the example):</p><pre><code>@Model.Content.Metadata.Title
-</code></pre><h2 id=conclusion>Conclusion</h2><p>I was a little daunted at the prospect of creating a new plugin, given that I&rsquo;ve only been working on Umbraco for a short time now, and I had little to no experience of Angular too (more recent versions of Umbraco use it for plugins etc.).
-However, thanks to the Umbraco tutorial and Ryan Lewis' plugin, I have been able to create something really quickly that&rsquo;s really simple too.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a><a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a><a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a><a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a><a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a><a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
+</code></pre><p>As a result of this, I&rsquo;m now able to pick up the Metadata field values as follows (using the Page Title property as the example):</p>
+<pre><code>@Model.Content.Metadata.Title
+</code></pre><h2 id=conclusion>Conclusion</h2>
+<p>I was a little daunted at the prospect of creating a new plugin, given that I&rsquo;ve only been working on Umbraco for a short time now, and I had little to no experience of Angular too (more recent versions of Umbraco use it for plugins etc.).
+However, thanks to the Umbraco tutorial and Ryan Lewis' plugin, I have been able to create something really quickly that&rsquo;s really simple too.</p>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=footer-icons>
+<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+<a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
+<a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
+<a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
+<a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
+</div>
+<p>
+<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
+</p>
+</div>
+</footer>
+</div>
+</body>
+</html>
