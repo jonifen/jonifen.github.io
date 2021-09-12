@@ -50,6 +50,7 @@
 <li><a href=#revert-without-commit>Revert without commit</a></li>
 <li><a href=#revert-a-range-of-commits>Revert a range of commits</a></li>
 <li><a href=#git-bash-command-line-prompt>Git Bash command line prompt</a></li>
+<li><a href=#my-git-aliases>My git aliases</a></li>
 </ul>
 </nav>
 </div>
@@ -121,6 +122,13 @@ export PS1<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;\n\[\
 </code></pre></td></tr></table>
 </div>
 </div><hr>
+<h2 id=my-git-aliases>My git aliases</h2>
+<p>[alias]
+lg = log &ndash;graph &ndash;pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue&lt;%an>%Creset' &ndash;abbrev-commit &ndash;date=relative
+lga = lg &ndash;all
+st = status -sb
+stat = log -1 &ndash;stat</p>
+<hr>
 </div>
 </div>
 <footer>
