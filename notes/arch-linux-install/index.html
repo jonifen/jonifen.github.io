@@ -74,8 +74,24 @@
 <li><a href=#install-any-additional-utilities-window-managers-etc>Install any additional utilities, window managers etc.</a></li>
 </ul>
 </li>
+<li><a href=#network-connectivity>Network connectivity</a>
+<ul>
+<li><a href=#networkmanager>NetworkManager</a></li>
+<li><a href=#wpa-supplicant-wifi-only>WPA Supplicant (wifi only)</a></li>
+<li><a href=#iwd>iwd</a></li>
+</ul>
+</li>
 <li><a href=#final-steps-and-reboot>Final steps (and reboot)</a></li>
-<li><a href=#additional-packages>Additional packages</a></li>
+<li><a href=#additional-packages>Additional packages</a>
+<ul>
+<li><a href=#fonts>Fonts</a></li>
+</ul>
+</li>
+<li><a href=#gotchas>Gotchas</a>
+<ul>
+<li><a href=#signature-is-unknown-trust>Signature is unknown trust</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>
@@ -153,31 +169,82 @@ grub-install /dev/sda
 </code></pre><p>If you have any customisations to make to the boot command line, make them in <code>/etc/default/grub</code> now!</p>
 <pre><code>grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre><h3 id=install-any-additional-utilities-window-managers-etc>Install any additional utilities, window managers etc.</h3>
-<p>I use the KDE/Plasma desktop and use SDDM as my display manager, so I&rsquo;ll install these now.</p>
+<h4 id=kdeplasma--sddm>KDE/Plasma & SDDM</h4>
 <pre><code>pacman -S plasma sddm
-</code></pre><p>And I need to enable the SDDM service so it&rsquo;ll auto-load on boot:</p>
+</code></pre><p>Enable the SDDM service so it&rsquo;s launched on boot:</p>
 <pre><code>systemctl enable sddm
-</code></pre><p>I&rsquo;ll also want to have a terminal installed for use in Plasma, I&rsquo;ve been using Konsole for that:</p>
-<pre><code>pacman -S konsole
+</code></pre><h4 id=openbox>Openbox</h4>
+<p>This is my choice on low powered machines, and I don&rsquo;t include a display manager (but you can add one if you like though). Remember that you&rsquo;ll need to start X yourself with <code>startx</code>.</p>
+<pre><code>pacman -S xorg-server xorg-xinit xorg-apps openbox obconf lxappearance
+</code></pre><p>Use the example xinitrc file as your base:</p>
+<pre><code>cp /etc/X11/xinit/xinitrc ~/.xinitrc
+</code></pre><p>edit the file to comment out the last block (starts with <code>twm</code> and includes references to <code>xterm</code> etc.) and then add the following at the bottom:</p>
+<pre><code>exec openbox-session
+</code></pre><h4 id=terminal>Terminal</h4>
+<p>Take your pick from <code>konsole</code> (my preferred in KDE), <code>xterm</code> (very simple), <code>sakura</code> (basic with some features).</p>
+<h2 id=network-connectivity>Network connectivity</h2>
+<p>You&rsquo;ll probably need to install some packages to help you get a network connection post-reboot. Here are a few options:</p>
+<h3 id=networkmanager>NetworkManager</h3>
+<p>Should get installed with KDE, but if you&rsquo;ve opted for something else, needs installing manually:</p>
+<pre><code>pacman -S network-manager network-manager-applet
+</code></pre><p>and then the service needs enabling:</p>
+<pre><code>sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+</code></pre><h3 id=wpa-supplicant-wifi-only>WPA Supplicant (wifi only)</h3>
+<pre><code>pacman -S dialog wpa_supplicant
+</code></pre><p>once installed:</p>
+<pre><code>sudo wifi-menu
+</code></pre><p>it will save your profile as a network service, view all options:</p>
+<pre><code>sudo netctl list
+</code></pre><p>and enable the one you want:</p>
+<pre><code>sudo netctl enable {profile_name}
+</code></pre><h3 id=iwd>iwd</h3>
+<p>Install the <code>iwd</code> package from the registry and start it with:</p>
+<pre><code>iwctl
+</code></pre><p>At the interactive prompt:</p>
+<pre><code># show the installed wifi adapters
+devices list
+
+# scan for networks
+station {wlan} scan
+
+# show the networks found in the scan
+station {wlan} get-networks
+
+# connect to a network (it will prompt for PSK)
+station {wlan} connect {network_name}
+</code></pre><p>I also had to install the <code>dhcp</code> package and then enable the daemon, along with the DNS resolver in systemd:</p>
+<pre><code>systemctl enable dhcpd
+systemctl enable systemd-resolved
 </code></pre><h2 id=final-steps-and-reboot>Final steps (and reboot)</h2>
 <p>Exit from the chroot shell, unmount all partitions and reboot:</p>
 <pre><code>exit
 umount -R /mnt
 reboot
-</code></pre><p>Once you&rsquo;ve rebooted and logged in, you may find you can&rsquo;t get a network connection. If so, you&rsquo;ll need to enable and start the <code>NetworkManager</code> service:</p>
-<pre><code>sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
 </code></pre><h2 id=additional-packages>Additional packages</h2>
 <p>There are additional packages that I tend to install after a base install. Some of these are related to software development, some are not.</p>
 <ul>
 <li>Yay (AUR helper, saves a few keypresses for installing packages via AUR)</li>
 <li>nvm (Node Version Manager - this is available on AUR and can be installed with Yay)</li>
 <li>OpenSSH (ssh - because it&rsquo;s not installed by default)</li>
-<li>Visual Studio Code - I install the MS one from AUR because some plugins that I&rsquo;ve become pretty used to aren&rsquo;t in the open repository.</li>
+<li>Visual Studio Code - I install the MS one from AUR because some plugins that I&rsquo;ve become pretty used to aren&rsquo;t in the open repository: <code>visual-studio-code-bin</code></li>
 <li>docker and docker-compose (both available from official Arch Linux repositories)</li>
 <li>kamoso (camera utility for KDE)</li>
 <li>pulseaudio-equalizer (audio equaliser for pulseaudio - it sets itself up as an additional audio controller, so it affects <em>all</em> audio output)</li>
 </ul>
+<h3 id=fonts>Fonts</h3>
+<p>These can be installed from the standard Arch Linux package registry.</p>
+<ul>
+<li>Hack: ttf-hack</li>
+<li>Noto Fonts: noto-fonts noto-fonts-emoji noto-fonts-extra</li>
+</ul>
+<h2 id=gotchas>Gotchas</h2>
+<h3 id=signature-is-unknown-trust>Signature is unknown trust</h3>
+<pre><code>signature from &quot;{name} &lt;{email}&gt;&quot; is unknown trust
+</code></pre><p>As per the Arch docs <a href=https://wiki.archlinux.org/title/Pacman#Signature_from_%22User_%3Cemail@example.org%3E%22_is_unknown_trust,_installation_failed>here</a>, there are a few possible solutions but I&rsquo;ve had success with installing the <code>archlinux-keyring</code> package and then doing a pacman update:</p>
+<pre><code>sudo pacman -Sy archlinux-keyring
+sudo pacman -Su
+</code></pre>
 </div>
 </div>
 <footer>
