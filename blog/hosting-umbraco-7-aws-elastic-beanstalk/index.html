@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Hosting Umbraco 7 on AWS Elastic Beanstalk &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -84,23 +84,23 @@ Because this was taking our developers away from the tasks where they can add re
 <h2 id=creating-the-project>Creating the project</h2>
 <h3 id=getting-started>Getting started</h3>
 <p>We created an empty ASP.NET Web Application using the .NET Framework (not dotnetcore) and installed Umbraco via NuGet.</p>
-<pre><code>Install-Package UmbracoCms
+<pre tabindex=0><code>Install-Package UmbracoCms
 </code></pre><p>and we then installed some further packages:</p>
 <p>Umbraco-S3-Provider (to allow Umbraco to treat an S3 bucket as a local storage device for storing media)</p>
-<pre><code>Install-Package Umbraco.Storage.S3
+<pre tabindex=0><code>Install-Package Umbraco.Storage.S3
 </code></pre><p>uSync (a content synchronisation tool which tracks developer changes)</p>
-<pre><code>Install-Package uSync
+<pre tabindex=0><code>Install-Package uSync
 </code></pre><p>Chauffeur (a package delivery system - to aid with initial installs)</p>
-<pre><code>Install-Package Chauffeur
+<pre tabindex=0><code>Install-Package Chauffeur
 </code></pre><p>uSync Chauffeur (a uSync plugin to allow Chauffeur integration)</p>
-<pre><code>Install-Package uSync.Chauffeur
+<pre tabindex=0><code>Install-Package uSync.Chauffeur
 </code></pre><h3 id=initial-umbraco-setup>Initial Umbraco setup</h3>
 <p>We were able to run the project through Visual Studio which ran the application through IIS Express and go through the initial setup process (configuring database access and a user to access the administrator panel).</p>
 <h3 id=chauffeur>Chauffeur</h3>
 <p>At this point, we took a snapshot in time using Chauffeur. This generated a few configuration files (see below) that we keep in source control, but we inject our administrator password in via the deployment pipeline (using environment variables) in order to to keep credentials out of source control.</p>
 <p><em>001-Setup.delivery</em></p>
 <p>This file is created by the initial Chauffeur run, but we had to make some minor tweaks to allow the password to be injected through GoCD.</p>
-<pre><code>install y
+<pre tabindex=0><code>install y
 user change-password admin $adminpwd$
 package 001-Setup
 </code></pre><p>The <code>$adminpwd$</code> variable is populated on the command line when running <code>Chauffeur.Runner.exe</code>.</p>
@@ -140,9 +140,9 @@ package 001-Setup
 <p>However, for the <code>web.config</code> changes, we use transformation configs which are specified in the command when running <code>Msdeploy.exe</code> using the <code>-setParamFile</code> argument.</p>
 <h3 id=chauffeur--usync>Chauffeur & uSync</h3>
 <p>We &ldquo;deliver&rdquo; the Chauffeur package created during initial setup which will set up the initial build of Umbraco and configure the password for the admin account.</p>
-<pre><code>Chauffeur.Runner.exe delivery -p:adminpwd=$adminPassword
+<pre tabindex=0><code>Chauffeur.Runner.exe delivery -p:adminpwd=$adminPassword
 </code></pre><p>Once Umbraco is configured, we then sync the installation with the uSync content included in the deployment:</p>
-<pre><code>Chauffeur.Runner.exe usync import
+<pre tabindex=0><code>Chauffeur.Runner.exe usync import
 </code></pre><h2 id=so-what-does-this-mean-for-our-users>So what does this mean for our users?</h2>
 <p>The result of this is that our colleagues in Marketing and our Content Writers are able to create new content within Umbraco, and when the content is published, it is also published publicly as static content at a pre-defined location, so it can be used in marketing campaigns etc.</p>
 <p>We&rsquo;ve had this set up for a few months now and so far, it has really made a big difference to the company&rsquo;s ability to make changes quickly which will help us react to the market a lot more efficiently going forward. We&rsquo;ve also moved our FAQ content to be managed through the CMS too which means we&rsquo;ve been able to reduce the number of systems our colleagues are having to use and maintain.</p>

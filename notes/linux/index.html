@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Linux &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -84,7 +84,7 @@
 <hr>
 <h2 id=mounting-the-current-installation-from-a-live-environment>Mounting the current installation from a live environment</h2>
 <p>I tend to keep my <code>/home</code> directory on a separate partition, so I do the following:</p>
-<pre><code>mkdir /mnt/root
+<pre tabindex=0><code>mkdir /mnt/root
 mkdir /mnt/root/home
 
 mount /dev/sda1 /mnt/root
@@ -93,7 +93,7 @@ mount /dev/sda3 /mnt/root/home
 arch-chroot /mnt/root
 </code></pre><p>This gives me the <code>zsh</code> shell logged in as root into my current Arch installation so I can do any diagnosis.
 Once I&rsquo;m finished, I exit my installation, unmount and reboot.</p>
-<pre><code>exit
+<pre tabindex=0><code>exit
 umount -R /mnt
 reboot
 </code></pre><hr>
@@ -107,20 +107,20 @@ reboot
 <h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2>
 <p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p>
 <p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p>
-<pre><code>sudo apt install ufw
+<pre tabindex=0><code>sudo apt install ufw
 </code></pre><p>Once you&rsquo;ve got it installed, you can check the status&mldr;</p>
-<pre><code>$ sudo ufw status verbose
+<pre tabindex=0><code>$ sudo ufw status verbose
 Status: inactive
 </code></pre><p>And after this, making sure that SSH access is allowed&mldr;</p>
-<pre><code>$ sudo ufw allow ssh
+<pre tabindex=0><code>$ sudo ufw allow ssh
 Rules updated
 Rules updated (v6)
 </code></pre><p>you can enable it&mldr;</p>
-<pre><code>$ sudo ufw enable
+<pre tabindex=0><code>$ sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 </code></pre><p>At any time you can see what apps are available to grant/block through the firewall (I don&rsquo;t have many on mine so far!):</p>
-<pre><code>$ sudo ufw app list
+<pre tabindex=0><code>$ sudo ufw app list
 Available applications:
   OpenSSH
 </code></pre><p>Other commands:</p>
@@ -169,9 +169,9 @@ Available applications:
 <p><strong>Note:</strong> All <code>allow</code> rules can be <code>deny</code> rules by simply changing the wording.</p>
 <p>Ok, so I&rsquo;d like to delete some rules now&mldr; how would I do that?</p>
 <p>Delete the rule by specifying what you added:</p>
-<pre><code>sudo ufw delete allow ssh
+<pre tabindex=0><code>sudo ufw delete allow ssh
 </code></pre><p>Or, you can list all the rules with associated IDs by getting the numbered status:</p>
-<pre><code>$ sudo ufw status numbered
+<pre tabindex=0><code>$ sudo ufw status numbered
 Status: active
 
      To                         Action      From
@@ -179,37 +179,37 @@ Status: active
 [ 1] 22/tcp                     ALLOW IN    Anywhere
 [ 2] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
 </code></pre><p>and then deleting the one you no longer want:</p>
-<pre><code>sudo ufw delete 2
+<pre tabindex=0><code>sudo ufw delete 2
 </code></pre><p>Finally, want to disable UFW and reset it to defaults?</p>
-<pre><code>sudo ufw reset
+<pre tabindex=0><code>sudo ufw reset
 </code></pre><hr>
 <h2 id=mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</h2>
 <p>This was from mounting the drive from a single disk Zyxel NSA310 NAS.</p>
 <p>It appears the disk is actually in its own RAID array. Never seen this before!</p>
 <p>Advice online suggested doing the following:</p>
-<pre><code>$ sudo mdadm --assemble --force /dev/md0 /dev/sdc2
+<pre tabindex=0><code>$ sudo mdadm --assemble --force /dev/md0 /dev/sdc2
 mdadm: /dev/sdc2 is busy - skipping
 </code></pre><p>So I had to figure out what was making the disk busy&mldr;</p>
-<pre><code>$ cat /proc/mdstat
+<pre tabindex=0><code>$ cat /proc/mdstat
 Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
 md127 : active linear sdc2[0]
       487868928 blocks super 1.2 0k rounding
 
 unused devices: &lt;none&gt;
 </code></pre><p>Ok, so it&rsquo;s already configured and ready to go, so there must be a file in <code>/dev/</code> for it&mldr;</p>
-<pre><code>$ ls /dev/md*
+<pre tabindex=0><code>$ ls /dev/md*
 /dev/md127
 
 /dev/md:
 nsa310:0
 </code></pre><p>Yup, there is one! So I just have to mount it now&mldr;</p>
-<pre><code>$ sudo mount /dev/md127 /mnt/nas
+<pre tabindex=0><code>$ sudo mount /dev/md127 /mnt/nas
 </code></pre><p>Works a treat!</p>
 <hr>
 <h2 id=add-drive-to-etcfstab-for-auto-mount>Add drive to /etc/fstab for auto-mount</h2>
 <p>When adding a drive to <code>/etc/fstab</code> you need either a label or UUID for the disk.
 You can find this using the following command:</p>
-<pre><code>blkid
+<pre tabindex=0><code>blkid
 </code></pre><p>Then you&rsquo;d add the drive into your <code>/etc/fstab</code> using that information. Remember that while blkid adds quotes around the UUID, these aren&rsquo;t required in the fstab file.</p>
 </div>
 </div>

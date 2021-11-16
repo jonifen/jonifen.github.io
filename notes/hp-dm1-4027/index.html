@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>HP DM1-4027 &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -64,12 +64,12 @@
 <h2 id=laptop-locks-up-in-linux---thermal-event>Laptop locks up in Linux - thermal event</h2>
 <p>Sometimes in Linux I&rsquo;ve noticed that the laptop will lock up, often in high CPU situations. This appears to be caused by some sort of thermal support (or lack of) and after some research, you can disable the thermal support within the OS and allow the BIOS to take over instead.</p>
 <p>This is done by editing the grub entry to add <code>thermal.off=1</code> at the end of the linux boot line which would result in the following (replacing <code>{uuid}</code> with your own UUID):</p>
-<pre><code>echo 'Loading Linux linux ...'
+<pre tabindex=0><code>echo 'Loading Linux linux ...'
 linux /boot/vmlinuz-linux root=UUID={uuid} rw quiet thermal.off=1
 </code></pre><p>To make the change permanent, edit <code>/etc/default/grub</code> to update the following line with the <code>thermal.off=1</code> entry:</p>
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;loglevel=3 quiet thermal.off=1&quot;
+<pre tabindex=0><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;loglevel=3 quiet thermal.off=1&quot;
 </code></pre><p>and regenerate the grub config with</p>
-<pre><code>grub-mkconfig -o /boot/grub/grub.cfg
+<pre tabindex=0><code>grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre><hr>
 </div>
 </div>

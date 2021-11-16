@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Arch Linux Installation &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -103,106 +103,106 @@
 <p>First of all, create a bootable USB (or CD) based on the ISO downloaded from the main Arch Linux website and boot it up.</p>
 <h2 id=initial-steps>Initial steps</h2>
 <h3 id=set-keyboard-layout-to-uk>Set keyboard layout to UK</h3>
-<pre><code>loadkeys uk
+<pre tabindex=0><code>loadkeys uk
 </code></pre><p>Connect to the Internet (Ethernet is easier, but Wireless is just as easy) before continuing&mldr;</p>
 <h3 id=set-timezone-and-enable-ntp>Set timezone and enable NTP</h3>
 <p>Set the time zone to London and enable NTP for keeping the time/date synchronised.</p>
-<pre><code>timedatectl set-timezone Europe/London
+<pre tabindex=0><code>timedatectl set-timezone Europe/London
 timedatectl set-ntp true
 </code></pre><h2 id=disk-setup>Disk setup</h2>
 <p>Create your disk partition layouts at this point using the preferred disk partition tool (fdisk, cfdisk, parted etc.) but remember that if you&rsquo;re enabling encryption, create the partitions accordingly.</p>
 <p>Remember that I always recommend <code>/home</code> being on a separate partition!</p>
 <h3 id=formatting-a-partition-assuming-ext4-which-is-most-common>Formatting a partition (assuming <code>ext4</code> which is most common)</h3>
-<pre><code>mkfs.ext4 /dev/sda1
+<pre tabindex=0><code>mkfs.ext4 /dev/sda1
 </code></pre><p>or without journaling enabled</p>
-<pre><code>mkfs.ext4 -O &quot;^has_journal&quot; /dev/sda1
+<pre tabindex=0><code>mkfs.ext4 -O &quot;^has_journal&quot; /dev/sda1
 </code></pre><p>or with BTRFS instead</p>
-<pre><code>mkfs.btrfs /dev/sda1
+<pre tabindex=0><code>mkfs.btrfs /dev/sda1
 </code></pre><h3 id=formatting-the-swap-partition>Formatting the swap partition</h3>
-<pre><code>mkswap /dev/sda2
+<pre tabindex=0><code>mkswap /dev/sda2
 </code></pre><h2 id=get-ready-to-install-mount-drives>Get ready to install (mount drives)</h2>
-<pre><code>mount /dev/sda3 /mnt
+<pre tabindex=0><code>mount /dev/sda3 /mnt
 mkdir /mnt/home
 mount /dev/sda4 /home
 </code></pre><p>and if you created a separate <code>/boot</code> partition</p>
-<pre><code>mkdir /mnt/boot
+<pre tabindex=0><code>mkdir /mnt/boot
 mount /dev/sda1 /boot
 </code></pre><p>and finally enable the <code>swap</code> partition</p>
-<pre><code>swapon /dev/sda2
+<pre tabindex=0><code>swapon /dev/sda2
 </code></pre><h2 id=install-the-basics>Install the basics</h2>
-<pre><code>pacstrap /mnt base base-devel linux linux-firmware
+<pre tabindex=0><code>pacstrap /mnt base base-devel linux linux-firmware
 </code></pre><h2 id=create-the-fstab-file>Create the fstab file</h2>
-<pre><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+<pre tabindex=0><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </code></pre><h2 id=chroot-into-the-installed-os>Chroot into the installed OS</h2>
-<pre><code>arch-chroot /mnt
+<pre tabindex=0><code>arch-chroot /mnt
 </code></pre><h2 id=next-steps>Next steps&mldr;</h2>
 <p>Set the root password - <strong>make it secure!</strong></p>
-<pre><code>passwd
+<pre tabindex=0><code>passwd
 </code></pre><h3 id=set-the-locale>Set the locale</h3>
 <p>Edit <code>/etc/locale.gen</code> to uncomment any <code>en_GB</code> entries before generating the locale file</p>
-<pre><code>locale-gen
+<pre tabindex=0><code>locale-gen
 echo LANG=en_GB.UTF-8 &gt; /etc/locale.conf
 echo KEYMAP=uk &gt; /etc/vconsole.conf
 </code></pre><h3 id=set-the-hardware-clock>Set the hardware clock</h3>
-<pre><code>ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+<pre tabindex=0><code>ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
 </code></pre><h3 id=name-the-computer-set-up-hostname>Name the computer (set up hostname)</h3>
-<pre><code>echo {name} &gt; /etc/hostname
+<pre tabindex=0><code>echo {name} &gt; /etc/hostname
 echo 127.0.1.1 {name}.localdomain {name} &gt;&gt; /etc/hosts
 </code></pre><h3 id=install-zsh-if-you-prefer-it-to-bash>Install zsh (if you prefer it to bash)</h3>
-<pre><code>pacman -S zsh
+<pre tabindex=0><code>pacman -S zsh
 </code></pre><h3 id=add-your-everyday-user-account-and-set-the-password>Add your everyday user account and set the password</h3>
 <p>(replace <code>zsh</code> with <code>bash</code> if you skipped the last step)</p>
-<pre><code>useradd -m -g users -G wheel -s /bin/zsh {username}
+<pre tabindex=0><code>useradd -m -g users -G wheel -s /bin/zsh {username}
 passwd {username}
 </code></pre><h3 id=add-user-to-sudoers-optional>Add user to sudoers (optional)</h3>
 <p>Replace {editor} with the editor of choice - <code>nano</code> should already be installed.</p>
-<pre><code>EDITOR={editor} visudo
+<pre tabindex=0><code>EDITOR={editor} visudo
 </code></pre><p>Uncomment the line below to allow all users in <code>wheel</code> group to run root commands</p>
-<pre><code>%wheel ALL=(ALL) ALL
+<pre tabindex=0><code>%wheel ALL=(ALL) ALL
 </code></pre><h3 id=create-a-new-initramfs-file>Create a new initramfs file</h3>
 <p>Remember to update <code>/etc/mkinitcpio.conf</code> if you&rsquo;re using an encrypted disk to make sure the correct things are loaded before running the following:</p>
-<pre><code>mkinitcpio -P
+<pre tabindex=0><code>mkinitcpio -P
 </code></pre><h3 id=set-up-grub-bootloader>Set up grub (bootloader)</h3>
-<pre><code>pacman -S grub
+<pre tabindex=0><code>pacman -S grub
 grub-install /dev/sda
 </code></pre><p>If you have any customisations to make to the boot command line, make them in <code>/etc/default/grub</code> now!</p>
-<pre><code>grub-mkconfig -o /boot/grub/grub.cfg
+<pre tabindex=0><code>grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre><h3 id=install-any-additional-utilities-window-managers-etc>Install any additional utilities, window managers etc.</h3>
 <h4 id=kdeplasma--sddm>KDE/Plasma & SDDM</h4>
-<pre><code>pacman -S plasma sddm
+<pre tabindex=0><code>pacman -S plasma sddm
 </code></pre><p>Enable the SDDM service so it&rsquo;s launched on boot:</p>
-<pre><code>systemctl enable sddm
+<pre tabindex=0><code>systemctl enable sddm
 </code></pre><h4 id=openbox>Openbox</h4>
 <p>This is my choice on low powered machines, and I don&rsquo;t include a display manager (but you can add one if you like though). Remember that you&rsquo;ll need to start X yourself with <code>startx</code>.</p>
-<pre><code>pacman -S xorg-server xorg-xinit xorg-apps openbox obconf lxappearance
+<pre tabindex=0><code>pacman -S xorg-server xorg-xinit xorg-apps openbox obconf lxappearance
 </code></pre><p>Use the example xinitrc file as your base:</p>
-<pre><code>cp /etc/X11/xinit/xinitrc ~/.xinitrc
+<pre tabindex=0><code>cp /etc/X11/xinit/xinitrc ~/.xinitrc
 </code></pre><p>edit the file to comment out the last block (starts with <code>twm</code> and includes references to <code>xterm</code> etc.) and then add the following at the bottom:</p>
-<pre><code>exec openbox-session
+<pre tabindex=0><code>exec openbox-session
 </code></pre><h4 id=terminal>Terminal</h4>
 <p>Take your pick from <code>konsole</code> (my preferred in KDE), <code>xterm</code> (very simple), <code>sakura</code> (basic with some features).</p>
 <h2 id=network-connectivity>Network connectivity</h2>
 <p>You&rsquo;ll probably need to install some packages to help you get a network connection post-reboot. Here are a few options:</p>
 <h3 id=networkmanager>NetworkManager</h3>
 <p>Should get installed with KDE, but if you&rsquo;ve opted for something else, needs installing manually:</p>
-<pre><code>pacman -S network-manager network-manager-applet
+<pre tabindex=0><code>pacman -S network-manager network-manager-applet
 </code></pre><p>and then the service needs enabling:</p>
-<pre><code>sudo systemctl enable NetworkManager
+<pre tabindex=0><code>sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 </code></pre><h3 id=wpa-supplicant-wifi-only>WPA Supplicant (wifi only)</h3>
-<pre><code>pacman -S dialog wpa_supplicant
+<pre tabindex=0><code>pacman -S dialog wpa_supplicant
 </code></pre><p>once installed:</p>
-<pre><code>sudo wifi-menu
+<pre tabindex=0><code>sudo wifi-menu
 </code></pre><p>it will save your profile as a network service, view all options:</p>
-<pre><code>sudo netctl list
+<pre tabindex=0><code>sudo netctl list
 </code></pre><p>and enable the one you want:</p>
-<pre><code>sudo netctl enable {profile_name}
+<pre tabindex=0><code>sudo netctl enable {profile_name}
 </code></pre><h3 id=iwd>iwd</h3>
 <p>Install the <code>iwd</code> package from the registry and start it with:</p>
-<pre><code>iwctl
+<pre tabindex=0><code>iwctl
 </code></pre><p>At the interactive prompt:</p>
-<pre><code># show the installed wifi adapters
+<pre tabindex=0><code># show the installed wifi adapters
 devices list
 
 # scan for networks
@@ -214,11 +214,11 @@ station {wlan} get-networks
 # connect to a network (it will prompt for PSK)
 station {wlan} connect {network_name}
 </code></pre><p>I also had to install the <code>dhcp</code> package and then enable the daemon, along with the DNS resolver in systemd:</p>
-<pre><code>systemctl enable dhcpd
+<pre tabindex=0><code>systemctl enable dhcpd
 systemctl enable systemd-resolved
 </code></pre><h2 id=final-steps-and-reboot>Final steps (and reboot)</h2>
 <p>Exit from the chroot shell, unmount all partitions and reboot:</p>
-<pre><code>exit
+<pre tabindex=0><code>exit
 umount -R /mnt
 reboot
 </code></pre><h2 id=additional-packages>Additional packages</h2>
@@ -240,9 +240,9 @@ reboot
 </ul>
 <h2 id=gotchas>Gotchas</h2>
 <h3 id=signature-is-unknown-trust>Signature is unknown trust</h3>
-<pre><code>signature from &quot;{name} &lt;{email}&gt;&quot; is unknown trust
+<pre tabindex=0><code>signature from &quot;{name} &lt;{email}&gt;&quot; is unknown trust
 </code></pre><p>As per the Arch docs <a href=https://wiki.archlinux.org/title/Pacman#Signature_from_%22User_%3Cemail@example.org%3E%22_is_unknown_trust,_installation_failed>here</a>, there are a few possible solutions but I&rsquo;ve had success with installing the <code>archlinux-keyring</code> package and then doing a pacman update:</p>
-<pre><code>sudo pacman -Sy archlinux-keyring
+<pre tabindex=0><code>sudo pacman -Sy archlinux-keyring
 sudo pacman -Su
 </code></pre>
 </div>

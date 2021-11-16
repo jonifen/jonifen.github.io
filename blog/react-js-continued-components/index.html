@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>React.js Continued... Components! &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -73,11 +73,11 @@
 
 export default class Home extends React.Component {
 	render() {
-        return(
-            &lt;div&gt;
-                Hello from the Home component!
-            &lt;/div&gt;
-        );
+		return(
+			&lt;div&gt;
+				Hello from the Home component!
+			&lt;/div&gt;
+		);
 	}
 }
 </code></pre>
@@ -104,7 +104,7 @@ export default class Home extends React.Component {
 
 const Header = (props) =&gt; {
 	return(
-        &lt;div&gt;{props.HeaderText}&lt;/div&gt;
+		&lt;div&gt;{props.HeaderText}&lt;/div&gt;
 	);
 }
 
@@ -117,16 +117,16 @@ import Header from '../components/header';
 
 export default class Home extends React.Component {
 	constructor() {
-        super();
+		super();
 	}
 
 	render() {
-        return(
-            &lt;div&gt;
-                &lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
-                Hello from the Home component!
-            &lt;/div&gt;
-        );
+		return(
+			&lt;div&gt;
+				&lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
+				Hello from the Home component!
+			&lt;/div&gt;
+		);
 	}
 }
 </code></pre>

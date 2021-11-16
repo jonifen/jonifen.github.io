@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>No executable found matching command "dotnet-lambda" &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -58,11 +58,11 @@
 <div class=container>
 <div class=main-content>
 <p>When packaging up a dotnetcore lambda function for deployment to AWS, you would run the following command:</p>
-<pre><code>dotnet lambda package -o ../../build/{DestinationFileName}.zip
+<pre tabindex=0><code>dotnet lambda package -o ../../build/{DestinationFileName}.zip
 </code></pre><p>However, when I ran this command earlier today on a new Lambda function project, I got the following error:</p>
-<pre><code>No executable found matching command &quot;dotnet-lambda&quot;
+<pre tabindex=0><code>No executable found matching command &quot;dotnet-lambda&quot;
 </code></pre><p>This is because the Amazon.Lambda.Tools package isn&rsquo;t being included in the dotnet build process, so to fix things, I had to edit the .csproj file for the Lambda function to include the following:</p>
-<pre><code>  &lt;ItemGroup&gt;
+<pre tabindex=0><code>  &lt;ItemGroup&gt;
     &lt;DotNetCliToolReference Include=&quot;Amazon.Lambda.Tools&quot; Version=&quot;2.1.3&quot; /&gt;
   &lt;/ItemGroup&gt;
 </code></pre><p>and everything seemed to work fine afterwards.</p>

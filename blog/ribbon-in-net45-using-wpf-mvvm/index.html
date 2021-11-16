@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Ribbon in .NET 4.5 using WPF and MVVM &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -61,9 +61,9 @@
 <p>First of all, you need to add the Ribbon bar onto the screen (or enter the following XAML:</p>
 <pre><code>&lt;Ribbon&gt;
 	&lt;RibbonTab header=&quot;A random tab name&quot;&gt;
-        &lt;RibbonGroup header=&quot;A random group name&quot;&gt;
-            &lt;RibbonButton largeimagesource=&quot;ImageLocation\Image.png&quot; label=&quot;Button caption&quot; command=&quot;{Binding ClickTheButton}&quot;&gt;
-        &lt;/RibbonGroup&gt;
+		&lt;RibbonGroup header=&quot;A random group name&quot;&gt;
+			&lt;RibbonButton largeimagesource=&quot;ImageLocation\Image.png&quot; label=&quot;Button caption&quot; command=&quot;{Binding ClickTheButton}&quot;&gt;
+		&lt;/RibbonGroup&gt;
 	&lt;/RibbonTab&gt;
 &lt;/Ribbon&gt;
 </code></pre>

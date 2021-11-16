@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Moq - Setup Mock method specifying parameters of type &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -61,12 +61,12 @@
 <p>My scenario was that I was writing a unit test for the Quake3 protocol client and within that protocol client, I build the payload to include the 4-byte prefix data, so I needed to test that it was doing that payload building part correctly. I may extract this logic out in the future if I need to, but currently it&rsquo;s only used within the Quake3 protocol so it can remain here for now.</p>
 <p>At first, I had been using <code>It.IsAny&lt;Request>()</code>, but this didn&rsquo;t allow me to see inside of the object to validate the payload.</p>
 <p>First of all, I created the expected request payload that will be passed in the UDP request, and generated a string equivalent of it.</p>
-<pre><code>_udpRequestPayload = new byte[] { 255,255,255,255,103,101,116,105,110,102,111 };
+<pre tabindex=0><code>_udpRequestPayload = new byte[] { 255,255,255,255,103,101,116,105,110,102,111 };
 _udpRequestPayloadString = System.Text.Encoding.Default.GetString(_udpRequestPayload);
 </code></pre><p>Then, when setting up the mock of the UDP Server client (which is injected into the Quake3 protocol client), I was able to set up the method listener using the following:</p>
-<pre><code>_udpServerClient.Setup(c =&gt; c.GetData(It.Is&lt;Request&gt;(r =&gt; System.Text.Encoding.Default.GetString(r.Payload) == _udpRequestPayloadString))).ReturnsAsync(_udpResponse);
+<pre tabindex=0><code>_udpServerClient.Setup(c =&gt; c.GetData(It.Is&lt;Request&gt;(r =&gt; System.Text.Encoding.Default.GetString(r.Payload) == _udpRequestPayloadString))).ReturnsAsync(_udpResponse);
 </code></pre><p>As such, by doing it this way, I have been able to verify that the mock method was called with the correct payload as so:</p>
-<pre><code>_udpServerClient.Verify(u =&gt; u.GetData(It.Is&lt;Request&gt;(r =&gt; System.Text.Encoding.Default.GetString(r.Payload) == _udpRequestPayloadString)), Times.Once);
+<pre tabindex=0><code>_udpServerClient.Verify(u =&gt; u.GetData(It.Is&lt;Request&gt;(r =&gt; System.Text.Encoding.Default.GetString(r.Payload) == _udpRequestPayloadString)), Times.Once);
 </code></pre><p>You can see the rest of the class (to see the full context) in the <a href=https://github.com/jonifen/GameBrowser>GitHub repository</a>, in particular <a href=https://github.com/jonifen/GameBrowser/blob/master/api/GameBrowser.Tests/Clients/Protocols/Quake3ClientTests/WhenGetInfoIsSuccessful.cs>this class</a>.</p>
 </div>
 </div>

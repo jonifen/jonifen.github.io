@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>View Hugo served content on another device on network &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -58,7 +58,7 @@
 <div class=main-content>
 <p>When you want to view content served by a locally running instance of Hugo on another device, you have to specify a few extra things so it will work correctly.</p>
 <p>When you start the Hugo server locally, it will show the following output:</p>
-<pre><code>$ hugo server -w
+<pre tabindex=0><code>$ hugo server -w
 ...
 (some output omitted here for brevity)
 ...
@@ -66,7 +66,7 @@ Web Server is available at //localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 </code></pre><p>Because it&rsquo;s bound to your localhost IP, you can&rsquo;t just open port 1313 on your computer via a firewall and access Hugo from another device. You have to bind Hugo to the network IP instead (To find out the IP, try <code>ipconfig</code> on Windows or <code>ip a</code> on Linux).</p>
 <p>Then you start Hugo up again providing some extra details:</p>
-<pre><code>$ hugo server -w --bind &quot;0.0.0.0&quot; --baseUrl={YOUR_NETWORK_IP_HERE}
+<pre tabindex=0><code>$ hugo server -w --bind &quot;0.0.0.0&quot; --baseUrl={YOUR_NETWORK_IP_HERE}
 ...
 (some output omitted here for brevity)
 ...

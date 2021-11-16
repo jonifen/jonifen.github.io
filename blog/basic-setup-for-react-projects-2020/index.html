@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Basic Setup for React Projects in 2020 &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -144,7 +144,7 @@ npm i -SD webpack webpack-cli webpack-dev-server copy-webpack-plugin @babel/core
 <span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> {
   <span style=color:#a6e22e>entry</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;./src/app.js&#34;</span>,
   <span style=color:#a6e22e>output</span><span style=color:#f92672>:</span> {
-    <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#ae81ff>__</span><span style=color:#a6e22e>dirname</span>, <span style=color:#e6db74>&#34;./dist&#34;</span>),
+    <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#34;./dist&#34;</span>),
     <span style=color:#a6e22e>filename</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;js/todo-app.js&#34;</span>
   },
   <span style=color:#a6e22e>module</span><span style=color:#f92672>:</span> {
@@ -164,7 +164,7 @@ npm i -SD webpack webpack-cli webpack-dev-server copy-webpack-plugin @babel/core
     })
   ],
   <span style=color:#a6e22e>devServer</span><span style=color:#f92672>:</span> {
-    <span style=color:#a6e22e>contentBase</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>join</span>(<span style=color:#ae81ff>__</span><span style=color:#a6e22e>dirname</span>, <span style=color:#e6db74>&#39;dist&#39;</span>),
+    <span style=color:#a6e22e>contentBase</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>join</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#39;dist&#39;</span>),
     <span style=color:#a6e22e>compress</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
     <span style=color:#a6e22e>port</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>9000</span>
   }
@@ -259,7 +259,7 @@ npm i -SD webpack webpack-cli webpack-dev-server copy-webpack-plugin @babel/core
 </div><p>This will configure Babel to support both React/JSX syntax and also any ES6+ specific syntax too, which allows Jest to test this code too.</p>
 <h2 id=gitignore-optional>.gitignore (optional)</h2>
 <p>If you choose to use Git as your source control, you should create a <code>.gitignore</code> file so that it doesn&rsquo;t try to include any node modules or any build artifacts (i.e. anything created by webpack etc.) in our commits. To do this, create a new file in the root of the project called <code>.gitignore</code> and paste the following into it:</p>
-<pre><code>node_modules/
+<pre tabindex=0><code>node_modules/
 dist/
 </code></pre><p>The first line is just to ignore the node modules directory (where <code>npm i</code> stores all of the packages that it fetches), and the second line is what was specified in the <code>output.path</code> property in the <code>webpack.config.js</code> file, so if you changed that, you should change this to match.</p>
 <h2 id=final-notes>Final notes</h2>

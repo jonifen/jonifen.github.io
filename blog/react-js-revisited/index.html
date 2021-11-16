@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>React.js Revisited &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -86,20 +86,20 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-react babel-
 <pre><code>module.exports = {
 	entry: &quot;./main.js&quot;,
 	output: {
-        path: &quot;dist&quot;,
-        filename: &quot;js/bundle.js&quot;
+		path: &quot;dist&quot;,
+		filename: &quot;js/bundle.js&quot;
 	},
 	module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                loader: &quot;babel-loader&quot;,
-                exclude: /node_modules/,
-                options: {
-                    presets: [&quot;react&quot;, &quot;es2015&quot;]
-                }
-            }
-        ]
+		rules: [
+			{
+				test: /\.js?$/,
+				loader: &quot;babel-loader&quot;,
+				exclude: /node_modules/,
+				options: {
+					presets: [&quot;react&quot;, &quot;es2015&quot;]
+				}
+			}
+		]
 	}
 };
 </code></pre>
@@ -113,7 +113,7 @@ npm install --save-dev webpack babel-core babel-loader babel-preset-react babel-
 <p>Ok, so now you should have a directory structure like this:</p>
 <pre><code>/
 	node_modules/
-        // all the node modules will sit in here //
+		// all the node modules will sit in here //
 	main.js
 	webpack.config.js
 </code></pre>
@@ -151,10 +151,10 @@ js/bundle.js  725 kB       0  [emitted]  [big]  main
 <p>All going according to plan, we should now have a <code>dist</code> directory too:</p>
 <pre><code>/
 	dist/
-        js/
-            bundle.js
+		js/
+			bundle.js
 	node_modules/
-        // all the node modules will sit in here //
+		// all the node modules will sit in here //
 	main.js
 	webpack.config.js
 </code></pre>
@@ -175,20 +175,20 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: &quot;./main.js&quot;,
 	output: {
-        path: &quot;dist&quot;,
-        filename: &quot;js/bundle.js&quot;
+		path: &quot;dist&quot;,
+		filename: &quot;js/bundle.js&quot;
 	},
 	module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                loader: &quot;babel-loader&quot;,
-                exclude: /node_modules/,
-                options: {
-                    presets: [&quot;react&quot;, &quot;es2015&quot;]
-                }
-            }
-        ]
+		rules: [
+			{
+				test: /\.js?$/,
+				loader: &quot;babel-loader&quot;,
+				exclude: /node_modules/,
+				options: {
+					presets: [&quot;react&quot;, &quot;es2015&quot;]
+				}
+			}
+		]
 	}
 
 	// ------and add it as a plugin
@@ -201,22 +201,22 @@ module.exports = {
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
-        &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
-        &lt;title&gt;React Tutorial for jonifen.co.uk&lt;/title&gt;
+		&lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+		&lt;title&gt;React Tutorial for jonifen.co.uk&lt;/title&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-        &lt;div id=&quot;example&quot;&gt;
-        &lt;/div&gt;
+		&lt;div id=&quot;example&quot;&gt;
+		&lt;/div&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 <p>And then editing our <code>webpack.config.js</code> file again (I&rsquo;ve only included the <code>plugins</code> section for clarity, you just replace your existing <code>plugins</code> section with that below):</p>
 <pre><code>plugins: [
 	new HtmlWebpackPlugin(
-        {
-            filename: 'index.html',
-            template: 'index.ejs'
-        }
+		{
+			filename: 'index.html',
+			template: 'index.ejs'
+		}
 	)
 ]
 </code></pre>

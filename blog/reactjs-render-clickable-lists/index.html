@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Rendering an array of data as a clickable list using React.js &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -59,7 +59,7 @@
 <p>React.js is great for quickly rendering arrays of data in a tabular format, and there&rsquo;s loads of grid-like packages out there in npm, but sometimes you just need to hand-crank something yourself. Which is fine, until you want the row to be clickable&mldr;</p>
 <p>So how would you usually render a page from an array of data? Well, I&rsquo;d probably start with some form of iterating the array and building up the content that way. I&rsquo;ll explain how I&rsquo;d go about doing this now.</p>
 <p>So for the example, I have an array of objects containing some basic information:</p>
-<pre><code>const dummyData = [
+<pre tabindex=0><code>const dummyData = [
   { id: 1, firstName: &quot;Joe&quot;, surname: &quot;Bloggs&quot; },
   { id: 2, firstName: &quot;Jane&quot;, surname: &quot;Doe&quot; },
   { id: 3, firstName: &quot;Bob&quot;, surname: &quot;Bobsson&quot; },
@@ -72,11 +72,11 @@
 <li>the data (shown above) will be injected into the new component as a property.</li>
 </ul>
 <p>We need a function that will contain the logic that will be called when a row is clicked. For this example, we&rsquo;ll just display an alert containing the id of the clicked item:</p>
-<pre><code>doListItemAction(item) {
+<pre tabindex=0><code>doListItemAction(item) {
   alert(item.id)
 }
 </code></pre><p>And now we need to build up the render function to iterate the array:</p>
-<pre><code>render() {
+<pre tabindex=0><code>render() {
   let component = this
 
   return(

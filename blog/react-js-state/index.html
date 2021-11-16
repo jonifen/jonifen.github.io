@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>React.js Continued... State! &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -64,31 +64,31 @@ import Header from '../components/header';
 
 export default class Home extends React.Component {
 	constructor() {
-        super();
-        this.state = {
-            results: []
-        };
+		super();
+		this.state = {
+			results: []
+		};
 	}
 
 	componentWillMount() {
-        var xhr = new XMLHttpRequest();
-        var component = this;
-        xhr.open(&quot;GET&quot;, &quot;https://data.police.uk/api/stops-street?lat=53.4848179&amp;lng=-2.2437719&amp;date=2015-05&quot;);
-        xhr.onload = function() {
-            component.setState({ results: xhr.response });
-        };
-        xhr.send();
+		var xhr = new XMLHttpRequest();
+		var component = this;
+		xhr.open(&quot;GET&quot;, &quot;https://data.police.uk/api/stops-street?lat=53.4848179&amp;lng=-2.2437719&amp;date=2015-05&quot;);
+		xhr.onload = function() {
+			component.setState({ results: xhr.response });
+		};
+		xhr.send();
 	}
 
 	render() {
-        return(
-            &lt;div&gt;
-                &lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
-                &lt;div&gt;
-                    Number of records returned from the API: {this.state.results.length}
-                &lt;/div&gt;
-            &lt;/div&gt;
-        );
+		return(
+			&lt;div&gt;
+				&lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
+				&lt;div&gt;
+					Number of records returned from the API: {this.state.results.length}
+				&lt;/div&gt;
+			&lt;/div&gt;
+		);
 	}
 }
 </code></pre>
@@ -113,47 +113,47 @@ Number of records returned from the API: 26102
 
 export default class Comments extends React.Component {
 	constructor() {
-        super();
-        this.state = {
-            comments: [],
-            currentComment: &quot;&quot;
-        };
+		super();
+		this.state = {
+			comments: [],
+			currentComment: &quot;&quot;
+		};
 	}
 
 	onFormChange(event) {
-        this.setState({ currentComment: event.target.value });
+		this.setState({ currentComment: event.target.value });
 	}
 
 	addComment() {
-        this.state.comments.push({
-            date: new Date().toLocaleDateString(),
-            comment: this.state.currentComment
-        });
-        this.setState({ currentComment: &quot;&quot; });
+		this.state.comments.push({
+			date: new Date().toLocaleDateString(),
+			comment: this.state.currentComment
+		});
+		this.setState({ currentComment: &quot;&quot; });
 	}
 
 	render() {
-        return(
-            &lt;div&gt;
-                &lt;hr /&gt;
-                Enter your comment here:&lt;br /&gt;
-                &lt;input type=&quot;textarea&quot; onChange={this.onFormChange.bind(this)} value={this.state.currentComment} /&gt;
-                &lt;button onClick={this.addComment.bind(this)}&gt;Add Comment&lt;/button&gt;
-                &lt;br /&gt;
-                Previous comments:&lt;br /&gt;
-                {
-                    this.state.comments.map(function(comment, i) {
-                        return(
-                            &lt;div key={i}&gt;
-                                Posted on {comment.date}&lt;br/&gt;
-                                {comment.comment}&lt;br /&gt;
-                                -----
-                            &lt;/div&gt;
-                        );
-                    })
-                }
-            &lt;/div&gt;
-        );
+		return(
+			&lt;div&gt;
+				&lt;hr /&gt;
+				Enter your comment here:&lt;br /&gt;
+				&lt;input type=&quot;textarea&quot; onChange={this.onFormChange.bind(this)} value={this.state.currentComment} /&gt;
+				&lt;button onClick={this.addComment.bind(this)}&gt;Add Comment&lt;/button&gt;
+				&lt;br /&gt;
+				Previous comments:&lt;br /&gt;
+				{
+					this.state.comments.map(function(comment, i) {
+						return(
+							&lt;div key={i}&gt;
+								Posted on {comment.date}&lt;br/&gt;
+								{comment.comment}&lt;br /&gt;
+								-----
+							&lt;/div&gt;
+						);
+					})
+				}
+			&lt;/div&gt;
+		);
 	}
 }
 </code></pre>
@@ -172,13 +172,13 @@ export default class Comments extends React.Component {
 <p>and now let&rsquo;s render it (I&rsquo;ve included the whole <code>render()</code> function from <code>home.js</code> to make it easier):</p>
 <pre><code>render() {
 	return(
-        &lt;div&gt;
-            &lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
-            &lt;div&gt;
-                Number of records returned from the API: {this.state.results.length}
-            &lt;/div&gt;
-            &lt;Comments /&gt;
-        &lt;/div&gt;
+		&lt;div&gt;
+			&lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
+			&lt;div&gt;
+				Number of records returned from the API: {this.state.results.length}
+			&lt;/div&gt;
+			&lt;Comments /&gt;
+		&lt;/div&gt;
 	);
 }
 </code></pre>

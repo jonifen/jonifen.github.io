@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>Creating a Terraria server in Docker on a Raspberry Pi 4B &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -71,7 +71,7 @@
 <p>I came across numerous forum threads, blog posts etc. which all suggested <code>screen</code> again. Once bitten, twice shy and all that, but I had another go and encountered the same problems I had the evening before - so much for thinking it might&rsquo;ve just been tiredness-induced mistakes why it didn&rsquo;t work!</p>
 <p>Eventually, after re-reading the Docker <code>run</code> documentation and reading some forum threads about it, I realised I could use the <code>-i</code> argument in my <code>docker run</code> command and it should all work great, and I&rsquo;d be able to get access to the stdin/out stream using <code>docker attach</code>, and this worked brilliantly.</p>
 <p>So to cut a long story short, I started with cloning an existing repository, getting stuck, amending it, getting more stuck, throwing it all away and starting again, getting stuck some more and then slowly got things working. But, to assist others, I ended up with the following folder structure on my host (I used my local version of the server to create the world file, as once the config points to a world, it removes the demand on needing to respond to the menus):</p>
-<pre><code>terraria-server/
+<pre tabindex=0><code>terraria-server/
   configs/
     banlist.txt
     serverconfig.txt
@@ -82,7 +82,7 @@
 </code></pre><p>I thought it important to keep the world and config files out of the container, as they should remain if the container is rebuilt or whatever. I&rsquo;ll map those directories into the container later.</p>
 <p>The files are as follows:</p>
 <p><em>Dockerfile</em></p>
-<pre><code>FROM ubuntu
+<pre tabindex=0><code>FROM ubuntu
 
 LABEL maintainer=&quot;jonifen&quot;
 
@@ -108,13 +108,13 @@ COPY run-server.sh /terraria/run.sh
 WORKDIR /terraria
 CMD [&quot;./run.sh&quot;]
 </code></pre><p><em>run-server.sh</em></p>
-<pre><code>#!/bin/bash
+<pre tabindex=0><code>#!/bin/bash
 set -euo pipefail
 
 exec mono TerrariaServer.exe -config &quot;/terraria/configs/serverconfig.txt&quot;
 </code></pre><p>I referred to a configuration file in the <code>run-server.sh</code> file too. I&rsquo;ve removed all the comments from the file for brevity:</p>
 <p><em>serverconfig.txt</em></p>
-<pre><code>world=/terraria/worlds/world_file.wld
+<pre tabindex=0><code>world=/terraria/worlds/world_file.wld
 maxplayers=8
 port=7777
 worldpath=/terraria/worlds
@@ -122,12 +122,12 @@ worldrollbackstokeep=2
 banlist=/terraria/configs/banlist.txt
 </code></pre><p>I used the following Docker commands to build and run the container:</p>
 <p><em>build</em></p>
-<pre><code>docker build -t jonifen/terraria .
+<pre tabindex=0><code>docker build -t jonifen/terraria .
 </code></pre><p><em>run</em></p>
-<pre><code>docker run -itd -v {path_to_repo}/worlds:/terraria/worlds -v {path_to_repo}/configs:/terraria/configs -p 7777:7777/tcp --name terraria_server jonifen/terraria
+<pre tabindex=0><code>docker run -itd -v {path_to_repo}/worlds:/terraria/worlds -v {path_to_repo}/configs:/terraria/configs -p 7777:7777/tcp --name terraria_server jonifen/terraria
 </code></pre><p>You&rsquo;ll notice that I&rsquo;m mapping the config and world directories from the host into the container. This means they&rsquo;re kept safe should the container get trashed. I&rsquo;ve also removed my paths from the <em>run</em> step to avoid any confusion.</p>
 <p>You&rsquo;ll need access to the process to instruct it to save/exit etc. when you need to. For example, the server only saves every 24 minutes, but this appears to only be every 24 minutes <strong>if a player is on the server at the time</strong> so you&rsquo;ll likely want to save before stopping the container to avoid any data loss. Luckily, by proving the <code>-i</code> argument to <code>docker run</code>, it&rsquo;s easy to do this using the following command:</p>
-<pre><code>docker attach terraria_server
+<pre tabindex=0><code>docker attach terraria_server
 </code></pre><p>It will appear like it&rsquo;s frozen at first, but pressing Enter will give you the colon prompt <code>:</code> and you&rsquo;ll be able to type your commands in here as you wish. Note that exiting the server through this will also stop the Docker container!</p>
 <p>You can view the files in <a href=https://github.com/jonifen/terraria-docker-raspberry-pi>my GitHub repository</a>. I&rsquo;m fully aware that it might not be the most efficient container (many people would suggest using Alpine rather than Ubuntu), and I&rsquo;ll likely look into that in the future - the most important thing was to get it working! And in any case, PRs are always welcome :)</p>
 </div>

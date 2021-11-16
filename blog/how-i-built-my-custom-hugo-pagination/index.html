@@ -5,7 +5,7 @@
 <meta name=HandheldFriendly content="True">
 <meta name=MobileOptimized content="320">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.89.2">
 <title>How I Built My Custom Hugo Pagination &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
 <link rel=preload href=/css/jonifen.min.css as=style>
 <link rel=preload href=/css/jonifen-fonts.min.css as=style>
@@ -59,14 +59,14 @@
 <p>I&rsquo;ve been planning on improving the pagination control for my blog for some time, but it always seemed a bigger job than I really wanted to work on in my spare time, but I was wrong. The only complexity was around the weird templating syntax that I hadn&rsquo;t <em>really</em> got to grips with fully yet.</p>
 <p>So I did some research first, why re-invent the wheel right? And I came across a <a href=https://glennmccomb.com/articles/how-to-build-custom-hugo-pagination/>really good tutorial from Glenn McComb</a> where he went through how he built his, and seeing his examples, along with his explanations, made the syntax sink in better. I&rsquo;d recommend giving his page a read first, as mine is based upon his with a few changes.</p>
 <p>So if you&rsquo;ve read Glenn&rsquo;s page, you&rsquo;ll see that his pager ended up like this for the 1st page:</p>
-<pre><code>1 2 3 4 5 &gt; &gt;&gt;
+<pre tabindex=0><code>1 2 3 4 5 &gt; &gt;&gt;
 </code></pre><p>resulting in this for page 4:</p>
-<pre><code>&lt;&lt; &lt; 2 3 4 5 6 &gt; &gt;&gt;
+<pre tabindex=0><code>&lt;&lt; &lt; 2 3 4 5 6 &gt; &gt;&gt;
 </code></pre><p>So as you can see, he&rsquo;s including 2 page links either side of the current page, and the first, previous, next and last pages too. I wanted to have something slightly different, so I mocked up a few ideas and tested them on an old iPhone SE (same size as the iPhone 5) as this is probably the narrowest screen still in use.</p>
 <p>Anyway, I ended up happy with the following idea on the 1st page:</p>
-<pre><code>1 2 3 ... 7 &gt;
+<pre tabindex=0><code>1 2 3 ... 7 &gt;
 </code></pre><p>resulting in this for page 4:</p>
-<pre><code>&lt; 1 ... 3 4 5 ... 7 &gt;
+<pre tabindex=0><code>&lt; 1 ... 3 4 5 ... 7 &gt;
 </code></pre><p>This way, visitors can see that the last page is number 7 (so they know how many pages there are), and that they can easily get back to the first page which is page 1.</p>
 <p>So I started off with Glenn&rsquo;s example and removed the first and last buttons before starting off working out how to add the buttons for page 1 and the last numbered page.</p>
 <p>Because we already track the maximum number of links on show at any time (<code>$max_links</code>), I based my logic for the page 1 button around that and the current page number, so I only show it if the current page number is greater or equal to the max links value (I opted for 3).</p>
