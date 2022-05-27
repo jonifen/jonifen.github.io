@@ -1,65 +1,9 @@
-<!doctype html><html class=no-js>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
-<title>React.js Continued... State! &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
-<link rel=preload href=/css/jonifen.min.css as=style>
-<link rel=preload href=/css/jonifen-fonts.min.css as=style>
-<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
-<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
-<meta property="og:title" content="React.js Continued... State!">
-<meta name=description content="This time I'll be looking at State. What it is and how to use it...">
-<meta property="og:description" content="This time I'll be looking at State. What it is and how to use it...">
-<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
-<meta property="og:type" content="website">
-<link rel=stylesheet href=/css/jonifen.min.css>
-<link rel=stylesheet href=/css/jonifen-fonts.min.css>
-</head>
-<body>
-<a name=top></a>
-<a href=#top class=back-to-top style=display:none><div></div></a>
-<header id=header>
-<div class=container>
-<div class=heading>
-<a href=/>jonifen</a>
-</div>
-<ul class=nav>
-<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
-</ul>
-</div>
-</header>
-<div class=page-content>
-<div class=post-header>
-<div class=container>
-<div class=content>
-<h2>React.js Continued... State!</h2>
-<small>
-<time datetime=2017-02-14>
-14 February, 2017
-</time>
-&#183; Reading time: ~5 minute(s) (903 words)
-</small>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.98.0"><title>React.js Continued... State! &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="React.js Continued... State!"><meta name=description content="This time I'll be looking at State. What it is and how to use it..."><meta property="og:description" content="This time I'll be looking at State. What it is and how to use it..."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>React.js Continued... State!</h2><small><time datetime=2017-02-14>14 February, 2017</time>
+&#183; Reading time: ~5 minute(s) (903 words)</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/javascript class=tag>javascript</a>
-<a href=/tags/reactjs class=tag>reactjs</a>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=main-content>
-<p>This time I&rsquo;ll be looking at State. What it is and how to use it&mldr; Like last time, we&rsquo;ll be continuing with the code from the <a href=/blog/post/2017/react-js-continued-components/>previous post</a>.</p>
-<p>Last time we created 2 components, <code>home</code> (which was a stateful component) and <code>header</code> (which was a stateless component). This time we&rsquo;re going to handle state within the <code>home</code> component by calling an API. As in previous posts, I&rsquo;ll be using the UK Police API as it doesn&rsquo;t require any authentication (or at least it doesn&rsquo;t at the moment, that could change!) which cuts down on fluff.</p>
-<p>We&rsquo;ll open the <code>home.js</code> file and amend it as follows:</p>
-<pre><code>import React from 'react';
+<a href=/tags/reactjs class=tag>reactjs</a></div></div></div><div class=container><div class=main-content><p>This time I&rsquo;ll be looking at State. What it is and how to use it&mldr; Like last time, we&rsquo;ll be continuing with the code from the <a href=/blog/post/2017/react-js-continued-components/>previous post</a>.</p><p>Last time we created 2 components, <code>home</code> (which was a stateful component) and <code>header</code> (which was a stateless component). This time we&rsquo;re going to handle state within the <code>home</code> component by calling an API. As in previous posts, I&rsquo;ll be using the UK Police API as it doesn&rsquo;t require any authentication (or at least it doesn&rsquo;t at the moment, that could change!) which cuts down on fluff.</p><p>We&rsquo;ll open the <code>home.js</code> file and amend it as follows:</p><pre><code>import React from 'react';
 import Header from '../components/header';
 
 export default class Home extends React.Component {
@@ -91,25 +35,9 @@ export default class Home extends React.Component {
 		);
 	}
 }
-</code></pre>
-<p>To start with, there&rsquo;s more code this time. Let me explain things a little:</p>
-<ul>
-<li>In the constructor (<code>constructor()</code>), we&rsquo;re setting the value of <code>this.state</code> to an object that contains an empty array (<code>results</code>).</li>
-<li>We have a new function in the class: <code>componentWillMount()</code>. React has many &ldquo;lifecycle methods&rdquo; and this is one of them. In particular, this function will be run when the component is <em>about to</em> mount (i.e. come to life on the page). In our example, we will be calling the Police API for some data and storing it in the <code>results</code> array in state.</li>
-<li>In the <code>render()</code> function, we removed the Hello message but added a new <code>&lt;div></code> that contains some text and then includes the output of the length of the <code>results</code> array (that we&rsquo;ve got contained in state).</li>
-</ul>
-<p>Save your file and run webpack to re-generate the files. Open it up in your browser and you should get the following:</p>
-<pre><code>This is your header speaking!
+</code></pre><p>To start with, there&rsquo;s more code this time. Let me explain things a little:</p><ul><li>In the constructor (<code>constructor()</code>), we&rsquo;re setting the value of <code>this.state</code> to an object that contains an empty array (<code>results</code>).</li><li>We have a new function in the class: <code>componentWillMount()</code>. React has many &ldquo;lifecycle methods&rdquo; and this is one of them. In particular, this function will be run when the component is <em>about to</em> mount (i.e. come to life on the page). In our example, we will be calling the Police API for some data and storing it in the <code>results</code> array in state.</li><li>In the <code>render()</code> function, we removed the Hello message but added a new <code>&lt;div></code> that contains some text and then includes the output of the length of the <code>results</code> array (that we&rsquo;ve got contained in state).</li></ul><p>Save your file and run webpack to re-generate the files. Open it up in your browser and you should get the following:</p><pre><code>This is your header speaking!
 Number of records returned from the API: 26102
-</code></pre>
-<p>So now you&rsquo;ve used <code>state</code> in your React app. It is as simple as that! However, there are some things to be aware of:</p>
-<ul>
-<li>You can&rsquo;t set state in the <code>render()</code> function, only read from it.</li>
-<li>You get and set state using <code>this</code> which is the keyword to access the component/function you&rsquo;re currently in. In the example above, you see we use <code>component.setState(...)</code> within the <code>xhr.onload</code> function. This is because <code>this</code> within the function is a different <code>this</code> to the one we expect it to be, so an exception would be thrown in the browser. We get around it by creating a variable (in our case &ldquo;component&rdquo;) which is available within the <code>xhr.onload</code> function as it&rsquo;s declared in the same level of scope.</li>
-</ul>
-<p>Let&rsquo;s look at state a different way. What if we have some form controls on our page like a comments section on a website?</p>
-<p>We need a new component then. Add <code>comments.js</code> to your <code>components</code> directory with the following code:</p>
-<pre><code>import React from 'react';
+</code></pre><p>So now you&rsquo;ve used <code>state</code> in your React app. It is as simple as that! However, there are some things to be aware of:</p><ul><li>You can&rsquo;t set state in the <code>render()</code> function, only read from it.</li><li>You get and set state using <code>this</code> which is the keyword to access the component/function you&rsquo;re currently in. In the example above, you see we use <code>component.setState(...)</code> within the <code>xhr.onload</code> function. This is because <code>this</code> within the function is a different <code>this</code> to the one we expect it to be, so an exception would be thrown in the browser. We get around it by creating a variable (in our case &ldquo;component&rdquo;) which is available within the <code>xhr.onload</code> function as it&rsquo;s declared in the same level of scope.</li></ul><p>Let&rsquo;s look at state a different way. What if we have some form controls on our page like a comments section on a website?</p><p>We need a new component then. Add <code>comments.js</code> to your <code>components</code> directory with the following code:</p><pre><code>import React from 'react';
 
 export default class Comments extends React.Component {
 	constructor() {
@@ -156,21 +84,8 @@ export default class Comments extends React.Component {
 		);
 	}
 }
-</code></pre>
-<p>Woah, more code in this one isn&rsquo;t there? As always, I&rsquo;ll explain a few bits&mldr;</p>
-<ul>
-<li>We import React (as always), and create a new class that is made public (so it can be imported in other class files).</li>
-<li>We set initial values in state within the constructor.</li>
-<li>We&rsquo;ve created 2 functions (<code>onFormChange</code> and <code>addComment</code>) which have fairly self-explanatory names&mldr;</li>
-<li>We&rsquo;re rendering a mini form containing a textarea to enter a comment and a button to submit it. We then render any comments added below.</li>
-</ul>
-<p>So when we view this page, we expect that as a user enters text into the comment box, the <code>onFormChange()</code> function will run on every textbox change and will update the value of <code>currentComment</code> in state. Once the user clicks the button to submit the comment, the <code>addComment()</code> function will run which takes the <code>currentComment</code> from <code>state</code> and adds a new object into the comments array with the typed comment and the current date. It then empties <code>currentComment</code> which clears the textbox too.</p>
-<p>Inside the <code>render()</code> function, where we display previous comments, we use the <code>map</code> function (available in arrays) to iterate through each item and then return some markup to be rendered in the page.</p>
-<p>Ok, now we need to consume this component, so let&rsquo;s import it to our <code>home.js</code> file:</p>
-<pre><code>import Comments from '../components/comments';
-</code></pre>
-<p>and now let&rsquo;s render it (I&rsquo;ve included the whole <code>render()</code> function from <code>home.js</code> to make it easier):</p>
-<pre><code>render() {
+</code></pre><p>Woah, more code in this one isn&rsquo;t there? As always, I&rsquo;ll explain a few bits&mldr;</p><ul><li>We import React (as always), and create a new class that is made public (so it can be imported in other class files).</li><li>We set initial values in state within the constructor.</li><li>We&rsquo;ve created 2 functions (<code>onFormChange</code> and <code>addComment</code>) which have fairly self-explanatory names&mldr;</li><li>We&rsquo;re rendering a mini form containing a textarea to enter a comment and a button to submit it. We then render any comments added below.</li></ul><p>So when we view this page, we expect that as a user enters text into the comment box, the <code>onFormChange()</code> function will run on every textbox change and will update the value of <code>currentComment</code> in state. Once the user clicks the button to submit the comment, the <code>addComment()</code> function will run which takes the <code>currentComment</code> from <code>state</code> and adds a new object into the comments array with the typed comment and the current date. It then empties <code>currentComment</code> which clears the textbox too.</p><p>Inside the <code>render()</code> function, where we display previous comments, we use the <code>map</code> function (available in arrays) to iterate through each item and then return some markup to be rendered in the page.</p><p>Ok, now we need to consume this component, so let&rsquo;s import it to our <code>home.js</code> file:</p><pre><code>import Comments from '../components/comments';
+</code></pre><p>and now let&rsquo;s render it (I&rsquo;ve included the whole <code>render()</code> function from <code>home.js</code> to make it easier):</p><pre><code>render() {
 	return(
 		&lt;div&gt;
 			&lt;Header HeaderText=&quot;This is your header speaking!&quot; /&gt;
@@ -181,26 +96,9 @@ export default class Comments extends React.Component {
 		&lt;/div&gt;
 	);
 }
-</code></pre>
-<p>So now we&rsquo;ve used state to hold data retrieved from an API, and we&rsquo;ve used it to hold data which is manipulated during the lifetime of the component.</p>
-<p>As always, questions/comments are welcomed on <a href=https://twitter.com/jonifen>Twitter</a> or <a href=/contact>one of my other contact options</a>.</p>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=footer-icons>
-<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+</code></pre><p>So now we&rsquo;ve used state to hold data retrieved from an API, and we&rsquo;ve used it to hold data which is manipulated during the lifetime of the component.</p><p>As always, questions/comments are welcomed on <a href=https://twitter.com/jonifen>Twitter</a> or <a href=/contact>one of my other contact options</a>.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
 <a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
 <a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
 <a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
 <a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
-<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
-</div>
-<p>
-<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
-</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>

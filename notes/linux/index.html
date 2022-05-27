@@ -1,90 +1,5 @@
-<!doctype html><html class=no-js>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
-<title>Linux &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
-<link rel=preload href=/css/jonifen.min.css as=style>
-<link rel=preload href=/css/jonifen-fonts.min.css as=style>
-<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
-<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
-<meta property="og:title" content="Linux">
-<meta name=description content="Tips and tricks that I've picked up along the way">
-<meta property="og:description" content="Tips and tricks that I've picked up along the way">
-<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
-<meta property="og:type" content="website">
-<link rel=stylesheet href=/css/jonifen.min.css>
-<link rel=stylesheet href=/css/jonifen-fonts.min.css>
-</head>
-<body>
-<a name=top></a>
-<a href=#top class=back-to-top style=display:none><div></div></a>
-<header id=header>
-<div class=container>
-<div class=heading>
-<a href=/>jonifen</a>
-</div>
-<ul class=nav>
-<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
-</ul>
-</div>
-</header>
-<div class=page-content>
-<div class=post-header>
-<div class=container>
-<div class=content>
-<p><a href=/notes/>&lt; Back to Notes</a></p>
-<h2>Linux</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#useful-file-locations>Useful file locations</a></li>
-<li><a href=#mounting-the-current-installation-from-a-live-environment>Mounting the current installation from a live environment</a></li>
-<li><a href=#installing-kde-and-tools>Installing KDE and tools</a></li>
-<li><a href=#ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</a></li>
-<li><a href=#mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</a></li>
-<li><a href=#add-drive-to-etcfstab-for-auto-mount>Add drive to /etc/fstab for auto-mount</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=main-content>
-<p>Most of the notes in here are Arch Linux specific, as this is the distro I use most and the one which tends to give me the most curveballs to deal with! But this is what&rsquo;s so good about it, as it gives me a way to learn things better than I would do with one of the more common distros like Ubuntu.</p>
-<p><em>If anyone reads any of these notes and thinks there&rsquo;s a better way, please let me know - any help is always appreciated. Maybe you&rsquo;d prefer to submit a PR?</em></p>
-<hr>
-<h2 id=useful-file-locations>Useful file locations</h2>
-<p>These are a few files/paths I always forget because I rarely need to look at them when my Linux machine is working fine.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pacman logs</td>
-<td><code>/var/log/pacman.log</code></td>
-</tr>
-<tr>
-<td>Pacman cache</td>
-<td><code>/var/cache/pacman/pkg/</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id=mounting-the-current-installation-from-a-live-environment>Mounting the current installation from a live environment</h2>
-<p>I tend to keep my <code>/home</code> directory on a separate partition, so I do the following:</p>
-<pre tabindex=0><code>mkdir /mnt/root
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.98.0"><title>Linux &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Linux"><meta name=description content="Tips and tricks that I've picked up along the way"><meta property="og:description" content="Tips and tricks that I've picked up along the way"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><p><a href=/notes/>&lt; Back to Notes</a></p><h2>Linux</h2><nav id=TableOfContents><ul><li><a href=#useful-file-locations>Useful file locations</a></li><li><a href=#mounting-the-current-installation-from-a-live-environment>Mounting the current installation from a live environment</a></li><li><a href=#installing-kde-and-tools>Installing KDE and tools</a></li><li><a href=#ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</a></li><li><a href=#mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</a></li><li><a href=#add-drive-to-etcfstab-for-auto-mount>Add drive to /etc/fstab for auto-mount</a></li></ul></nav></div></div></div><div class=container><div class=main-content><p>Most of the notes in here are Arch Linux specific, as this is the distro I use most and the one which tends to give me the most curveballs to deal with! But this is what&rsquo;s so good about it, as it gives me a way to learn things better than I would do with one of the more common distros like Ubuntu.</p><p><em>If anyone reads any of these notes and thinks there&rsquo;s a better way, please let me know - any help is always appreciated. Maybe you&rsquo;d prefer to submit a PR?</em></p><hr><h2 id=useful-file-locations>Useful file locations</h2><p>These are a few files/paths I always forget because I rarely need to look at them when my Linux machine is working fine.</p><table><thead><tr><th></th><th>Location</th></tr></thead><tbody><tr><td>Pacman logs</td><td><code>/var/log/pacman.log</code></td></tr><tr><td>Pacman cache</td><td><code>/var/cache/pacman/pkg/</code></td></tr></tbody></table><hr><h2 id=mounting-the-current-installation-from-a-live-environment>Mounting the current installation from a live environment</h2><p>I tend to keep my <code>/home</code> directory on a separate partition, so I do the following:</p><pre tabindex=0><code>mkdir /mnt/root
 mkdir /mnt/root/home
 
 mount /dev/sda1 /mnt/root
@@ -92,142 +7,50 @@ mount /dev/sda3 /mnt/root/home
 
 arch-chroot /mnt/root
 </code></pre><p>This gives me the <code>zsh</code> shell logged in as root into my current Arch installation so I can do any diagnosis.
-Once I&rsquo;m finished, I exit my installation, unmount and reboot.</p>
-<pre tabindex=0><code>exit
+Once I&rsquo;m finished, I exit my installation, unmount and reboot.</p><pre tabindex=0><code>exit
 umount -R /mnt
 reboot
-</code></pre><hr>
-<h2 id=installing-kde-and-tools>Installing KDE and tools</h2>
-<p><code>plasma-desktop</code> (The KDE desktop - seems to be referenced as <code>plasma</code> nowadays)</p>
-<p><code>plasma-nm</code> (NetworkManager for plasma/KDE - enable it through <code>sudo systemctl enable NetworkManager</code>)</p>
-<p><code>kde-applications</code> (gives you a bunch of KDE apps, konsole etc.)</p>
-<p><code>kgpg</code> (for encrypting the KDE wallet for wifi keys etc.)</p>
-<p><code>powerdevil</code> (configuring power settings and/or power savings)</p>
-<hr>
-<h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2>
-<p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p>
-<p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p>
-<pre tabindex=0><code>sudo apt install ufw
-</code></pre><p>Once you&rsquo;ve got it installed, you can check the status&mldr;</p>
-<pre tabindex=0><code>$ sudo ufw status verbose
+</code></pre><hr><h2 id=installing-kde-and-tools>Installing KDE and tools</h2><p><code>plasma-desktop</code> (The KDE desktop - seems to be referenced as <code>plasma</code> nowadays)</p><p><code>plasma-nm</code> (NetworkManager for plasma/KDE - enable it through <code>sudo systemctl enable NetworkManager</code>)</p><p><code>kde-applications</code> (gives you a bunch of KDE apps, konsole etc.)</p><p><code>kgpg</code> (for encrypting the KDE wallet for wifi keys etc.)</p><p><code>powerdevil</code> (configuring power settings and/or power savings)</p><hr><h2 id=ufw-uncomplicated-firewall>UFW (Uncomplicated FireWall)</h2><p>This is a pretty simple to configure firewall on Linux (I guess that&rsquo;s where the <code>Uncomplicated</code> part of the name came from!)</p><p>It is typically installed on Ubuntu Server by default, but if not, you can install it through Aptitude:</p><pre tabindex=0><code>sudo apt install ufw
+</code></pre><p>Once you&rsquo;ve got it installed, you can check the status&mldr;</p><pre tabindex=0><code>$ sudo ufw status verbose
 Status: inactive
-</code></pre><p>And after this, making sure that SSH access is allowed&mldr;</p>
-<pre tabindex=0><code>$ sudo ufw allow ssh
+</code></pre><p>And after this, making sure that SSH access is allowed&mldr;</p><pre tabindex=0><code>$ sudo ufw allow ssh
 Rules updated
 Rules updated (v6)
-</code></pre><p>you can enable it&mldr;</p>
-<pre tabindex=0><code>$ sudo ufw enable
+</code></pre><p>you can enable it&mldr;</p><pre tabindex=0><code>$ sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
-</code></pre><p>At any time you can see what apps are available to grant/block through the firewall (I don&rsquo;t have many on mine so far!):</p>
-<pre tabindex=0><code>$ sudo ufw app list
+</code></pre><p>At any time you can see what apps are available to grant/block through the firewall (I don&rsquo;t have many on mine so far!):</p><pre tabindex=0><code>$ sudo ufw app list
 Available applications:
   OpenSSH
-</code></pre><p>Other commands:</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>allow http</code></td>
-<td>Grant http access over port 80</td>
-</tr>
-<tr>
-<td><code>allow 80/tcp</code></td>
-<td>Same as above, but very explicit to the port and protocol</td>
-</tr>
-<tr>
-<td><code>allow https</code></td>
-<td>Grants https access over port 443</td>
-</tr>
-<tr>
-<td><code>allow 8000:8100/tcp</code></td>
-<td>Grant access on all ports between the specified range</td>
-</tr>
-<tr>
-<td><code>allow from {ip}</code></td>
-<td>Grant access to all ports from a specified ip</td>
-</tr>
-<tr>
-<td><code>allow from {ip} to any port 8000</code></td>
-<td>Grants access from the specific IP to port 8000</td>
-</tr>
-<tr>
-<td><code>allow from 192.168.10.0/24 to any port 8000</code></td>
-<td>Grants access from any IP in the specified subnet to port 8000</td>
-</tr>
-<tr>
-<td>`deny from {(ip</td>
-<td>subnet range)}`</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Note:</strong> All <code>allow</code> rules can be <code>deny</code> rules by simply changing the wording.</p>
-<p>Ok, so I&rsquo;d like to delete some rules now&mldr; how would I do that?</p>
-<p>Delete the rule by specifying what you added:</p>
-<pre tabindex=0><code>sudo ufw delete allow ssh
-</code></pre><p>Or, you can list all the rules with associated IDs by getting the numbered status:</p>
-<pre tabindex=0><code>$ sudo ufw status numbered
+</code></pre><p>Other commands:</p><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>allow http</code></td><td>Grant http access over port 80</td></tr><tr><td><code>allow 80/tcp</code></td><td>Same as above, but very explicit to the port and protocol</td></tr><tr><td><code>allow https</code></td><td>Grants https access over port 443</td></tr><tr><td><code>allow 8000:8100/tcp</code></td><td>Grant access on all ports between the specified range</td></tr><tr><td><code>allow from {ip}</code></td><td>Grant access to all ports from a specified ip</td></tr><tr><td><code>allow from {ip} to any port 8000</code></td><td>Grants access from the specific IP to port 8000</td></tr><tr><td><code>allow from 192.168.10.0/24 to any port 8000</code></td><td>Grants access from any IP in the specified subnet to port 8000</td></tr><tr><td>`deny from {(ip</td><td>subnet range)}`</td></tr></tbody></table><p><strong>Note:</strong> All <code>allow</code> rules can be <code>deny</code> rules by simply changing the wording.</p><p>Ok, so I&rsquo;d like to delete some rules now&mldr; how would I do that?</p><p>Delete the rule by specifying what you added:</p><pre tabindex=0><code>sudo ufw delete allow ssh
+</code></pre><p>Or, you can list all the rules with associated IDs by getting the numbered status:</p><pre tabindex=0><code>$ sudo ufw status numbered
 Status: active
 
      To                         Action      From
      --                         ------      ----
 [ 1] 22/tcp                     ALLOW IN    Anywhere
 [ 2] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
-</code></pre><p>and then deleting the one you no longer want:</p>
-<pre tabindex=0><code>sudo ufw delete 2
-</code></pre><p>Finally, want to disable UFW and reset it to defaults?</p>
-<pre tabindex=0><code>sudo ufw reset
-</code></pre><hr>
-<h2 id=mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</h2>
-<p>This was from mounting the drive from a single disk Zyxel NSA310 NAS.</p>
-<p>It appears the disk is actually in its own RAID array. Never seen this before!</p>
-<p>Advice online suggested doing the following:</p>
-<pre tabindex=0><code>$ sudo mdadm --assemble --force /dev/md0 /dev/sdc2
+</code></pre><p>and then deleting the one you no longer want:</p><pre tabindex=0><code>sudo ufw delete 2
+</code></pre><p>Finally, want to disable UFW and reset it to defaults?</p><pre tabindex=0><code>sudo ufw reset
+</code></pre><hr><h2 id=mdadm-mounting-raid-devices>MDADM (Mounting RAID devices)</h2><p>This was from mounting the drive from a single disk Zyxel NSA310 NAS.</p><p>It appears the disk is actually in its own RAID array. Never seen this before!</p><p>Advice online suggested doing the following:</p><pre tabindex=0><code>$ sudo mdadm --assemble --force /dev/md0 /dev/sdc2
 mdadm: /dev/sdc2 is busy - skipping
-</code></pre><p>So I had to figure out what was making the disk busy&mldr;</p>
-<pre tabindex=0><code>$ cat /proc/mdstat
+</code></pre><p>So I had to figure out what was making the disk busy&mldr;</p><pre tabindex=0><code>$ cat /proc/mdstat
 Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
 md127 : active linear sdc2[0]
       487868928 blocks super 1.2 0k rounding
 
 unused devices: &lt;none&gt;
-</code></pre><p>Ok, so it&rsquo;s already configured and ready to go, so there must be a file in <code>/dev/</code> for it&mldr;</p>
-<pre tabindex=0><code>$ ls /dev/md*
+</code></pre><p>Ok, so it&rsquo;s already configured and ready to go, so there must be a file in <code>/dev/</code> for it&mldr;</p><pre tabindex=0><code>$ ls /dev/md*
 /dev/md127
 
 /dev/md:
 nsa310:0
-</code></pre><p>Yup, there is one! So I just have to mount it now&mldr;</p>
-<pre tabindex=0><code>$ sudo mount /dev/md127 /mnt/nas
-</code></pre><p>Works a treat!</p>
-<hr>
-<h2 id=add-drive-to-etcfstab-for-auto-mount>Add drive to /etc/fstab for auto-mount</h2>
-<p>When adding a drive to <code>/etc/fstab</code> you need either a label or UUID for the disk.
-You can find this using the following command:</p>
-<pre tabindex=0><code>blkid
-</code></pre><p>Then you&rsquo;d add the drive into your <code>/etc/fstab</code> using that information. Remember that while blkid adds quotes around the UUID, these aren&rsquo;t required in the fstab file.</p>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=footer-icons>
-<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+</code></pre><p>Yup, there is one! So I just have to mount it now&mldr;</p><pre tabindex=0><code>$ sudo mount /dev/md127 /mnt/nas
+</code></pre><p>Works a treat!</p><hr><h2 id=add-drive-to-etcfstab-for-auto-mount>Add drive to /etc/fstab for auto-mount</h2><p>When adding a drive to <code>/etc/fstab</code> you need either a label or UUID for the disk.
+You can find this using the following command:</p><pre tabindex=0><code>blkid
+</code></pre><p>Then you&rsquo;d add the drive into your <code>/etc/fstab</code> using that information. Remember that while blkid adds quotes around the UUID, these aren&rsquo;t required in the fstab file.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
 <a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
 <a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
 <a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
 <a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
-<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
-</div>
-<p>
-<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
-</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>

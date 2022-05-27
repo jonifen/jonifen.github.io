@@ -1,80 +1,10 @@
-<!doctype html><html class=no-js>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
-<title>Windows XP and it's poor effort of an "Automatic Updates" service &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
-<link rel=preload href=/css/jonifen.min.css as=style>
-<link rel=preload href=/css/jonifen-fonts.min.css as=style>
-<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
-<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
-<meta property="og:title" content="Windows XP and it's poor effort of an &#34;Automatic Updates&#34; service">
-<meta name=description content="So it's the end of a long Sunday which started later than expected">
-<meta property="og:description" content="So it's the end of a long Sunday which started later than expected">
-<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
-<meta property="og:type" content="website">
-<link rel=stylesheet href=/css/jonifen.min.css>
-<link rel=stylesheet href=/css/jonifen-fonts.min.css>
-</head>
-<body>
-<a name=top></a>
-<a href=#top class=back-to-top style=display:none><div></div></a>
-<header id=header>
-<div class=container>
-<div class=heading>
-<a href=/>jonifen</a>
-</div>
-<ul class=nav>
-<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
-</ul>
-</div>
-</header>
-<div class=page-content>
-<div class=post-header>
-<div class=container>
-<div class=content>
-<h2>Windows XP and it's poor effort of an "Automatic Updates" service</h2>
-<small>
-<time datetime=2013-12-29>
-29 December, 2013
-</time>
-&#183; Reading time: ~2 minute(s) (243 words)
-</small>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.98.0"><title>Windows XP and it's poor effort of an "Automatic Updates" service &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Windows XP and it's poor effort of an &#34;Automatic Updates&#34; service"><meta name=description content="So it's the end of a long Sunday which started later than expected"><meta property="og:description" content="So it's the end of a long Sunday which started later than expected"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Windows XP and it's poor effort of an "Automatic Updates" service</h2><small><time datetime=2013-12-29>29 December, 2013</time>
+&#183; Reading time: ~2 minute(s) (243 words)</small>
 <a href=/tags/techsupport class=tag>techsupport</a>
-<a href=/tags/windows class=tag>windows</a>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=main-content>
-<p>So it&rsquo;s the end of a long Sunday which started later than expected (as I&rsquo;d slept in despite my son&rsquo;s best efforts to wake me with the ever-loud playback of YouTube videos). I&rsquo;ve spent most of the day glaring at a computer screen but not for productive gain as it&rsquo;s my family duty to fix the broken computers of the children/parents/siblings, except this time it&rsquo;s been a looonnnnggg job which Windows XP is just aching to make so much worse.</p>
-<p>When Windows XP is checking for updates, the svchost.exe process eats up an entire CPU core all in the quest to detect available updates. As it&rsquo;s a fresh install of XP with SP3 slipstreamed in, it&rsquo;s gonna take a while as it is. I know it&rsquo;s the &ldquo;Automatic Updates&rdquo; service as stopping it cures the heavy CPU usage (and it will need the CPU to scan what is installed and what isn&rsquo;t), but I&rsquo;m in a bit of a rush here! Not to worry, as it&rsquo;s a Dell, so I&rsquo;ll let their update tool tell me what drivers I need&mldr; Except I need .net 3.5 installed. 250Mb later and I&rsquo;m up and running. Except the modem driver isn&rsquo;t a modem driver&mldr; It seems to be some modem-related software like a utility&mldr; So I&rsquo;ll need Windows Update after all! Hm, I&rsquo;d best leave it to scan for updates, it would have been finished by now if I hadn&rsquo;t tinkered with it!</p>
-<p>Wish me luck&mldr;</p>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=footer-icons>
-<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+<a href=/tags/windows class=tag>windows</a></div></div></div><div class=container><div class=main-content><p>So it&rsquo;s the end of a long Sunday which started later than expected (as I&rsquo;d slept in despite my son&rsquo;s best efforts to wake me with the ever-loud playback of YouTube videos). I&rsquo;ve spent most of the day glaring at a computer screen but not for productive gain as it&rsquo;s my family duty to fix the broken computers of the children/parents/siblings, except this time it&rsquo;s been a looonnnnggg job which Windows XP is just aching to make so much worse.</p><p>When Windows XP is checking for updates, the svchost.exe process eats up an entire CPU core all in the quest to detect available updates. As it&rsquo;s a fresh install of XP with SP3 slipstreamed in, it&rsquo;s gonna take a while as it is. I know it&rsquo;s the &ldquo;Automatic Updates&rdquo; service as stopping it cures the heavy CPU usage (and it will need the CPU to scan what is installed and what isn&rsquo;t), but I&rsquo;m in a bit of a rush here! Not to worry, as it&rsquo;s a Dell, so I&rsquo;ll let their update tool tell me what drivers I need&mldr; Except I need .net 3.5 installed. 250Mb later and I&rsquo;m up and running. Except the modem driver isn&rsquo;t a modem driver&mldr; It seems to be some modem-related software like a utility&mldr; So I&rsquo;ll need Windows Update after all! Hm, I&rsquo;d best leave it to scan for updates, it would have been finished by now if I hadn&rsquo;t tinkered with it!</p><p>Wish me luck&mldr;</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
 <a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
 <a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
 <a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
 <a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
-<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
-</div>
-<p>
-<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
-</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>

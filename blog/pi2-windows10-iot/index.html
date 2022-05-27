@@ -1,92 +1,13 @@
-<!doctype html><html class=no-js>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
-<title>Windows 10 IoT on a Raspberry Pi 2 &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
-<link rel=preload href=/css/jonifen.min.css as=style>
-<link rel=preload href=/css/jonifen-fonts.min.css as=style>
-<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
-<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
-<meta property="og:title" content="Windows 10 IoT on a Raspberry Pi 2">
-<meta name=description content="I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2, this post describes my experiences in getting it set up...">
-<meta property="og:description" content="I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2, this post describes my experiences in getting it set up...">
-<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
-<meta property="og:type" content="website">
-<link rel=stylesheet href=/css/jonifen.min.css>
-<link rel=stylesheet href=/css/jonifen-fonts.min.css>
-</head>
-<body>
-<a name=top></a>
-<a href=#top class=back-to-top style=display:none><div></div></a>
-<header id=header>
-<div class=container>
-<div class=heading>
-<a href=/>jonifen</a>
-</div>
-<ul class=nav>
-<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
-</ul>
-</div>
-</header>
-<div class=page-content>
-<div class=post-header>
-<div class=container>
-<div class=content>
-<h2>Windows 10 IoT on a Raspberry Pi 2</h2>
-<small>
-<time datetime=2017-01-11>
-11 January, 2017
-</time>
-&#183; Reading time: ~4 minute(s) (698 words)
-</small>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.98.0"><title>Windows 10 IoT on a Raspberry Pi 2 &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Windows 10 IoT on a Raspberry Pi 2"><meta name=description content="I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2, this post describes my experiences in getting it set up..."><meta property="og:description" content="I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2, this post describes my experiences in getting it set up..."><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Windows 10 IoT on a Raspberry Pi 2</h2><small><time datetime=2017-01-11>11 January, 2017</time>
+&#183; Reading time: ~4 minute(s) (698 words)</small>
 <a href=/tags/raspberrypi class=tag>raspberrypi</a>
 <a href=/tags/hardware class=tag>hardware</a>
-<a href=/tags/iot class=tag>iot</a>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=main-content>
-<p>I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2. I&rsquo;ve been looking at this since it was first announced a while back, but never actually got around to having a proper look into it and getting it installed on one of our Pis.</p>
-<p>What kit do I have then?</p>
-<ul>
-<li>Raspberry Pi 2</li>
-<li>Edimax EW-7811Un Nano USB Wireless Dongle (which turned out to be unsupported, but there is a workaround - details to come later)</li>
-<li>Official Power Supply (the white Raspberry Pi 2.1A model)</li>
-</ul>
-<p>First of all I need to get the operating system downloaded. I found the Windows IoT Dashboard software available for free from Microsoft (I downloaded it from <a href=https://developer.microsoft.com/en-us/windows/iot/Downloads.htm>https://developer.microsoft.com/en-us/windows/iot/Downloads.htm</a>) and installed it onto my laptop ready to go. This software allowed me to specify that it is intended for running on a Raspberry Pi (it lists the Pi 2 and 3 - I assume the Pi 1 isn&rsquo;t powerful enough?) so I followed the steps and created my MicroSD card ready to go.</p>
-<p>I booted up the Pi with my keyboard and mouse attached, it quickly loaded to the splash screen (which &ldquo;regular&rdquo; Windows 10 will be familiar with), but it hung around on this splash screen for some time (my Pi took a few minutes - I think part of this delay may be related to my choice of MicroSD, so I may start again with a quicker SD card at a future date).</p>
-<p>I was eventually presented with the Windows 10 IoT screen, but I was unable to connect to my wireless network as it could not see my Wifi adapter because it was unsupported. I plugged in an ethernet cable instead and it got a connection fine, but I might need wifi, so I spent a bit of time figuring that out. It turned out, I wasn&rsquo;t alone with my hardware configuration. A lot of people own a Pi with the Edimax adapter and were campaigning for Microsoft to add support on various forums and websites (such as <a href="https://social.msdn.microsoft.com/Forums/en-US/05fe7028-3d1b-454e-a4e8-f614374390a1/installing-usb-wireless-edimax-driver?forum=WindowsIoT)">https://social.msdn.microsoft.com/Forums/en-US/05fe7028-3d1b-454e-a4e8-f614374390a1/installing-usb-wireless-edimax-driver?forum=WindowsIoT)</a>. Luckily, Edimax has released a driver specifically for the Raspberry Pi 2 for use with Windows 10 IoT!</p>
-<p>On the Microsoft forum, Dano63 compiled all previous advice in the thread into the following steps:</p>
-<ol>
-<li>Download the driver zip from <a href=http://www.edimax.com/edimax/download/download/data/edimax/global/download/for_home/wireless_adapters/wireless_adapters_n150/ew-7811un>http://www.edimax.com/edimax/download/download/data/edimax/global/download/for_home/wireless_adapters/wireless_adapters_n150/ew-7811un</a></li>
-<li>Put SD card in PC and copy the 3 files that were in the zip to :\temp. Then eject.</li>
-<li>Put SD card in the Pi and boot.</li>
-<li>Connect with Powershell (detailed in <a href=https://ms-iot.github.io/content/en-US/win10/samples/PowerShell.htm>https://ms-iot.github.io/content/en-US/win10/samples/PowerShell.htm</a>)</li>
-<li>cd to c:\efisp\temp</li>
-<li>Run the command below.
+<a href=/tags/iot class=tag>iot</a></div></div></div><div class=container><div class=main-content><p>I thought it a good idea to spend some time looking at Windows 10 IoT edition on my Raspberry Pi 2. I&rsquo;ve been looking at this since it was first announced a while back, but never actually got around to having a proper look into it and getting it installed on one of our Pis.</p><p>What kit do I have then?</p><ul><li>Raspberry Pi 2</li><li>Edimax EW-7811Un Nano USB Wireless Dongle (which turned out to be unsupported, but there is a workaround - details to come later)</li><li>Official Power Supply (the white Raspberry Pi 2.1A model)</li></ul><p>First of all I need to get the operating system downloaded. I found the Windows IoT Dashboard software available for free from Microsoft (I downloaded it from <a href=https://developer.microsoft.com/en-us/windows/iot/Downloads.htm>https://developer.microsoft.com/en-us/windows/iot/Downloads.htm</a>) and installed it onto my laptop ready to go. This software allowed me to specify that it is intended for running on a Raspberry Pi (it lists the Pi 2 and 3 - I assume the Pi 1 isn&rsquo;t powerful enough?) so I followed the steps and created my MicroSD card ready to go.</p><p>I booted up the Pi with my keyboard and mouse attached, it quickly loaded to the splash screen (which &ldquo;regular&rdquo; Windows 10 will be familiar with), but it hung around on this splash screen for some time (my Pi took a few minutes - I think part of this delay may be related to my choice of MicroSD, so I may start again with a quicker SD card at a future date).</p><p>I was eventually presented with the Windows 10 IoT screen, but I was unable to connect to my wireless network as it could not see my Wifi adapter because it was unsupported. I plugged in an ethernet cable instead and it got a connection fine, but I might need wifi, so I spent a bit of time figuring that out. It turned out, I wasn&rsquo;t alone with my hardware configuration. A lot of people own a Pi with the Edimax adapter and were campaigning for Microsoft to add support on various forums and websites (such as <a href="https://social.msdn.microsoft.com/Forums/en-US/05fe7028-3d1b-454e-a4e8-f614374390a1/installing-usb-wireless-edimax-driver?forum=WindowsIoT)">https://social.msdn.microsoft.com/Forums/en-US/05fe7028-3d1b-454e-a4e8-f614374390a1/installing-usb-wireless-edimax-driver?forum=WindowsIoT)</a>. Luckily, Edimax has released a driver specifically for the Raspberry Pi 2 for use with Windows 10 IoT!</p><p>On the Microsoft forum, Dano63 compiled all previous advice in the thread into the following steps:</p><ol><li>Download the driver zip from <a href=http://www.edimax.com/edimax/download/download/data/edimax/global/download/for_home/wireless_adapters/wireless_adapters_n150/ew-7811un>http://www.edimax.com/edimax/download/download/data/edimax/global/download/for_home/wireless_adapters/wireless_adapters_n150/ew-7811un</a></li><li>Put SD card in PC and copy the 3 files that were in the zip to :\temp. Then eject.</li><li>Put SD card in the Pi and boot.</li><li>Connect with Powershell (detailed in <a href=https://ms-iot.github.io/content/en-US/win10/samples/PowerShell.htm>https://ms-iot.github.io/content/en-US/win10/samples/PowerShell.htm</a>)</li><li>cd to c:\efisp\temp</li><li>Run the command below.
 devcon install netrtwlanu.inf &ldquo;USB\VID_7392&PID7811&rdquo;
-I got a &ldquo;RemoteException&rdquo; but it worked anyway.</li>
-<li>exit powershell session</li>
-<li>Restart Pi</li>
-<li>Go to http://minwinpc:8080/wifimanager.htm to configure.</li>
-</ol>
-<p>I called my Pi &ldquo;jonpi2&rdquo;, so would need to use this name in place of &ldquo;minwinpc&rdquo; for step 9 above.</p>
-<p>Ok, so let&rsquo;s go through how it went for me (it wasn&rsquo;t entirely straight forward)&mldr;
-Steps 1 to 3 worked fine. However, when I reached step 4, I opened Powershell <strong>as admin</strong> and entered the following:</p>
-<pre><code>Enter-PSSession -ComputerName jonpi2 -Credential localhost\Administrator
-</code></pre>
-<p>However, this failed with the following error message:</p>
-<pre><code>Enter-PSSession : Connecting to remote server jonpi2 failed with the following error message : The WinRM client cannot
+I got a &ldquo;RemoteException&rdquo; but it worked anyway.</li><li>exit powershell session</li><li>Restart Pi</li><li>Go to http://minwinpc:8080/wifimanager.htm to configure.</li></ol><p>I called my Pi &ldquo;jonpi2&rdquo;, so would need to use this name in place of &ldquo;minwinpc&rdquo; for step 9 above.</p><p>Ok, so let&rsquo;s go through how it went for me (it wasn&rsquo;t entirely straight forward)&mldr;
+Steps 1 to 3 worked fine. However, when I reached step 4, I opened Powershell <strong>as admin</strong> and entered the following:</p><pre><code>Enter-PSSession -ComputerName jonpi2 -Credential localhost\Administrator
+</code></pre><p>However, this failed with the following error message:</p><pre><code>Enter-PSSession : Connecting to remote server jonpi2 failed with the following error message : The WinRM client cannot
 process the request because the server name cannot be resolved. For more information, see the
 about_Remote_Troubleshooting Help topic.
 At line:1 char:1
@@ -94,33 +15,11 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 + CategoryInfo : InvalidArgument: (jonpi2:String) [Enter-PSSession], PSRemotingTransportException
 + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
-</code></pre>
-<p>Maybe WinRM isn&rsquo;t set up properly? So I tried the following:</p>
-<pre><code>winrm quickconfig
-</code></pre>
-<p>And allowed it to make any changes suggested before adding my Pi to the trusted hosts list (remember what you named your Pi here!):</p>
-<pre><code>winrm set winrm/config/client '@{TrustedHosts=&quot;jonpi2&quot;}'
-</code></pre>
-<p>I tried to connect via Remote Powershell again. It took a little while to connect but I got a powershell prompt.</p>
-<p>So I continued with Steps 5 and 6, which worked fine (step 6 took a while), and I rebooted the Pi afterwards and went to the WifiManager page while still connected over Ethernet. Once I had connected to my wireless router, I pulled the Ethernet cable and it all worked fine!</p>
-<p>Hope this helps anyone in the same situation anyway.</p>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=footer-icons>
-<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+</code></pre><p>Maybe WinRM isn&rsquo;t set up properly? So I tried the following:</p><pre><code>winrm quickconfig
+</code></pre><p>And allowed it to make any changes suggested before adding my Pi to the trusted hosts list (remember what you named your Pi here!):</p><pre><code>winrm set winrm/config/client '@{TrustedHosts=&quot;jonpi2&quot;}'
+</code></pre><p>I tried to connect via Remote Powershell again. It took a little while to connect but I got a powershell prompt.</p><p>So I continued with Steps 5 and 6, which worked fine (step 6 took a while), and I rebooted the Pi afterwards and went to the WifiManager page while still connected over Ethernet. Once I had connected to my wireless router, I pulled the Ethernet cable and it all worked fine!</p><p>Hope this helps anyone in the same situation anyway.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
 <a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
 <a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
 <a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
 <a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
-<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
-</div>
-<p>
-<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
-</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>

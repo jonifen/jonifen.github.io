@@ -1,512 +1,371 @@
-<!doctype html><html class=no-js>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.3">
-<title>Testing Mobile App in AWS Device Farm using Appium and Node &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title>
-<link rel=preload href=/css/jonifen.min.css as=style>
-<link rel=preload href=/css/jonifen-fonts.min.css as=style>
-<link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous>
-<meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)">
-<meta property="og:title" content="Testing Mobile App in AWS Device Farm using Appium and Node">
-<meta name=description content="This is a blog about software development, general tech stuff and some completely random junk!">
-<meta property="og:description" content="This is a blog about software development, general tech stuff and some completely random junk!">
-<meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png">
-<meta property="og:type" content="website">
-<link rel=stylesheet href=/css/jonifen.min.css>
-<link rel=stylesheet href=/css/jonifen-fonts.min.css>
-</head>
-<body>
-<a name=top></a>
-<a href=#top class=back-to-top style=display:none><div></div></a>
-<header id=header>
-<div class=container>
-<div class=heading>
-<a href=/>jonifen</a>
-</div>
-<ul class=nav>
-<li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li>
-</ul>
-</div>
-</header>
-<div class=page-content>
-<div class=post-header>
-<div class=container>
-<div class=content>
-<h2>Testing Mobile App in AWS Device Farm using Appium and Node</h2>
-<small>
-<time datetime=2021-03-05>
-5 March, 2021
-</time>
-&#183; Reading time: ~7 minute(s) (1362 words)
-</small>
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.98.0"><title>Testing Mobile App in AWS Device Farm using Appium and Node &#183; Jon Cain 👨‍💻 (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/AleoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldLight300.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OswaldNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/OxygenMonoNormal400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain 👨‍💻 (jonifen.co.uk)"><meta property="og:title" content="Testing Mobile App in AWS Device Farm using Appium and Node"><meta name=description content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:description" content="This is a blog about software development, general tech stuff and some completely random junk!"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a>
+<a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/blog/ alt=Blog title=Blog><span>Blog</span></a></li><li class=nav-item><a href=/notes/ alt=Notes title=Notes><span>Notes</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><h2>Testing Mobile App in AWS Device Farm using Appium and Node</h2><small><time datetime=2021-03-05>5 March, 2021</time>
+&#183; Reading time: ~7 minute(s) (1362 words)</small>
 <a href=/tags/programming class=tag>programming</a>
 <a href=/tags/javascript class=tag>javascript</a>
 <a href=/tags/react-native class=tag>react-native</a>
 <a href=/tags/aws class=tag>aws</a>
-<a href=/tags/node class=tag>node</a>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=main-content>
-<p><em>Warning: this post is quite code heavy as I offer our solution as an example</em></p>
-<p>At work, we&rsquo;ve been working on a mobile app for our customers. We&rsquo;ve been looking at automated testing to interact with the app like a user would on a device and came across Appium and Detox as potential options that wouldn&rsquo;t cost too much to run.</p>
-<p>As we primarily worked on Windows machines, Detox was out of the running as it seems to be only guaranteed support on MacOS, so we started looking at Appium instead. AWS Device Farm supports this already, so this looked promising and a good place to start.</p>
-<p>We were able to get some tests running locally using WebDriver.io and Appium, but these didn&rsquo;t work in the AWS Device Farm instance of Appium and the documentation suggested an alternative approach, although some areas seemed kind of vague, so this is how we got to the bottom of it.</p>
-<p><em>Disclaimer: The test setup below is for Android only. As we used Windows machines for this work, we were unable to get any iOS tests working at this point.</em></p>
-<h2 id=example>Example</h2>
-<p>This is how we did it, albeit with some slight changes to anonymise file names etc. but the basic concept remains.</p>
-<h3 id=test-files>Test files</h3>
-<p>I created a file that contained functions that would perform common interactions with the app so that the tests would be cleaner and easier to understand later.</p>
-<p>An example of this is:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=color:#75715e>// e2e/test/actions.js
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>15000</span>;
-
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> () {
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
-    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>locator</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Locator not specified&#34;</span>);
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>$</span>(<span style=color:#a6e22e>locator</span>);
-    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>waitForDisplayed</span>({ <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>timeout</span> });
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>element</span>;
-  };
-
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>clickElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
-    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>click</span>();
-  };
-
-  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>inputContent</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
-    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>setValue</span>(<span style=color:#a6e22e>value</span>);
-  };
-};
-</code></pre></td></tr></table>
-</div>
-</div><p>The above has functions that just gets an element, clicks an element or inputs a value into an element. Pretty simple stuff, but it&rsquo;s only a guide to what we need to do anyway.</p>
-<p>Now I&rsquo;m able to create an actual test using the actions that were created:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=color:#75715e>// e2e/test/scenarios/can-enter-name-and-progress.e2e.js
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Actions</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;../actions&#34;</span>);
-
-<span style=color:#a6e22e>describe</span>(<span style=color:#e6db74>&#34;Test&#34;</span>, () =&gt; {
-  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Actions</span>();
-
-  <span style=color:#a6e22e>it</span>(<span style=color:#e6db74>&#34;should be able to enter a name, submit and progress to next screen&#34;</span>, () =&gt; {
-    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>inputContent</span>(<span style=color:#e6db74>&#34;~Name&#34;</span>, <span style=color:#e6db74>&#34;Fred&#34;</span>, <span style=color:#ae81ff>5000</span>);
-    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>clickElement</span>(<span style=color:#e6db74>&#34;~Submit&#34;</span>);
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>heading</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#e6db74>&#34;~Heading&#34;</span>);
-    <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>heading</span>).<span style=color:#a6e22e>toBeDefined</span>();
-  });
-});
-</code></pre></td></tr></table>
-</div>
-</div><p>This test, again very simple, just checks that the heading exists after a user enters a name and clicks a submit button. I probably don&rsquo;t need to go through all this, but it&rsquo;s just to paint a full picture as there may be someone who is completely new to all this or uses a different test library. You may be able to use Jest or whatever instead, but it seems at the minute Mocha works just fine, and the syntax is very similar.</p>
-<h3 id=webdriverio-configs>WebDriver.io configs</h3>
-<p>I now need to create some WebDriver.io config files to ensure it works properly. I say &ldquo;some&rdquo; configs, because by breaking the configs into multiple files, we can handle both local runs and remote runs in Device Farm with the same shared config, changing only what is needed for the different environments.</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=color:#75715e>// e2e/wdio.shared.conf.js
-</span><span style=color:#75715e></span>
-<span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> {
-  <span style=color:#a6e22e>runner</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;local&#34;</span>,
-  <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
-  <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;/wd/hub&#34;</span>,
-  <span style=color:#a6e22e>port</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>4723</span>,
-  <span style=color:#a6e22e>logLevel</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;info&#34;</span>,
-  <span style=color:#a6e22e>depreciationWarnings</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
-  <span style=color:#a6e22e>bail</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>,
-  <span style=color:#a6e22e>waitForTimeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10000</span>,
-  <span style=color:#a6e22e>connectionRetryTimeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>120000</span>,
-  <span style=color:#a6e22e>connectionRetryCount</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>3</span>,
-  <span style=color:#a6e22e>specs</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#34;./test/scenarios/**/*.e2e.js&#34;</span>],
-  <span style=color:#a6e22e>framework</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;mocha&#34;</span>,
-  <span style=color:#a6e22e>reporters</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#34;spec&#34;</span>],
-  <span style=color:#a6e22e>mochaOpts</span><span style=color:#f92672>:</span> {
-    <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>60000</span>
-  }
-};
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=color:#75715e>// e2e/wdio.android.local.conf.js
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>// Make sure you change the app path to whatever suits your setup!
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>path</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;path&#34;</span>);
-<span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>config</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;./wdio.shared.conf&#34;</span>);
-
-<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>capabilities</span> <span style=color:#f92672>=</span> [
-  {
-    <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
-    <span style=color:#a6e22e>platformName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android&#34;</span>,
-    <span style=color:#a6e22e>deviceName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android Emulator&#34;</span>,
-    <span style=color:#a6e22e>app</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#34;../android/app/build/outputs/apk/release/app-release-unsigned.apk&#34;</span>),
-    <span style=color:#a6e22e>automationName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;UiAutomator2&#34;</span>
-  }
-];
-
-<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>browser</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>;
-
-<span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>config</span>;
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=color:#75715e>// e2e/wdio.android.conf.js
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>config</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;./wdio.shared.conf&#34;</span>);
-
-<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>capabilities</span> <span style=color:#f92672>=</span> [
-  {
-    <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
-  }
-];
-
-<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>browser</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>;
-
-<span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>config</span>;
-</code></pre></td></tr></table>
-</div>
-</div><p>Now we have those configs in place, we need a package.json file specific to the e2e tests because of how they&rsquo;re packaged for Device Farm. Please note that the versions referenced for the packages are what I used when I got things working. Depending on when you&rsquo;re following this post, you may find the versions are much higher and things may not work quite as expected.</p>
-<p>You may choose to use latest versions straight away - this might actually save you time. But if you come across problems, I&rsquo;d suggest using the versions below, and upgrade versions from there. Please get in touch (or contribute to the post via a PR) if things get out of date.</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;App&#34;</span>,
-  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;0.0.1&#34;</span>,
-  <span style=color:#f92672>&#34;private&#34;</span>: <span style=color:#66d9ef>true</span>,
-  <span style=color:#f92672>&#34;scripts&#34;</span>: {
-    <span style=color:#f92672>&#34;package&#34;</span>: <span style=color:#e6db74>&#34;npm install &amp;&amp; npx npm-bundle &amp;&amp; zip -r e2e-tests.zip *.tgz &amp;&amp; rm *.tgz&#34;</span>,
-    <span style=color:#f92672>&#34;test:android&#34;</span>: <span style=color:#e6db74>&#34;npx wdio ./wdio.android.conf.js&#34;</span>,
-    <span style=color:#f92672>&#34;test:android:local&#34;</span>: <span style=color:#e6db74>&#34;npx wdio ./wdio.android.local.conf.js&#34;</span>
-  },
-  <span style=color:#f92672>&#34;dependencies&#34;</span>: {
-    <span style=color:#f92672>&#34;@wdio/cli&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
-    <span style=color:#f92672>&#34;@wdio/local-runner&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
-    <span style=color:#f92672>&#34;@wdio/mocha-framework&#34;</span>: <span style=color:#e6db74>&#34;^7.0.7&#34;</span>,
-    <span style=color:#f92672>&#34;@wdio/spec-reporter&#34;</span>: <span style=color:#e6db74>&#34;^7.0.7&#34;</span>,
-    <span style=color:#f92672>&#34;@wdio/sync&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
-    <span style=color:#f92672>&#34;wdio-appium-service&#34;</span>: <span style=color:#e6db74>&#34;^0.2.3&#34;</span>,
-    <span style=color:#f92672>&#34;webdriverio&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>
-  },
-  <span style=color:#f92672>&#34;devDependencies&#34;</span>: {
-    <span style=color:#f92672>&#34;glob&#34;</span>: <span style=color:#e6db74>&#34;^7.1.6&#34;</span>,
-    <span style=color:#f92672>&#34;npm-bundle&#34;</span>: <span style=color:#e6db74>&#34;^3.0.3&#34;</span>
-  },
-  <span style=color:#f92672>&#34;bundledDependencies&#34;</span>: [
-    <span style=color:#e6db74>&#34;@wdio/cli&#34;</span>,
-    <span style=color:#e6db74>&#34;@wdio/local-runner&#34;</span>,
-    <span style=color:#e6db74>&#34;@wdio/mocha-framework&#34;</span>,
-    <span style=color:#e6db74>&#34;@wdio/spec-reporter&#34;</span>,
-    <span style=color:#e6db74>&#34;@wdio/sync&#34;</span>,
-    <span style=color:#e6db74>&#34;wdio-appium-service&#34;</span>,
-    <span style=color:#e6db74>&#34;webdriverio&#34;</span>
-  ]
-}
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=appium-config>Appium Config</h3>
-<p>And finally, the appium config YAML file (e2e/appium.android.yml). This was the default that AWS Device Farm provided with a few minor changes, mainly with the test commands:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#ae81ff>0.1</span>
-
-<span style=color:#f92672>phases</span>:
-  <span style=color:#f92672>install</span>:
-    <span style=color:#f92672>commands</span>:
-      - <span style=color:#ae81ff>export APPIUM_VERSION=1.16.0</span>
-      - <span style=color:#ae81ff>avm $APPIUM_VERSION</span>
-      - <span style=color:#ae81ff>ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js</span>
-
-      - <span style=color:#ae81ff>echo &#34;Navigate to test package directory&#34;</span>
-      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH</span>
-      - <span style=color:#ae81ff>npm install *.tgz</span>
-
-  <span style=color:#f92672>pre_test</span>:
-    <span style=color:#f92672>commands</span>:
-      - <span style=color:#ae81ff>echo &#34;Start appium server&#34;</span>
-      - &gt;-<span style=color:#e6db74>
-</span><span style=color:#e6db74>        appium --log-timestamp --device-name $DEVICEFARM_DEVICE_NAME
-</span><span style=color:#e6db74>        --platform-name $DEVICEFARM_DEVICE_PLATFORM_NAME --app $DEVICEFARM_APP_PATH
-</span><span style=color:#e6db74>        --automation-name UiAutomator2 --udid $DEVICEFARM_DEVICE_UDID
-</span><span style=color:#e6db74>        --chromedriver-executable $DEVICEFARM_CHROMEDRIVER_EXECUTABLE &gt;&gt; $DEVICEFARM_LOG_DIR/appiumlog.txt 2&gt;%1 &amp;</span>        
-
-      - &gt;-<span style=color:#e6db74>
-</span><span style=color:#e6db74>        start_appium_timeout=0;
-</span><span style=color:#e6db74>        while [ true ];
-</span><span style=color:#e6db74>        do
-</span><span style=color:#e6db74>          if [ $start_appium_timeout -gt 60 ];
-</span><span style=color:#e6db74>          then
-</span><span style=color:#e6db74>            echo &#34;appium server never started in 60 seconds. Exiting&#34;;
-</span><span style=color:#e6db74>            exit 1;
-</span><span style=color:#e6db74>          fi;
-</span><span style=color:#e6db74>          grep -i &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34; $DEVICEFARM_LOG_DIR/appiumlog.txt &gt;&gt; /dev/null 2&gt;%1 &amp;;
-</span><span style=color:#e6db74>          if [ $? -eq 0 ];
-</span><span style=color:#e6db74>          then
-</span><span style=color:#e6db74>            echo &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34;;
-</span><span style=color:#e6db74>            break;
-</span><span style=color:#e6db74>          else
-</span><span style=color:#e6db74>            echo &#34;Waiting for appium server to start. Sleeping for 1 second.&#34;;
-</span><span style=color:#e6db74>            sleep 1;
-</span><span style=color:#e6db74>            start_appium_timeout=$((start_appium_timeout+1));
-</span><span style=color:#e6db74>          fi;
-</span><span style=color:#e6db74>        done;</span>        
-
-  <span style=color:#f92672>test</span>:
-    <span style=color:#f92672>commands</span>:
-      - <span style=color:#ae81ff>echo &#34;Navigate to test source code&#34;</span>
-      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*</span>
-      - <span style=color:#ae81ff>echo &#34;Start Appium Node test&#34;</span>
-      - <span style=color:#ae81ff>npm run test:android</span>
-
-  <span style=color:#f92672>post_test</span>:
-    <span style=color:#f92672>commands</span>:
-
-  <span style=color:#f92672>artifacts</span>:
-    - <span style=color:#ae81ff>$DEVICEFARM_LOG_DIR</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=create-the-package-for-device-farm>Create the package for Device Farm</h3>
-<p>To create the package, we just need to run the package script as specified in the package.json file.</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>npm run package
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=device-farm>Device Farm</h2>
-<p>So from this point, go into AWS Device Farm, created a new test and uploaded the APK (I uploaded the same one from the path referenced in the local wdio config above - so you can likely do the same). I then uploaded the package I created earlier, copied and pasted the Appium config into the window and selected a few devices. At first I only picked one device, but you could actually select multiple devices of various specifications at this point too.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>And that&rsquo;s pretty much it. Following this should get you to a point where you&rsquo;re able to run tests both locally and on AWS Device Farm. Having problems? Get in touch!</p>
-<p>PRs are welcomed, and credit will <em>always</em> be given.</p>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=footer-icons>
-<a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+<a href=/tags/node class=tag>node</a></div></div></div><div class=container><div class=main-content><p><em>Warning: this post is quite code heavy as I offer our solution as an example</em></p><p>At work, we&rsquo;ve been working on a mobile app for our customers. We&rsquo;ve been looking at automated testing to interact with the app like a user would on a device and came across Appium and Detox as potential options that wouldn&rsquo;t cost too much to run.</p><p>As we primarily worked on Windows machines, Detox was out of the running as it seems to be only guaranteed support on MacOS, so we started looking at Appium instead. AWS Device Farm supports this already, so this looked promising and a good place to start.</p><p>We were able to get some tests running locally using WebDriver.io and Appium, but these didn&rsquo;t work in the AWS Device Farm instance of Appium and the documentation suggested an alternative approach, although some areas seemed kind of vague, so this is how we got to the bottom of it.</p><p><em>Disclaimer: The test setup below is for Android only. As we used Windows machines for this work, we were unable to get any iOS tests working at this point.</em></p><h2 id=example>Example</h2><p>This is how we did it, albeit with some slight changes to anonymise file names etc. but the basic concept remains.</p><h3 id=test-files>Test files</h3><p>I created a file that contained functions that would perform common interactions with the app so that the tests would be cleaner and easier to understand later.</p><p>An example of this is:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// e2e/test/actions.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>15000</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> () {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>locator</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Locator not specified&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>$</span>(<span style=color:#a6e22e>locator</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>waitForDisplayed</span>({ <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>timeout</span> });
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>element</span>;
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>clickElement</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>click</span>();
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>inputContent</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>DEFAULT_ACTION_TIMEOUT</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>element</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#a6e22e>locator</span>, <span style=color:#a6e22e>timeout</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>setValue</span>(<span style=color:#a6e22e>value</span>);
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></td></tr></table></div></div><p>The above has functions that just gets an element, clicks an element or inputs a value into an element. Pretty simple stuff, but it&rsquo;s only a guide to what we need to do anyway.</p><p>Now I&rsquo;m able to create an actual test using the actions that were created:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// e2e/test/scenarios/can-enter-name-and-progress.e2e.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Actions</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;../actions&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>describe</span>(<span style=color:#e6db74>&#34;Test&#34;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>actions</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Actions</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>it</span>(<span style=color:#e6db74>&#34;should be able to enter a name, submit and progress to next screen&#34;</span>, () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>inputContent</span>(<span style=color:#e6db74>&#34;~Name&#34;</span>, <span style=color:#e6db74>&#34;Fred&#34;</span>, <span style=color:#ae81ff>5000</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>clickElement</span>(<span style=color:#e6db74>&#34;~Submit&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>heading</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>actions</span>.<span style=color:#a6e22e>getElement</span>(<span style=color:#e6db74>&#34;~Heading&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>heading</span>).<span style=color:#a6e22e>toBeDefined</span>();
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></td></tr></table></div></div><p>This test, again very simple, just checks that the heading exists after a user enters a name and clicks a submit button. I probably don&rsquo;t need to go through all this, but it&rsquo;s just to paint a full picture as there may be someone who is completely new to all this or uses a different test library. You may be able to use Jest or whatever instead, but it seems at the minute Mocha works just fine, and the syntax is very similar.</p><h3 id=webdriverio-configs>WebDriver.io configs</h3><p>I now need to create some WebDriver.io config files to ensure it works properly. I say &ldquo;some&rdquo; configs, because by breaking the configs into multiple files, we can handle both local runs and remote runs in Device Farm with the same shared config, changing only what is needed for the different environments.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// e2e/wdio.shared.conf.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>runner</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;local&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;/wd/hub&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>port</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>4723</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>logLevel</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;info&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>depreciationWarnings</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>bail</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>waitForTimeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10000</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>connectionRetryTimeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>120000</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>connectionRetryCount</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>specs</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#34;./test/scenarios/**/*.e2e.js&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>framework</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;mocha&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>reporters</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#34;spec&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mochaOpts</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>60000</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// e2e/wdio.android.local.conf.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Make sure you change the app path to whatever suits your setup!
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>path</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;path&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>config</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;./wdio.shared.conf&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>capabilities</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>platformName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>deviceName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Android Emulator&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>app</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#34;../android/app/build/outputs/apk/release/app-release-unsigned.apk&#34;</span>),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>automationName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;UiAutomator2&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>browser</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>config</span>;
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// e2e/wdio.android.conf.js
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>config</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;./wdio.shared.conf&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>capabilities</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>maxInstances</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>browser</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>config</span>;
+</span></span></code></pre></td></tr></table></div></div><p>Now we have those configs in place, we need a package.json file specific to the e2e tests because of how they&rsquo;re packaged for Device Farm. Please note that the versions referenced for the packages are what I used when I got things working. Depending on when you&rsquo;re following this post, you may find the versions are much higher and things may not work quite as expected.</p><p>You may choose to use latest versions straight away - this might actually save you time. But if you come across problems, I&rsquo;d suggest using the versions below, and upgrade versions from there. Please get in touch (or contribute to the post via a PR) if things get out of date.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;App&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;0.0.1&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;private&#34;</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;scripts&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;package&#34;</span>: <span style=color:#e6db74>&#34;npm install &amp;&amp; npx npm-bundle &amp;&amp; zip -r e2e-tests.zip *.tgz &amp;&amp; rm *.tgz&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;test:android&#34;</span>: <span style=color:#e6db74>&#34;npx wdio ./wdio.android.conf.js&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;test:android:local&#34;</span>: <span style=color:#e6db74>&#34;npx wdio ./wdio.android.local.conf.js&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;dependencies&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;@wdio/cli&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;@wdio/local-runner&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;@wdio/mocha-framework&#34;</span>: <span style=color:#e6db74>&#34;^7.0.7&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;@wdio/spec-reporter&#34;</span>: <span style=color:#e6db74>&#34;^7.0.7&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;@wdio/sync&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;wdio-appium-service&#34;</span>: <span style=color:#e6db74>&#34;^0.2.3&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;webdriverio&#34;</span>: <span style=color:#e6db74>&#34;^7.0.9&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;devDependencies&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;glob&#34;</span>: <span style=color:#e6db74>&#34;^7.1.6&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;npm-bundle&#34;</span>: <span style=color:#e6db74>&#34;^3.0.3&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;bundledDependencies&#34;</span>: [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;@wdio/cli&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;@wdio/local-runner&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;@wdio/mocha-framework&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;@wdio/spec-reporter&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;@wdio/sync&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;wdio-appium-service&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;webdriverio&#34;</span>
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h3 id=appium-config>Appium Config</h3><p>And finally, the appium config YAML file (e2e/appium.android.yml). This was the default that AWS Device Farm provided with a few minor changes, mainly with the test commands:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#ae81ff>0.1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>phases</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>install</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>commands</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>export APPIUM_VERSION=1.16.0</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>avm $APPIUM_VERSION</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>echo &#34;Navigate to test package directory&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>npm install *.tgz</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>pre_test</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>commands</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>echo &#34;Start appium server&#34;</span>
+</span></span><span style=display:flex><span>      - &gt;-<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        appium --log-timestamp --device-name $DEVICEFARM_DEVICE_NAME
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        --platform-name $DEVICEFARM_DEVICE_PLATFORM_NAME --app $DEVICEFARM_APP_PATH
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        --automation-name UiAutomator2 --udid $DEVICEFARM_DEVICE_UDID
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        --chromedriver-executable $DEVICEFARM_CHROMEDRIVER_EXECUTABLE &gt;&gt; $DEVICEFARM_LOG_DIR/appiumlog.txt 2&gt;%1 &amp;</span>        
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - &gt;-<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        start_appium_timeout=0;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        while [ true ];
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        do
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          if [ $start_appium_timeout -gt 60 ];
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          then
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            echo &#34;appium server never started in 60 seconds. Exiting&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            exit 1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          fi;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          grep -i &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34; $DEVICEFARM_LOG_DIR/appiumlog.txt &gt;&gt; /dev/null 2&gt;%1 &amp;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          if [ $? -eq 0 ];
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          then
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            echo &#34;Appium REST http interface listener started on 0.0.0.0:4723&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            break;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          else
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            echo &#34;Waiting for appium server to start. Sleeping for 1 second.&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            sleep 1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            start_appium_timeout=$((start_appium_timeout+1));
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          fi;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        done;</span>        
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>test</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>commands</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>echo &#34;Navigate to test source code&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>echo &#34;Start Appium Node test&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>npm run test:android</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>post_test</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>commands</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>artifacts</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#ae81ff>$DEVICEFARM_LOG_DIR</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=create-the-package-for-device-farm>Create the package for Device Farm</h3><p>To create the package, we just need to run the package script as specified in the package.json file.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>npm run package
+</span></span></code></pre></td></tr></table></div></div><h2 id=device-farm>Device Farm</h2><p>So from this point, go into AWS Device Farm, created a new test and uploaded the APK (I uploaded the same one from the path referenced in the local wdio config above - so you can likely do the same). I then uploaded the package I created earlier, copied and pasted the Appium config into the window and selected a few devices. At first I only picked one device, but you could actually select multiple devices of various specifications at this point too.</p><h2 id=conclusion>Conclusion</h2><p>And that&rsquo;s pretty much it. Following this should get you to a point where you&rsquo;re able to run tests both locally and on AWS Device Farm. Having problems? Get in touch!</p><p>PRs are welcomed, and credit will <em>always</em> be given.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
 <a href=https://twitter.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-twitter></span></a>
 <a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
 <a href=https://www.reddit.com/user/jonifen target=_blank rel="noopener noreferrer"><span class=icon-reddit></span></a>
 <a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a>
-<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a>
-</div>
-<p>
-<a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a>
-</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+<a href="mailto:hello@jonifen.co.uk?subject=Contact%20from%20your%20website" target=_blank><span class=icon-mail2></span></a></div><p><a href=https://jonifen.co.uk>jonifen.co.uk</a> - Created using <a href=https://gohugo.io>Hugo</a></p></div></footer></div></body></html>
