@@ -1,19 +1,141 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Jon Cain 👨‍💻 (jonifen.co.uk)</title><link>/notes/</link><description>Recent content in Notes on Jon Cain 👨‍💻 (jonifen.co.uk)</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><copyright>(c) 2022 Jon Cain</copyright><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux Installation</title><link>/notes/arch-linux-install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/arch-linux-install/</guid><description>This is a list of the commands I&amp;rsquo;d run to set up a machine with Arch Linux as of today (25th April 2020).
-First of all, create a bootable USB (or CD) based on the ISO downloaded from the main Arch Linux website and boot it up.
-Initial steps Set keyboard layout to UK loadkeys uk Connect to the Internet (Ethernet is easier, but Wireless is just as easy) before continuing&amp;hellip;</description></item><item><title>Dell XPS 15 9530</title><link>/notes/dell-xps-15-9530/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/dell-xps-15-9530/</guid><description>Sluggy performance (CPU capped) This morning, I noticed that my Dell XPS 15 9530 felt a little sluggish, so did some investigation and found the CPU clock had capped at a lower speed. I did a full reboot of Windows 10, and luckily this was sufficient to shake things back into life. But a quick read online suggested that some people aren&amp;rsquo;t quite as lucky in this situation.
-So if a reboot doesn&amp;rsquo;t resolve the issue, what next?</description></item><item><title>Git (Source Control)</title><link>/notes/git/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/git/</guid><description>Retaining chmod permissions for scripts in git repositories git update-index --chmod=+x your_bash_script.sh The git documentation provides more information on the update-index command here: https://www.git-scm.com/docs/git-update-index
-Clone repository including all submodules Get the latest commit in the parent repository:
-git clone {repository_url} cd {repository_dir} # -- OR -- git pull And then update the submodule:
-git submodule update --init --recursive This should pull the relevant commit for the submodule, but it will be in detached HEAD mode based on the commit of the submodule reference in the parent repository.</description></item><item><title>Home DIY</title><link>/notes/home-diy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/home-diy/</guid><description>Developers probably aren&amp;rsquo;t typically known for their DIY ability in the home. I try to do a bit, but I know my limitations so these notes are mainly to remind me of what I&amp;rsquo;ve done and what I used to do the job.
-TV Installation (DIY) I&amp;rsquo;ve used the following items to install an aerial inside my loft space and then drop cables down in cavities or conduit buried in channels within the plaster.</description></item><item><title>HP DM1-4027</title><link>/notes/hp-dm1-4027/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/hp-dm1-4027/</guid><description>Hardware configuration The laptop has an AMD E-450 APU installed and supports a maximum of 8GB ram.
-Some other (perhaps useful) bits of info (according to lspci):
-The GPU &amp;ldquo;element&amp;rdquo; is: AMD Radeon HD 6320 (Wrestler)
-The wireless adapter is: Qualcomm Atheros AR9485 Wireless (rev 01)
-The Ethernet adapter is: Realtek RTL8111/8168/8411 PCI Express Gigabit (rev 06)
-Laptop locks up in Linux - thermal event Sometimes in Linux I&amp;rsquo;ve noticed that the laptop will lock up, often in high CPU situations.</description></item><item><title>Linux</title><link>/notes/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/linux/</guid><description>Most of the notes in here are Arch Linux specific, as this is the distro I use most and the one which tends to give me the most curveballs to deal with! But this is what&amp;rsquo;s so good about it, as it gives me a way to learn things better than I would do with one of the more common distros like Ubuntu.
-If anyone reads any of these notes and thinks there&amp;rsquo;s a better way, please let me know - any help is always appreciated.</description></item><item><title>Raspberry Pi</title><link>/notes/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/raspberry-pi/</guid><description>Laggy mouse on Raspberry Pi (Model 1b) A few weeks ago I installed the latest (at the time) version of Raspbian onto a 4Gb SD Card thinking that I&amp;rsquo;d see whether it was worthwhile updating my main SD card or not. I gave it a quick run and while it seemed quicker, the mouse was quite laggy as if the cursor was moving through treacle. After a quick search, I came across a report on the RaspberryPi Github where someone else was having the exact same problem where the mouse was moving &amp;ldquo;in slow motion&amp;rdquo;.</description></item><item><title>Scanners</title><link>/notes/scanners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/scanners/</guid><description>PrimeFilm 1800u Film Scanner The drivers on the enclosed CD don&amp;rsquo;t work in Windows 10.
-I had a nosey around online and found this post on the Microsoft Forum where Jack Moorhouse gave some excellent advice (copied below for safety):
-Google &amp;ldquo;How to install unsigned drivers on Windows 10 - By TotallydubbedHD&amp;rdquo; and follow instructions Download &amp;amp; run the installer for the slide viewer (SF_ENG_1.3.exe) which is for windows up to 7.</description></item><item><title>Sky TV</title><link>/notes/sky-tv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/sky-tv/</guid><description>Sky Remote Codes Sky&amp;rsquo;s website provides some remote codes to work on TVs, but there are additional codes which might not be listed.
-Brand/Model Sky&amp;rsquo;s Codes Working Code Comments JVC LT-42C550 0681/1846/1191 3830 Must be a Rev.10 remote (Thanks to Susan101 on the Sky Help Forum)</description></item><item><title>SQL</title><link>/notes/sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/sql/</guid><description>Joins I came across this diagram on Twitter a few weeks ago. I saved a copy intending to post it to my site (mainly for future reference) but since then I&amp;rsquo;ve forgotten who actually posted it on Twitter. As such, I can&amp;rsquo;t give them a mention. If it was you, get in touch on Twitter and I&amp;rsquo;ll update this post with your details :)</description></item><item><title>VSCode Settings</title><link>/notes/vscode-settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/vscode-settings/</guid><description>Below will be a list of configurations that I have in VSCode across my various machines. They all have slightly different setups, but the intention is that they will all eventually be set up the same.
-If anyone thinks I&amp;rsquo;m missing a trick anywhere (an extension you just can&amp;rsquo;t recommend enough perhaps?), please let me know - any help is always appreciated. Maybe you&amp;rsquo;d prefer to submit a PR?
-Windows 10 work machine Installed extensions CoenraadS.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Jon Cain (jonifen.co.uk)</title><link>/notes/</link><description>Recent content in Notes on Jon Cain (jonifen.co.uk)</description><generator>Hugo</generator><language>en-gb</language><copyright>© 2025 Jon Cain</copyright><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux Installation</title><link>/notes/arch-linux-install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/arch-linux-install/</guid><description>&lt;p&gt;First of all, create a bootable USB (or CD) based on the ISO downloaded from the main Arch Linux website and boot it up.&lt;/p&gt;
+&lt;p&gt;The Arch Linux wiki is probably one of the best I&amp;rsquo;ve ever used, so the latest basic installation steps can be found &lt;a href="https://wiki.archlinux.org/title/Installation_guide"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="initial-steps"&gt;Initial steps&lt;/h2&gt;
+&lt;h3 id="set-keyboard-layout-to-uk"&gt;Set keyboard layout to UK&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;loadkeys uk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Connect to the Internet before you continue. For my arch linux laptop, I can use ethernet which is the simplest method.&lt;/p&gt;</description></item><item><title>Dell XPS 15 9530</title><link>/notes/dell-xps-15-9530/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/dell-xps-15-9530/</guid><description>&lt;h2 id="sluggy-performance-cpu-capped"&gt;Sluggy performance (CPU capped)&lt;/h2&gt;
+&lt;p&gt;This morning, I noticed that my Dell XPS 15 9530 felt a little sluggish, so did some investigation and found the CPU clock had capped at a lower speed. I did a full reboot of Windows 10, and luckily this was sufficient to shake things back into life. But a quick read online suggested that some people aren&amp;rsquo;t quite as lucky in this situation.&lt;/p&gt;
+&lt;p&gt;So if a reboot doesn&amp;rsquo;t resolve the issue, what next?&lt;/p&gt;</description></item><item><title>Git (Source Control)</title><link>/notes/git/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/git/</guid><description>&lt;h2 id="retaining-chmod-permissions-for-scripts-in-git-repositories"&gt;Retaining chmod permissions for scripts in git repositories&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git update-index --chmod=+x your_bash_script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The git documentation provides more information on the &lt;code&gt;update-index&lt;/code&gt; command here: &lt;a href="https://www.git-scm.com/docs/git-update-index"&gt;https://www.git-scm.com/docs/git-update-index&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="clone-repository-including-all-submodules"&gt;Clone repository including all submodules&lt;/h2&gt;
+&lt;p&gt;Get the latest commit in the parent repository:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone {repository_url}
+cd {repository_dir}
+# -- OR --
+git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then update the submodule:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This should pull the relevant commit for the submodule, but it will be in detached HEAD mode based on the commit of the submodule reference in the parent repository.&lt;/p&gt;</description></item><item><title>Home DIY</title><link>/notes/home-diy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/home-diy/</guid><description>&lt;p&gt;Developers probably aren&amp;rsquo;t typically known for their DIY ability in the home. I try to do a bit, but I know my limitations so these notes are mainly to remind me of what I&amp;rsquo;ve done and what I used to do the job.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="tv-installation-diy"&gt;TV Installation (DIY)&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve used the following items to install an aerial inside my loft space and then drop cables down in cavities or conduit buried in channels within the plaster.&lt;/p&gt;</description></item><item><title>HP DM1-4027</title><link>/notes/hp-dm1-4027/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/hp-dm1-4027/</guid><description>&lt;h2 id="hardware-configuration"&gt;Hardware configuration&lt;/h2&gt;
+&lt;p&gt;The laptop has an AMD E-450 APU installed and supports a maximum of 8GB ram.&lt;/p&gt;
+&lt;p&gt;Some other (perhaps useful) bits of info (according to &lt;code&gt;lspci&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;The GPU &amp;ldquo;element&amp;rdquo; is: AMD Radeon HD 6320 (Wrestler)&lt;/p&gt;
+&lt;p&gt;The wireless adapter is: Qualcomm Atheros AR9485 Wireless (rev 01)&lt;/p&gt;
+&lt;p&gt;The Ethernet adapter is: Realtek RTL8111/8168/8411 PCI Express Gigabit (rev 06)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="laptop-locks-up-in-linux---thermal-event"&gt;Laptop locks up in Linux - thermal event&lt;/h2&gt;
+&lt;p&gt;Sometimes in Linux I&amp;rsquo;ve noticed that the laptop will lock up, often in high CPU situations. This appears to be caused by some sort of thermal support (or lack of) and after some research, you can disable the thermal support within the OS and allow the BIOS to take over instead.&lt;/p&gt;</description></item><item><title>Linux</title><link>/notes/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/linux/</guid><description>&lt;p&gt;Most of the notes in here are Arch Linux specific, as this is the distro I use most and the one which tends to give me the most curveballs to deal with! But this is what&amp;rsquo;s so good about it, as it gives me a way to learn things better than I would do with one of the more common distros like Ubuntu.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If anyone reads any of these notes and thinks there&amp;rsquo;s a better way, please let me know - any help is always appreciated. Maybe you&amp;rsquo;d prefer to submit a PR?&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Raspberry Pi</title><link>/notes/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/raspberry-pi/</guid><description>&lt;h2 id="laggy-mouse-on-raspberry-pi-model-1b"&gt;Laggy mouse on Raspberry Pi (Model 1b)&lt;/h2&gt;
+&lt;p&gt;A few weeks ago I installed the latest (at the time) version of Raspbian onto a 4Gb SD Card thinking that I&amp;rsquo;d see whether it was worthwhile updating my main SD card or not.
+I gave it a quick run and while it seemed quicker, the mouse was quite laggy as if the cursor was moving through treacle. After a quick search, I came across a report on the RaspberryPi Github where someone else was having the exact same problem where the mouse was moving &amp;ldquo;in slow motion&amp;rdquo;.
+To fix it, they did a kernel update on the Pi by doing:&lt;/p&gt;</description></item><item><title>Scanners</title><link>/notes/scanners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/scanners/</guid><description>&lt;h2 id="primefilm-1800u-film-scanner"&gt;PrimeFilm 1800u Film Scanner&lt;/h2&gt;
+&lt;p&gt;The drivers on the enclosed CD don&amp;rsquo;t work in Windows 10.&lt;/p&gt;
+&lt;p&gt;I had a nosey around online and found &lt;a href="https://answers.microsoft.com/en-us/windows/forum/windows_8-hardware/primefilm-1800u-film-scanner-need-windows-8-driver/577b09f0-dfa3-4a85-a661-28d3f1b6f669"&gt;this post on the Microsoft Forum&lt;/a&gt; where Jack Moorhouse gave some excellent advice (copied below for safety):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Google &amp;ldquo;How to install unsigned drivers on Windows 10 - By TotallydubbedHD&amp;rdquo; and follow instructions&lt;/li&gt;
+&lt;li&gt;Download &amp;amp; run the installer for the slide viewer (SF_ENG_1.3.exe) which is for windows up to 7. I ran it in vista sp2 compatibility mode.AT THIS POINT IT STILL DOESN&amp;rsquo;T WORK&lt;/li&gt;
+&lt;li&gt;Go to control panel -&amp;gt; device manager -&amp;gt;imaging devices and update the driver for the slide viewer from the folder c:\windows\Twain_32\cyberviewX_SF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;ll tweak the above to what worked for me:&lt;/p&gt;</description></item><item><title>Sky TV</title><link>/notes/sky-tv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/sky-tv/</guid><description>&lt;h2 id="sky-remote-codes"&gt;Sky Remote Codes&lt;/h2&gt;
+&lt;p&gt;Sky&amp;rsquo;s website provides some remote codes to work on TVs, but there are additional codes which might not be listed.&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Brand/Model&lt;/th&gt;
+ &lt;th&gt;Sky&amp;rsquo;s Codes&lt;/th&gt;
+ &lt;th&gt;Working Code&lt;/th&gt;
+ &lt;th&gt;Comments&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;JVC LT-42C550&lt;/td&gt;
+ &lt;td&gt;0681/1846/1191&lt;/td&gt;
+ &lt;td&gt;3830&lt;/td&gt;
+ &lt;td&gt;Must be a Rev.10 remote (Thanks to Susan101 on the &lt;a href="http://helpforum.sky.com/t5/Remotes-accessories/Anyone-have-a-Sky-remote-code-for-JVC-LT-40C540/td-p/2209563"&gt;Sky Help Forum&lt;/a&gt;)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;</description></item><item><title>SQL</title><link>/notes/sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/sql/</guid><description>&lt;h2 id="joins"&gt;Joins&lt;/h2&gt;
+&lt;p&gt;I came across this diagram on Twitter a few weeks ago. I saved a copy intending to post it to my site (mainly for future reference) but since then I&amp;rsquo;ve forgotten who actually posted it on Twitter. As such, I can&amp;rsquo;t give them a mention. If it was you, get in touch on Twitter and I&amp;rsquo;ll update this post with your details :)&lt;/p&gt;
+&lt;p&gt;&lt;img src="/blogupload/sqljoins.png" alt="SQL Joins"&gt;&lt;/p&gt;
+&lt;hr&gt;</description></item><item><title>VSCode Settings</title><link>/notes/vscode-settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/notes/vscode-settings/</guid><description>&lt;p&gt;Below will be a list of configurations that I have in VSCode across my various machines. They all have slightly different setups, but the intention is that they will all eventually be set up the same.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If anyone thinks I&amp;rsquo;m missing a trick anywhere (an extension you just can&amp;rsquo;t recommend enough perhaps?), please let me know - any help is always appreciated. Maybe you&amp;rsquo;d prefer to submit a PR?&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="windows-10-work-machine"&gt;Windows 10 work machine&lt;/h2&gt;
+&lt;h3 id="installed-extensions"&gt;Installed extensions&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;CoenraadS.bracket-pair-colorizer-2
+dbaeumer.vscode-eslint
+divanvisagie.nord-native-theme
+dracula-theme.theme-dracula
+eamodio.gitlens
+esbenp.prettier-vscode
+file-icons.file-icons
+IBM.output-colorizer
+mariomatheu.syntax-project-pbxproj
+ms-azuretools.vscode-docker
+ms-dotnettools.csharp
+ms-vscode-remote.remote-containers
+ms-vscode.powershell
+ms-vscode.vscode-typescript-tslint-plugin
+ms-vsliveshare.vsliveshare
+ms-vsliveshare.vsliveshare-audio
+ms-vsliveshare.vsliveshare-pack
+msjsdiag.vscode-react-native
+mtxr.sqltools
+Orta.vscode-jest
+rikurouvila.typehole
+sdras.night-owl
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="settingsjson"&gt;settings.json&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;{
+ &amp;#34;editor.fontFamily&amp;#34;: &amp;#34;Hack, Monaco, \&amp;#34;JetBrains Mono\&amp;#34;, Consolas, monospace&amp;#34;,
+ &amp;#34;editor.tabSize&amp;#34;: 2,
+ &amp;#34;editor.fontLigatures&amp;#34;: true,
+ &amp;#34;editor.renderWhitespace&amp;#34;: &amp;#34;all&amp;#34;,
+ &amp;#34;terminal.integrated.shell.windows&amp;#34;: &amp;#34;C:\\Program Files\\git\\usr\\bin\\bash.exe&amp;#34;,
+ &amp;#34;terminal.integrated.env.windows&amp;#34;: {
+ &amp;#34;CHERE_INVOKING&amp;#34;: &amp;#34;1&amp;#34;
+ },
+ &amp;#34;terminal.integrated.shellArgs.windows&amp;#34;: &amp;#34;-l&amp;#34;,
+ &amp;#34;[jsonc]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;[javascript]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;[typescript]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;[typescriptreact]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;[javascriptreact]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;workbench.iconTheme&amp;#34;: &amp;#34;file-icons&amp;#34;,
+ &amp;#34;[json]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;terminal.integrated.fontFamily&amp;#34;: &amp;#34;\&amp;#34;JuliaMono\&amp;#34;&amp;#34;,
+ &amp;#34;terminal.integrated.fontSize&amp;#34;: 12,
+ &amp;#34;explorer.confirmDragAndDrop&amp;#34;: false,
+ &amp;#34;jest.pathToJest&amp;#34;: &amp;#34;&amp;#34;,
+ &amp;#34;editor.fontSize&amp;#34;: 16,
+ &amp;#34;[html]&amp;#34;: {
+ &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;
+ },
+ &amp;#34;window.zoomLevel&amp;#34;: -1,
+ &amp;#34;workbench.colorTheme&amp;#34;: &amp;#34;Night Owl&amp;#34;,
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
