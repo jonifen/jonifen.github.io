@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uses on Jon Cain (jonifen.co.uk)</title>
+    <link>//localhost:1313/uses/</link>
+    <description>Recent content in Uses on Jon Cain (jonifen.co.uk)</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <copyright>© 2025 Jon Cain</copyright>
+    <atom:link href="//localhost:1313/uses/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook Air 2015</title>
+      <link>//localhost:1313/uses/macbook-air-2015/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/uses/macbook-air-2015/</guid>
+      <description>&lt;p&gt;This is my &amp;ldquo;beater&amp;rdquo; laptop, meaning that it&amp;rsquo;s the machine that I can take anywhere and not be too fussed if it takes a knock or two along the way. I bought it on eBay a few months back in a really good deal, as the usual Lenovos are quite expensive nowadays for what they are.&lt;/p&gt;&#xA;&lt;h2 id=&#34;specifications&#34;&gt;Specifications&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;MacBookAir7,2&lt;/li&gt;&#xA;&lt;li&gt;4 × Intel® Core™ i7-5650U CPU @ 2.20GHz&lt;/li&gt;&#xA;&lt;li&gt;8GB RAM&lt;/li&gt;&#xA;&lt;li&gt;Intel HD Graphics 6000&lt;/li&gt;&#xA;&lt;li&gt;1TB NVMe SSD&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;installed&#34;&gt;Installed&lt;/h2&gt;&#xA;&lt;p&gt;I have a dual boot setup, so I can retain macOS just in case there&amp;rsquo;s any firmware updates etc. but generally I&amp;rsquo;m not expecting much on that front given its age. However, I mostly use the Linux install for everything else.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
