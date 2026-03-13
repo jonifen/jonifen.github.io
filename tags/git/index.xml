@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Jon Cain (jonifen.co.uk)</title><link>/tags/git/</link><description>Recent content in Git on Jon Cain (jonifen.co.uk)</description><generator>Hugo</generator><language>en-gb</language><copyright>© 2026 Jon Cain</copyright><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Some reference bits for Git source control</title><link>/posts/2020/git-source-control-reference/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>/posts/2020/git-source-control-reference/</guid><description>&lt;h2 id="retaining-chmod-permissions-for-scripts-in-git-repositories"&gt;Retaining chmod permissions for scripts in git repositories&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git update-index --chmod=+x your_bash_script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The git documentation provides more information on the &lt;code&gt;update-index&lt;/code&gt; command here: &lt;a href="https://www.git-scm.com/docs/git-update-index"&gt;https://www.git-scm.com/docs/git-update-index&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="clone-repository-including-all-submodules"&gt;Clone repository including all submodules&lt;/h2&gt;
+&lt;p&gt;Get the latest commit in the parent repository:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone {repository_url}
+cd {repository_dir}
+# -- OR --
+git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then update the submodule:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This should pull the relevant commit for the submodule, but it will be in detached HEAD mode based on the commit of the submodule reference in the parent repository.&lt;/p&gt;</description></item></channel></rss>
