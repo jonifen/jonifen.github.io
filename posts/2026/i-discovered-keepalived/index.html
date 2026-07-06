@@ -1,0 +1,142 @@
+<!doctype html><html class=no-js><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.152.2"><title>I discovered keepalived &#183; Jon Cain (jonifen.co.uk)</title><link rel=preload href=/css/jonifen.min.css as=style><link rel=preload href=/css/jonifen-fonts.min.css as=style><link rel=preload href=/fonts/SourceSansProRegular400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/fonts/icomoon.woff as=font type=font/woff crossorigin=anonymous><meta property="og:site_name" content="Jon Cain (jonifen.co.uk)"><meta property="og:title" content="I discovered keepalived"><meta name=description content="This is a site about software development, general tech and some completely random junk!"><meta property="og:description" content="This is a site about software development, general tech and some completely random junk!"><meta property="og:image:secure_url" imageprop=image content="https://jonifen.co.uk/images/og-avatar.png"><meta property="og:type" content="website"><link rel=stylesheet href=/css/jonifen.min.css><link rel=stylesheet href=/css/jonifen-fonts.min.css></head><body><a name=top></a><a href=#top class=back-to-top style=display:none><div></div></a><header id=header><div class=container><div class=heading><a href=/>jonifen</a></div><ul class=nav><li class=nav-item><a href=/ alt=Posts title=Posts><span>Posts</span></a></li><li class=nav-item><a href=/projects/ alt=Projects title=Projects><span>Projects</span></a></li><li class=nav-item><a href=/uses/ alt=Uses title=Uses><span>Uses</span></a></li><li class=nav-item><a href=/about/ alt=About title=About><span>About</span></a></li></ul></div></header><div class=page-content><div class=post-header><div class=container><div class=content><nav aria-label=breadcrumb class=breadcrumbs><a href=/>Home</a> /
+<a href=/posts/>Posts</a> /
+<a href=/posts/2026/>2026</a> /
+<span>I discovered keepalived</span></nav><h2>I discovered keepalived</h2><small><time datetime=2026-07-03>3 July, 2026
+</time>&#183; Reading time: ~6 minute(s) (1174 words)
+</small><a href=/tags/linux class=tag>linux</a>
+<a href=/tags/homelab class=tag>homelab</a>
+<a href=/tags/networking class=tag>networking</a></div></div></div><div class=container><div class=main-content><p>I&rsquo;ve wanted to provide some resiliency to our home DNS setup for a while, mainly to stop needing to schedule any maintenance on my Proxmox &ldquo;server&rdquo;, but also because it makes sense.</p><p>So after some investigation, and conversing with Claude, I discovered <code>keepalived</code>.</p><h2 id=what-is-keepalived>What is keepalived?</h2><p>Keepalived is a Linux daemon that provides high availability (HA) and load balancing for server clusters using the Virtual Router Redundancy Protocol (VRRP) to manage a virtual IP address, ensuring seamless failover and continuous service availability. It is commonly used in conjunction with other services like HAProxy and Nginx to enhance network resilience.</p><h2 id=lets-get-it-set-up-then>Let&rsquo;s get it set up then!</h2><p>To preserve our current DNS setup, I decided to set up 2 new AdGuard Home instances, and set them both up to use my existing Unbound instance for upstream DNS because it&rsquo;s already there and can handle the extra traffic at this stage.</p><p>The way that it works is that you&rsquo;d set up the containers like normal with their own IPs, and then you select another IP which is a &ldquo;virtual&rdquo; IP which is handled by the keepalived daemon. In my setup, I created the first container on <code>x.x.x.21</code> and the second on <code>x.x.x.22</code> with the intention of using <code>x.x.x.20</code> as the &ldquo;virtual&rdquo; IP.</p><h3 id=the-first-container-xxx21>The first container <code>x.x.x.21</code></h3><div class=highlight><pre tabindex=0 style=color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>apt install keepalived
+</span></span><span style=display:flex><span>vim /etc/keepalived/keepalived.conf
+</span></span><span style=display:flex><span>reboot
+</span></span></code></pre></div><p>And then I set up the keepalived config located at <code>/etc/keepalived/keepalived.conf</code> with the following content:</p><pre tabindex=0><code>vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass1
+    }
+
+    virtual_ipaddress {
+        192.168.1.20/24
+    }
+}
+</code></pre><p>And then I rebooted the machine before checking the IP data (I have anonymised some aspects below):</p><div class=highlight><pre tabindex=0 style=color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>root@adguard01:~# ip addr show
+</span></span><span style=display:flex><span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span style=color:#00afaf>65536</span> qdisc noqueue state UNKNOWN group default qlen <span style=color:#00afaf>1000</span>
+</span></span><span style=display:flex><span>    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span style=display:flex><span>    inet 127.0.0.1/8 scope host lo
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet6 ::1/128 scope host noprefixroute 
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>2: eth0@if313: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style=color:#00afaf>1500</span> qdisc noqueue state UP group default qlen <span style=color:#00afaf>1000</span>
+</span></span><span style=display:flex><span>    link/ether aa:aa:aa:aa:aa:aa brd ff:ff:ff:ff:ff:ff link-netnsid <span style=color:#00afaf>0</span>
+</span></span><span style=display:flex><span>    inet 192.168.1.21/24 scope global eth0
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet 192.168.1.20/24 scope global secondary proto keepalived eth0
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet6 fe80::fe80:fe80:fe80:fe80/64 scope link proto kernel_ll 
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span></code></pre></div><p>And as simple as that, we&rsquo;re good to go!</p><p>Well, not quite&mldr; we&rsquo;ve only got one container set up!</p><h3 id=the-second-container-xxx22>The second container <code>x.x.x.22</code></h3><p>I just shutdown the first container in Proxmox, and cloned it before updating the IP from .21 to .22 through the Proxmox UI and starting it up.</p><p>Now I need to update the <code>/etc/keepalived/keepalived.conf</code> file to configure it as the backup instance.</p><pre tabindex=0><code>vrrp_instance VI_1 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 51
+    priority 90
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass1
+    }
+
+    virtual_ipaddress {
+        192.168.1.20/24
+    }
+}
+</code></pre><p>You might be saying that the two configs are very similar, and you&rsquo;d be right.</p><p>The only differences are:</p><ul><li>the <code>state</code> property which can be &ldquo;MASTER&rdquo; or &ldquo;BACKUP&rdquo;. <code>.21</code> is the master, so <code>.22</code> is the backup.</li><li>the <code>priority</code> which should be set to 100 for the master, and something less than that for the backup (you can prioritise multiple backup nodes with this property too).</li></ul><p>The virtual_router_id property and authentication password must be the same on both nodes for it to work.</p><p>After updating the config, I rebooted the second node, and checked the ip data afterwards (again, slightly anonymised).</p><div class=highlight><pre tabindex=0 style=color:#8a8a8a;background-color:#1c1c1c;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>root@adguard01:~# ip addr show
+</span></span><span style=display:flex><span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span style=color:#00afaf>65536</span> qdisc noqueue state UNKNOWN group default qlen <span style=color:#00afaf>1000</span>
+</span></span><span style=display:flex><span>    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span style=display:flex><span>    inet 127.0.0.1/8 scope host lo
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet6 ::1/128 scope host noprefixroute 
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>2: eth0@if313: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style=color:#00afaf>1500</span> qdisc noqueue state UP group default qlen <span style=color:#00afaf>1000</span>
+</span></span><span style=display:flex><span>    link/ether aa:aa:aa:aa:aa:aa brd ff:ff:ff:ff:ff:ff link-netnsid <span style=color:#00afaf>0</span>
+</span></span><span style=display:flex><span>    inet 192.168.1.22/24 scope global eth0
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet 192.168.1.20/24 scope global secondary proto keepalived eth0
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span><span style=display:flex><span>    inet6 fe80::fe80:fe80:fe80:fe80/64 scope link proto kernel_ll 
+</span></span><span style=display:flex><span>       valid_lft forever preferred_lft forever
+</span></span></code></pre></div><p>Hang on a sec, this container has the <code>.20</code> IP too? Yes, that&rsquo;s right. I&rsquo;d stopped the <code>.21</code> container earlier, so despite this container being configured as the backup for <code>.20</code>, it proves that it works.
+Starting the first container up again causes the <code>.20</code> IP to disappear from the second container&rsquo;s IP data though.</p><p>I then updated my router to issue the DNS in any DHCP response as <code>x.x.x.20</code>, and I was able to stop either container individually, and everything kept working!</p><p>Yes, you&rsquo;re right&mldr; there&rsquo;s 2 problems here.</p><ol><li>I <em>do</em> have both containers running on the same machine, so if the machine reboots, then I&rsquo;m still in the same situation that I was before I started! This was to prove it worked first, and I have plans to sort this out which I&rsquo;ll document separately.</li><li>When you don&rsquo;t specify a second DNS IP, sometimes a device might select its own. I&rsquo;ll go onto this next.</li></ol><h2 id=fixing-the-problem-with-only-1-dns-ip>Fixing the problem with only 1 DNS IP.</h2><p>I mean, sure&mldr; I could just add each container with <code>.21</code> as primary and then <code>.22</code> as secondary. But it doesn&rsquo;t failover like keepalived does, so I looked into whether I could reverse the keepalived setup as an additional IP. And it turns out I can!</p><p>The plan is to have the following setup:</p><table><thead><tr><th>IP</th><th>Master</th><th>Backup</th></tr></thead><tbody><tr><td><code>.20</code></td><td><code>.22</code></td><td><code>.23</code></td></tr><tr><td><code>.21</code></td><td><code>.23</code></td><td><code>.22</code></td></tr></tbody></table><p>So this meant reconfiguring both DNS containers to free up the <code>.21</code> IP (because I&rsquo;m a bit of a perfectionist, and because with 2 containers, I already have resiliency which gives me capacity to do the change!)</p><p>I changed the second container to <code>.23</code> first (had to also update the AdGuardHome.yaml content too). And then when I changed the first container to <code>.22</code>, the second container took the traffic.</p><p>So now I had <code>.21</code> free&mldr; and here we go with config changes again!</p><h3 id=first-container-keepalivedconf>First container keepalived.conf</h3><pre tabindex=0><code>vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass1
+    }
+
+    virtual_ipaddress {
+        192.168.1.20/24
+    }
+}
+
+vrrp_instance VI_2 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 52
+    priority 90
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass2
+    }
+
+    virtual_ipaddress {
+        192.168.1.21/24
+    }
+}
+</code></pre><h3 id=second-container-keepalivedconf>Second container keepalived.conf</h3><pre tabindex=0><code>vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass1
+    }
+
+    virtual_ipaddress {
+        192.168.1.20/24
+    }
+}
+
+vrrp_instance VI_2 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 52
+    priority 90
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass DnsPass2
+    }
+
+    virtual_ipaddress {
+        192.168.1.21/24
+    }
+}
+</code></pre><p>So again, the additions to both configs look very similar again! They just need to have the same virtual_router_id and password values, and obviously the new virtual IP.</p><p>But after rebooting the containers, I had both .20 and .22 on the first container, and .21 and .23 on the second container. Exactly what I wanted!</p><p>Now I had this resiliency set up, I needed to progress to getting one of the AdGuard Home instances onto another machine. But I only have one Proxmox machine&mldr; so I needed to discover another option.</p><p>I have a Dell Wyse 3040&mldr; maybe this could work? I go into that in more detail in another post though.</p></div></div><footer><div class=container><div class=footer-icons><a href=https://github.com/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-github></span></a>
+<a href=https://linkedin.com/in/jonifen/ target=_blank rel="noopener noreferrer"><span class=icon-linkedin2></span></a>
+<a href=http://stackoverflow.com/users/3157725/jonifen target=_blank rel="noopener noreferrer"><span class=icon-stackoverflow></span></a></div><div><a rel=me href=https://mastodonapp.uk/@jonifen>@jonifen@mastodonapp.uk</a></div><p></p></div></footer></div></body></html>
