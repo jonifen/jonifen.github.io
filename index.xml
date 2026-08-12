@@ -7,10 +7,12 @@
 &lt;p&gt;After the usual hunt for Lenovos, and realising they hold their value better than they used to, I needed to think outside of the box. And that&amp;rsquo;s when I saw the MacBook Airs from 2015. After a few attempts, I managed to find one on eBay that was near to home and already had a bump or two but was in good working condition. I got lucky with the spec too&amp;hellip; a 2015 MacBook Air with an i7-5650U processor, 8GB RAM, 1TB NVMe and a battery with only 11 charge cycles.&lt;/p&gt;</description></item><item><title>About</title><link>/about/</link><pubDate>Fri, 13 Mar 2026 22:29:00 +0000</pubDate><guid>/about/</guid><description>&lt;p&gt;I&amp;rsquo;m currently working as a Lead Developer for a large ISP, where most of my role is leading a team of 4 and plotting a path through a vast software estate. Despite the role meaning I don&amp;rsquo;t spend much time writing code, I still refer to myself as an Engineer, primarily using TypeScript and C#. I know a bit of Python from tinkering with a Raspberry Pi, but that&amp;rsquo;s as far as I got. As with everyone else in the industry at the moment, I&amp;rsquo;ve started getting into using AI tooling to see if they can make things more efficient.&lt;/p&gt;</description></item><item><title>Uses</title><link>/uses/</link><pubDate>Sat, 21 Feb 2026 21:58:00 +0000</pubDate><guid>/uses/</guid><description>&lt;h2 id="desk"&gt;Desk&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.amazon.co.uk/dp/B0D9MGDDHD"&gt;ErGear electric standing desk 120x60&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.co.uk/dp/B0FQM5K3RX"&gt;ErGear stacked dual monitor arm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="screens"&gt;Screens&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Samsung 27&amp;quot; WQHD 144Hz 1000R curve&lt;/li&gt;
+&lt;li&gt;Benq EX2780Q WQHD 144Hz IPS&lt;/li&gt;
 &lt;li&gt;Panasonic 39&amp;quot; 1080p TV (for the driving sims)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="peripherals"&gt;Peripherals&lt;/h2&gt;
@@ -34,7 +36,7 @@
 &lt;li&gt;M1 Pro&lt;/li&gt;
 &lt;li&gt;16GB RAM&lt;/li&gt;
 &lt;li&gt;512GB&lt;/li&gt;
-&lt;li&gt;MacOS Sequoia&lt;/li&gt;
+&lt;li&gt;MacOS Tahoe&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="2015-macbook-air-13"&gt;2015 MacBook Air 13&amp;quot;&lt;/h3&gt;
 &lt;ul&gt;
@@ -52,6 +54,13 @@
 &lt;li&gt;Apple Watch Series 7&lt;/li&gt;
 &lt;li&gt;iPad Air 3rd Generation (2019) 32GB&lt;/li&gt;
 &lt;li&gt;AirPods 2nd Generation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="home-server"&gt;Home &amp;ldquo;Server&amp;rdquo;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lenovo Thinkcentre M710q Tiny&lt;/li&gt;
+&lt;li&gt;Intel i5-6400T&lt;/li&gt;
+&lt;li&gt;32GB Corsair Vengeance DDR4 (2x 16GB)&lt;/li&gt;
+&lt;li&gt;Proxmox 9.2.6&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Arch Linux Installation</title><link>/posts/2025/arch-linux-installation/</link><pubDate>Wed, 12 Nov 2025 21:00:00 +0000</pubDate><guid>/posts/2025/arch-linux-installation/</guid><description>&lt;p&gt;First of all, create a bootable USB (or CD) based on the ISO downloaded from the main Arch Linux website and boot it up.&lt;/p&gt;
 &lt;p&gt;The Arch Linux wiki is probably one of the best I&amp;rsquo;ve ever used, so the latest basic installation steps can be found &lt;a href="https://wiki.archlinux.org/title/Installation_guide"&gt;here&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Storybook JS: 'Cannot GET /'</title><link>/posts/2021/storybook-js-cannot-get-/</link><pubDate>Tue, 23 Nov 2021 17:30:10 +0000</pubDate><guid>/posts/2021/storybook-js-cannot-get-/</guid><description>&lt;p&gt;When you run storybook locally, you might encounter the error &amp;lsquo;Cannot GET /&amp;rsquo; when browsing to localhost:6006.&lt;/p&gt;
 &lt;p&gt;The general advice given online is to delete all node modules for your project and re-install the packages using your preferred package manager. However, this doesn&amp;rsquo;t always solve the problem and I was in this position just a moment ago.&lt;/p&gt;
